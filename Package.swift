@@ -4,25 +4,29 @@
 import PackageDescription
 
 let package = Package(
-    name: "Capstone-Swift",
+    name: "Capstone",
     products: [
         // Products define the executables and libraries a package produces, and make them visible to other packages.
         .library(
-            name: "Capstone-Swift",
-            targets: ["Capstone-Swift"]),
+            name: "Capstone",
+            targets: ["Capstone"]
+        ),
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
         // .package(url: /* package url */, from: "1.0.0"),
     ],
     targets: [
-        // Targets are the basic building blocks of a package. A target can define a module or a test suite.
-        // Targets can depend on other targets in this package, and on products in packages this package depends on.
+        .systemLibrary(name: "Ccapstone",
+                       pkgConfig: "capstone",
+                       providers: [
+                        .brew(["capstone"])
+        ]),
         .target(
-            name: "Capstone-Swift",
-            dependencies: []),
+            name: "Capstone",
+            dependencies: ["Ccapstone"]),
         .testTarget(
-            name: "Capstone-SwiftTests",
-            dependencies: ["Capstone-Swift"]),
+            name: "CapstoneTests",
+            dependencies: ["Capstone"]),
     ]
 )

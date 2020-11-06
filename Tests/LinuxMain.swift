@@ -1,7 +1,7 @@
 import XCTest
 
-import Capstone_SwiftTests
+import CapstoneTests
 
 var tests = [XCTestCaseEntry]()
-tests += Capstone_SwiftTests.allTests()
+tests += CapstoneTests.allTests()
 XCTMain(tests)

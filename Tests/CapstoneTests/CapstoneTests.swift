@@ -1,12 +1,14 @@
 import XCTest
-@testable import Capstone_Swift
+/*@testable */import Capstone
+import Ccapstone
 
-final class Capstone_SwiftTests: XCTestCase {
+final class CapstoneTests: XCTestCase {
     func testExample() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct
         // results.
-        XCTAssertEqual(Capstone_Swift().text, "Hello, World!")
+        let version = Capstone.version
+        print("Capstone version \(version)")
     }
 
     static var allTests = [
