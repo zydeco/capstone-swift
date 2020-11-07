@@ -20,6 +20,10 @@ public enum Architecture: UInt32 {
     case xcore
     /// 68K architecture
     case m68k
+    /// TMS320C64x architecture
+    case tms320c64x
+    /// 680X architecture
+    case m680x
     /// Ethereum architecture
     case evm
     /// MOS65XX architecture (including MOS6502)
