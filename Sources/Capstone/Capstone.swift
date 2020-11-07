@@ -32,6 +32,18 @@ public class Capstone {
         instructionType = arch.instructionType
     }
     
+    /// Check if an architecture is supported
+    ///  * parameter arch: Architecture to check for
+    ///  * returns: true if the architecture is supported, false otherwise
+    public static func supports(arch: Architecture) -> Bool {
+        return cs_support(Int32(arch.rawValue))
+    }
+    
+    /// Check build mode of the library
+    public static func supports(buildMode: BuildMode) -> Bool {
+        return cs_support(buildMode.rawValue)
+    }
+    
     deinit {
         var h = handle
         cs_close(&h)
@@ -69,4 +81,11 @@ public class Capstone {
         }
         return String(cString: namePtr)
     }
+}
+
+public enum BuildMode: Int32 {
+    /// Support value to verify diet mode of the engine.
+    case diet = 0x10000 // CS_SUPPORT_DIET
+    /// Support value to verify X86 reduce mode of the engine.
+    case x86reduce = 0x10001 // CS_SUPPORT_X86_REDUCE
 }
