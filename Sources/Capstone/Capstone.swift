@@ -57,4 +57,12 @@ public class Capstone {
         let mgr = InstructionMemoryManager(insns, count: resultCount, cs: self)
         return (0..<resultCount).map({ Instruction(mgr, index: $0) })
     }
+    
+    /// Returns friendly name of an instruction in a string.
+    func name(ofInstruction id: UInt32) -> String? {
+        guard let namePtr = cs_insn_name(handle, id) else {
+            return nil
+        }
+        return String(cString: namePtr)
+    }
 }
