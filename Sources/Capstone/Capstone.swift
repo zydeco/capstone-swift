@@ -15,6 +15,8 @@ public class Capstone {
     internal let handle: csh
     // when using skipdata options, the pointer to the mnemonic must be kept as long as it's used
     internal var skipDataMnemonicPtr: UnsafeMutablePointer<Int8>!
+    internal var skipDataCallback: SkipDataCallback?
+    internal var currentCode: Data?
     // valid specific type for disassembled instructions
     internal let instructionType: Instruction.Type
     
@@ -64,9 +66,11 @@ public class Capstone {
             throw CapstoneError.unsupportedArchitecture
         }
         var insnsPtr: UnsafeMutablePointer<cs_insn>? = nil
+        currentCode = code
         let resultCount = code.withUnsafeBytes({ (ptr: UnsafeRawBufferPointer) in
             cs_disasm(handle, ptr.bindMemory(to: UInt8.self).baseAddress!, code.count, address, count ?? 0, &insnsPtr)
         })
+        currentCode = nil
         guard resultCount > 0, let insns = insnsPtr else {
             throw CapstoneError(cs_errno(handle))
         }

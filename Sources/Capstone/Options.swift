@@ -44,9 +44,11 @@ public enum SkipDataResult {
 
 /// User-defined callback for skipData option.
 ///
+/// - parameter capstone: `Capstone` instance
+/// - parameter code: code being disassembled
 /// - parameter offset: the position of the currently-examining byte
 /// - returns: a `SkipDataResult` instructing to skip a number of bytes, or stop the disassembly
-public typealias SkipDataCallback = (_ offset: Data.Index) -> SkipDataResult
+public typealias SkipDataCallback = (_ capstone: Capstone, _ code: Data, _ offset: Data.Index) -> SkipDataResult
 
 extension Capstone {
     public func set(option: DisassemblyOption) throws {
@@ -64,19 +66,28 @@ extension Capstone {
             err = cs_option(handle, CS_OPT_SKIPDATA, enabled.csOptValue)
         case .skipData(mnemonic: let mnemonic, callback: let callback):
             updateMnemonicPointer(mnemonic: mnemonic)
-            err = withUnsafeNullablePointer(to: callback, {
-                withUnsafePointer(to: cs_opt_skipdata(mnemonic: skipDataMnemonicPtr, callback: { (code, codeSize, offset, userData) -> Int in
-                    let callback = userData!.assumingMemoryBound(to: SkipDataCallback.self).pointee
-                    switch(callback(offset)) {
+            skipDataCallback = callback
+            let cb: cs_skipdata_cb_t!
+            if callback == nil {
+                cb = nil
+            } else {
+                cb = { (code, codeSize, offset, userData) -> Int in
+                    let cs = Unmanaged<Capstone>.fromOpaque(userData!).takeUnretainedValue()
+                    switch(cs.skipDataCallback!(cs, cs.currentCode!, offset)) {
                     case .skip(bytes: let bytes):
                         return bytes
                     case .stop:
                         return 0
                     }
-                }, user_data: UnsafeMutableRawPointer(mutating: $0)), {
-                    cs_option(handle, CS_OPT_SKIPDATA, true.csOptValue)
-                    return cs_option(handle, CS_OPT_SKIPDATA_SETUP, Int(bitPattern: $0))
-                })
+                }
+            }
+            
+            err = withUnsafePointer(to: cs_opt_skipdata(mnemonic: skipDataMnemonicPtr,
+                                                        callback: cb,
+                                                        user_data: Unmanaged.passUnretained(self).toOpaque()
+            ), {
+                cs_option(handle, CS_OPT_SKIPDATA, true.csOptValue)
+                return cs_option(handle, CS_OPT_SKIPDATA_SETUP, Int(bitPattern: $0))
             })
         case .mnemonic(_: let mnemonic, instruction: let instruction):
             err = withUnsafePointer(to: mnemonic.withCString { cs_opt_mnem(id: instruction, mnemonic: $0) }) {
@@ -104,13 +115,6 @@ internal extension UnsafeMutablePointer where Pointee == Int8 {
         self = UnsafeMutablePointer<Int8>.allocate(capacity: byteCount)
         string.withCString({ self.initialize(from: $0, count: byteCount) })
     }
-}
-
-internal func withUnsafeNullablePointer<T, Result>(to value: T?, _ body: (UnsafePointer<T>?) throws -> Result) rethrows -> Result {
-    guard let value = value else {
-        return try body(nil)
-    }
-    return try withUnsafePointer(to: value, { try body($0) })
 }
 
 fileprivate extension Bool {
