@@ -38,4 +38,18 @@ public class Capstone {
         cs_close(&h)
         skipDataMnemonicPtr?.deallocate()
     }
+    
+    public func disassemble(code: Data, address: UInt64, count: Int? = nil) throws -> [Instruction] {
+        var insns: UnsafeMutablePointer<cs_insn>? = nil
+        let resultCount = code.withUnsafeBytes({ (ptr: UnsafeRawBufferPointer) in
+            cs_disasm(handle, ptr.bindMemory(to: UInt8.self).baseAddress!, code.count, address, count ?? 0, &insns)
+        })
+        guard resultCount > 0 else {
+            throw CapstoneError(cs_errno(handle))
+        }
+        defer {
+            cs_free(insns, resultCount)
+        }
+        return (0..<resultCount).map({ Instruction(insns![$0], cs: self) })
+    }
 }
