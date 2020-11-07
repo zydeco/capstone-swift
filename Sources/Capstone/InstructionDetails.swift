@@ -7,7 +7,12 @@ extension Instruction {
     }
     
     internal func getInstructionGroups<T: RawRepresentable>() -> [T] where T.RawValue == UInt8 {
+        guard id != 0 else {
+            // skipped data
+            return []
+        }
         guard let detail = insn.detail?.pointee else {
+            // no details
             return [T(rawValue: 0)!]
         }
         let count = min(8, Int(detail.groups_count))
@@ -18,7 +23,12 @@ extension Instruction {
     }
     
     internal func getRegsRead<T: RawRepresentable>() -> [T] where T.RawValue == UInt16 {
+        guard id != 0 else {
+            // skipped data
+            return []
+        }
         guard let detail = insn.detail?.pointee else {
+            // no details
             return [T(rawValue: 0)!]
         }
         let count = min(16, Int(detail.regs_read_count))
@@ -28,7 +38,12 @@ extension Instruction {
     }
     
     internal func getRegsWritten<T: RawRepresentable>() -> [T] where T.RawValue == UInt16 {
+        guard id != 0 else {
+            // skipped data
+            return []
+        }
         guard let detail = insn.detail?.pointee else {
+            // no details
             return [T(rawValue: 0)!]
         }
         let count = min(20, Int(detail.regs_write_count))
