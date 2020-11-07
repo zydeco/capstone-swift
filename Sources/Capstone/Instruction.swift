@@ -82,10 +82,6 @@ public class PlatformInstruction_IG<
     public var instruction: InsType {
         InsType(rawValue: super.id)!
     }
-    
-    public var groups: [GroupType] {
-        getInstructionGroups()
-    }
 }
 
 // Superclass for platform-specific instruction classes with registers
@@ -97,12 +93,4 @@ public class PlatformInstruction<
     InsType.RawValue == UInt32,
     GroupType.RawValue == UInt8,
     RegType.RawValue == UInt16
-{
-    public var registersRead: [RegType] {
-        getRegsRead()
-    }
-    
-    public var registersWritten: [RegType] {
-        getRegsWritten()
-    }
-}
+{}

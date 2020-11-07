@@ -1,3 +1,5 @@
+import Ccapstone
+
 // Instruction details
 extension Instruction {
     /// List of basic groups this instruction belongs to
@@ -104,3 +106,23 @@ public enum InstructionGroup: UInt8 {
     case branchRelative
 }
 
+extension PlatformInstruction_IG {
+    /// List of architecture-specific groups this instruction belongs to.
+    /// See `groups` for architecture-specific groups.
+    /// - returns `[.invalid]` if detail mode is disabled
+    public var groups: [GroupType] {
+        getInstructionGroups()
+    }
+}
+
+extension PlatformInstruction {
+    /// Registers read by this instruction
+    public var registersRead: [RegType] {
+        getRegsRead()
+    }
+    
+    /// Registers written by this instruction
+    public var registersWritten: [RegType] {
+        getRegsWritten()
+    }
+}
