@@ -2,9 +2,9 @@ import Ccapstone
 
 /// Mode type
 public struct Mode: OptionSet {
-    public var rawValue: Int32
+    public var rawValue: UInt32
     
-    public init(rawValue: Int32) {
+    public init(rawValue: UInt32) {
         self.rawValue = rawValue
     }
     
