@@ -20,7 +20,7 @@ public class Capstone {
     ///  * parameter arch: `Architecture` type
     ///  * parameter mode: combination of `Mode` values - some are architecture-specific
     /// Throws on invalid combinatins of  arch and mode.
-    public convenience init(arch: Architecture, mode: Mode) throws {
+    public convenience init(arch: Architecture, mode: Mode = []) throws {
         try self.init(arch: cs_arch(arch.rawValue), mode: cs_mode(mode.rawValue))
     }
     
