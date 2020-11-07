@@ -16,10 +16,6 @@ public class Instruction: CustomStringConvertible {
         insn.id
     }
     
-    public func getInsType<InsType: RawRepresentable>() -> InsType where InsType.RawValue == UInt32 {
-        return InsType(rawValue: 0)!
-    }
-    
     /// Address (EIP) of this instruction
     /// This information is available even when detail option is disabled
     public var address: UInt64 {
