@@ -15,22 +15,21 @@ public class Capstone {
     internal let handle: csh
     // when using skipdata options, the pointer to the mnemonic must be kept as long as it's used
     internal var skipDataMnemonicPtr: UnsafeMutablePointer<Int8>!
+    // valid specific type for disassembled instructions
+    internal let instructionType: Instruction.Type
     
     /// Create an instance of Capstone
     ///  * parameter arch: `Architecture` type
     ///  * parameter mode: combination of `Mode` values - some are architecture-specific
     /// Throws on invalid combinatins of  arch and mode.
-    public convenience init(arch: Architecture, mode: Mode = []) throws {
-        try self.init(arch: cs_arch(arch.rawValue), mode: cs_mode(mode.rawValue))
-    }
-    
-    init(arch: cs_arch, mode: cs_mode) throws {
+    public init(arch: Architecture, mode: Mode = []) throws {
         var h: csh = 0
-        let err = cs_open(arch, mode, &h)
+        let err = cs_open(cs_arch(arch.rawValue), cs_mode(mode.rawValue), &h)
         guard err == CS_ERR_OK else {
             throw CapstoneError(err)
         }
         handle = h
+        instructionType = arch.instructionType
     }
     
     deinit {
@@ -46,7 +45,12 @@ public class Capstone {
     /// - parameter InsType: instruction type to return. Must be `Instruction`, or the specific type for the current architecture
     /// - returns disassembled instructions
     /// - throws if an error occurs during disassembly
-    public func disassemble(code: Data, address: UInt64, count: Int? = nil) throws -> [Instruction] {
+    public func disassemble<InsType: Instruction>(code: Data, address: UInt64, count: Int? = nil) throws -> [InsType] {
+        guard InsType.self == Instruction.self || InsType.self == instructionType else {
+            // ensure instructions are disassembled as basic Instruction
+            // or the current architecture's instruction type
+            throw CapstoneError.unsupportedArchitecture
+        }
         var insnsPtr: UnsafeMutablePointer<cs_insn>? = nil
         let resultCount = code.withUnsafeBytes({ (ptr: UnsafeRawBufferPointer) in
             cs_disasm(handle, ptr.bindMemory(to: UInt8.self).baseAddress!, code.count, address, count ?? 0, &insnsPtr)
@@ -55,7 +59,7 @@ public class Capstone {
             throw CapstoneError(cs_errno(handle))
         }
         let mgr = InstructionMemoryManager(insns, count: resultCount, cs: self)
-        return (0..<resultCount).map({ Instruction(mgr, index: $0) })
+        return (0..<resultCount).map({ InsType(mgr, index: $0) })
     }
     
     /// Returns friendly name of an instruction in a string.

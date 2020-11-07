@@ -70,3 +70,39 @@ public class InstructionMemoryManager {
         cs_free(insns, count)
     }
 }
+
+// Superclass for platform-specific instruction classes without registers
+public class PlatformInstruction_IG<
+    InsType: RawRepresentable,
+    GroupType: RawRepresentable
+>: Instruction where
+    InsType.RawValue == UInt32,
+    GroupType.RawValue == UInt8
+{
+    public var instruction: InsType {
+        InsType(rawValue: super.id)!
+    }
+    
+    public var groups: [GroupType] {
+        getInstructionGroups()
+    }
+}
+
+// Superclass for platform-specific instruction classes with registers
+public class PlatformInstruction<
+    InsType: RawRepresentable,
+    GroupType: RawRepresentable,
+    RegType: RawRepresentable
+>: PlatformInstruction_IG<InsType, GroupType> where
+    InsType.RawValue == UInt32,
+    GroupType.RawValue == UInt8,
+    RegType.RawValue == UInt16
+{
+    public var registersRead: [RegType] {
+        getRegsRead()
+    }
+    
+    public var registersWritten: [RegType] {
+        getRegsWritten()
+    }
+}
