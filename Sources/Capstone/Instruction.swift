@@ -2,12 +2,15 @@ import Foundation
 import Ccapstone
 
 public class Instruction: CustomStringConvertible {
-    let cs: Capstone
-    let insn: cs_insn
+    let mgr: InstructionMemoryManager
+    let index: Int
+    var insn: cs_insn {
+        mgr.insns[index]
+    }
     
-    internal init(_ insn: cs_insn, cs: Capstone) {
-        self.cs = cs
-        self.insn = insn
+    internal required init(_ mgr: InstructionMemoryManager, index: Int) {
+        self.mgr = mgr
+        self.index = index
     }
     
     /// Instruction ID (basically a numeric ID for the instruction mnemonic)
@@ -42,5 +45,23 @@ public class Instruction: CustomStringConvertible {
     
     public var description: String {
         "\(mnemonic) \(operandsString)"
+    }
+}
+
+// Instruction Memory Management
+// Ensures cs_free is called when there are no more references to instructions
+public class InstructionMemoryManager {
+    let insns: UnsafeMutablePointer<cs_insn>
+    let count: Int
+    let cs: Capstone
+    
+    internal init(_ insns: UnsafeMutablePointer<cs_insn>, count: Int, cs: Capstone) {
+        self.insns = insns
+        self.count = count
+        self.cs = cs
+    }
+    
+    deinit {
+        cs_free(insns, count)
     }
 }

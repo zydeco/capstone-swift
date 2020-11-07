@@ -39,17 +39,22 @@ public class Capstone {
         skipDataMnemonicPtr?.deallocate()
     }
     
+    /// Disassembles binary code
+    /// - parameter code: code to disassemble
+    /// - parameter address: address of the first instruction in given `code`
+    /// - parameter count: number of instructions to disassemble; 0 or nil to get all of them
+    /// - parameter InsType: instruction type to return. Must be `Instruction`, or the specific type for the current architecture
+    /// - returns disassembled instructions
+    /// - throws if an error occurs during disassembly
     public func disassemble(code: Data, address: UInt64, count: Int? = nil) throws -> [Instruction] {
-        var insns: UnsafeMutablePointer<cs_insn>? = nil
+        var insnsPtr: UnsafeMutablePointer<cs_insn>? = nil
         let resultCount = code.withUnsafeBytes({ (ptr: UnsafeRawBufferPointer) in
-            cs_disasm(handle, ptr.bindMemory(to: UInt8.self).baseAddress!, code.count, address, count ?? 0, &insns)
+            cs_disasm(handle, ptr.bindMemory(to: UInt8.self).baseAddress!, code.count, address, count ?? 0, &insnsPtr)
         })
-        guard resultCount > 0 else {
+        guard resultCount > 0, let insns = insnsPtr else {
             throw CapstoneError(cs_errno(handle))
         }
-        defer {
-            cs_free(insns, resultCount)
-        }
-        return (0..<resultCount).map({ Instruction(insns![$0], cs: self) })
+        let mgr = InstructionMemoryManager(insns, count: resultCount, cs: self)
+        return (0..<resultCount).map({ Instruction(mgr, index: $0) })
     }
 }
