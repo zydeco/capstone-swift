@@ -86,20 +86,6 @@ extension Instruction {
     }
 }
 
-/// Common instruction operand types - to be consistent across all architectures.
-public enum OperandType: UInt32 {
-    // must match cs_op_type
-    case invalid
-    /// Register operand.
-    case register
-    /// Immediate operand.
-    case immediate
-    /// Memory operand.
-    case memory
-    /// Floating point operand.
-    case floatingPoint
-}
-
 /// Common instruction operand access types - to be consistent across all architectures.
 public struct Access: OptionSet, CustomStringConvertible {
     // must match cs_ac_type
