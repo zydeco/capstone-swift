@@ -3,7 +3,8 @@ import Ccapstone
 // Instruction details
 extension Instruction {
     /// List of basic groups this instruction belongs to.
-    /// This API is only valid when detail mode is on (it's off by default)
+    /// This API is only valid when detail mode is on (it's off by default).
+    /// When in 'diet' mode, this API is irrelevant because engine does not store registers.
     /// See `groups` for architecture-specific groups.
     /// - returns: list of groups, or `[.invalid]` if detail mode is disabled
     public var baseGroups: [InstructionGroup] {
@@ -11,7 +12,8 @@ extension Instruction {
     }
     
     /// Check if a disassembled instruction belong to a particular group.
-    /// This API is only valid when detail mode is on (it's off by default)
+    /// This API is only valid when detail mode is on (it's off by default).
+    /// When in 'diet' mode, this API is irrelevant because engine does not store registers.
     /// - parameter group: group to check
     /// - returns: `true` if detail mode is enabled and the instruction belongs to this group, `false` otherwise
     public func isIn(group: InstructionGroup) {
@@ -19,7 +21,8 @@ extension Instruction {
     }
     
     /// List of group names this instruction belongs to.
-    /// This API is only valid when detail mode is on (it's off by default)
+    /// This API is only valid when detail mode is on (it's off by default).
+    /// When in 'diet' mode, this API is irrelevant because engine does not store groups.
     public var groupNames: [String] {
         getInstructionGroups().compactMap({ String(cString: cs_group_name(mgr.cs.handle, UInt32($0))) })
     }
@@ -28,24 +31,26 @@ extension Instruction {
         readDetailsArray(array: insn.detail?.pointee.groups, size: insn.detail?.pointee.groups_count, maxSize: 8)
     }
     
-    /// List of register names this instruction implicitly reads from.
-    /// This API is only valid when detail mode is on (it's off by default)
+    /// List of register names this instruction reads from.
+    /// This API is only valid when detail mode is on (it's off by default).
+    /// When in 'diet' mode, this API is irrelevant because engine does not store registers.
     public var registerNamesRead: [String] {
         getRegsRead().compactMap({ String(cString: cs_reg_name(mgr.cs.handle, UInt32($0))) })
     }
     
     internal func getRegsRead() -> [UInt16] {
-        return readDetailsArray(array: insn.detail?.pointee.regs_read, size: insn.detail?.pointee.regs_read_count, maxSize: 16)
+        (try? getRegsAccessed())?.read ?? []
     }
     
-    /// List of register names this instruction implicitly writes to.
-    /// This API is only valid when detail mode is on (it's off by default)
+    /// List of register names this instruction writes to.
+    /// This API is only valid when detail mode is on (it's off by default).
+    /// When in 'diet' mode, this API is irrelevant because engine does not store registers.
     public var registerNamesWritten: [String] {
         getRegsWritten().compactMap({ String(cString: cs_reg_name(mgr.cs.handle, UInt32($0))) })
     }
     
     internal func getRegsWritten() -> [UInt16] {
-        return readDetailsArray(array: insn.detail?.pointee.regs_write, size: insn.detail?.pointee.regs_write_count, maxSize: 20)
+        (try? getRegsAccessed())?.written ?? []
     }
     
     internal func readDetailsArray<E,A,C>(array: A?, size: C?, maxSize: Int) -> [E] where E: FixedWidthInteger, C: FixedWidthInteger {
@@ -61,6 +66,20 @@ extension Instruction {
         return withUnsafePointer(to: array, { $0.withMemoryRebound(to: E.self, capacity: count, { regs in
             (0..<count).map({ regs[$0] })
         })})
+    }
+    
+    internal func getRegsAccessed() throws -> (read: [UInt16], written: [UInt16]) {
+        var regsRead = Array(repeating: UInt16(0), count: 64)
+        var regsWritten = Array(repeating: UInt16(0), count: 64)
+        var regsReadCount = UInt8(0)
+        var regsWrittenCount = UInt8(0)
+        let err = withUnsafePointer(to: insn, { cs_regs_access(mgr.cs.handle, $0, &regsRead, &regsReadCount, &regsWritten, &regsWrittenCount) })
+        guard err == CS_ERR_OK else {
+            throw CapstoneError(err)
+        }
+        regsRead.removeLast(64 - numericCast(regsReadCount))
+        regsWritten.removeLast(64 - numericCast(regsWrittenCount))
+        return (read: regsRead, written: regsWritten)
     }
 }
 
