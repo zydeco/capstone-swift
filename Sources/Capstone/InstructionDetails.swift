@@ -101,7 +101,7 @@ public enum OperandType: UInt32 {
 }
 
 /// Common instruction operand access types - to be consistent across all architectures.
-public struct OperandAccessType: OptionSet {
+public struct Access: OptionSet, CustomStringConvertible {
     // must match cs_ac_type
     public var rawValue: UInt32
     
@@ -110,10 +110,21 @@ public struct OperandAccessType: OptionSet {
     }
     
     /// Operand read from memory or register.
-    public static let read = 1
+    public static let read = Access(rawValue: 1)
     /// Operand write to memory or register.
-    public static let write = 2
+    public static let write = Access(rawValue: 2)
     
+    
+    public var description: String {
+        var description = ""
+        if self.contains(Access.read) {
+            description += "r"
+        }
+        if self.contains(Access.write) {
+            description += "w"
+        }
+        return description
+    }
 }
 
 /// Common instruction groups - to be consistent across all architectures.
