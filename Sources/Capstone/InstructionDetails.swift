@@ -2,55 +2,64 @@ import Ccapstone
 
 // Instruction details
 extension Instruction {
-    /// List of basic groups this instruction belongs to
-    /// - returns `[.invalid]` if detail mode is disabled
+    /// List of basic groups this instruction belongs to.
+    /// This API is only valid when detail mode is on (it's off by default)
+    /// See `groups` for architecture-specific groups.
+    /// - returns: list of groups, or `[.invalid]` if detail mode is disabled
     public var baseGroups: [InstructionGroup] {
-        return getInstructionGroups()
+        return getInstructionGroups().compactMap({ InstructionGroup(rawValue: $0) })
     }
     
-    internal func getInstructionGroups<T: RawRepresentable>() -> [T] where T.RawValue == UInt8 {
+    /// Check if a disassembled instruction belong to a particular group.
+    /// This API is only valid when detail mode is on (it's off by default)
+    /// - parameter group: group to check
+    /// - returns: `true` if detail mode is enabled and the instruction belongs to this group, `false` otherwise
+    public func isIn(group: InstructionGroup) {
+        return withUnsafePointer(to: insn, { cs_insn_group(mgr.cs.handle, $0, UInt32(group.rawValue)) })
+    }
+    
+    /// List of group names this instruction belongs to.
+    /// This API is only valid when detail mode is on (it's off by default)
+    public var groupNames: [String] {
+        getInstructionGroups().compactMap({ String(cString: cs_group_name(mgr.cs.handle, UInt32($0))) })
+    }
+    
+    internal func getInstructionGroups() -> [UInt8] {
+        readDetailsArray(array: insn.detail?.pointee.groups, size: insn.detail?.pointee.groups_count, maxSize: 8)
+    }
+    
+    /// List of register names this instruction implicitly reads from.
+    /// This API is only valid when detail mode is on (it's off by default)
+    public var registerNamesRead: [String] {
+        getRegsRead().compactMap({ String(cString: cs_reg_name(mgr.cs.handle, UInt32($0))) })
+    }
+    
+    internal func getRegsRead() -> [UInt16] {
+        return readDetailsArray(array: insn.detail?.pointee.regs_read, size: insn.detail?.pointee.regs_read_count, maxSize: 16)
+    }
+    
+    /// List of register names this instruction implicitly writes to.
+    /// This API is only valid when detail mode is on (it's off by default)
+    public var registerNamesWritten: [String] {
+        getRegsWritten().compactMap({ String(cString: cs_reg_name(mgr.cs.handle, UInt32($0))) })
+    }
+    
+    internal func getRegsWritten() -> [UInt16] {
+        return readDetailsArray(array: insn.detail?.pointee.regs_write, size: insn.detail?.pointee.regs_write_count, maxSize: 20)
+    }
+    
+    internal func readDetailsArray<E,A,C>(array: A?, size: C?, maxSize: Int) -> [E] where E: FixedWidthInteger, C: FixedWidthInteger {
         guard id != 0 else {
             // skipped data
             return []
         }
-        guard let detail = insn.detail?.pointee else {
-            // no details
-            return [T(rawValue: 0)!]
+        guard let array = array, let size = size else {
+            // no details available, return code for `invalid`
+            return [0]
         }
-        let count = min(8, Int(detail.groups_count))
-        let groups = withUnsafePointer(to: detail.groups, { $0.withMemoryRebound(to: UInt8.self, capacity: count, { groups in
-            (0..<count).compactMap({ T(rawValue:groups[$0]) })
-        })})
-        return groups
-    }
-    
-    internal func getRegsRead<T: RawRepresentable>() -> [T] where T.RawValue == UInt16 {
-        guard id != 0 else {
-            // skipped data
-            return []
-        }
-        guard let detail = insn.detail?.pointee else {
-            // no details
-            return [T(rawValue: 0)!]
-        }
-        let count = min(16, Int(detail.regs_read_count))
-        return withUnsafePointer(to: detail.regs_read, { $0.withMemoryRebound(to: UInt16.self, capacity: count, { regs in
-            (0..<count).compactMap({ T(rawValue:regs[$0]) })
-        })})
-    }
-    
-    internal func getRegsWritten<T: RawRepresentable>() -> [T] where T.RawValue == UInt16 {
-        guard id != 0 else {
-            // skipped data
-            return []
-        }
-        guard let detail = insn.detail?.pointee else {
-            // no details
-            return [T(rawValue: 0)!]
-        }
-        let count = min(20, Int(detail.regs_write_count))
-        return withUnsafePointer(to: detail.regs_write, { $0.withMemoryRebound(to: UInt16.self, capacity: count, { regs in
-            (0..<count).compactMap({ T(rawValue:regs[$0]) })
+        let count = min(maxSize, Int(size))
+        return withUnsafePointer(to: array, { $0.withMemoryRebound(to: E.self, capacity: count, { regs in
+            (0..<count).map({ regs[$0] })
         })})
     }
 }
@@ -108,21 +117,32 @@ public enum InstructionGroup: UInt8 {
 
 extension PlatformInstruction_IG {
     /// List of architecture-specific groups this instruction belongs to.
+    /// This API is only valid when detail mode is on (it's off by default)
     /// See `groups` for architecture-specific groups.
     /// - returns `[.invalid]` if detail mode is disabled
     public var groups: [GroupType] {
-        getInstructionGroups()
+        getInstructionGroups().compactMap({ GroupType(rawValue: $0) })
+    }
+    
+    /// Check if a disassembled instruction belong to a particular group.
+    /// This API is only valid when detail mode is on (it's off by default)
+    /// - parameter group: group to check
+    /// - returns: `true` i the instruction belongs to this group, `false` otherwise
+    public func isIn(group: GroupType) {
+        return withUnsafePointer(to: insn, { cs_insn_group(mgr.cs.handle, $0, UInt32(group.rawValue)) })
     }
 }
 
 extension PlatformInstruction {
-    /// Registers read by this instruction
+    /// Registers read by this instruction.
+    /// This API is only valid when detail mode is on (it's off by default)
     public var registersRead: [RegType] {
-        getRegsRead()
+        getRegsRead().compactMap({ RegType(rawValue: $0) })
     }
     
-    /// Registers written by this instruction
+    /// Registers written by this instruction.
+    /// This API is only valid when detail mode is on (it's off by default)
     public var registersWritten: [RegType] {
-        getRegsWritten()
+        getRegsWritten().compactMap({ RegType(rawValue: $0) })
     }
 }
