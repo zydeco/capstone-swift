@@ -4,9 +4,7 @@ import Ccapstone
 public class Instruction: CustomStringConvertible {
     let mgr: InstructionMemoryManager
     let index: Int
-    var insn: cs_insn {
-        mgr.insns[index]
-    }
+    var insn: cs_insn { mgr.insns[index] }
     
     internal required init(_ mgr: InstructionMemoryManager, index: Int) {
         self.mgr = mgr

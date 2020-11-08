@@ -2,6 +2,9 @@ import Ccapstone
 
 // Instruction details
 extension Instruction {
+    // detail accessor
+    var detail: cs_detail? { insn.detail?.pointee }
+
     /// List of basic groups this instruction belongs to.
     /// This API is only valid when detail mode is on (it's off by default).
     /// When in 'diet' mode, this API is irrelevant because engine does not store registers.
@@ -28,7 +31,7 @@ extension Instruction {
     }
     
     internal func getInstructionGroups() -> [UInt8] {
-        readDetailsArray(array: insn.detail?.pointee.groups, size: insn.detail?.pointee.groups_count, maxSize: 8)
+        readDetailsArray(array: detail?.groups, size: detail?.groups_count, maxSize: 8)
     }
     
     /// List of register names this instruction reads from.
