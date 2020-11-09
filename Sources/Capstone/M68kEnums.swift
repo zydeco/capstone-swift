@@ -1,12 +1,12 @@
 // For Capstone Engine. AUTO-GENERATED FILE, DO NOT EDIT (M68k)
 
-public enum m68kOperand: UInt32 {
+public enum M68kOperand: UInt32 {
     case count = 4
 
 }
 
 /// M68K registers and special registers
-public enum m68kReg: UInt16 {
+public enum M68kReg: UInt16 {
     case invalid = 0
     case d0 = 1
     case d1 = 2
@@ -59,7 +59,7 @@ public enum m68kReg: UInt16 {
 }
 
 /// M68K Addressing Modes
-public enum m68kAm: UInt32 {
+public enum M68kAm: UInt32 {
     /// No address mode.
     case none = 0
     /// Register Direct - Data
@@ -104,7 +104,7 @@ public enum m68kAm: UInt32 {
 }
 
 /// Operand type for instruction's operands
-public enum m68kOp: UInt32 {
+public enum M68kOp: UInt32 {
     /// = CS_OP_INVALID (Uninitialized).
     case invalid = 0
     /// = CS_OP_REG (Register operand).
@@ -136,7 +136,7 @@ public enum m68kOp: UInt32 {
 }
 
 /// Operation size of the CPU instructions
-public enum m68kCpu: UInt32 {
+public enum M68kCpu: UInt32 {
     /// unsized or unspecified
     case sizeNone = 0
     /// 1 byte in size
@@ -149,7 +149,7 @@ public enum m68kCpu: UInt32 {
 }
 
 /// Operation size of the FPU instructions (Notice that FPU instruction can also use CPU sizes if needed)
-public enum m68kFpu: UInt32 {
+public enum M68kFpu: UInt32 {
     /// unsized like fsave/frestore
     case sizeNone = 0
     /// 4 byte in size (single float)
@@ -162,7 +162,7 @@ public enum m68kFpu: UInt32 {
 }
 
 /// Type of size that is being used for the current instruction
-public enum m68kSize: UInt32 {
+public enum M68kSize: UInt32 {
     case typeInvalid = 0
     case typeCpu = 1
     case typeFpu = 2
@@ -170,7 +170,7 @@ public enum m68kSize: UInt32 {
 }
 
 /// M68K instruction
-public enum m68kIns: UInt32 {
+public enum M68kIns: UInt32 {
     case invalid = 0
     case abcd = 1
     case add = 2
@@ -551,7 +551,7 @@ public enum m68kIns: UInt32 {
 }
 
 /// Group of M68K instructions
-public enum m68kGrp: UInt8 {
+public enum M68kGrp: UInt8 {
     /// CS_GRUP_INVALID
     case invalid = 0
     /// = CS_GRP_JUMP

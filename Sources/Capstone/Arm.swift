@@ -16,7 +16,7 @@ extension ArmInstruction: OperandContainer {
     
     /// Data type for elements of vector instructions
     /// nil when detail mode is off, or wrong instruction
-    var vectorDataType: armVectordata! {
+    var vectorDataType: ArmVectordata! {
         guard let value = detail?.arm.vector_data, value != ARM_VECTORDATA_INVALID else {
             return nil
         }
@@ -25,7 +25,7 @@ extension ArmInstruction: OperandContainer {
     
     /// CPS mode for CPS instruction
     /// nil when detail mode is off, or wrong instruction
-    var cpsMode: (mode: armCpsmode, flag: armCpsflag)! {
+    var cpsMode: (mode: ArmCpsmode, flag: ArmCpsflag)! {
         guard let mode = detail?.arm.cps_mode, mode != ARM_CPSMODE_INVALID,
               let flag = detail?.arm.cps_flag, flag != ARM_CPSFLAG_INVALID else {
             return nil
@@ -35,7 +35,7 @@ extension ArmInstruction: OperandContainer {
     
     /// Condition code
     /// nil when detail mode is off, or instruction has no condition code
-    var conditionCode: armCc! {
+    var conditionCode: ArmCc! {
         guard let cc = detail?.arm.cc, cc != ARM_CC_INVALID else {
             return nil
         }
@@ -52,7 +52,7 @@ extension ArmInstruction: OperandContainer {
     
     /// Option for some memory barrier instructions
     /// nil when detail mode is off, or wrong instruction
-    var memoryBarrier: armMb! {
+    var memoryBarrier: ArmMb! {
         guard let mb = detail?.arm.mem_barrier, mb != ARM_MB_INVALID else {
             return nil
         }
@@ -63,8 +63,8 @@ extension ArmInstruction: OperandContainer {
 public struct ArmOperand: InstructionOperand, CustomStringConvertible {
     internal var op: cs_arm_op
     
-    public typealias OperandType = armOp
-    public var type: armOp { enumCast(op.type) }
+    public typealias OperandType = ArmOp
+    public var type: ArmOp { enumCast(op.type) }
     public var access: Access { enumCast(op.access) }
     
     /// Vector Index for some vector operands
@@ -95,13 +95,13 @@ public struct ArmOperand: InstructionOperand, CustomStringConvertible {
     }
     
     /// Register value for register operand
-    var register: armReg! {
+    var register: ArmReg! {
         guard type == .reg else { return nil }
         return enumCast(op.reg)
     }
     
     /// Register value for system register operand
-    var systemRegister: armSysreg! {
+    var systemRegister: ArmSysreg! {
         guard type == .sysreg else { return nil }
         return enumCast(op.reg)
     }
@@ -130,7 +130,7 @@ public struct ArmOperand: InstructionOperand, CustomStringConvertible {
     }
     
     /// Operand type for SETEND instruction
-    var setend: armSetend! {
+    var setend: ArmSetend! {
         guard type == .setend else { return nil }
         return enumCast(op.setend)
     }
@@ -162,24 +162,24 @@ public struct ArmOperand: InstructionOperand, CustomStringConvertible {
 }
 
 public protocol ArmOperandValue {}
-extension armReg: ArmOperandValue {}
-extension armSysreg: ArmOperandValue {}
+extension ArmReg: ArmOperandValue {}
+extension ArmSysreg: ArmOperandValue {}
 extension Int32: ArmOperandValue {}
 extension Double: ArmOperandValue {}
 extension ArmOperandMemory: ArmOperandValue {}
-extension armSetend: ArmOperandValue {}
+extension ArmSetend: ArmOperandValue {}
 
-extension armOp {
+extension ArmOp {
     var immediate: Bool {
         self == .cimm || self == .pimm || self == .imm
     }
 }
 
-typealias ArmOperandShift = (type: armSft, value: UInt)
+typealias ArmOperandShift = (type: ArmSft, value: UInt)
 
 public struct ArmOperandMemory: CustomStringConvertible {
-    let base: armReg
-    let index: armReg?
+    let base: ArmReg
+    let index: ArmReg?
     let scale: FloatingPointSign
     let displacement: Int
     

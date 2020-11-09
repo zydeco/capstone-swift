@@ -1,12 +1,12 @@
 // For Capstone Engine. AUTO-GENERATED FILE, DO NOT EDIT (M680x)
 
-public enum m680xOperand: UInt32 {
+public enum M680xOperand: UInt32 {
     case count = 9
 
 }
 
 /// M680X registers and special registers
-public enum m680xReg: UInt16 {
+public enum M680xReg: UInt16 {
     case invalid = 0
     /// M6800/1/2/3/9, HD6301/9
     case a = 1
@@ -56,7 +56,7 @@ public enum m680xReg: UInt16 {
 }
 
 /// Operand type for instruction's operands
-public enum m680xOp: UInt32 {
+public enum M680xOp: UInt32 {
     /// = CS_OP_INVALID (Uninitialized).
     case invalid = 0
     /// = Register operand.
@@ -76,7 +76,7 @@ public enum m680xOp: UInt32 {
 
 }
 
-public enum m680xOffset: UInt32 {
+public enum M680xOffset: UInt32 {
     case none = 0
     case bits5 = 5
     case bits8 = 8
@@ -84,7 +84,7 @@ public enum m680xOffset: UInt32 {
     case bits16 = 16
 }
 
-public enum m680xIdx: UInt32 {
+public enum M680xIdx: UInt32 {
     case indirect = 1
     case noComma = 2
     case postIncDec = 4
@@ -92,7 +92,7 @@ public enum m680xIdx: UInt32 {
 }
 
 /// Group of M680X instructions
-public enum m680xGrp: UInt8 {
+public enum M680xGrp: UInt8 {
     case invalid = 0
     /// = CS_GRP_JUMP
     case jump = 1
@@ -113,19 +113,19 @@ public enum m680xGrp: UInt8 {
 
 /// The first (register) operand is part of the
 /// instruction mnemonic
-public enum m680xFirst: UInt32 {
+public enum M680xFirst: UInt32 {
     case opInMnem = 1
 }
 
 /// The second (register) operand is part of the
 /// instruction mnemonic
-public enum m680xSecond: UInt32 {
+public enum M680xSecond: UInt32 {
     case opInMnem = 2
 
 }
 
 /// M680X instruction IDs
-public enum m680xIns: UInt32 {
+public enum M680xIns: UInt32 {
     case invld = 0
     /// M6800/1/2/3
     case aba = 1

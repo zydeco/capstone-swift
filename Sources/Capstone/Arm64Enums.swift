@@ -2,7 +2,7 @@
 
 
 /// ARM64 shift type
-public enum arm64Sft: UInt32 {
+public enum Arm64Sft: UInt32 {
     case invalid = 0
     case lsl = 1
     case msl = 2
@@ -13,7 +13,7 @@ public enum arm64Sft: UInt32 {
 }
 
 /// ARM64 extender type
-public enum arm64Ext: UInt32 {
+public enum Arm64Ext: UInt32 {
     case invalid = 0
     case uxtb = 1
     case uxth = 2
@@ -27,7 +27,7 @@ public enum arm64Ext: UInt32 {
 }
 
 /// ARM64 condition code
-public enum arm64Cc: UInt32 {
+public enum Arm64Cc: UInt32 {
     case invalid = 0
     /// Equal
     case eq = 1
@@ -65,7 +65,7 @@ public enum arm64Cc: UInt32 {
 }
 
 /// System registers
-public enum arm64Sysreg: UInt32 {
+public enum Arm64Sysreg: UInt32 {
     case invalid = 0
     case mdccsrEl0 = 38920
     case dbgdtrrxEl0 = 38952
@@ -174,7 +174,7 @@ public enum arm64Sysreg: UInt32 {
 }
 
 /// System PState Field (MSR instruction)
-public enum arm64Pstate: UInt32 {
+public enum Arm64Pstate: UInt32 {
     case invalid = 0
     case spsel = 5
     case daifset = 30
@@ -183,7 +183,7 @@ public enum arm64Pstate: UInt32 {
 }
 
 /// Vector arrangement specifier (for FloatingPoint/Advanced SIMD insn)
-public enum arm64Vas: UInt32 {
+public enum Arm64Vas: UInt32 {
     case invalid = 0
     case vas8b = 1
     case vas16b = 2
@@ -198,7 +198,7 @@ public enum arm64Vas: UInt32 {
 }
 
 /// Vector element size specifier
-public enum arm64Vess: UInt32 {
+public enum Arm64Vess: UInt32 {
     case invalid = 0
     case b = 1
     case h = 2
@@ -208,7 +208,7 @@ public enum arm64Vess: UInt32 {
 }
 
 /// Memory barrier operands
-public enum arm64Barrier: UInt32 {
+public enum Arm64Barrier: UInt32 {
     case invalid = 0
     case oshld = 1
     case oshst = 2
@@ -226,7 +226,7 @@ public enum arm64Barrier: UInt32 {
 }
 
 /// Operand type for instruction's operands
-public enum arm64Op: UInt32 {
+public enum Arm64Op: UInt32 {
     /// = CS_OP_INVALID (Uninitialized).
     case invalid = 0
     /// = CS_OP_REG (Register operand).
@@ -255,7 +255,7 @@ public enum arm64Op: UInt32 {
 }
 
 /// TLBI operations
-public enum arm64Tlbi: UInt32 {
+public enum Arm64Tlbi: UInt32 {
     case invalid = 0
     case vmalle1is = 1
     case vae1is = 2
@@ -292,7 +292,7 @@ public enum arm64Tlbi: UInt32 {
 }
 
 /// AT operations
-public enum arm64At: UInt32 {
+public enum Arm64At: UInt32 {
     case s1e1r = 33
     case s1e1w = 34
     case s1e0r = 35
@@ -309,7 +309,7 @@ public enum arm64At: UInt32 {
 }
 
 /// DC operations
-public enum arm64Dc: UInt32 {
+public enum Arm64Dc: UInt32 {
     case invalid = 0
     case zva = 1
     case ivac = 2
@@ -323,7 +323,7 @@ public enum arm64Dc: UInt32 {
 }
 
 /// IC operations
-public enum arm64Ic: UInt32 {
+public enum Arm64Ic: UInt32 {
     case invalid = 0
     case ialluis = 1
     case iallu = 2
@@ -332,7 +332,7 @@ public enum arm64Ic: UInt32 {
 }
 
 /// Prefetch operations (PRFM)
-public enum arm64Prfm: UInt32 {
+public enum Arm64Prfm: UInt32 {
     case invalid = 0
     case pldl1keep = 1
     case pldl1strm = 2
@@ -356,7 +356,7 @@ public enum arm64Prfm: UInt32 {
 }
 
 /// ARM64 registers
-public enum arm64Reg: UInt16 {
+public enum Arm64Reg: UInt16 {
     case invalid = 0
     case x29 = 1
     case x30 = 2
@@ -626,7 +626,7 @@ public enum arm64Reg: UInt16 {
 }
 
 /// ARM64 instruction
-public enum arm64Ins: UInt32 {
+public enum Arm64Ins: UInt32 {
     case invalid = 0
     case abs = 1
     case adc = 2
@@ -1086,7 +1086,7 @@ public enum arm64Ins: UInt32 {
 }
 
 /// Group of ARM64 instructions
-public enum arm64Grp: UInt8 {
+public enum Arm64Grp: UInt8 {
     /// = CS_GRP_INVALID
     case invalid = 0
     /// = CS_GRP_JUMP

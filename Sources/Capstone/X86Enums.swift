@@ -3,7 +3,7 @@
 
 /// Calculate relative address for X86-64, given cs_insn structure
 /// X86 registers
-public enum x86Reg: UInt16 {
+public enum X86Reg: UInt16 {
     case invalid = 0
     case ah = 1
     case al = 2
@@ -249,7 +249,7 @@ public enum x86Reg: UInt16 {
     case ending = 242
 }
 
-public enum x86Eflags: UInt64 {
+public enum X86Eflags: UInt64 {
     case modifyAf = 1
     case modifyCf = 2
     case modifySf = 4
@@ -311,7 +311,7 @@ public enum x86Eflags: UInt64 {
     case resetAc = 288230376151711744
 }
 
-public enum x86Fpu: UInt32 {
+public enum X86Fpu: UInt32 {
     case flagsModifyC0 = 1
     case flagsModifyC1 = 2
     case flagsModifyC2 = 4
@@ -336,7 +336,7 @@ public enum x86Fpu: UInt32 {
 }
 
 /// Operand type for instruction's operands
-public enum x86Op: UInt32 {
+public enum X86Op: UInt32 {
     /// = CS_OP_INVALID (Uninitialized).
     case invalid = 0
     /// = CS_OP_REG (Register operand).
@@ -349,7 +349,7 @@ public enum x86Op: UInt32 {
 }
 
 /// XOP Code Condition type
-public enum x86XopCc: UInt32 {
+public enum X86XopCc: UInt32 {
     /// Uninitialized.
     case invalid = 0
     case lt = 1
@@ -364,7 +364,7 @@ public enum x86XopCc: UInt32 {
 }
 
 /// AVX broadcast type
-public enum x86AvxBcast: UInt32 {
+public enum X86AvxBcast: UInt32 {
     /// Uninitialized.
     case invalid = 0
     /// AVX512 broadcast type {1to2}
@@ -379,7 +379,7 @@ public enum x86AvxBcast: UInt32 {
 }
 
 /// SSE Code Condition type
-public enum x86SseCc: UInt32 {
+public enum X86SseCc: UInt32 {
     /// Uninitialized.
     case invalid = 0
     case eq = 1
@@ -394,7 +394,7 @@ public enum x86SseCc: UInt32 {
 }
 
 /// AVX Code Condition type
-public enum x86AvxCc: UInt32 {
+public enum X86AvxCc: UInt32 {
     /// Uninitialized.
     case invalid = 0
     case eq = 1
@@ -433,7 +433,7 @@ public enum x86AvxCc: UInt32 {
 }
 
 /// AVX static rounding mode type
-public enum x86Avx: UInt32 {
+public enum X86Avx: UInt32 {
     /// Uninitialized.
     case rmInvalid = 0
     /// Round to nearest
@@ -447,7 +447,7 @@ public enum x86Avx: UInt32 {
 }
 
 /// Instruction prefixes - to be used in cs_x86.prefix[]
-public enum x86Prefix: UInt32 {
+public enum X86Prefix: UInt32 {
     /// lock (cs_x86.prefix[0]
     case lock = 240
     /// rep (cs_x86.prefix[0]
@@ -476,7 +476,7 @@ public enum x86Prefix: UInt32 {
 }
 
 /// X86 instructions
-public enum x86Ins: UInt32 {
+public enum X86Ins: UInt32 {
     case invalid = 0
     case aaa = 1
     case aad = 2
@@ -1983,7 +1983,7 @@ public enum x86Ins: UInt32 {
 }
 
 /// Group of X86 instructions
-public enum x86Grp: UInt8 {
+public enum X86Grp: UInt8 {
     /// = CS_GRP_INVALID
     case invalid = 0
     /// = CS_GRP_JUMP

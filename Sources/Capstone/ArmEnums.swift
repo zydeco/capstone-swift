@@ -2,7 +2,7 @@
 
 
 /// ARM shift type
-public enum armSft: UInt32 {
+public enum ArmSft: UInt32 {
     case invalid = 0
     /// shift with immediate const
     case asr = 1
@@ -28,7 +28,7 @@ public enum armSft: UInt32 {
 }
 
 /// ARM condition code
-public enum armCc: UInt32 {
+public enum ArmCc: UInt32 {
     case invalid = 0
     /// Equal                      Equal
     case eq = 1
@@ -64,7 +64,7 @@ public enum armCc: UInt32 {
 }
 
 /// Special registers for MSR
-public enum armSysreg: UInt32 {
+public enum ArmSysreg: UInt32 {
     case invalid = 0
     case spsrC = 1
     case spsrX = 2
@@ -160,7 +160,7 @@ public enum armSysreg: UInt32 {
 
 /// The memory barrier constants map directly to the 4-bit encoding of
 /// the option field for Memory Barrier operations.
-public enum armMb: UInt32 {
+public enum ArmMb: UInt32 {
     case invalid = 0
     case reserved0 = 1
     case oshld = 2
@@ -182,7 +182,7 @@ public enum armMb: UInt32 {
 }
 
 /// Operand type for instruction's operands
-public enum armOp: UInt32 {
+public enum ArmOp: UInt32 {
     /// = CS_OP_INVALID (Uninitialized).
     case invalid = 0
     /// = CS_OP_REG (Register operand).
@@ -205,7 +205,7 @@ public enum armOp: UInt32 {
 }
 
 /// Operand type for SETEND instruction
-public enum armSetend: UInt32 {
+public enum ArmSetend: UInt32 {
     /// Uninitialized.
     case invalid = 0
     /// BE operand.
@@ -215,7 +215,7 @@ public enum armSetend: UInt32 {
 
 }
 
-public enum armCpsmode: UInt32 {
+public enum ArmCpsmode: UInt32 {
     case invalid = 0
     case ie = 2
     case id = 3
@@ -223,7 +223,7 @@ public enum armCpsmode: UInt32 {
 }
 
 /// Operand type for SETEND instruction
-public enum armCpsflag: UInt32 {
+public enum ArmCpsflag: UInt32 {
     case invalid = 0
     case f = 1
     case i = 2
@@ -234,7 +234,7 @@ public enum armCpsflag: UInt32 {
 }
 
 /// Data type for elements of vector instructions.
-public enum armVectordata: UInt32 {
+public enum ArmVectordata: UInt32 {
     case invalid = 0
     case i8 = 1
     case i16 = 2
@@ -277,7 +277,7 @@ public enum armVectordata: UInt32 {
 }
 
 /// ARM registers
-public enum armReg: UInt16 {
+public enum ArmReg: UInt16 {
     case invalid = 0
     case apsr = 1
     case apsrNzcv = 2
@@ -401,7 +401,7 @@ public enum armReg: UInt16 {
 }
 
 /// ARM instruction
-public enum armIns: UInt32 {
+public enum ArmIns: UInt32 {
     case invalid = 0
     case adc = 1
     case add = 2
@@ -840,7 +840,7 @@ public enum armIns: UInt32 {
 }
 
 /// Group of ARM instructions
-public enum armGrp: UInt8 {
+public enum ArmGrp: UInt8 {
     /// = CS_GRP_INVALID
     case invalid = 0
     /// = CS_GRP_JUMP

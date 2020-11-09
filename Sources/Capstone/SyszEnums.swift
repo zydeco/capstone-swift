@@ -2,7 +2,7 @@
 
 
 /// Enums corresponding to SystemZ condition codes
-public enum syszCc: UInt32 {
+public enum SyszCc: UInt32 {
     /// invalid CC (default)
     case invalid = 0
     case o = 1
@@ -23,7 +23,7 @@ public enum syszCc: UInt32 {
 }
 
 /// Operand type for instruction's operands
-public enum syszOp: UInt32 {
+public enum SyszOp: UInt32 {
     /// = CS_OP_INVALID (Uninitialized).
     case invalid = 0
     /// = CS_OP_REG (Register operand).
@@ -38,7 +38,7 @@ public enum syszOp: UInt32 {
 }
 
 /// SystemZ registers
-public enum syszReg: UInt16 {
+public enum SyszReg: UInt16 {
     case invalid = 0
     case reg0 = 1
     case reg1 = 2
@@ -161,7 +161,7 @@ public enum syszReg: UInt16 {
 }
 
 /// SystemZ instruction
-public enum syszIns: UInt32 {
+public enum SyszIns: UInt32 {
     case invalid = 0
     case a = 1
     case adb = 2
@@ -2513,7 +2513,7 @@ public enum syszIns: UInt32 {
 }
 
 /// Group of SystemZ instructions
-public enum syszGrp: UInt8 {
+public enum SyszGrp: UInt8 {
     /// = CS_GRP_INVALID
     case invalid = 0
     /// = CS_GRP_JUMP

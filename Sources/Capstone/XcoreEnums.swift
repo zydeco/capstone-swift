@@ -2,7 +2,7 @@
 
 
 /// Operand type for instruction's operands
-public enum xcoreOp: UInt32 {
+public enum XcoreOp: UInt32 {
     /// = CS_OP_INVALID (Uninitialized).
     case invalid = 0
     /// = CS_OP_REG (Register operand).
@@ -15,7 +15,7 @@ public enum xcoreOp: UInt32 {
 }
 
 /// XCore registers
-public enum xcoreReg: UInt16 {
+public enum XcoreReg: UInt16 {
     case invalid = 0
     case cp = 1
     case dp = 2
@@ -49,7 +49,7 @@ public enum xcoreReg: UInt16 {
 }
 
 /// XCore instruction
-public enum xcoreIns: UInt32 {
+public enum XcoreIns: UInt32 {
     case invalid = 0
     case add = 1
     case andnot = 2
@@ -176,7 +176,7 @@ public enum xcoreIns: UInt32 {
 }
 
 /// Group of XCore instructions
-public enum xcoreGrp: UInt8 {
+public enum XcoreGrp: UInt8 {
     /// = CS_GRP_INVALID
     case invalid = 0
     /// = CS_GRP_JUMP

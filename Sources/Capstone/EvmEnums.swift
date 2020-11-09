@@ -2,7 +2,7 @@
 
 
 /// EVM instruction
-public enum evmIns: UInt32 {
+public enum EvmIns: UInt32 {
     case stop = 0
     case add = 1
     case mul = 2
@@ -144,7 +144,7 @@ public enum evmIns: UInt32 {
 }
 
 /// Group of EVM instructions
-public enum evmGrp: UInt8 {
+public enum EvmGrp: UInt8 {
     /// = CS_GRP_INVALID
     case invalid = 0
     /// all jump instructions

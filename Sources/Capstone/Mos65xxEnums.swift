@@ -2,7 +2,7 @@
 
 
 /// MOS65XX registers and special registers
-public enum mos65xxReg: UInt16 {
+public enum Mos65xxReg: UInt16 {
     case invalid = 0
     /// accumulator
     case acc = 1
@@ -19,7 +19,7 @@ public enum mos65xxReg: UInt16 {
 }
 
 /// MOS65XX Addressing Modes
-public enum mos65xxAm: UInt32 {
+public enum Mos65xxAm: UInt32 {
     /// No address mode.
     case none = 0
     /// implied addressing (no addressing mode)
@@ -52,7 +52,7 @@ public enum mos65xxAm: UInt32 {
 }
 
 /// MOS65XX instruction
-public enum mos65xxIns: UInt32 {
+public enum Mos65xxIns: UInt32 {
     case invalid = 0
     case adc = 1
     case and = 2
@@ -115,7 +115,7 @@ public enum mos65xxIns: UInt32 {
 }
 
 /// Group of MOS65XX instructions
-public enum mos65xxGrp: UInt8 {
+public enum Mos65xxGrp: UInt8 {
     /// CS_GRP_INVALID
     case invalid = 0
     /// = CS_GRP_JUMP
@@ -133,7 +133,7 @@ public enum mos65xxGrp: UInt8 {
 }
 
 /// Operand type for instruction's operands
-public enum mos65xxOp: UInt32 {
+public enum Mos65xxOp: UInt32 {
     /// = CS_OP_INVALID (Uninitialized).
     case invalid = 0
     /// = CS_OP_REG (Register operand).

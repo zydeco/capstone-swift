@@ -1,7 +1,7 @@
 // For Capstone Engine. AUTO-GENERATED FILE, DO NOT EDIT (TMS320C64x)
 
 
-public enum tms320c64xOp: UInt32 {
+public enum Tms320c64xOp: UInt32 {
     /// = CS_OP_INVALID (Uninitialized).
     case invalid = 0
     /// = CS_OP_REG (Register operand).
@@ -15,21 +15,21 @@ public enum tms320c64xOp: UInt32 {
 
 }
 
-public enum tms320c64xMemDisp: UInt32 {
+public enum Tms320c64xMemDisp: UInt32 {
     case invalid = 0
     case constant = 1
     case register = 2
 
 }
 
-public enum tms320c64xMemDir: UInt32 {
+public enum Tms320c64xMemDir: UInt32 {
     case invalid = 0
     case fw = 1
     case bw = 2
 
 }
 
-public enum tms320c64xMemMod: UInt32 {
+public enum Tms320c64xMemMod: UInt32 {
     case invalid = 0
     case no = 1
     case pre = 2
@@ -37,7 +37,7 @@ public enum tms320c64xMemMod: UInt32 {
 
 }
 
-public enum tms320c64xReg: UInt16 {
+public enum Tms320c64xReg: UInt16 {
     case invalid = 0
     case amr = 1
     case csr = 2
@@ -134,7 +134,7 @@ public enum tms320c64xReg: UInt16 {
 
 }
 
-public enum tms320c64xIns: UInt32 {
+public enum Tms320c64xIns: UInt32 {
     case invalid = 0
     case abs = 1
     case abs2 = 2
@@ -284,7 +284,7 @@ public enum tms320c64xIns: UInt32 {
 
 }
 
-public enum tms320c64xGrp: UInt8 {
+public enum Tms320c64xGrp: UInt8 {
     /// = CS_GRP_INVALID
     case invalid = 0
     /// = CS_GRP_JUMP
@@ -298,7 +298,7 @@ public enum tms320c64xGrp: UInt8 {
 
 }
 
-public enum tms320c64xFunit: UInt32 {
+public enum Tms320c64xFunit: UInt32 {
     case invalid = 0
     case d = 1
     case l = 2

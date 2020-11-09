@@ -32,43 +32,43 @@ public enum Architecture: UInt32 {
 }
 
 /// ARM Instruction
-public class ArmInstruction: PlatformInstruction<armIns, armGrp, armReg> {}
+public class ArmInstruction: PlatformInstruction<ArmIns, ArmGrp, ArmReg> {}
 
 /// ARM-64 Instruction
-public class Arm64Instruction: PlatformInstruction<arm64Ins, arm64Grp, arm64Reg> {}
+public class Arm64Instruction: PlatformInstruction<Arm64Ins, Arm64Grp, Arm64Reg> {}
 
 /// Mips Instruction
-public class MipsInstruction: PlatformInstruction<mipsIns, mipsGrp, mipsReg> {}
+public class MipsInstruction: PlatformInstruction<MipsIns, MipsGrp, MipsReg> {}
 
 /// X86 Instruction
-public class X86Instruction: PlatformInstruction<x86Ins, x86Grp, x86Reg> {}
+public class X86Instruction: PlatformInstruction<X86Ins, X86Grp, X86Reg> {}
 
 /// PowerPC Instruction
-public class PowerPCInstruction: PlatformInstruction<ppcIns, ppcGrp, ppcReg> {}
+public class PowerPCInstruction: PlatformInstruction<PpcIns, PpcGrp, PpcReg> {}
 
 /// Sparc Instruction
-public class SparcInstruction: PlatformInstruction<sparcIns, sparcGrp, sparcReg> {}
+public class SparcInstruction: PlatformInstruction<SparcIns, SparcGrp, SparcReg> {}
 
 /// SystemZ Instruction
-public class SystemZInstruction: PlatformInstruction<syszIns, syszGrp, syszReg> {}
+public class SystemZInstruction: PlatformInstruction<SyszIns, SyszGrp, SyszReg> {}
 
 /// XCore Instruction
-public class XCoreInstruction: PlatformInstruction<xcoreIns, xcoreGrp, xcoreReg> {}
+public class XCoreInstruction: PlatformInstruction<XcoreIns, XcoreGrp, XcoreReg> {}
 
 /// 68K Instruction
-public class M68kInstruction: PlatformInstruction<m68kIns, m68kGrp, m68kReg> {}
+public class M68kInstruction: PlatformInstruction<M68kIns, M68kGrp, M68kReg> {}
 
 /// TMS320C64x Instruction
-public class TMS320C64xInstruction: PlatformInstruction<tms320c64xIns, tms320c64xGrp, tms320c64xReg> {}
+public class TMS320C64xInstruction: PlatformInstruction<Tms320c64xIns, Tms320c64xGrp, Tms320c64xReg> {}
 
 /// M680x Instruction
-public class M680xInstruction: PlatformInstruction<m680xIns, m680xGrp, m680xReg> {}
+public class M680xInstruction: PlatformInstruction<M680xIns, M680xGrp, M680xReg> {}
 
 /// Ethereum Instruction
-public class EthereumInstruction: PlatformInstruction_IG<evmIns, evmGrp> {}
+public class EthereumInstruction: PlatformInstruction_IG<EvmIns, EvmGrp> {}
 
 /// MOS65XX Instruction
-public class Mos65xxInstruction: PlatformInstruction<mos65xxIns, mos65xxGrp, mos65xxReg> {}
+public class Mos65xxInstruction: PlatformInstruction<Mos65xxIns, Mos65xxGrp, Mos65xxReg> {}
 
 public extension Architecture {
     /// The type of instructions used for this architecture

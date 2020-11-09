@@ -2,7 +2,7 @@
 
 
 /// Operand type for instruction's operands
-public enum mipsOp: UInt32 {
+public enum MipsOp: UInt32 {
     /// = CS_OP_INVALID (Uninitialized).
     case invalid = 0
     /// = CS_OP_REG (Register operand).
@@ -15,7 +15,7 @@ public enum mipsOp: UInt32 {
 }
 
 /// MIPS registers
-public enum mipsReg: UInt16 {
+public enum MipsReg: UInt16 {
     case invalid = 0
     case pc = 1
     case reg0 = 2
@@ -199,7 +199,7 @@ public enum mipsReg: UInt16 {
 }
 
 /// MIPS instruction
-public enum mipsIns: UInt32 {
+public enum MipsIns: UInt32 {
     case invalid = 0
     case absqS = 1
     case add = 2
@@ -623,7 +623,7 @@ public enum mipsIns: UInt32 {
     case modu = 420
 }
 
-public enum mipsInsMod: UInt32 {
+public enum MipsInsMod: UInt32 {
     case s = 421
     case u = 422
     case move = 423
@@ -838,7 +838,7 @@ public enum mipsInsMod: UInt32 {
 }
 
 /// Group of MIPS instructions
-public enum mipsGrp: UInt8 {
+public enum MipsGrp: UInt8 {
     /// = CS_GRP_INVALID
     case invalid = 0
     /// = CS_GRP_JUMP

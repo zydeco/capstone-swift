@@ -2,7 +2,7 @@
 
 
 /// Enums corresponding to Sparc condition codes, both icc's and fcc's.
-public enum sparcCc: UInt32 {
+public enum SparcCc: UInt32 {
     /// invalid CC (default)
     case invalid = 0
     /// Always
@@ -73,7 +73,7 @@ public enum sparcCc: UInt32 {
 }
 
 /// Branch hint
-public enum sparcHint: UInt32 {
+public enum SparcHint: UInt32 {
     /// no hint
     case invalid = 0
     /// annul delay slot instruction
@@ -86,7 +86,7 @@ public enum sparcHint: UInt32 {
 }
 
 /// Operand type for instruction's operands
-public enum sparcOp: UInt32 {
+public enum SparcOp: UInt32 {
     /// = CS_OP_INVALID (Uninitialized).
     case invalid = 0
     /// = CS_OP_REG (Register operand).
@@ -99,7 +99,7 @@ public enum sparcOp: UInt32 {
 }
 
 /// SPARC registers
-public enum sparcReg: UInt16 {
+public enum SparcReg: UInt16 {
     case invalid = 0
     case f0 = 1
     case f1 = 2
@@ -195,7 +195,7 @@ public enum sparcReg: UInt16 {
 }
 
 /// SPARC instruction
-public enum sparcIns: UInt32 {
+public enum SparcIns: UInt32 {
     case invalid = 0
     case addcc = 1
     case addx = 2
@@ -480,7 +480,7 @@ public enum sparcIns: UInt32 {
 }
 
 /// Group of SPARC instructions
-public enum sparcGrp: UInt8 {
+public enum SparcGrp: UInt8 {
     /// = CS_GRP_INVALID
     case invalid = 0
     /// = CS_GRP_JUMP

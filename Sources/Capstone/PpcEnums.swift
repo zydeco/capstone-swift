@@ -2,7 +2,7 @@
 
 
 /// PPC branch codes for some branch instructions
-public enum ppcBc: UInt32 {
+public enum PpcBc: UInt32 {
     case invalid = 0
     case lt = 12
     case le = 36
@@ -20,7 +20,7 @@ public enum ppcBc: UInt32 {
 }
 
 /// PPC branch hint for some branch instructions
-public enum ppcBh: UInt32 {
+public enum PpcBh: UInt32 {
     /// no hint
     case invalid = 0
     /// PLUS hint
@@ -31,7 +31,7 @@ public enum ppcBh: UInt32 {
 }
 
 /// Operand type for instruction's operands
-public enum ppcOp: UInt32 {
+public enum PpcOp: UInt32 {
     /// = CS_OP_INVALID (Uninitialized).
     case invalid = 0
     /// = CS_OP_REG (Register operand).
@@ -46,7 +46,7 @@ public enum ppcOp: UInt32 {
 }
 
 /// PPC registers
-public enum ppcReg: UInt16 {
+public enum PpcReg: UInt16 {
     case invalid = 0
     case carry = 1
     case cr0 = 2
@@ -262,7 +262,7 @@ public enum ppcReg: UInt16 {
 }
 
 /// PPC instruction
-public enum ppcIns: UInt32 {
+public enum PpcIns: UInt32 {
     case invalid = 0
     case add = 1
     case addc = 2
@@ -1378,7 +1378,7 @@ public enum ppcIns: UInt32 {
 }
 
 /// Group of PPC instructions
-public enum ppcGrp: UInt8 {
+public enum PpcGrp: UInt8 {
     /// = CS_GRP_INVALID
     case invalid = 0
     /// = CS_GRP_JUMP
