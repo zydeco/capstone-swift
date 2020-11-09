@@ -177,22 +177,10 @@ extension ArmOp {
 
 typealias ArmOperandShift = (type: ArmSft, value: UInt)
 
-public struct ArmOperandMemory: CustomStringConvertible {
+public struct ArmOperandMemory {
     let base: ArmReg
     let index: ArmReg?
     let scale: FloatingPointSign
     let displacement: Int
-    
-    public var description: String {
-        var description = "\(base)"
-        if let index = index {
-            description += ",\(index)"
-        }
-        if displacement > 0 {
-            let scaleString = scale == .plus ? "+" : "-"
-            description += ",\(scaleString)\(displacement)"
-        }
-        return description
-    }
 }
 
