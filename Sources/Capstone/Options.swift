@@ -58,6 +58,9 @@ extension Capstone {
             err = cs_option(handle, CS_OPT_SYNTAX, syntax.rawValue)
         case .detail(value: let value):
             err = cs_option(handle, CS_OPT_DETAIL, value.csOptValue)
+            if err == CS_ERR_OK {
+                detail = value
+            }
         case .unsigned(value: let value):
             err = cs_option(handle, CS_OPT_UNSIGNED, value.csOptValue)
         case .mode(mode: let mode):

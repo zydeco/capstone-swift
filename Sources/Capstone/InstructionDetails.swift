@@ -3,7 +3,15 @@ import Ccapstone
 // Instruction details
 extension Instruction {
     // detail accessor
-    var detail: cs_detail? { insn.detail?.pointee }
+    var detail: cs_detail? {
+        /// NOTE: detail pointer is only valid when both requirements below are met:
+        /// (1) CS_OP_DETAIL = CS_OPT_ON
+        /// (2) Engine is not in Skipdata mode (CS_OP_SKIPDATA option set to CS_OPT_ON)
+        guard mgr.cs.detail && insn.id != 0 else {
+            return nil
+        }
+        return insn.detail?.pointee
+    }
 
     /// List of basic groups this instruction belongs to.
     /// This API is only valid when detail mode is on (it's off by default).
@@ -56,14 +64,10 @@ extension Instruction {
         (try? getRegsAccessed())?.written ?? []
     }
     
-    internal func readDetailsArray<E,A,C>(array: A?, size: C?, maxSize: Int) -> [E] where E: FixedWidthInteger, C: FixedWidthInteger {
-        guard id != 0 else {
-            // skipped data
-            return []
-        }
+    internal func readDetailsArray<E,A,C>(array: A?, size: C?, maxSize: Int) -> [E] where C: FixedWidthInteger {
         guard let array = array, let size = size else {
-            // no details available, return code for `invalid`
-            return [0]
+            // skipped data or no details
+            return []
         }
         let count = min(maxSize, Int(size))
         return withUnsafePointer(to: array, { $0.withMemoryRebound(to: E.self, capacity: count, { regs in

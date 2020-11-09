@@ -19,6 +19,8 @@ public class Capstone {
     internal var currentCode: Data?
     // valid specific type for disassembled instructions
     internal let instructionType: Instruction.Type
+    // is detail mode enabled?
+    internal var detail = false
     
     /// Create an instance of Capstone
     ///  * parameter arch: `Architecture` type
