@@ -138,6 +138,23 @@ public enum InstructionGroup: UInt8 {
     case branchRelative
 }
 
+public protocol OperandContainer {
+    associatedtype OperandType where OperandType: InstructionOperand
+    
+    /// Operands for this instruction
+    /// Empty if detail mode is off
+    var operands: [OperandType] { get }
+}
+
+public protocol InstructionOperand {
+    associatedtype OperandTypeType
+    
+    /// Operand type
+    var type: OperandTypeType { get }
+    /// Operand access mode
+    var access: Access { get }
+}
+
 extension PlatformInstruction_IG {
     /// List of architecture-specific groups this instruction belongs to.
     /// This API is only valid when detail mode is on (it's off by default)

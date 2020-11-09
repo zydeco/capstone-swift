@@ -134,6 +134,28 @@ public enum armSysreg: UInt32 {
     case spsrMon = 313
     case spsrHyp = 314
 
+    case spsrCx = 3
+    case spsrCs = 5
+    case spsrXs = 6
+    case spsrCxs = 7
+    case spsrCf = 9
+    case spsrXf = 10
+    case spsrCxf = 11
+    case spsrSf = 12
+    case spsrCsf = 13
+    case spsrXsf = 14
+    case spsrCxsf = 15
+    case cpsrCx = 48
+    case cpsrCs = 80
+    case cpsrXs = 96
+    case cpsrCxs = 112
+    case cpsrCf = 144
+    case cpsrXf = 160
+    case cpsrCxf = 176
+    case cpsrSf = 192
+    case cpsrCsf = 208
+    case cpsrXsf = 224
+    case cpsrCxsf = 240
 }
 
 /// The memory barrier constants map directly to the 4-bit encoding of
