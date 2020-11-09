@@ -23,6 +23,12 @@ public class Instruction: CustomStringConvertible {
         insn.address
     }
     
+    /// Size of this instruction
+    /// This information is available even when detail option is disabled
+    public var size: UInt16 {
+        insn.size
+    }
+    
     /// Machine bytes of this instruction
     /// This information is available even when detail option is disabled
     public var bytes: Data {
