@@ -7,11 +7,13 @@ extension Instruction {
         /// NOTE: detail pointer is only valid when both requirements below are met:
         /// (1) CS_OP_DETAIL = CS_OPT_ON
         /// (2) Engine is not in Skipdata mode (CS_OP_SKIPDATA option set to CS_OPT_ON)
-        guard mgr.cs.detail && insn.id != 0 else {
+        guard hasDetail else {
             return nil
         }
         return insn.detail?.pointee
     }
+    
+    public var hasDetail: Bool { mgr.cs.detail && insn.id != 0 }
 
     /// List of basic groups this instruction belongs to.
     /// This API is only valid when detail mode is on (it's off by default).
