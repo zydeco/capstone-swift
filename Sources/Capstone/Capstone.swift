@@ -67,8 +67,6 @@ public class Capstone {
     /// - throws if an error occurs during disassembly
     public func disassemble<InsType: Instruction>(code: Data, address: UInt64, count: Int? = nil) throws -> [InsType] {
         guard InsType.self == Instruction.self || InsType.self == instructionType else {
-            // ensure instructions are disassembled as basic Instruction
-            // or the current architecture's instruction type
             throw CapstoneError.unsupportedArchitecture
         }
         var insnsPtr: UnsafeMutablePointer<cs_insn>? = nil
@@ -81,7 +79,7 @@ public class Capstone {
             throw CapstoneError(cs_errno(handle))
         }
         let mgr = InstructionMemoryManager(insns, count: resultCount, cs: self)
-        return (0..<resultCount).map({ InsType(mgr, index: $0) })
+        return (0..<resultCount).map({ instructionType.init(mgr, index: $0) as! InsType })
     }
     
     /// Returns friendly name of an instruction in a string.
