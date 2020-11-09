@@ -8,15 +8,15 @@ extension ArmInstruction: OperandContainer {
     
     /// User-mode registers to be loaded (for LDM/STM instructions).
     /// nil when detail mode is off
-    var usermode: Bool! { detail?.arm.usermode }
+    public var usermode: Bool! { detail?.arm.usermode }
     
     /// Scalar size for vector instructions
     /// nil when detail mode is off
-    var vectorSize: Int! { optionalNumericCast(detail?.arm.vector_size) }
+    public var vectorSize: Int! { optionalNumericCast(detail?.arm.vector_size) }
     
     /// Data type for elements of vector instructions
     /// nil when detail mode is off, or wrong instruction
-    var vectorDataType: ArmVectordata! {
+    public var vectorDataType: ArmVectordata! {
         guard let value = detail?.arm.vector_data, value != ARM_VECTORDATA_INVALID else {
             return nil
         }
@@ -25,7 +25,7 @@ extension ArmInstruction: OperandContainer {
     
     /// CPS mode for CPS instruction
     /// nil when detail mode is off, or wrong instruction
-    var cpsMode: (mode: ArmCpsmode, flag: ArmCpsflag)! {
+    public var cpsMode: (mode: ArmCpsmode, flag: ArmCpsflag)! {
         guard let mode = detail?.arm.cps_mode, mode != ARM_CPSMODE_INVALID,
               let flag = detail?.arm.cps_flag, flag != ARM_CPSFLAG_INVALID else {
             return nil
@@ -35,7 +35,7 @@ extension ArmInstruction: OperandContainer {
     
     /// Condition code
     /// nil when detail mode is off, or instruction has no condition code
-    var conditionCode: ArmCc! {
+    public var conditionCode: ArmCc! {
         guard let cc = detail?.arm.cc, cc != ARM_CC_INVALID else {
             return nil
         }
@@ -44,15 +44,15 @@ extension ArmInstruction: OperandContainer {
     
     /// Does this instruction update flags?
     /// nil when detail mode is off
-    var updatesFlags: Bool! { detail?.arm.update_flags }
+    public var updatesFlags: Bool! { detail?.arm.update_flags }
     
     /// Does this instruction write-back?
     /// nil when detail mode is off
-    var writeBack: Bool! { detail?.arm.writeback }
+    public var writeBack: Bool! { detail?.arm.writeback }
     
     /// Option for some memory barrier instructions
     /// nil when detail mode is off, or wrong instruction
-    var memoryBarrier: ArmMb! {
+    public var memoryBarrier: ArmMb! {
         guard let mb = detail?.arm.mem_barrier, mb != ARM_MB_INVALID else {
             return nil
         }
@@ -68,7 +68,7 @@ public struct ArmOperand: InstructionOperand, CustomStringConvertible {
     public var access: Access { enumCast(op.access) }
     
     /// Vector Index for some vector operands
-    var vectorIndex: Int! {
+    public var vectorIndex: Int! {
         guard op.vector_index != -1 else {
             return nil
         }
@@ -76,7 +76,7 @@ public struct ArmOperand: InstructionOperand, CustomStringConvertible {
     }
     
     /// Instruction shift
-    var shift: ArmOperandShift? {
+    public var shift: ArmOperandShift? {
         guard op.shift.type != ARM_SFT_INVALID else {
             return nil
         }
@@ -84,10 +84,10 @@ public struct ArmOperand: InstructionOperand, CustomStringConvertible {
     }
     
     /// In some instructions, an operand can be subtracted or added to the base register
-    var subtracted: Bool { op.subtracted }
+    public var subtracted: Bool { op.subtracted }
     
     /// Neon lane index for NEON instructions
-    var neonLane: Int! {
+    public var neonLane: Int! {
         guard op.neon_lane != -1 else {
             return nil
         }
@@ -95,31 +95,31 @@ public struct ArmOperand: InstructionOperand, CustomStringConvertible {
     }
     
     /// Register value for register operand
-    var register: ArmReg! {
+    public var register: ArmReg! {
         guard type == .reg else { return nil }
         return enumCast(op.reg)
     }
     
     /// Register value for system register operand
-    var systemRegister: ArmSysreg! {
+    public var systemRegister: ArmSysreg! {
         guard type == .sysreg else { return nil }
         return enumCast(op.reg)
     }
     
     /// Immediate value for C-IMM, P-IMM or IMM operand
-    var immediateValue: Int32! {
+    public var immediateValue: Int32! {
         guard type.immediate else { return nil }
         return op.imm
     }
     
     /// Floating point value for FP operand
-    var doubleValue: Double! {
+    public var doubleValue: Double! {
         guard type == .fp else { return nil }
         return op.fp
     }
     
     /// Base/index/scale/disp value for memory operand
-    var memory: ArmOperandMemory! {
+    public var memory: ArmOperandMemory! {
         guard type == .mem else { return nil }
         return ArmOperandMemory(
             base: enumCast(op.mem.base),
@@ -130,13 +130,13 @@ public struct ArmOperand: InstructionOperand, CustomStringConvertible {
     }
     
     /// Operand type for SETEND instruction
-    var setend: ArmSetend! {
+    public var setend: ArmSetend! {
         guard type == .setend else { return nil }
         return enumCast(op.setend)
     }
     
     /// Operand value
-    var value: ArmOperandValue {
+    public var value: ArmOperandValue {
         switch type {
         case .reg:
             return register
@@ -175,12 +175,12 @@ extension ArmOp {
     }
 }
 
-typealias ArmOperandShift = (type: ArmSft, value: UInt)
+public typealias ArmOperandShift = (type: ArmSft, value: UInt)
 
 public struct ArmOperandMemory {
-    let base: ArmReg
-    let index: ArmReg?
-    let scale: FloatingPointSign
-    let displacement: Int
+    public let base: ArmReg
+    public let index: ArmReg?
+    public let scale: FloatingPointSign
+    public let displacement: Int
 }
 
