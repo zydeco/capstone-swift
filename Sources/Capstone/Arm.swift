@@ -62,7 +62,6 @@ extension ArmInstruction: OperandContainer {
     public struct Operand: InstructionOperand, CustomStringConvertible {
         internal var op: cs_arm_op
         
-        public typealias OperandType = ArmOp
         public var type: ArmOp { enumCast(op.type) }
         public var access: Access { enumCast(op.access) }
         
