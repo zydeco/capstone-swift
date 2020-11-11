@@ -119,13 +119,14 @@ public struct ArmOperand: InstructionOperand, CustomStringConvertible {
     }
     
     /// Base/index/scale/disp value for memory operand
-    public var memory: ArmOperandMemory! {
+    public var memory: ArmOperand.Memory! {
         guard type == .mem else { return nil }
-        return ArmOperandMemory(
+        return Memory(
             base: enumCast(op.mem.base),
             index: op.mem.index == ARM_REG_INVALID ? nil : enumCast(op.mem.index),
             scale: op.mem.scale == 1 ? .plus : .minus,
-            displacement: numericCast(op.mem.disp)
+            displacement: numericCast(op.mem.disp),
+            leftShift: op.mem.lshift == 0 ? nil : numericCast(op.mem.lshift)
         )
     }
     
@@ -188,6 +189,19 @@ public struct ArmOperand: InstructionOperand, CustomStringConvertible {
             }
         }
     }
+    
+    public struct Memory {
+        /// Base register
+        public let base: ArmReg
+        /// Index register
+        public let index: ArmReg?
+        /// Scale for index register
+        public let scale: FloatingPointSign
+        /// Displacement/offset value
+        public let displacement: Int
+        /// Left-shift on index register
+        public let leftShift: Int?
+    }
 }
 
 public protocol ArmOperandValue {}
@@ -195,19 +209,12 @@ extension ArmReg: ArmOperandValue {}
 extension ArmSysreg: ArmOperandValue {}
 extension Int32: ArmOperandValue {}
 extension Double: ArmOperandValue {}
-extension ArmOperandMemory: ArmOperandValue {}
+extension ArmOperand.Memory: ArmOperandValue {}
 extension ArmSetend: ArmOperandValue {}
 
 extension ArmOp {
     var immediate: Bool {
         self == .cimm || self == .pimm || self == .imm
     }
-}
-
-public struct ArmOperandMemory {
-    public let base: ArmReg
-    public let index: ArmReg?
-    public let scale: FloatingPointSign
-    public let displacement: Int
 }
 
