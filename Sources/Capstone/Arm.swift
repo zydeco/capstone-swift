@@ -75,12 +75,12 @@ public struct ArmOperand: InstructionOperand, CustomStringConvertible {
         return numericCast(op.vector_index)
     }
     
-    /// Instruction shift
-    public var shift: ArmOperandShift? {
+    /// Operand shift
+    public var shift: Shift? {
         guard op.shift.type != ARM_SFT_INVALID else {
             return nil
         }
-        return (enumCast(op.shift.type), numericCast(op.shift.value))
+        return Shift(op.shift)
     }
     
     /// In some instructions, an operand can be subtracted or added to the base register
@@ -159,6 +159,35 @@ public struct ArmOperand: InstructionOperand, CustomStringConvertible {
     public var description: String {
         "\(type)<\(value)>"
     }
+    
+    public enum Shift {
+        public enum Direction: UInt8 {
+            /// Arithmetic Shift Right
+            case asr = 1
+            /// Logical Shift Left
+            case lsl = 2
+            /// Logical Shift Right
+            case lsr = 3
+            /// ROtate Right
+            case ror = 4
+            /// Rotate Right with eXtend
+            case rrx = 5
+        }
+        
+        case immediate(direction: Direction, value: UInt)
+        case register(direction: Direction, register: ArmReg)
+        
+        init(_ shift: cs_arm_op.__Unnamed_struct_shift) {
+            switch shift.type.rawValue {
+            case ARM_SFT_LSL.rawValue...ARM_SFT_RRX.rawValue:
+                self = .immediate(direction: enumCast(shift.type), value: numericCast(shift.value))
+            case ARM_SFT_LSL_REG.rawValue...ARM_SFT_RRX_REG.rawValue:
+                self = .register(direction: enumCast(shift.type.rawValue - 5), register: enumCast(shift.value))
+            default:
+                self = .immediate(direction: .lsl, value: 0)
+            }
+        }
+    }
 }
 
 public protocol ArmOperandValue {}
@@ -174,8 +203,6 @@ extension ArmOp {
         self == .cimm || self == .pimm || self == .imm
     }
 }
-
-public typealias ArmOperandShift = (type: ArmSft, value: UInt)
 
 public struct ArmOperandMemory {
     public let base: ArmReg
