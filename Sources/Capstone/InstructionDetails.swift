@@ -48,7 +48,7 @@ extension Instruction {
     /// This API is only valid when detail mode is on (it's off by default).
     /// When in 'diet' mode, this API is irrelevant because engine does not store registers.
     public var registerNamesRead: [String] {
-        getRegsRead().compactMap({ String(cString: cs_reg_name(mgr.cs.handle, UInt32($0))) })
+        getRegsRead().compactMap({ mgr.cs.name(ofRegister: $0) })
     }
     
     internal func getRegsRead() -> [UInt16] {
@@ -59,7 +59,7 @@ extension Instruction {
     /// This API is only valid when detail mode is on (it's off by default).
     /// When in 'diet' mode, this API is irrelevant because engine does not store registers.
     public var registerNamesWritten: [String] {
-        getRegsWritten().compactMap({ String(cString: cs_reg_name(mgr.cs.handle, UInt32($0))) })
+        getRegsWritten().compactMap({ mgr.cs.name(ofRegister: $0) })
     }
     
     internal func getRegsWritten() -> [UInt16] {
@@ -196,5 +196,15 @@ extension PlatformInstruction {
         }
         return (read: registers.read.compactMap({ RegType(rawValue: $0) }),
                 written: registers.written.compactMap({ RegType(rawValue: $0) }))
+    }
+    
+    /// Register names read and written by this instruction.
+    /// This API is only valid when detail mode is on (it's off by default)
+    public var registerNamesAccessed: (read: [String], written: [String]) {
+        guard let registers = try? getRegsAccessed() else {
+            return (read: [], written: [])
+        }
+        return (read: registers.read.compactMap({ mgr.cs.name(ofRegister: numericCast($0)) }),
+                written: registers.written.compactMap({ mgr.cs.name(ofRegister: numericCast($0)) }))
     }
 }

@@ -83,8 +83,16 @@ public class Capstone {
     }
     
     /// Returns friendly name of an instruction in a string.
-    func name(ofInstruction id: UInt32) -> String? {
+    public func name(ofInstruction id: UInt32) -> String? {
         guard let namePtr = cs_insn_name(handle, id) else {
+            return nil
+        }
+        return String(cString: namePtr)
+    }
+    
+    /// Returns friendly name of a register in a string.
+    public func name(ofRegister id: UInt16) -> String? {
+        guard let namePtr = cs_reg_name(handle, numericCast(id)) else {
             return nil
         }
         return String(cString: namePtr)
