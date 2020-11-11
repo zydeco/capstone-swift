@@ -1,6 +1,5 @@
 import XCTest
-/*@testable */import Capstone
-import Ccapstone
+import Capstone
 
 final class CapstoneTests: XCTestCase {
     func testExample() throws {
@@ -9,15 +8,13 @@ final class CapstoneTests: XCTestCase {
         // results.
         let version = Capstone.version
         print("Capstone version \(version)")
-        
-        let capstone = try Capstone(arch: .arm)
-        let code = Data([0x86, 0x48, 0x60, 0xf4, 0x4d, 0x0f, 0xe2, 0xf4, 0xED, 0xFF, 0xFF, 0xEB, 0x04, 0xe0, 0x2d, 0xe5, 0x00, 0x00, 0x00, 0x00, 0xe0, 0x83, 0x22, 0xe5, 0xf1, 0x02, 0x03, 0x0e, 0x00, 0x00, 0xa0, 0xe3, 0x02, 0x30, 0xc1, 0xe7, 0x00, 0x00, 0x53, 0xe3, 0x00, 0x02, 0x01, 0xf1, 0x05, 0x40, 0xd0, 0xe8, 0xf4, 0x80, 0x00, 0x00])
-        let stuff = try capstone.disassemble(code: code, address: 0x80001000)
-        print("Got \(stuff.count) instructions:")
-        stuff.forEach({ print($0) })
+    }
+    
+    func testArm() throws {
+        try Tests.armTests.forEach({ try $0.run(address: 0x80001000 )})
     }
 
     static var allTests = [
-        ("testExample", testExample),
+        ("testArm", testArm),
     ]
 }
