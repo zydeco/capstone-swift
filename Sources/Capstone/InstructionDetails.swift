@@ -150,11 +150,14 @@ public protocol OperandContainer {
 
 public protocol InstructionOperand {
     associatedtype OperandTypeType
+    associatedtype OperandValueType
     
     /// Operand type
     var type: OperandTypeType { get }
     /// Operand access mode
     var access: Access { get }
+    /// Operand value
+    var value: OperandValueType { get }
 }
 
 extension PlatformInstruction_IG {
