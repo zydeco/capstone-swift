@@ -187,4 +187,14 @@ extension PlatformInstruction {
     public var registersWritten: [RegType] {
         getRegsWritten().compactMap({ RegType(rawValue: $0) })
     }
+    
+    /// Registers read and written by this instruction.
+    /// This API is only valid when detail mode is on (it's off by default)
+    public var registersAccessed: (read: [RegType], written: [RegType]) {
+        guard let registers = try? getRegsAccessed() else {
+            return (read: [], written: [])
+        }
+        return (read: registers.read.compactMap({ RegType(rawValue: $0) }),
+                written: registers.written.compactMap({ RegType(rawValue: $0) }))
+    }
 }
