@@ -24,7 +24,7 @@ struct PlatformTest {
         
         print("****************")
         print("Platform: \(name)")
-        print("Code:\(code.map({ String(format: "0x%02x ", $0)}).joined())")
+        print("Code: \(code.map({ String(format: "0x%02x ", $0)}).joined())")
         
         // Disassemble and print results
         let instructions = try capstone.disassemble(code: code, address: address)
@@ -35,7 +35,7 @@ struct PlatformTest {
         
         print("Disasm:")
         instructions
-            .compactMap({ $0 as? InstructionDetailsPrintable })
+            .map({ $0 as! InstructionDetailsPrintable })
             .forEach({ $0.printInstructionDetails(cs: capstone) })
         if let lastInstruction = instructions.last {
             let endAddress = lastInstruction.address + numericCast(lastInstruction.size)

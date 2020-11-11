@@ -14,7 +14,12 @@ final class CapstoneTests: XCTestCase {
         try Tests.armTests.forEach({ try $0.run(address: 0x80001000 )})
     }
 
+    func testArm64() throws {
+        try Tests.arm64Tests.forEach({ try $0.run(address: 0x2c )})
+    }
+    
     static var allTests = [
         ("testArm", testArm),
+        ("testArm64", testArm64)
     ]
 }

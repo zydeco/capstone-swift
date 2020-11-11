@@ -8,6 +8,8 @@ struct Code {
     static let thumbCode2 = Data([0x4f, 0xf0, 0x00, 0x01, 0xbd, 0xe8, 0x00, 0x88, 0xd1, 0xe8, 0x00, 0xf0, 0x18, 0xbf, 0xad, 0xbf, 0xf3, 0xff, 0x0b, 0x0c, 0x86, 0xf3, 0x00, 0x89, 0x80, 0xf3, 0x00, 0x8c, 0x4f, 0xfa, 0x99, 0xf6, 0xd0, 0xff, 0xa2, 0x01])
     static let thumbMClass = Data([0xef, 0xf3, 0x02, 0x80])
     static let armV8 = Data([0xe0, 0x3b, 0xb2, 0xee, 0x42, 0x00, 0x01, 0xe1, 0x51, 0xf0, 0x7f, 0xf5])
+    
+    static let arm64Code1 = Data([0x09, 0x00, 0x38, 0xd5, 0xbf, 0x40, 0x00, 0xd5, 0x0c, 0x05, 0x13, 0xd5, 0x20, 0x50, 0x02, 0x0e, 0x20, 0xe4, 0x3d, 0x0f, 0x00, 0x18, 0xa0, 0x5f, 0xa2, 0x00, 0xae, 0x9e, 0x9f, 0x37, 0x03, 0xd5, 0xbf, 0x33, 0x03, 0xd5, 0xdf, 0x3f, 0x03, 0xd5, 0x21, 0x7c, 0x02, 0x9b, 0x21, 0x7c, 0x00, 0x53, 0x00, 0x40, 0x21, 0x4b, 0xe1, 0x0b, 0x40, 0xb9, 0x20, 0x04, 0x81, 0xda, 0x20, 0x08, 0x02, 0x8b, 0x10, 0x5b, 0xe8, 0x3c])
 }
 
 struct Tests {
@@ -17,25 +19,32 @@ struct Tests {
                      mode: [Mode.arm.arm],
                      code: Code.armCode1),
         PlatformTest(name: "Thumb",
-                 arch: .arm,
-                 mode: [Mode.arm.thumb],
-                 code: Code.thumbCode1),
+                     arch: .arm,
+                     mode: [Mode.arm.thumb],
+                     code: Code.thumbCode1),
         PlatformTest(name: "Thumb-mixed",
-                 arch: .arm,
-                 mode: [Mode.arm.thumb],
-                 code: Code.armCode2),
+                     arch: .arm,
+                     mode: [Mode.arm.thumb],
+                     code: Code.armCode2),
         PlatformTest(name: "Thumb-2 & register named with numbers",
-                 arch: .arm,
-                 mode: [Mode.arm.thumb],
-                 code: Code.thumbCode2,
-                 options: [.syntax(syntax: .noRegName)]),
+                     arch: .arm,
+                     mode: [Mode.arm.thumb],
+                     code: Code.thumbCode2,
+                     options: [.syntax(syntax: .noRegName)]),
         PlatformTest(name: "Thumb-MClass",
-                 arch: .arm,
-                 mode: [Mode.arm.thumb, Mode.arm.mClass],
-                 code: Code.thumbMClass),
+                     arch: .arm,
+                     mode: [Mode.arm.thumb, Mode.arm.mClass],
+                     code: Code.thumbMClass),
         PlatformTest(name: "Arm-V8",
-                 arch: .arm,
-                 mode: [Mode.arm.arm, Mode.arm.v8],
-                 code: Code.armV8)
+                     arch: .arm,
+                     mode: [Mode.arm.arm, Mode.arm.v8],
+                     code: Code.armV8)
+    ]
+    
+    static let arm64Tests = [
+        PlatformTest(name: "ARM-64",
+                     arch: .arm64,
+                     mode: [Mode.arm.arm],
+                     code: Code.arm64Code1)
     ]
 }
