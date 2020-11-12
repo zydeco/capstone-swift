@@ -25,6 +25,8 @@ extension Arm64Instruction: OperandContainer {
         internal var ins: Arm64Ins
 
         public var type: Arm64Op { enumCast(op.type) }
+        
+        /// Operand access mode
         public var access: Access { enumCast(op.access) }
         
         /// Vector Index for some vector operands

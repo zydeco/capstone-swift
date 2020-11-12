@@ -61,6 +61,8 @@ extension ArmInstruction: OperandContainer {
         internal var op: cs_arm_op
         
         public var type: ArmOp { enumCast(op.type) }
+        
+        /// Operand access mode
         public var access: Access { enumCast(op.access) }
         
         /// Vector Index for some vector operands

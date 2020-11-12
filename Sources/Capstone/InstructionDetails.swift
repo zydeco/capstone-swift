@@ -156,8 +156,6 @@ public protocol InstructionOperand {
     
     /// Operand type
     var type: OperandTypeType { get }
-    /// Operand access mode
-    var access: Access { get }
     /// Operand value
     var value: OperandValueType { get }
 }
