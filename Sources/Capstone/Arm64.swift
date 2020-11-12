@@ -16,7 +16,7 @@ extension Arm64Instruction: OperandContainer {
     public var writeBack: Bool! { detail?.arm64.writeback }
     
     public var operands: [Operand] {
-        let operands: [cs_arm64_op] = readDetailsArray(array: detail?.arm64.operands, size: detail?.arm64.op_count, maxSize: 8)
+        let operands: [cs_arm64_op] = readDetailsArray(array: detail?.arm64.operands, size: detail?.arm64.op_count)
         return operands.map({ Operand(op: $0, ins: instruction) })
     }
     

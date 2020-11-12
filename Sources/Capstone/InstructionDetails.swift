@@ -41,7 +41,7 @@ extension Instruction {
     }
     
     internal func getInstructionGroups() -> [UInt8] {
-        readDetailsArray(array: detail?.groups, size: detail?.groups_count, maxSize: 8)
+        readDetailsArray(array: detail?.groups, size: detail?.groups_count)
     }
     
     /// List of register names this instruction reads from.
@@ -66,11 +66,12 @@ extension Instruction {
         (try? getRegsAccessed())?.written ?? []
     }
     
-    internal func readDetailsArray<E,A,C>(array: A?, size: C?, maxSize: Int) -> [E] where C: FixedWidthInteger {
+    internal func readDetailsArray<E,A,C>(array: A?, size: C?) -> [E] where C: FixedWidthInteger {
         guard let array = array, let size = size else {
             // skipped data or no details
             return []
         }
+        let maxSize = Mirror(reflecting: array).children.count
         let count = min(maxSize, Int(size))
         return withUnsafePointer(to: array, { $0.withMemoryRebound(to: E.self, capacity: count, { regs in
             (0..<count).map({ regs[$0] })
@@ -78,8 +79,9 @@ extension Instruction {
     }
     
     internal func getRegsAccessed() throws -> (read: [UInt16], written: [UInt16]) {
-        var regsRead = Array(repeating: UInt16(0), count: 64)
-        var regsWritten = Array(repeating: UInt16(0), count: 64)
+        let maxRegs = MemoryLayout<cs_regs>.size / MemoryLayout<UInt16>.size
+        var regsRead = Array(repeating: UInt16(0), count: maxRegs)
+        var regsWritten = Array(repeating: UInt16(0), count: maxRegs)
         var regsReadCount = UInt8(0)
         var regsWrittenCount = UInt8(0)
         let err = withUnsafePointer(to: insn, { cs_regs_access(mgr.cs.handle, $0, &regsRead, &regsReadCount, &regsWritten, &regsWrittenCount) })
