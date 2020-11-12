@@ -29,7 +29,7 @@ extension Instruction {
     /// When in 'diet' mode, this API is irrelevant because engine does not store registers.
     /// - parameter group: group to check
     /// - returns: `true` if detail mode is enabled and the instruction belongs to this group, `false` otherwise
-    public func isIn(group: InstructionGroup) {
+    public func isIn(group: InstructionGroup) -> Bool {
         return withUnsafePointer(to: insn, { cs_insn_group(mgr.cs.handle, $0, UInt32(group.rawValue)) })
     }
     
@@ -173,7 +173,7 @@ extension PlatformInstruction_IG {
     /// This API is only valid when detail mode is on (it's off by default)
     /// - parameter group: group to check
     /// - returns: `true` i the instruction belongs to this group, `false` otherwise
-    public func isIn(group: GroupType) {
+    public func isIn(group: GroupType) -> Bool {
         return withUnsafePointer(to: insn, { cs_insn_group(mgr.cs.handle, $0, UInt32(group.rawValue)) })
     }
 }
