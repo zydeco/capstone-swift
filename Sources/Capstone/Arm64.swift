@@ -4,10 +4,7 @@ extension Arm64Instruction: OperandContainer {
     /// Condition code
     /// nil when detail mode is off, or instruction has no condition code
     public var conditionCode: Arm64Cc! {
-        guard let cc = detail?.arm64.cc, cc != ARM64_CC_INVALID else {
-            return nil
-        }
-        return enumCast(cc)
+        optionalEnumCast(detail?.arm64.cc, ignoring: ARM64_CC_INVALID)
     }
     
     /// Does this instruction update flags?
@@ -40,18 +37,12 @@ extension Arm64Instruction: OperandContainer {
         
         /// Vector Arrangement Specifier
         public var vectorArrangementSpecifier: Arm64Vas! {
-            guard op.vas != ARM64_VAS_INVALID else {
-                return nil
-            }
-            return enumCast(op.vas)
+            optionalEnumCast(op.vas, ignoring: ARM64_VAS_INVALID)
         }
         
         /// Vector Element Size Specifier
         public var vectorElementSizeSpecifier: Arm64Vess! {
-            guard op.vess != ARM64_VESS_INVALID else {
-                return nil
-            }
-            return enumCast(op.vess)
+            optionalEnumCast(op.vess, ignoring: ARM64_VESS_INVALID)
         }
         
         /// Shift for this operand
@@ -64,10 +55,7 @@ extension Arm64Instruction: OperandContainer {
         
         /// Extender type of this operand
         public var extender: Arm64Ext! {
-            guard op.ext != ARM64_EXT_INVALID else {
-                return nil
-            }
-            return enumCast(op.ext)
+            optionalEnumCast(op.ext, ignoring: ARM64_EXT_INVALID)
         }
         
         /// Operand value
@@ -148,7 +136,7 @@ extension Arm64Instruction: OperandContainer {
             }
             return Memory(
                 base: enumCast(op.mem.base),
-                index: op.mem.index == ARM64_REG_INVALID ? nil : enumCast(op.mem.index),
+                index: optionalEnumCast(op.mem.index, ignoring: ARM64_REG_INVALID),
                 displacement: op.mem.disp
             )
         }

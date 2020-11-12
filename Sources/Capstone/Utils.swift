@@ -15,13 +15,17 @@
     return enumCast(x.rawValue)
 }
 
-@inlinable internal func optionalEnumCast<T, U: RawRepresentable>(_ x: T?) -> U? where T : BinaryInteger, U.RawValue : BinaryInteger {
-    guard let x = x else {
+@inlinable internal func optionalEnumCast<T: BinaryInteger, U: RawRepresentable>(_ x: T?, ignoring invalidValues: [T] = []) -> U? where U.RawValue : BinaryInteger {
+    guard let x = x, !invalidValues.contains(x) else {
         return nil
     }
     return U(rawValue: numericCast(x))
 }
 
-@inlinable internal func optionalEnumCast<T: RawRepresentable, U: RawRepresentable>(_ x: T?) -> U? where T.RawValue : BinaryInteger, U.RawValue : BinaryInteger {
-    return optionalEnumCast(x?.rawValue)
+@inlinable internal func optionalEnumCast<T: BinaryInteger, U: RawRepresentable>(_ x: T?, ignoring invalidValues: T...) -> U? where U.RawValue : BinaryInteger {
+    return optionalEnumCast(x, ignoring: invalidValues)
+}
+
+@inlinable internal func optionalEnumCast<T: RawRepresentable, U: RawRepresentable>(_ x: T?, ignoring invalidValues: T...) -> U? where T.RawValue : BinaryInteger, U.RawValue : BinaryInteger {
+    return optionalEnumCast(x?.rawValue, ignoring: invalidValues.map({ $0.rawValue }))
 }

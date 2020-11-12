@@ -17,29 +17,23 @@ extension ArmInstruction: OperandContainer {
     /// Data type for elements of vector instructions
     /// nil when detail mode is off, or wrong instruction
     public var vectorDataType: ArmVectordata! {
-        guard let value = detail?.arm.vector_data, value != ARM_VECTORDATA_INVALID else {
-            return nil
-        }
-        return enumCast(value)
+        optionalEnumCast(detail?.arm.vector_data, ignoring: ARM_VECTORDATA_INVALID)
     }
     
     /// CPS mode for CPS instruction
     /// nil when detail mode is off, or wrong instruction
     public var cpsMode: (mode: ArmCpsmode, flag: ArmCpsflag)! {
-        guard let mode = detail?.arm.cps_mode, mode != ARM_CPSMODE_INVALID,
-              let flag = detail?.arm.cps_flag, flag != ARM_CPSFLAG_INVALID else {
+        guard let mode: ArmCpsmode = optionalEnumCast(detail?.arm.cps_mode, ignoring: ARM_CPSMODE_INVALID),
+              let flag: ArmCpsflag = optionalEnumCast(detail?.arm.cps_flag, ignoring: ARM_CPSFLAG_INVALID) else {
             return nil
         }
-        return (enumCast(mode), enumCast(flag))
+        return (mode, flag)
     }
     
     /// Condition code
     /// nil when detail mode is off, or instruction has no condition code
     public var conditionCode: ArmCc! {
-        guard let cc = detail?.arm.cc, cc != ARM_CC_INVALID else {
-            return nil
-        }
-        return enumCast(cc)
+        optionalEnumCast(detail?.arm.cc, ignoring: ARM_CC_INVALID)
     }
     
     /// Does this instruction update flags?
@@ -53,10 +47,7 @@ extension ArmInstruction: OperandContainer {
     /// Option for some memory barrier instructions
     /// nil when detail mode is off, or wrong instruction
     public var memoryBarrier: ArmMb! {
-        guard let mb = detail?.arm.mem_barrier, mb != ARM_MB_INVALID else {
-            return nil
-        }
-        return enumCast(mb)
+        optionalEnumCast(detail?.arm.mem_barrier, ignoring: ARM_MB_INVALID)
     }
     
     public struct Operand: InstructionOperand, CustomStringConvertible {
@@ -121,7 +112,7 @@ extension ArmInstruction: OperandContainer {
             guard type == .mem else { return nil }
             return Memory(
                 base: enumCast(op.mem.base),
-                index: op.mem.index == ARM_REG_INVALID ? nil : enumCast(op.mem.index),
+                index: optionalEnumCast(op.mem.index, ignoring: ARM_REG_INVALID),
                 scale: op.mem.scale == 1 ? .plus : .minus,
                 displacement: numericCast(op.mem.disp),
                 leftShift: op.mem.lshift == 0 ? nil : numericCast(op.mem.lshift)
