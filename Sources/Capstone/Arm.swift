@@ -1,12 +1,5 @@
 import Ccapstone
 
-extension MemoryLayout {
-    public static func length(ofField path: PartialKeyPath<T>) -> Int {
-        let fieldSize = size - offset(of: path)!
-        return fieldSize / 1
-    }
-}
-
 extension ArmInstruction: OperandContainer {
     public var operands: [Operand] {
         let operands: [cs_arm_op] = readDetailsArray(array: detail?.arm.operands, size: detail?.arm.op_count)
