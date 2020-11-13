@@ -159,7 +159,7 @@ public enum Arm64Sysreg: UInt32 {
     case ichVtrEl2 = 58969
     case ichEisrEl2 = 58971
     case ichElsrEl2 = 58973
-    static let dbgdtrtxEl0 = 38952
+    public static let dbgdtrtxEl0 = 38952
     case oslarEl1 = 32900
     case pmswincEl0 = 56548
     case trcoslar = 34948
@@ -618,10 +618,10 @@ public enum Arm64Reg: UInt16 {
     case v30 = 258
     case v31 = 259
     case ending = 260
-    static let ip0 = 215
-    static let ip1 = 216
-    static let fp = 1
-    static let lr = 2
+    public static let ip0 = 215
+    public static let ip1 = 216
+    public static let fp = 1
+    public static let lr = 2
 
 }
 

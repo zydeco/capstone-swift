@@ -129,8 +129,8 @@ public enum Tms320c64xReg: UInt16 {
     case b31 = 88
     case pce1 = 89
     case ending = 90
-    static let efr = 5
-    static let ifr = 14
+    public static let efr = 5
+    public static let ifr = 14
 
 }
 

@@ -453,7 +453,7 @@ public enum X86Prefix: UInt32 {
     /// rep (cs_x86.prefix[0]
     case rep = 243
     /// repe/repz (cs_x86.prefix[0]
-    static let repe = 243
+    public static let repe = 243
     /// repne/repnz (cs_x86.prefix[0]
     case repne = 242
     /// segment override CS (cs_x86.prefix[1]

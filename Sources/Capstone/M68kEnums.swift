@@ -125,13 +125,13 @@ public enum M68kOp: UInt32 {
     case brDisp = 8
 
     /// = CS_OP_INVALID (Uninitialized).
-    static let brDispSizeInvalid = 0
+    public static let brDispSizeInvalid = 0
     /// signed 8-bit displacement
-    static let brDispSizeByte = 1
+    public static let brDispSizeByte = 1
     /// signed 16-bit displacement
-    static let brDispSizeWord = 2
+    public static let brDispSizeWord = 2
     /// signed 32-bit displacement
-    static let brDispSizeLong = 4
+    public static let brDispSizeLong = 4
 
 }
 

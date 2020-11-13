@@ -390,13 +390,13 @@ public enum ArmReg: UInt16 {
     case s30 = 109
     case s31 = 110
     case ending = 111
-    static let r13 = 12
-    static let r14 = 10
-    static let r15 = 11
-    static let sb = 75
-    static let sl = 76
-    static let fp = 77
-    static let ip = 78
+    public static let r13 = 12
+    public static let r14 = 10
+    public static let r15 = 11
+    public static let sb = 75
+    public static let sl = 76
+    public static let fp = 77
+    public static let ip = 78
 
 }
 

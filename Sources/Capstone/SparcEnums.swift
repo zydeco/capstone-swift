@@ -189,8 +189,8 @@ public enum SparcReg: UInt16 {
     case y = 86
     case xcc = 87
     case ending = 88
-    static let o6 = 85
-    static let i6 = 53
+    public static let o6 = 85
+    public static let i6 = 53
 
 }
 
