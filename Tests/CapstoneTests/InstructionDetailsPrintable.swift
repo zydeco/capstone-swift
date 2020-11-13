@@ -57,6 +57,13 @@ fileprivate func printInstructionValue<T: FixedWidthInteger>(_ name: String, val
     print("\t\(name): \(value)")
 }
 
+fileprivate func printInstructionValue<T: FixedWidthInteger>(_ name: String, hex value: T?) {
+    guard let value = value else {
+        return
+    }
+    print("\t\(name): 0x\(hex(value))")
+}
+
 extension ArmInstruction: InstructionDetailsPrintable {
     func printInstructionDetails(cs: Capstone) {
         printInstructionBase()
@@ -289,6 +296,125 @@ extension PowerPCInstruction: InstructionDetailsPrintable {
         printInstructionValue("Branch code", value: branchCode)
         printInstructionValue("Branch hint", value: branchHint)
         printInstructionValue("Update-CR0", value: updatesCR0)
+        
+        print()
+    }
+}
+
+extension X86Instruction: InstructionDetailsPrintable {
+    var formattedPrefix: String {
+        // prefix formatted as 4 hex bytes
+        String(format: "0x%02x 0x%02x 0x%02x 0x%02x ",
+               prefix.first(where: { (X86Prefix.lock.rawValue...X86Prefix.rep.rawValue).contains($0.rawValue) })?.rawValue ?? 0,
+               prefix.first(where: { (X86Prefix.cs.rawValue...X86Prefix.gs.rawValue).contains($0.rawValue) })?.rawValue ?? 0,
+               prefix.contains(.opsize) ? X86Prefix.opsize.rawValue : 0,
+               prefix.contains(.addrsize) ? X86Prefix.addrsize.rawValue : 0)
+    }
+    
+    var formattedOpcode: String {
+        // opcode formatted as 4 hex bytes
+        var bytes = Array(repeating: UInt8(0), count: 4)
+        bytes.replaceSubrange(0..<opcode.count, with: opcode)
+        return String(format: "0x%02x 0x%02x 0x%02x 0x%02x ", bytes[0], bytes[1], bytes[2], bytes[3])
+    }
+    
+    func printInstructionDetails(cs: Capstone) {
+        printInstructionBase()
+        guard hasDetail else {
+            return
+        }
+        
+        let registerName = { (reg: X86Reg) -> String in
+            cs.name(ofRegister: reg.rawValue)!
+        }
+        
+        print("\tPrefix:\(formattedPrefix)")
+        print("\tOpcode:\(formattedOpcode)")
+        printInstructionValue("rex", hex: rex ?? 0) // match C test output
+        printInstructionValue("addr_size", value: addressSize)
+        printInstructionValue("modrm", hex: modRM)
+        printInstructionValue("modrm_offset", hex: encoding.modRMOffset)
+        printInstructionValue("disp", hex: displacement ?? 0) // match C test output
+        if let disp = encoding.displacement {
+            printInstructionValue("disp_offset", hex: disp.offset)
+            printInstructionValue("disp_size", hex: disp.size)
+        }
+        
+        if let sib = sib {
+            printInstructionValue("sib", hex: sib.value)
+            print("\t\tsib_base: \(registerName(sib.base))")
+            print("\t\tsib_index: \(registerName(sib.index))")
+            print("\t\tsib_scale: \(sib.scale)")
+        }
+        
+        printInstructionValue("xop_cc", value: xopConditionCode)
+        printInstructionValue("sse_cc", value: sseConditionCode)
+        printInstructionValue("avx_cc", value: avxConditionCode)
+        if avxSuppressAllException {
+            printInstructionValue("avx_sae", value: 1)
+        }
+        printInstructionValue("avx_rm", value: avxStaticRoundingMode)
+        
+        // Print out all immediate operands
+        let imms = operands.filter({ $0.type == .imm })
+        if !imms.isEmpty {
+            printInstructionValue("imm_count", value: imms.count)
+        }
+        for (i, imm) in imms.enumerated() {
+            print("\t\timms[\(i+1)]: 0x\(hex(imm.immediateValue))")
+            if let enc = encoding.immediate {
+                printInstructionValue("imm_offset", hex: enc.offset)
+                printInstructionValue("imm_size", hex: enc.size)
+            }
+        }
+        
+        if operands.count > 0 {
+            print("\top_count: \(operands.count)")
+        }
+        
+        // Print out all operands
+        for (i, op) in operands.enumerated() {
+            switch op.type {
+            case .invalid:
+                fatalError("Invalid operand")
+            case .reg:
+                print("\t\toperands[\(i)].type: REG = \(registerName(op.register))")
+            case .imm:
+                print("\t\toperands[\(i)].type: IMM = 0x\(hex(op.immediateValue))")
+            case .mem:
+                print("\t\toperands[\(i)].type: MEM")
+                if let segment = op.memory.segment {
+                    print("\t\t\toperands[\(i)].mem.segment: REG = \(registerName(segment))")
+                }
+                if let base = op.memory.base {
+                    print("\t\t\toperands[\(i)].mem.base: REG = \(registerName(base))")
+                }
+                if let index = op.memory.index {
+                    print("\t\t\toperands[\(i)].mem.index: REG = \(registerName(index))")
+                }
+                if op.memory.scale != 1 {
+                    print("\t\t\toperands[\(i)].mem.scale: \(op.memory.scale)")
+                }
+                if op.memory.displacement != 0 {
+                    print("\t\t\toperands[\(i)].mem.disp: 0x\(hex(op.memory.displacement))")
+                }
+            }
+            
+            printInstructionValue("\toperands[\(i)].avx_bcast", value: op.avxBroadcastType)
+            if op.avxZeroOpmask {
+                print("\t\toperands[\(i)].avx_zero_opmask: TRUE")
+            }
+            printInstructionValue("\toperands[\(i)].size", value: op.size)
+            printOperandAccess(index: i, access: op.access)
+        }
+        
+        printRegisters(registerNamesAccessed)
+        
+        if let flags = eFlags, !flags.isEmpty {
+            print("\tEFLAGS: \(flags)")
+        } else if let flags = fpuFlags, !flags.isEmpty {
+            print("\tFPU_FLAGS: \(flags)")
+        }
         
         print()
     }

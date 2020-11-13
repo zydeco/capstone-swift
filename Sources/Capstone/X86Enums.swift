@@ -249,89 +249,95 @@ public enum X86Reg: UInt16 {
     case ending = 242
 }
 
-public enum X86Eflags: UInt64 {
-    case modifyAf = 1
-    case modifyCf = 2
-    case modifySf = 4
-    case modifyZf = 8
-    case modifyPf = 16
-    case modifyOf = 32
-    case modifyTf = 64
-    case modifyIf = 128
-    case modifyDf = 256
-    case modifyNt = 512
-    case modifyRf = 1024
-    case priorOf = 2048
-    case priorSf = 4096
-    case priorZf = 8192
-    case priorAf = 16384
-    case priorPf = 32768
-    case priorCf = 65536
-    case priorTf = 131072
-    case priorIf = 262144
-    case priorDf = 524288
-    case priorNt = 1048576
-    case resetOf = 2097152
-    case resetCf = 4194304
-    case resetDf = 8388608
-    case resetIf = 16777216
-    case resetSf = 33554432
-    case resetAf = 67108864
-    case resetTf = 134217728
-    case resetNt = 268435456
-    case resetPf = 536870912
-    case setCf = 1073741824
-    case setDf = 2147483648
-    case setIf = 4294967296
-    case testOf = 8589934592
-    case testSf = 17179869184
-    case testZf = 34359738368
-    case testPf = 68719476736
-    case testCf = 137438953472
-    case testNt = 274877906944
-    case testDf = 549755813888
-    case undefinedOf = 1099511627776
-    case undefinedSf = 2199023255552
-    case undefinedZf = 4398046511104
-    case undefinedPf = 8796093022208
-    case undefinedAf = 17592186044416
-    case undefinedCf = 35184372088832
-    case resetRf = 70368744177664
-    case testRf = 140737488355328
-    case testIf = 281474976710656
-    case testTf = 562949953421312
-    case testAf = 1125899906842624
-    case resetZf = 2251799813685248
-    case setOf = 4503599627370496
-    case setSf = 9007199254740992
-    case setZf = 18014398509481984
-    case setAf = 36028797018963968
-    case setPf = 72057594037927936
-    case reset0f = 144115188075855872
-    case resetAc = 288230376151711744
+public struct X86Eflags: OptionSet {
+    public typealias RawValue = UInt64
+    public let rawValue: RawValue
+    public init(rawValue: RawValue) { self.rawValue = rawValue }
+    public static let modifyAf = X86Eflags(rawValue: 1<<0)
+    public static let modifyCf = X86Eflags(rawValue: 1<<1)
+    public static let modifySf = X86Eflags(rawValue: 1<<2)
+    public static let modifyZf = X86Eflags(rawValue: 1<<3)
+    public static let modifyPf = X86Eflags(rawValue: 1<<4)
+    public static let modifyOf = X86Eflags(rawValue: 1<<5)
+    public static let modifyTf = X86Eflags(rawValue: 1<<6)
+    public static let modifyIf = X86Eflags(rawValue: 1<<7)
+    public static let modifyDf = X86Eflags(rawValue: 1<<8)
+    public static let modifyNt = X86Eflags(rawValue: 1<<9)
+    public static let modifyRf = X86Eflags(rawValue: 1<<10)
+    public static let priorOf = X86Eflags(rawValue: 1<<11)
+    public static let priorSf = X86Eflags(rawValue: 1<<12)
+    public static let priorZf = X86Eflags(rawValue: 1<<13)
+    public static let priorAf = X86Eflags(rawValue: 1<<14)
+    public static let priorPf = X86Eflags(rawValue: 1<<15)
+    public static let priorCf = X86Eflags(rawValue: 1<<16)
+    public static let priorTf = X86Eflags(rawValue: 1<<17)
+    public static let priorIf = X86Eflags(rawValue: 1<<18)
+    public static let priorDf = X86Eflags(rawValue: 1<<19)
+    public static let priorNt = X86Eflags(rawValue: 1<<20)
+    public static let resetOf = X86Eflags(rawValue: 1<<21)
+    public static let resetCf = X86Eflags(rawValue: 1<<22)
+    public static let resetDf = X86Eflags(rawValue: 1<<23)
+    public static let resetIf = X86Eflags(rawValue: 1<<24)
+    public static let resetSf = X86Eflags(rawValue: 1<<25)
+    public static let resetAf = X86Eflags(rawValue: 1<<26)
+    public static let resetTf = X86Eflags(rawValue: 1<<27)
+    public static let resetNt = X86Eflags(rawValue: 1<<28)
+    public static let resetPf = X86Eflags(rawValue: 1<<29)
+    public static let setCf = X86Eflags(rawValue: 1<<30)
+    public static let setDf = X86Eflags(rawValue: 1<<31)
+    public static let setIf = X86Eflags(rawValue: 1<<32)
+    public static let testOf = X86Eflags(rawValue: 1<<33)
+    public static let testSf = X86Eflags(rawValue: 1<<34)
+    public static let testZf = X86Eflags(rawValue: 1<<35)
+    public static let testPf = X86Eflags(rawValue: 1<<36)
+    public static let testCf = X86Eflags(rawValue: 1<<37)
+    public static let testNt = X86Eflags(rawValue: 1<<38)
+    public static let testDf = X86Eflags(rawValue: 1<<39)
+    public static let undefinedOf = X86Eflags(rawValue: 1<<40)
+    public static let undefinedSf = X86Eflags(rawValue: 1<<41)
+    public static let undefinedZf = X86Eflags(rawValue: 1<<42)
+    public static let undefinedPf = X86Eflags(rawValue: 1<<43)
+    public static let undefinedAf = X86Eflags(rawValue: 1<<44)
+    public static let undefinedCf = X86Eflags(rawValue: 1<<45)
+    public static let resetRf = X86Eflags(rawValue: 1<<46)
+    public static let testRf = X86Eflags(rawValue: 1<<47)
+    public static let testIf = X86Eflags(rawValue: 1<<48)
+    public static let testTf = X86Eflags(rawValue: 1<<49)
+    public static let testAf = X86Eflags(rawValue: 1<<50)
+    public static let resetZf = X86Eflags(rawValue: 1<<51)
+    public static let setOf = X86Eflags(rawValue: 1<<52)
+    public static let setSf = X86Eflags(rawValue: 1<<53)
+    public static let setZf = X86Eflags(rawValue: 1<<54)
+    public static let setAf = X86Eflags(rawValue: 1<<55)
+    public static let setPf = X86Eflags(rawValue: 1<<56)
+    public static let reset0f = X86Eflags(rawValue: 1<<57)
+    public static let resetAc = X86Eflags(rawValue: 1<<58)
 }
 
-public enum X86Fpu: UInt32 {
-    case flagsModifyC0 = 1
-    case flagsModifyC1 = 2
-    case flagsModifyC2 = 4
-    case flagsModifyC3 = 8
-    case flagsResetC0 = 16
-    case flagsResetC1 = 32
-    case flagsResetC2 = 64
-    case flagsResetC3 = 128
-    case flagsSetC0 = 256
-    case flagsSetC1 = 512
-    case flagsSetC2 = 1024
-    case flagsSetC3 = 2048
-    case flagsUndefinedC0 = 4096
-    case flagsUndefinedC1 = 8192
-    case flagsUndefinedC2 = 16384
-    case flagsUndefinedC3 = 32768
-    case flagsTestC0 = 65536
-    case flagsTestC1 = 131072
-    case flagsTestC2 = 262144
-    case flagsTestC3 = 524288
+public struct X86FpuFlags: OptionSet {
+    public typealias RawValue = UInt64
+    public let rawValue: RawValue
+    public init(rawValue: RawValue) { self.rawValue = rawValue }
+    public static let modifyC0 = X86FpuFlags(rawValue: 1<<0)
+    public static let modifyC1 = X86FpuFlags(rawValue: 1<<1)
+    public static let modifyC2 = X86FpuFlags(rawValue: 1<<2)
+    public static let modifyC3 = X86FpuFlags(rawValue: 1<<3)
+    public static let resetC0 = X86FpuFlags(rawValue: 1<<4)
+    public static let resetC1 = X86FpuFlags(rawValue: 1<<5)
+    public static let resetC2 = X86FpuFlags(rawValue: 1<<6)
+    public static let resetC3 = X86FpuFlags(rawValue: 1<<7)
+    public static let setC0 = X86FpuFlags(rawValue: 1<<8)
+    public static let setC1 = X86FpuFlags(rawValue: 1<<9)
+    public static let setC2 = X86FpuFlags(rawValue: 1<<10)
+    public static let setC3 = X86FpuFlags(rawValue: 1<<11)
+    public static let undefinedC0 = X86FpuFlags(rawValue: 1<<12)
+    public static let undefinedC1 = X86FpuFlags(rawValue: 1<<13)
+    public static let undefinedC2 = X86FpuFlags(rawValue: 1<<14)
+    public static let undefinedC3 = X86FpuFlags(rawValue: 1<<15)
+    public static let testC0 = X86FpuFlags(rawValue: 1<<16)
+    public static let testC1 = X86FpuFlags(rawValue: 1<<17)
+    public static let testC2 = X86FpuFlags(rawValue: 1<<18)
+    public static let testC3 = X86FpuFlags(rawValue: 1<<19)
 
 }
 
@@ -433,17 +439,17 @@ public enum X86AvxCc: UInt32 {
 }
 
 /// AVX static rounding mode type
-public enum X86Avx: UInt32 {
+public enum X86AvxRm: UInt32 {
     /// Uninitialized.
-    case rmInvalid = 0
+    case invalid = 0
     /// Round to nearest
-    case rmRn = 1
+    case rn = 1
     /// Round down
-    case rmRd = 2
+    case rd = 2
     /// Round up
-    case rmRu = 3
+    case ru = 3
     /// Round toward zero
-    case rmRz = 4
+    case rz = 4
 }
 
 /// Instruction prefixes - to be used in cs_x86.prefix[]

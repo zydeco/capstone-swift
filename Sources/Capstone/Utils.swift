@@ -29,3 +29,10 @@
 @inlinable internal func optionalEnumCast<T: RawRepresentable, U: RawRepresentable>(_ x: T?, ignoring invalidValues: T...) -> U? where T.RawValue : BinaryInteger, U.RawValue : BinaryInteger {
     return optionalEnumCast(x?.rawValue, ignoring: invalidValues.map({ $0.rawValue }))
 }
+
+@inlinable internal func nonZero<T: BinaryInteger>(_ x: T?) -> T? {
+    guard let value = x, value != 0 else {
+        return nil
+    }
+    return value
+}
