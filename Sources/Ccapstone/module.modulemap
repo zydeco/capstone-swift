@@ -1,4 +1,4 @@
-module Ccapstone [system] {
+module Ccapstone {
     umbrella header "swift_capstone.h"
     link "capstone"
 }
