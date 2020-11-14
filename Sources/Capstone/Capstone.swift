@@ -90,12 +90,19 @@ public class Capstone {
         return String(cString: namePtr)
     }
     
-    /// Returns friendly name of a register in a string.
-    public func name(ofRegister id: UInt16) -> String? {
+    func name(ofRegister id: UInt16) -> String? {
         guard let namePtr = cs_reg_name(handle, numericCast(id)) else {
             return nil
         }
         return String(cString: namePtr)
+    }
+    
+    /// Returns friendly name of a register in a string.
+    public func name<T: RawRepresentable>(ofRegister id: T) -> String? where T.RawValue == UInt16 {
+        guard instructionType.RegisterType == T.self else {
+            return nil
+        }
+        return name(ofRegister: id.rawValue)
     }
 }
 

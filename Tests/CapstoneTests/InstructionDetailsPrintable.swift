@@ -72,7 +72,7 @@ extension ArmInstruction: InstructionDetailsPrintable {
         }
         
         let registerName = { (reg: ArmReg) -> String in
-            cs.name(ofRegister: reg.rawValue)!
+            cs.name(ofRegister: reg)!
         }
         
         if operands.count > 0 {
@@ -175,7 +175,7 @@ extension Arm64Instruction: InstructionDetailsPrintable {
         }
         
         let registerName = { (reg: Arm64Reg) -> String in
-            cs.name(ofRegister: reg.rawValue)!
+            cs.name(ofRegister: reg)!
         }
 
         if operands.count > 0 {
@@ -262,7 +262,7 @@ extension PowerPCInstruction: InstructionDetailsPrintable {
         }
         
         let registerName = { (reg: PpcReg) -> String in
-            cs.name(ofRegister: reg.rawValue)!
+            cs.name(ofRegister: reg)!
         }
 
         if operands.count > 0 {
@@ -325,7 +325,7 @@ extension X86Instruction: InstructionDetailsPrintable {
         }
         
         let registerName = { (reg: X86Reg) -> String in
-            cs.name(ofRegister: reg.rawValue)!
+            cs.name(ofRegister: reg)!
         }
         
         print("\tPrefix:\(formattedPrefix)")

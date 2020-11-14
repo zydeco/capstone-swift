@@ -5,6 +5,7 @@ public class Instruction: CustomStringConvertible {
     let mgr: InstructionMemoryManager
     let index: Int
     var insn: cs_insn { mgr.insns[index] }
+    public class var RegisterType: Any.Type? { nil }
     
     internal required init(_ mgr: InstructionMemoryManager, index: Int) {
         self.mgr = mgr
@@ -97,4 +98,6 @@ public class PlatformInstruction<
     InsType.RawValue == UInt32,
     GroupType.RawValue == UInt8,
     RegType.RawValue == UInt16
-{}
+{
+    override public class var RegisterType: Any.Type? { RegType.self }
+}
