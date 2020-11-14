@@ -85,11 +85,19 @@ extension Instruction {
         var regsReadCount = UInt8(0)
         var regsWrittenCount = UInt8(0)
         let err = withUnsafePointer(to: insn, { cs_regs_access(mgr.cs.handle, $0, &regsRead, &regsReadCount, &regsWritten, &regsWrittenCount) })
-        guard err == CS_ERR_OK else {
+        if err == CS_ERR_ARCH && hasDetail {
+            // fallback to implicit regs in detail
+            let detail = insn.detail.pointee
+            regsRead = readDetailsArray(array: detail.regs_read, size: detail.regs_read_count)
+            regsWritten = readDetailsArray(array: detail.regs_write, size: detail.regs_write_count)
+        } else if err != CS_ERR_OK {
+            // other error
             throw CapstoneError(err)
+        } else {
+            // remove unused values
+            regsRead.removeLast(64 - numericCast(regsReadCount))
+            regsWritten.removeLast(64 - numericCast(regsWrittenCount))
         }
-        regsRead.removeLast(64 - numericCast(regsReadCount))
-        regsWritten.removeLast(64 - numericCast(regsWrittenCount))
         return (read: regsRead, written: regsWritten)
     }
 }
