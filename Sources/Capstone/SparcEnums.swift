@@ -73,15 +73,16 @@ public enum SparcCc: UInt32 {
 }
 
 /// Branch hint
-public enum SparcHint: UInt32 {
-    /// no hint
-    case invalid = 0
+public struct SparcHint: OptionSet {
+    public typealias RawValue = UInt32
+    public let rawValue: RawValue
+    public init(rawValue: RawValue) { self.rawValue = rawValue }
     /// annul delay slot instruction
-    case a = 1
+    public static let a = SparcHint(rawValue: 1<<0)
     /// branch taken
-    case pt = 2
+    public static let pt = SparcHint(rawValue: 1<<1)
     /// branch NOT taken
-    case pn = 4
+    public static let pn = SparcHint(rawValue: 1<<2)
 
 }
 

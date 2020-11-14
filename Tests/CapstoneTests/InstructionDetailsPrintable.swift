@@ -490,3 +490,47 @@ extension M68kInstruction: InstructionDetailsPrintable {
         print()
     }
 }
+
+extension SparcInstruction: InstructionDetailsPrintable {
+    func printInstructionDetails(cs: Capstone) {
+        printInstructionBase()
+        guard hasDetail else {
+            return
+        }
+        
+        let registerName = { (reg: SparcReg) -> String in
+            cs.name(ofRegister: reg)!
+        }
+        
+        if operands.count > 0 {
+            print("\top_count: \(operands.count)")
+        }
+        
+        for (i, op) in operands.enumerated() {
+            switch op.type {
+            case .invalid:
+                fatalError("Invalid operand")
+            case .reg:
+                print("\t\toperands[\(i)].type: REG = \(registerName(op.register))")
+            case .imm:
+                print("\t\toperands[\(i)].type: IMM = 0x\(hex(op.immediateValue!))")
+            case .mem:
+                print("\t\toperands[\(i)].type: MEM")
+                let mem = op.memory!
+                print("\t\t\toperands[\(i)].mem.base: REG = \(registerName(mem.base))")
+                if let index = mem.index {
+                    print("\t\t\toperands[\(i)].mem.index: REG = \(registerName(index))")
+                }
+                if mem.displacement != 0 {
+                    print("\t\t\toperands[\(i)].mem.disp: 0x\(hex(mem.displacement))")
+                }
+            }
+        }
+        
+        printInstructionValue("Code condition", value: conditionCode)
+        if !hint.isEmpty {
+            printInstructionValue("Hint code", value: hint)
+        }
+        print()
+    }
+}
