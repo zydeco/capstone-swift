@@ -534,3 +534,21 @@ extension SparcInstruction: InstructionDetailsPrintable {
         print()
     }
 }
+
+extension EthereumInstruction: InstructionDetailsPrintable {
+    func printInstructionDetails(cs: Capstone) {
+        printInstructionBase()
+        guard hasDetail else {
+            return
+        }
+        
+        print("\tPop:     \(pop!)")
+        print("\tPush:    \(push!)")
+        print("\tGas fee: \(fee!)")
+        
+        if !groups.isEmpty {
+            print("\tGroups: \(groupNames.joined(separator: " ")) ")
+        }
+        print()
+    }
+}
