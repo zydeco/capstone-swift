@@ -84,10 +84,13 @@ public enum M680xOffset: UInt32 {
     case bits16 = 16
 }
 
-public enum M680xIdx: UInt32 {
-    case indirect = 1
-    case noComma = 2
-    case postIncDec = 4
+public struct M680xIdx: OptionSet {
+    public typealias RawValue = UInt8
+    public let rawValue: RawValue
+    public init(rawValue: RawValue) { self.rawValue = rawValue }
+    public static let indirect = M680xIdx(rawValue: 1)
+    public static let noComma = M680xIdx(rawValue: 2)
+    public static let postIncDec = M680xIdx(rawValue: 4)
 
 }
 
@@ -113,14 +116,12 @@ public enum M680xGrp: UInt8 {
 
 /// The first (register) operand is part of the
 /// instruction mnemonic
-public enum M680xFirst: UInt32 {
-    case opInMnem = 1
-}
-
-/// The second (register) operand is part of the
-/// instruction mnemonic
-public enum M680xSecond: UInt32 {
-    case opInMnem = 2
+public struct M680xOpFlags: OptionSet {
+    public typealias RawValue = UInt8
+    public let rawValue: RawValue
+    public init(rawValue: RawValue) { self.rawValue = rawValue }
+    public static let firstOpInMnem = M680xOpFlags(rawValue: 1)
+    public static let secondOpInMnem = M680xOpFlags(rawValue: 2)
 
 }
 

@@ -42,6 +42,14 @@ final class CapstoneTests: XCTestCase {
         try Tests.mipsTests.run(address: 0x1000)
     }
     
+    func testM680x() throws {
+        let options = PlatformTest.Options(
+            separator: "********************",
+            uppercaseHex: true,
+            printEndAddress: false)
+        try Tests.m680xTests.forEach({ try $0.run(address: 0x1000, options: options)})
+    }
+    
     static var allTests = [
         ("testArm", testArm),
         ("testArm64", testArm64),
@@ -51,6 +59,7 @@ final class CapstoneTests: XCTestCase {
         ("testSparc", testSparc),
         ("testEvm", testEvm),
         ("testMips", testMips),
+        ("testM680x", testM680x)
     ]
 }
 

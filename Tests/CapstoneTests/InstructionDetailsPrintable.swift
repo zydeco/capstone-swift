@@ -1,7 +1,23 @@
 import Capstone
+import Foundation
 
 protocol InstructionDetailsPrintable {
     func printInstructionDetails(cs: Capstone)
+}
+
+extension Access {
+    var testDescription: String {
+        switch self {
+        case .read:
+            return "READ"
+        case .write:
+            return "WRITE"
+        case [.read, .write]:
+            return "READ | WRITE"
+        default:
+            return "UNKNOWN(\(rawValue))"
+        }
+    }
 }
 
 extension Instruction {
@@ -10,16 +26,7 @@ extension Instruction {
     }
     
     func printOperandAccess(index i: Int, access: Access) {
-        switch access {
-        case .read:
-            print("\t\toperands[\(i)].access: READ")
-        case .write:
-            print("\t\toperands[\(i)].access: WRITE")
-        case [.read, .write]:
-            print("\t\toperands[\(i)].access: READ | WRITE")
-        default:
-            break
-        }
+        print("\t\toperands[\(i)].access: \(access.testDescription)")
     }
     
     func printRegisters(_ regs: (read: [String], written: [String])) {
@@ -32,11 +39,22 @@ extension Instruction {
     }
 }
 
-func hex<T: BinaryInteger>(_ n: T) -> String where T.Magnitude: FixedWidthInteger {
+func hex<T: BinaryInteger>(_ n: T, uppercase: Bool = false, digits: Int? = nil) -> String where T.Magnitude: FixedWidthInteger {
     if T.isSigned && n < 0 {
-        return hex(T.Magnitude(truncatingIfNeeded: n))
+        return hex(T.Magnitude(truncatingIfNeeded: n), uppercase: uppercase, digits: digits)
     }
-    return String(n, radix: 16)
+    var string = String(n, radix: 16)
+    if uppercase {
+        string = string.uppercased()
+    }
+    if let digits = digits, string.count < digits {
+        return String(repeating: "0", count: digits - string.count) + string
+    }
+    return string
+}
+
+func hex(_ data: Data) -> String {
+    return data.reduce("") { $0 + String(format: "%02x", $1) }
 }
 
 fileprivate func printInstructionValue<T: RawRepresentable>(_ name: String, value: T?) where T.RawValue: FixedWidthInteger {
@@ -586,6 +604,86 @@ extension MipsInstruction: InstructionDetailsPrintable {
             }
         }
         
+        print()
+    }
+}
+
+extension M680xInstruction: InstructionDetailsPrintable {
+    func printInstructionDetails(cs: Capstone) {
+        let hexString = hex(bytes).uppercased()
+        let hexAndSpaces = bytes.count <= 5 ?
+            hexString.padding(toLength: 11, withPad: " ", startingAt: 0) :
+            hexString + "         "
+        print("0x\(hex(address, uppercase: true, digits: 4)): \(hexAndSpaces)\(mnemonic.padding(toLength: 5, withPad: " ", startingAt: 0)) \(operandsString)")
+        
+        guard hasDetail else {
+            return
+        }
+        
+        let registerName = { (reg: M680xReg) -> String in
+            cs.name(ofRegister: reg)!
+        }
+        
+        if operands.count > 0 {
+            print("\top_count: \(operands.count)")
+        }
+
+        for (i, op) in operands.enumerated() {
+            switch op.type {
+            case .invalid:
+                fatalError("Invalid operand")
+            case .register:
+                let comment = op.isInMnemonic ? " (in mnemonic)" : ""
+                print("\t\toperands[\(i)].type: REGISTER = \(registerName(op.register))\(comment)")
+            case .constant:
+                print("\t\toperands[\(i)].type: CONSTANT = \(op.constantValue!)")
+            case .immediate:
+                print("\t\toperands[\(i)].type: IMMEDIATE = #\(op.immediateValue!)")
+            case .direct:
+                print("\t\toperands[\(i)].type: DIRECT = 0x\(hex(op.directAddress!, uppercase: true, digits: 2))")
+            case .extended:
+                let ext = op.extendedAddress!
+                print("\t\toperands[\(i)].type: EXTENDED \(ext.indirect ? "INDIRECT" : "") = 0x\(hex(ext.address, uppercase: true, digits: 4))")
+            case .relative:
+                print("\t\toperands[\(i)].type: RELATIVE = 0x\(hex(op.relativeAddress.address, uppercase: true, digits: 4))")
+            case .indexed:
+                let idx = op.indexedAddress!
+                print("\t\toperands[\(i)].type: INDEXED" + (idx.indirect ? " INDIRECT" : ""))
+                if let reg = idx.base {
+                    print("\t\t\tbase register: \(registerName(reg))")
+                }
+                if let reg = idx.offset.register {
+                    print("\t\t\toffset register: \(registerName(reg))")
+                }
+                if idx.offset.width != .none && idx.incDec == 0 {
+                    print("\t\t\toffset: \(idx.offset.value)")
+                    if idx.base == .pc {
+                        print("\t\t\toffset address: 0x\(hex(idx.offset.address, uppercase: true))")
+                    }
+                    print("\t\t\toffset bits: \(idx.offset.width.rawValue)")
+                }
+                if idx.incDec != 0 {
+                    let value = idx.incDec
+                    let postPre = idx.pre ? "pre" : "post"
+                    let incDec = value > 0 ? "increment" : "decrement"
+                    print("\t\t\t\(postPre) \(incDec): \(abs(value))")
+                }
+            }
+            
+            if op.size > 0 {
+                print("\t\t\tsize: \(op.size)")
+            }
+            
+            if !op.access.isEmpty {
+                print("\t\t\taccess: \(op.access.testDescription)")
+            }
+        }
+        
+        printRegisters(registerNamesAccessed)
+        
+        if !groups.isEmpty {
+            printInstructionValue("groups_count", value: groups.count)
+        }
         print()
     }
 }
