@@ -38,6 +38,10 @@ final class CapstoneTests: XCTestCase {
         try Tests.evmTests.run(address: 0x80001000)
     }
     
+    func testMips() throws {
+        try Tests.mipsTests.run(address: 0x1000)
+    }
+    
     static var allTests = [
         ("testArm", testArm),
         ("testArm64", testArm64),
@@ -46,6 +50,7 @@ final class CapstoneTests: XCTestCase {
         ("testM68k", testM68k),
         ("testSparc", testSparc),
         ("testEvm", testEvm),
+        ("testMips", testMips),
     ]
 }
 

@@ -24,6 +24,12 @@ struct Code {
     static let sparcCodeV9 = Data([0x81, 0xa8, 0x0a, 0x24, 0x89, 0xa0, 0x10, 0x20, 0x89, 0xa0, 0x1a, 0x60, 0x89, 0xa0, 0x00, 0xe0])
 
     static let evmCode = Data([0x60,0x61,0x50])
+    
+    static let mipsCode = Data([0x0C, 0x10, 0x00, 0x97, 0x00, 0x00, 0x00, 0x00, 0x24, 0x02, 0x00, 0x0c, 0x8f, 0xa2, 0x00, 0x00, 0x34, 0x21, 0x34, 0x56])
+    static let mipsCode2 = Data([0x56, 0x34, 0x21, 0x34, 0xc2, 0x17, 0x01, 0x00])
+    static let mipsCode32R6M = Data([0x00, 0x07, 0x00, 0x07, 0x00, 0x11, 0x93, 0x7c, 0x01, 0x8c, 0x8b, 0x7c, 0x00, 0xc7, 0x48, 0xd0])
+    static let mipsCode32R6 = Data([0xec, 0x80, 0x00, 0x19, 0x7c, 0x43, 0x22, 0xa0])
+    static let mipsCode64SD = Data([0x70, 0x00, 0xb2, 0xff])
 }
 
 struct Tests {
@@ -124,5 +130,39 @@ struct Tests {
             arch: .evm,
             mode: [],
             code: Code.evmCode)
+    ]
+    
+    static let mipsTests = [
+        PlatformTest(
+            name: "MIPS-32 (Big-endian)",
+            arch: .mips,
+            mode: [Mode.bits.b32, Mode.endian.big],
+            code: Code.mipsCode),
+        PlatformTest(
+            name: "MIPS-64-EL (Little-endian)",
+            arch: .mips,
+            mode: [Mode.bits.b64, Mode.endian.little],
+            code: Code.mipsCode2),
+        PlatformTest(
+            name: "MIPS-32R6 | Micro (Big-endian)",
+            arch: .mips,
+            mode: [Mode.mips.mips32r6, Mode.mips.micro, Mode.endian.big],
+            code: Code.mipsCode32R6M),
+        PlatformTest(
+            name: "MIPS-32R6 (Big-endian)",
+            arch: .mips,
+            mode: [Mode.mips.mips32r6, Mode.endian.big],
+            code: Code.mipsCode32R6),
+        PlatformTest(
+            name: "MIPS-64-EL + Mips II (Little-endian)",
+            arch: .mips,
+            mode: [Mode.bits.b64, Mode.mips.mips2, Mode.endian.little],
+            code: Code.mipsCode64SD),
+        PlatformTest(
+            name: "MIPS-64-EL (Little-endian)",
+            arch: .mips,
+            mode: [Mode.bits.b64, Mode.endian.little],
+            code: Code.mipsCode64SD),
+        
     ]
 }
