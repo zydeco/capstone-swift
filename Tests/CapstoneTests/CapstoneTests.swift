@@ -26,10 +26,15 @@ final class CapstoneTests: XCTestCase {
         try Tests.x86Tests.forEach({ try $0.run(address: 0x1000 )})
     }
     
+    func testM68k() throws {
+        try Tests.m68kTests.forEach({ try $0.run(address: 0x1000 )})
+    }
+    
     static var allTests = [
         ("testArm", testArm),
         ("testArm64", testArm64),
         ("testPpc", testPpc),
         ("testX86", testX86),
+        ("testM68k", testM68k),
     ]
 }

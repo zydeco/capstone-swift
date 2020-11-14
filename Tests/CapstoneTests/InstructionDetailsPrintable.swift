@@ -419,3 +419,74 @@ extension X86Instruction: InstructionDetailsPrintable {
         print()
     }
 }
+
+extension M68kInstruction: InstructionDetailsPrintable {
+    func printInstructionDetails(cs: Capstone) {
+        printInstructionBase()
+        guard hasDetail else {
+            return
+        }
+        
+        let registerName = { (reg: M68kReg) -> String in
+            cs.name(ofRegister: reg)!
+        }
+        
+        if operands.count > 0 {
+            print("\top_count: \(operands.count)")
+        }
+        
+        // print registers one in each line
+        let registers = registerNamesAccessed
+        for reg in registers.read {
+            print("\treading from reg: \(reg)")
+        }
+        for reg in registers.written {
+            print("\twriting to reg:   \(reg)")
+        }
+        
+        print("\tgroups_count: \(groups.count)")
+        
+        for (i, op) in operands.enumerated() {
+            switch op.type {
+            case .invalid:
+                fatalError("Invalid operand")
+            case .reg:
+                print("\t\toperands[\(i)].type: REG = \(registerName(op.register))")
+            case .imm:
+                let imm32 = UInt32(op.immediateValue! & 0xffffffff)
+                print("\t\toperands[\(i)].type: IMM = 0x\(hex(imm32))")
+            case .mem:
+                print("\t\toperands[\(i)].type: MEM")
+                let mem = op.memory!
+                if let base = mem.base {
+                    print("\t\t\toperands[\(i)].mem.base: REG = \(registerName(base))")
+                }
+                if let index = mem.index {
+                    print("\t\t\toperands[\(i)].mem.index: REG = \(registerName(index.register))")
+                    print("\t\t\toperands[\(i)].mem.index: size = \(String(describing:index.size).prefix(1))")
+                }
+                if mem.displacement != 0 {
+                    print("\t\t\toperands[\(i)].mem.disp: 0x\(hex(mem.displacement))")
+                }
+                if let scale = mem.index?.scale, scale != 0 {
+                    print("\t\t\toperands[\(i)].mem.scale: \(scale)")
+                }
+                print("\t\taddress mode: \(op.addressingMode)")
+            case .fpSingle:
+                print("\t\toperands[\(i)].type: FP_SINGLE")
+                print("\t\t\toperands[\(i)].simm: \(String(format: "%f", op.floatValue!))")
+            case .fpDouble:
+                print("\t\toperands[\(i)].type: FP_DOUBLE")
+                print("\t\t\toperands[\(i)].dimm: \(String(format: "%lf", op.doubleValue!))")
+            case .regBits:
+                print("\t\toperands[\(i)].type: REG_BITS = $\(hex(op.registerList.registerBits))")
+            case .regPair:
+                break
+            case .brDisp:
+                break
+            }
+        }
+        
+        print()
+    }
+}

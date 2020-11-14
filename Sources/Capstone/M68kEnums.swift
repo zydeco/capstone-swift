@@ -124,40 +124,44 @@ public enum M68kOp: UInt32 {
     /// Branch displacement
     case brDisp = 8
 
+}
+
+/// Operand type for instruction's operands
+public enum M68kOpBrDispSize: UInt32 {
     /// = CS_OP_INVALID (Uninitialized).
-    public static let brDispSizeInvalid = 0
+    case invalid = 0
     /// signed 8-bit displacement
-    public static let brDispSizeByte = 1
+    case byte = 1
     /// signed 16-bit displacement
-    public static let brDispSizeWord = 2
+    case word = 2
     /// signed 32-bit displacement
-    public static let brDispSizeLong = 4
+    case long = 4
 
 }
 
 /// Operation size of the CPU instructions
-public enum M68kCpu: UInt32 {
+public enum M68kCpuSize: UInt32 {
     /// unsized or unspecified
-    case sizeNone = 0
+    case none = 0
     /// 1 byte in size
-    case sizeByte = 1
+    case byte = 1
     /// 2 bytes in size
-    case sizeWord = 2
+    case word = 2
     /// 4 bytes in size
-    case sizeLong = 4
+    case long = 4
 
 }
 
 /// Operation size of the FPU instructions (Notice that FPU instruction can also use CPU sizes if needed)
-public enum M68kFpu: UInt32 {
+public enum M68kFpuSize: UInt32 {
     /// unsized like fsave/frestore
-    case sizeNone = 0
+    case none = 0
     /// 4 byte in size (single float)
-    case sizeSingle = 4
+    case single = 4
     /// 8 byte in size (double)
-    case sizeDouble = 8
+    case double = 8
     /// 12 byte in size (extended real format)
-    case sizeExtended = 12
+    case extended = 12
 
 }
 
