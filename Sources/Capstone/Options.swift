@@ -68,7 +68,7 @@ extension Capstone {
         case .skipDataEnabled(let enabled):
             err = cs_option(handle, CS_OPT_SKIPDATA, enabled.csOptValue)
         case .skipData(mnemonic: let mnemonic, callback: let callback):
-            updateMnemonicPointer(mnemonic: mnemonic)
+            updateMnemonicPointer(mnemonic: mnemonic ?? ".byte")
             skipDataCallback = callback
             let cb: cs_skipdata_cb_t!
             if callback == nil {
