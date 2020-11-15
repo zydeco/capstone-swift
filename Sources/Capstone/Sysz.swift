@@ -19,8 +19,10 @@ extension SystemZInstruction: OperandContainer {
             switch type {
             case .imm:
                 return immediateValue
-            case .reg, .acreg:
+            case .reg:
                 return register
+            case .acreg:
+                return accessRegister
             case .mem:
                 return memory
             default:
@@ -30,10 +32,15 @@ extension SystemZInstruction: OperandContainer {
         
         /// Register value for register operand
         public var register: SyszReg! {
-            guard type == .reg || type == .acreg else {
+            guard type == .reg else {
                 return nil
             }
             return enumCast(op.reg)
+        }
+        
+        /// Access register for acreg operand
+        public var accessRegister: UInt8! {
+            return numericCast(op.reg.rawValue)
         }
         
         /// Immediate value for immediate operand
@@ -70,6 +77,7 @@ extension SystemZInstruction: OperandContainer {
 public protocol SyszOperandValue {}
 extension SyszReg: SyszOperandValue {}
 extension Int64: SyszOperandValue {}
+extension UInt8: SyszOperandValue {}
 extension SystemZInstruction.Operand.Memory: SyszOperandValue {}
 
 extension SyszIns: InstructionType {}

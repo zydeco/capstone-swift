@@ -27,8 +27,6 @@ public enum Architecture: UInt32 {
     case m680x
     /// Ethereum architecture
     case evm
-    /// MOS65XX architecture (including MOS6502)
-    case mos65xx
 }
 
 /// ARM Instruction
@@ -67,9 +65,6 @@ public class M680xInstruction: PlatformInstruction<M680xIns, M680xGrp, M680xReg>
 /// Ethereum Instruction
 public class EthereumInstruction: PlatformInstruction_IG<EvmIns, EvmGrp> {}
 
-/// MOS65XX Instruction
-public class Mos65xxInstruction: PlatformInstruction<Mos65xxIns, Mos65xxGrp, Mos65xxReg> {}
-
 public extension Architecture {
     /// The class for instructions used for this architecture
     /// `Instruction` is always a valid type
@@ -99,8 +94,6 @@ public extension Architecture {
             return M680xInstruction.self
         case .evm:
             return EthereumInstruction.self
-        case .mos65xx:
-            return Mos65xxInstruction.self
         }
     }
     

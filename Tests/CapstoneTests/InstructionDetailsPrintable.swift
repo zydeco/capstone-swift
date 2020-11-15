@@ -26,6 +26,9 @@ extension Instruction {
     }
     
     func printOperandAccess(index i: Int, access: Access) {
+        guard !access.isEmpty else {
+            return
+        }
         print("\t\toperands[\(i)].access: \(access.testDescription)")
     }
     
@@ -499,7 +502,8 @@ extension M68kInstruction: InstructionDetailsPrintable {
             case .regBits:
                 print("\t\toperands[\(i)].type: REG_BITS = $\(hex(op.registerList.registerBits))")
             case .regPair:
-                break
+                let regs = op.registerPair!
+                print("\t\toperands[\(i)].type: REG_PAIR = (\(registerName(regs[0])), \(registerName(regs[1])))")
             case .brDisp:
                 break
             }
@@ -610,11 +614,11 @@ extension MipsInstruction: InstructionDetailsPrintable {
 
 extension M680xInstruction: InstructionDetailsPrintable {
     func printInstructionDetails(cs: Capstone) {
-        let hexString = hex(bytes).uppercased()
+        let hexString = hex(bytes)
         let hexAndSpaces = bytes.count <= 5 ?
             hexString.padding(toLength: 11, withPad: " ", startingAt: 0) :
             hexString + "         "
-        print("0x\(hex(address, uppercase: true, digits: 4)): \(hexAndSpaces)\(mnemonic.padding(toLength: 5, withPad: " ", startingAt: 0)) \(operandsString)")
+        print("0x\(hex(address, uppercase: false, digits: 4)): \(hexAndSpaces)\(mnemonic.padding(toLength: 5, withPad: " ", startingAt: 0)) \(operandsString)")
         
         guard hasDetail else {
             return
@@ -640,12 +644,12 @@ extension M680xInstruction: InstructionDetailsPrintable {
             case .immediate:
                 print("\t\toperands[\(i)].type: IMMEDIATE = #\(op.immediateValue!)")
             case .direct:
-                print("\t\toperands[\(i)].type: DIRECT = 0x\(hex(op.directAddress!, uppercase: true, digits: 2))")
+                print("\t\toperands[\(i)].type: DIRECT = 0x\(hex(op.directAddress!, digits: 2))")
             case .extended:
                 let ext = op.extendedAddress!
-                print("\t\toperands[\(i)].type: EXTENDED \(ext.indirect ? "INDIRECT" : "") = 0x\(hex(ext.address, uppercase: true, digits: 4))")
+                print("\t\toperands[\(i)].type: EXTENDED \(ext.indirect ? "INDIRECT" : "") = 0x\(hex(ext.address, digits: 4))")
             case .relative:
-                print("\t\toperands[\(i)].type: RELATIVE = 0x\(hex(op.relativeAddress.address, uppercase: true, digits: 4))")
+                print("\t\toperands[\(i)].type: RELATIVE = 0x\(hex(op.relativeAddress.address, digits: 4))")
             case .indexed:
                 let idx = op.indexedAddress!
                 print("\t\toperands[\(i)].type: INDEXED" + (idx.indirect ? " INDIRECT" : ""))
@@ -658,7 +662,7 @@ extension M680xInstruction: InstructionDetailsPrintable {
                 if idx.offset.width != .none && idx.incDec == 0 {
                     print("\t\t\toffset: \(idx.offset.value)")
                     if idx.base == .pc {
-                        print("\t\t\toffset address: 0x\(hex(idx.offset.address, uppercase: true))")
+                        print("\t\t\toffset address: 0x\(hex(idx.offset.address))")
                     }
                     print("\t\t\toffset bits: \(idx.offset.width.rawValue)")
                 }
@@ -710,7 +714,7 @@ extension SystemZInstruction: InstructionDetailsPrintable {
             case .reg:
                 print("\t\toperands[\(i)].type: REG = \(registerName(op.register))")
             case .acreg:
-                print("\t\toperands[\(i)].type: ACREG = \(registerName(op.register))")
+                print("\t\toperands[\(i)].type: ACREG = \(op.accessRegister!)")
             case .imm:
                 print("\t\toperands[\(i)].type: IMM = 0x\(hex(op.immediateValue!))")
             case .mem:

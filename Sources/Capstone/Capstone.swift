@@ -27,12 +27,12 @@ public class Capstone {
     ///  * parameter mode: combination of `Mode` values - some are architecture-specific
     /// Throws on invalid combinatins of  arch and mode, or if the version of the capstone library isn't supported by the Swift bindings
     public init(arch: Architecture, mode: Mode = []) throws {
-        guard CS_VERSION_MAJOR == 5, Capstone.version.major == 5 else {
+        guard CS_VERSION_MAJOR == 4, Capstone.version.major == CS_VERSION_MAJOR else {
             throw CapstoneError.unsupportedVersion
         }
         
         var h: csh = 0
-        let err = cs_open(cs_arch(arch.rawValue), cs_mode(mode.rawValue), &h)
+        let err = cs_open(cs_arch(arch.rawValue), cs_mode(Int32(bitPattern: mode.rawValue)), &h)
         guard err == CS_ERR_OK else {
             throw CapstoneError(err)
         }

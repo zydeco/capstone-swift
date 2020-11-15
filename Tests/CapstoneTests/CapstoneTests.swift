@@ -99,7 +99,7 @@ final class CapstoneTests: XCTestCase {
     func testM680x() throws {
         let options = PlatformTest.Options(
             separator: "********************",
-            uppercaseHex: true,
+            uppercaseHex: false,
             printEndAddress: false,
             capstoneOptions: [.detail(value: true)])
         try Tests.m680xTests.forEach({ try $0.run(address: 0x1000, options: options)})
