@@ -384,3 +384,5 @@ extension X86FpuFlags: CustomStringConvertible {
         flagNames.joined(separator: " ")
     }
 }
+
+extension X86Ins: InstructionType {}

@@ -212,3 +212,4 @@ extension ArmOp {
     }
 }
 
+extension ArmIns: InstructionType {}

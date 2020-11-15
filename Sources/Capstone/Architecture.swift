@@ -103,4 +103,19 @@ public extension Architecture {
             return Mos65xxInstruction.self
         }
     }
+    
+    /// The type for registers used in this architecture, if any
+    var registerType: Any.Type? {
+        instructionClass.RegisterType
+    }
+    
+    /// The type for instructions used in this architecture
+    var instructionType: InstructionType.Type {
+        instructionClass.InstructionType
+    }
+}
+
+public protocol InstructionType {
+    var rawValue: UInt32 { get }
+    init?(rawValue: UInt32)
 }

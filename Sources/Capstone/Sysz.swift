@@ -71,3 +71,5 @@ public protocol SyszOperandValue {}
 extension SyszReg: SyszOperandValue {}
 extension Int64: SyszOperandValue {}
 extension SystemZInstruction.Operand.Memory: SyszOperandValue {}
+
+extension SyszIns: InstructionType {}

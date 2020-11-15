@@ -93,3 +93,5 @@ extension PpcReg: PpcOperandValue {}
 extension Int64: PpcOperandValue {}
 extension PowerPCInstruction.Operand.Memory: PpcOperandValue {}
 extension PowerPCInstruction.Operand.Condition: PpcOperandValue {}
+
+extension PpcIns: InstructionType {}

@@ -260,3 +260,5 @@ extension M68kAm: CustomStringConvertible {
         }
     }
 }
+
+extension M68kIns: InstructionType {}

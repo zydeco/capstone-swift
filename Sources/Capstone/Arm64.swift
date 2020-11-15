@@ -223,3 +223,5 @@ extension Arm64Ic: Arm64OperandValue {}
 extension Arm64Dc: Arm64OperandValue {}
 extension Arm64At: Arm64OperandValue {}
 extension Arm64Tlbi: Arm64OperandValue {}
+
+extension Arm64Ins: InstructionType {}

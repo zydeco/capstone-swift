@@ -74,3 +74,5 @@ public protocol SparcOperandValue {}
 extension SparcReg: SparcOperandValue {}
 extension Int64: SparcOperandValue {}
 extension SparcInstruction.Operand.Memory: SparcOperandValue {}
+
+extension SparcIns: InstructionType {}

@@ -168,3 +168,5 @@ extension M680xInstruction.Operand.RelativeAddress: M680xOperandValue {}
 extension M680xInstruction.Operand.ExtendedAddress: M680xOperandValue {}
 extension UInt16: M680xOperandValue {}
 extension UInt8: M680xOperandValue {}
+
+extension M680xIns: InstructionType {}

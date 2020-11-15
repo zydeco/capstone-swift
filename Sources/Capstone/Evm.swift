@@ -10,3 +10,5 @@ extension EthereumInstruction {
     /// gas fee for the instruction
     public var fee: UInt32! { detail?.evm.fee }
 }
+
+extension EvmIns: InstructionType {}

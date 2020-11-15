@@ -180,3 +180,5 @@ extension Tms320c64xMemMod: CustomStringConvertible {
         }
     }
 }
+
+extension Tms320c64xIns: InstructionType {}

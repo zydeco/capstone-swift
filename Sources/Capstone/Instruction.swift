@@ -6,6 +6,7 @@ public class Instruction: CustomStringConvertible {
     let index: Int
     var insn: cs_insn { mgr.insns[index] }
     public class var RegisterType: Any.Type? { nil }
+    public class var InstructionType: InstructionType.Type { fatalError("Not implemented") }
     
     internal required init(_ mgr: InstructionMemoryManager, index: Int) {
         self.mgr = mgr
@@ -78,24 +79,24 @@ public class InstructionMemoryManager {
 
 // Superclass for platform-specific instruction classes without registers
 public class PlatformInstruction_IG<
-    InsType: RawRepresentable,
+    InsType: InstructionType,
     GroupType: RawRepresentable
 >: Instruction where
-    InsType.RawValue == UInt32,
     GroupType.RawValue == UInt8
 {
     public var instruction: InsType {
         InsType(rawValue: super.id)!
     }
+    
+    override public class var InstructionType: InstructionType.Type { InsType.self }
 }
 
 // Superclass for platform-specific instruction classes with registers
 public class PlatformInstruction<
-    InsType: RawRepresentable,
+    InsType: InstructionType,
     GroupType: RawRepresentable,
     RegType: RawRepresentable
 >: PlatformInstruction_IG<InsType, GroupType> where
-    InsType.RawValue == UInt32,
     GroupType.RawValue == UInt8,
     RegType.RawValue == UInt16
 {

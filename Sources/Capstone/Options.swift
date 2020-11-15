@@ -29,7 +29,7 @@ public enum DisassemblyOption {
     ///   * MOS65XX: 1 bytes.
     case skipData(mnemonic: String?, callback: SkipDataCallback?)
     /// Customize instruction mnemonic
-    case mnemonic(_ mnemonic: String, instruction: UInt32)
+    case mnemonic(_ mnemonic: String?, instruction: InstructionType)
     /// Print immediate operands in unsigned form
     case unsigned(value: Bool)
 }
@@ -93,8 +93,10 @@ extension Capstone {
                 return cs_option(handle, CS_OPT_SKIPDATA_SETUP, Int(bitPattern: $0))
             })
         case .mnemonic(_: let mnemonic, instruction: let instruction):
-            err = withUnsafePointer(to: mnemonic.withCString { cs_opt_mnem(id: instruction, mnemonic: $0) }) {
-                cs_option(handle, CS_OPT_MNEMONIC, Int(bitPattern: $0))
+            err = mnemonic.withCString { mnemonicPtr in
+                withUnsafePointer(to: cs_opt_mnem(id: instruction.rawValue, mnemonic: mnemonicPtr)) {
+                    cs_option(handle, CS_OPT_MNEMONIC, Int(bitPattern: $0))
+                }
             }
         }
         if err != CS_ERR_OK {
@@ -106,6 +108,15 @@ extension Capstone {
         // mnemonic pointer used in cs_opt_skipdata must live as long as the handle is used
         skipDataMnemonicPtr?.deallocate()
         skipDataMnemonicPtr = UnsafeMutablePointer<Int8>(string: mnemonic)
+    }
+}
+
+internal extension Optional where Wrapped == String {
+    @inlinable func withCString<Result>(_ body: (UnsafePointer<Int8>?) throws -> Result) rethrows -> Result {
+        guard let string = self else {
+            return try body(nil)
+        }
+        return try string.withCString({ try body($0) })
     }
 }
 

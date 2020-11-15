@@ -68,3 +68,5 @@ public protocol MipsOperandValue {}
 extension MipsReg: MipsOperandValue {}
 extension Int64: MipsOperandValue {}
 extension MipsInstruction.Operand.Memory: MipsOperandValue {}
+
+extension MipsIns: InstructionType {}

@@ -68,3 +68,5 @@ public protocol XcoreOperandValue {}
 extension XcoreReg: XcoreOperandValue {}
 extension Int32: XcoreOperandValue {}
 extension XCoreInstruction.Operand.Memory: XcoreOperandValue {}
+
+extension XcoreIns: InstructionType {}
