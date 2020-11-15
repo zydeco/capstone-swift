@@ -105,4 +105,22 @@ public struct Mode: OptionSet {
         /// M680X Freescale/NXP HCS08 mode
         public static let hcs08 = Mode(CS_MODE_M680X_HCS08)
     }
+    
+    // MOS65xx modes
+    public struct mos65xx {
+        /// MOS65XXX MOS 6502
+        public static let mos6502 = Mode(CS_MODE_MOS65XX_6502)
+        /// MOS65XXX WDC 65c02
+        public static let wdc65C02 = Mode(CS_MODE_MOS65XX_65C02)
+        /// MOS65XXX WDC W65c02
+        public static let wdcW65C02 = Mode(CS_MODE_MOS65XX_W65C02)
+        /// MOS65XXX WDC 65816, 8-bit m/x
+        public static let wdc65816 = Mode(CS_MODE_MOS65XX_65816)
+        /// MOS65XXX WDC 65816, 16-bit m, 8-bit x
+        public static let wdc65816longM = Mode(CS_MODE_MOS65XX_65816_LONG_M)
+        /// MOS65XXX WDC 65816, 8-bit m, 16-bit x
+        public static let wdc65816longX = Mode(CS_MODE_MOS65XX_65816_LONG_X)
+        /// MOS65XXX WDC 65816, 16-bit m, 16-bit x
+        public static let wdc65816longMX = Mode(CS_MODE_MOS65XX_65816_LONG_MX)
+    }
 }

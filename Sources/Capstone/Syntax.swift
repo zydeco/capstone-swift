@@ -12,4 +12,6 @@ public enum Syntax: Int {
     case noRegName
     /// X86 Intel Masm syntax
     case masm
+    /// MOS65XX use $ as hex prefix
+    case motorola
 }

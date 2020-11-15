@@ -14,7 +14,13 @@ public enum Mos65xxReg: UInt16 {
     case p = 4
     /// stack pointer register
     case sp = 5
-    case ending = 6
+    /// direct page register
+    case dp = 6
+    /// data bank register
+    case b = 7
+    /// program bank register
+    case k = 8
+    case ending = 9
 
 }
 
@@ -26,28 +32,52 @@ public enum Mos65xxAm: UInt32 {
     case imp = 1
     /// accumulator addressing
     case acc = 2
-    /// absolute addressing
-    case abs = 3
-    /// zeropage addressing
-    case zp = 4
-    /// 8 Bit immediate value
-    case imm = 5
-    /// indexed absolute addressing by the X index register
-    case absx = 6
-    /// indexed absolute addressing by the Y index register
-    case absy = 7
-    /// indexed indirect addressing by the X index register
-    case indx = 8
-    /// indirect indexed addressing by the Y index register
-    case indy = 9
-    /// indexed zeropage addressing by the X index register
-    case zpx = 10
-    /// indexed zeropage addressing by the Y index register
-    case zpy = 11
+    /// 8/16 Bit immediate value
+    case imm = 3
     /// relative addressing used by branches
-    case rel = 12
+    case rel = 4
+    /// interrupt addressing
+    case int = 5
+    /// memory block addressing
+    case block = 6
+    /// zeropage addressing
+    case zp = 7
+    /// indexed zeropage addressing by the X index register
+    case zpX = 8
+    /// indexed zeropage addressing by the Y index register
+    case zpY = 9
+    /// zero page address, branch relative address
+    case zpRel = 10
+    /// indirect zeropage addressing
+    case zpInd = 11
+    /// indexed zeropage indirect addressing by the X index register
+    case zpXInd = 12
+    /// indirect zeropage indexed addressing by the Y index register
+    case zpIndY = 13
+    /// zeropage indirect long addressing
+    case zpIndLong = 14
+    /// zeropage indirect long addressing indexed by Y register
+    case zpIndLongY = 15
+    /// absolute addressing
+    case abs = 16
+    /// indexed absolute addressing by the X index register
+    case absX = 17
+    /// indexed absolute addressing by the Y index register
+    case absY = 18
     /// absolute indirect addressing
-    case ind = 13
+    case absInd = 19
+    /// indexed absolute indirect addressing by the X index register
+    case absXInd = 20
+    /// absolute indirect long addressing
+    case absIndLong = 21
+    /// absolute long address mode
+    case absLong = 22
+    /// absolute long address mode, indexed by X register
+    case absLongX = 23
+    /// stack relative addressing
+    case sr = 24
+    /// indirect stack relative addressing indexed by the Y index register
+    case srIndY = 25
 
 }
 
@@ -57,60 +87,100 @@ public enum Mos65xxIns: UInt32 {
     case adc = 1
     case and = 2
     case asl = 3
-    case bcc = 4
-    case bcs = 5
-    case beq = 6
-    case bit = 7
-    case bmi = 8
-    case bne = 9
-    case bpl = 10
-    case brk = 11
-    case bvc = 12
-    case bvs = 13
-    case clc = 14
-    case cld = 15
-    case cli = 16
-    case clv = 17
-    case cmp = 18
-    case cpx = 19
-    case cpy = 20
-    case dec = 21
-    case dex = 22
-    case dey = 23
-    case eor = 24
-    case inc = 25
-    case inx = 26
-    case iny = 27
-    case jmp = 28
-    case jsr = 29
-    case lda = 30
-    case ldx = 31
-    case ldy = 32
-    case lsr = 33
-    case nop = 34
-    case ora = 35
-    case pha = 36
-    case pla = 37
-    case php = 38
-    case plp = 39
-    case rol = 40
-    case ror = 41
-    case rti = 42
-    case rts = 43
-    case sbc = 44
-    case sec = 45
-    case sed = 46
-    case sei = 47
-    case sta = 48
-    case stx = 49
-    case sty = 50
-    case tax = 51
-    case tay = 52
-    case tsx = 53
-    case txa = 54
-    case txs = 55
-    case tya = 56
-    case ending = 57
+    case bbr = 4
+    case bbs = 5
+    case bcc = 6
+    case bcs = 7
+    case beq = 8
+    case bit = 9
+    case bmi = 10
+    case bne = 11
+    case bpl = 12
+    case bra = 13
+    case brk = 14
+    case brl = 15
+    case bvc = 16
+    case bvs = 17
+    case clc = 18
+    case cld = 19
+    case cli = 20
+    case clv = 21
+    case cmp = 22
+    case cop = 23
+    case cpx = 24
+    case cpy = 25
+    case dec = 26
+    case dex = 27
+    case dey = 28
+    case eor = 29
+    case inc = 30
+    case inx = 31
+    case iny = 32
+    case jml = 33
+    case jmp = 34
+    case jsl = 35
+    case jsr = 36
+    case lda = 37
+    case ldx = 38
+    case ldy = 39
+    case lsr = 40
+    case mvn = 41
+    case mvp = 42
+    case nop = 43
+    case ora = 44
+    case pea = 45
+    case pei = 46
+    case per = 47
+    case pha = 48
+    case phb = 49
+    case phd = 50
+    case phk = 51
+    case php = 52
+    case phx = 53
+    case phy = 54
+    case pla = 55
+    case plb = 56
+    case pld = 57
+    case plp = 58
+    case plx = 59
+    case ply = 60
+    case rep = 61
+    case rmb = 62
+    case rol = 63
+    case ror = 64
+    case rti = 65
+    case rtl = 66
+    case rts = 67
+    case sbc = 68
+    case sec = 69
+    case sed = 70
+    case sei = 71
+    case sep = 72
+    case smb = 73
+    case sta = 74
+    case stp = 75
+    case stx = 76
+    case sty = 77
+    case stz = 78
+    case tax = 79
+    case tay = 80
+    case tcd = 81
+    case tcs = 82
+    case tdc = 83
+    case trb = 84
+    case tsb = 85
+    case tsc = 86
+    case tsx = 87
+    case txa = 88
+    case txs = 89
+    case txy = 90
+    case tya = 91
+    case tyx = 92
+    case wai = 93
+    case wdm = 94
+    case xba = 95
+    case xce = 96
+    case ending = 97
 
 }
 
@@ -124,6 +194,8 @@ public enum Mos65xxGrp: UInt8 {
     case call = 2
     /// = CS_GRP_RET
     case ret = 3
+    /// = CS_GRP_INT
+    case int = 4
     /// = CS_GRP_IRET
     case iret = 5
     /// = CS_GRP_BRANCH_RELATIVE

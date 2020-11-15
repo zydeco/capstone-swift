@@ -832,3 +832,38 @@ extension TMS320C64xInstruction: InstructionDetailsPrintable {
         print()
     }
 }
+
+extension Mos65xxInstruction: InstructionDetailsPrintable {
+    func printInstructionDetails(cs: Capstone) {
+        printInstructionBase()
+        guard hasDetail else {
+            return
+        }
+        
+        let registerName = { (reg: Mos65xxReg) -> String in
+            cs.name(ofRegister: reg)!
+        }
+        
+        print("\taddress mode: \(addressingMode!)")
+        print("\tmodifies flags: \(modifiesFlags!)")
+        
+        if operands.count > 0 {
+            print("\top_count: \(operands.count)")
+        }
+        
+        for (i, op) in operands.enumerated() {
+            switch op.type {
+            case .invalid:
+                fatalError("Invalid operand")
+            case .reg:
+                print("\t\toperands[\(i)].type: REG = \(registerName(op.register))")
+            case .imm:
+                print("\t\toperands[\(i)].type: IMM = 0x\(hex(op.immediateValue!))")
+            case .mem:
+                print("\t\toperands[\(i)].type: MEM = 0x\(hex(op.address!))")
+            }
+        }
+        
+        print()
+    }
+}
