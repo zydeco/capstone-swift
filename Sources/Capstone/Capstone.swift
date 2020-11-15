@@ -18,7 +18,7 @@ public class Capstone {
     internal var skipDataCallback: SkipDataCallback?
     internal var currentCode: Data?
     // valid specific type for disassembled instructions
-    internal let instructionType: Instruction.Type
+    internal let instructionClass: Instruction.Type
     // is detail mode enabled?
     internal var detail = false
     
@@ -37,7 +37,7 @@ public class Capstone {
             throw CapstoneError(err)
         }
         handle = h
-        instructionType = arch.instructionType
+        instructionClass = arch.instructionClass
     }
     
     /// Check if an architecture is supported
@@ -66,7 +66,7 @@ public class Capstone {
     /// - returns disassembled instructions
     /// - throws if an error occurs during disassembly
     public func disassemble<InsType: Instruction>(code: Data, address: UInt64, count: Int? = nil) throws -> [InsType] {
-        guard InsType.self == Instruction.self || InsType.self == instructionType else {
+        guard InsType.self == Instruction.self || InsType.self == instructionClass else {
             throw CapstoneError.unsupportedArchitecture
         }
         var insnsPtr: UnsafeMutablePointer<cs_insn>? = nil
@@ -79,7 +79,7 @@ public class Capstone {
             throw CapstoneError(cs_errno(handle))
         }
         let mgr = InstructionMemoryManager(insns, count: resultCount, cs: self)
-        return (0..<resultCount).map({ instructionType.init(mgr, index: $0) as! InsType })
+        return (0..<resultCount).map({ instructionClass.init(mgr, index: $0) as! InsType })
     }
     
     /// Returns friendly name of an instruction in a string.
@@ -99,7 +99,7 @@ public class Capstone {
     
     /// Returns friendly name of a register in a string.
     public func name<T: RawRepresentable>(ofRegister id: T) -> String? where T.RawValue == UInt16 {
-        guard instructionType.RegisterType == T.self else {
+        guard instructionClass.RegisterType == T.self else {
             return nil
         }
         return name(ofRegister: id.rawValue)

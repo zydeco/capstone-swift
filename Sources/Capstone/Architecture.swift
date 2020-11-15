@@ -71,9 +71,9 @@ public class EthereumInstruction: PlatformInstruction_IG<EvmIns, EvmGrp> {}
 public class Mos65xxInstruction: PlatformInstruction<Mos65xxIns, Mos65xxGrp, Mos65xxReg> {}
 
 public extension Architecture {
-    /// The type of instructions used for this architecture
+    /// The class for instructions used for this architecture
     /// `Instruction` is always a valid type
-    var instructionType: Instruction.Type {
+    var instructionClass: Instruction.Type {
         switch self {
         case .arm:
             return ArmInstruction.self
