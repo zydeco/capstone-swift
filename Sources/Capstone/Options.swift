@@ -93,6 +93,9 @@ extension Capstone {
                 return cs_option(handle, CS_OPT_SKIPDATA_SETUP, Int(bitPattern: $0))
             })
         case .mnemonic(_: let mnemonic, instruction: let instruction):
+            guard type(of:instruction) == instructionClass.InstructionType else {
+                throw CapstoneError.unsupportedArchitecture
+            }
             err = mnemonic.withCString { mnemonicPtr in
                 withUnsafePointer(to: cs_opt_mnem(id: instruction.rawValue, mnemonic: mnemonicPtr)) {
                     cs_option(handle, CS_OPT_MNEMONIC, Int(bitPattern: $0))
