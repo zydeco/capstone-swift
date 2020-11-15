@@ -42,11 +42,6 @@ extension Arm64Instruction: OperandContainer {
             optionalEnumCast(op.vas, ignoring: ARM64_VAS_INVALID)
         }
         
-        /// Vector Element Size Specifier
-        public var vectorElementSizeSpecifier: Arm64Vess! {
-            optionalEnumCast(op.vess, ignoring: ARM64_VESS_INVALID)
-        }
-        
         /// Shift for this operand
         public var shift: (type: Arm64Sft, value: UInt)! {
             guard op.shift.type != ARM64_SFT_INVALID else {
@@ -85,8 +80,10 @@ extension Arm64Instruction: OperandContainer {
                     return at
                 case .tlbi:
                     return tlbi
+                case .mrs, .msr:
+                    return systemRegister
                 default:
-                    fatalError("Invalid arm64 instruction for type sys: \(ins.rawValue)")
+                    fatalError("Invalid arm64 instruction for type sys: \(ins)(\(ins.rawValue))")
                 }
             case .prefetch:
                 return pState
@@ -107,12 +104,14 @@ extension Arm64Instruction: OperandContainer {
             return enumCast(op.reg)
         }
         
-        /// System register for REG_MRS and REG_MSR operands
+        /// System register for REG_MRS, REG_MSR and some SYS operands
         public var systemRegister: Arm64Sysreg! {
-            guard type == .regMrs || type == .regMsr else {
-                return nil
+            if type == .regMrs || type == .regMsr {
+                return enumCast(op.reg)
+            } else if type == .sys {
+                return enumCast(op.sys)
             }
-            return enumCast(op.reg)
+            return nil
         }
         
         /// Immediate value, or index for C-IMM or IMM operand

@@ -26,7 +26,9 @@ extension Instruction {
     }
     
     func printOperandAccess(index i: Int, access: Access) {
-        print("\t\toperands[\(i)].access: \(access.testDescription)")
+        if !access.isEmpty {
+            print("\t\toperands[\(i)].access: \(access.testDescription)")
+        }
     }
     
     func printRegisters(_ regs: (read: [String], written: [String])) {
@@ -184,6 +186,7 @@ extension Arm64Ic: Arm64OperandSysValue {}
 extension Arm64Dc: Arm64OperandSysValue {}
 extension Arm64At: Arm64OperandSysValue {}
 extension Arm64Tlbi: Arm64OperandSysValue {}
+extension Arm64Sysreg: Arm64OperandSysValue {}
 
 extension Arm64Instruction: InstructionDetailsPrintable {
     func printInstructionDetails(cs: Capstone) {
@@ -249,10 +252,6 @@ extension Arm64Instruction: InstructionDetailsPrintable {
             
             if let vas = op.vectorArrangementSpecifier {
                 print("\t\t\tVector Arrangement Specifier: 0x\(hex(vas.rawValue))")
-            }
-            
-            if let vess = op.vectorElementSizeSpecifier {
-                print("\t\t\tVector Element Size Specifier: \(vess.rawValue)")
             }
             
             if let vectorIndex = op.vectorIndex {
