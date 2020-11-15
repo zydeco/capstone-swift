@@ -44,26 +44,16 @@ extension Instruction {
         readDetailsArray(array: detail?.groups, size: detail?.groups_count)
     }
     
-    /// List of register names this instruction reads from.
-    /// This API is only valid when detail mode is on (it's off by default).
-    /// When in 'diet' mode, this API is irrelevant because engine does not store registers.
-    public var registerNamesRead: [String] {
-        getRegsRead().compactMap({ mgr.cs.name(ofRegister: $0) })
+    /// Register names implicitly and explicitly accessed by this instruction.
+    /// This API is only valid when detail mode is on (it's off by default)
+    public var registerNamesAccessed: (read: [String], written: [String]) {
+        getRegsAccessed(implicitly: false)
     }
     
-    internal func getRegsRead() -> [UInt16] {
-        (try? getRegsAccessed())?.read ?? []
-    }
-    
-    /// List of register names this instruction writes to.
-    /// This API is only valid when detail mode is on (it's off by default).
-    /// When in 'diet' mode, this API is irrelevant because engine does not store registers.
-    public var registerNamesWritten: [String] {
-        getRegsWritten().compactMap({ mgr.cs.name(ofRegister: $0) })
-    }
-    
-    internal func getRegsWritten() -> [UInt16] {
-        (try? getRegsAccessed())?.written ?? []
+    /// Register names implicitly accessed by this instruction.
+    /// This API is only valid when detail mode is on (it's off by default)
+    public var registerNamesAccessedImplicitly: (read: [String], written: [String]) {
+        getRegsAccessed(implicitly: true)
     }
     
     internal func readDetailsArray<E,A,C>(array: A?, size: C?) -> [E] where C: FixedWidthInteger {
@@ -78,27 +68,41 @@ extension Instruction {
         })})
     }
     
-    internal func getRegsAccessed() throws -> (read: [UInt16], written: [UInt16]) {
-        let maxRegs = MemoryLayout<cs_regs>.size / MemoryLayout<UInt16>.size
-        var regsRead = Array(repeating: UInt16(0), count: maxRegs)
-        var regsWritten = Array(repeating: UInt16(0), count: maxRegs)
-        var regsReadCount = UInt8(0)
-        var regsWrittenCount = UInt8(0)
-        let err = withUnsafePointer(to: insn, { cs_regs_access(mgr.cs.handle, $0, &regsRead, &regsReadCount, &regsWritten, &regsWrittenCount) })
-        if err == CS_ERR_ARCH && hasDetail {
-            // fallback to implicit regs in detail
-            let detail = insn.detail.pointee
-            regsRead = readDetailsArray(array: detail.regs_read, size: detail.regs_read_count)
-            regsWritten = readDetailsArray(array: detail.regs_write, size: detail.regs_write_count)
-        } else if err != CS_ERR_OK {
-            // other error
-            throw CapstoneError(err)
-        } else {
-            // remove unused values
-            regsRead.removeLast(64 - numericCast(regsReadCount))
-            regsWritten.removeLast(64 - numericCast(regsWrittenCount))
+    func getRegIdsAccessed(implicitly: Bool) throws -> (read: [UInt16], written: [UInt16]) {
+        guard let detail = insn.detail?.pointee else {
+            throw CapstoneError.detailNotAvailable
         }
+        if !implicitly {
+            do {
+                let maxRegs = MemoryLayout<cs_regs>.size / MemoryLayout<UInt16>.size
+                var regsRead = Array(repeating: UInt16(0), count: maxRegs)
+                var regsWritten = Array(repeating: UInt16(0), count: maxRegs)
+                var regsReadCount = UInt8(0)
+                var regsWrittenCount = UInt8(0)
+                let err = withUnsafePointer(to: insn, { cs_regs_access(mgr.cs.handle, $0, &regsRead, &regsReadCount, &regsWritten, &regsWrittenCount) })
+                guard err == CS_ERR_OK else {
+                    throw CapstoneError(err)
+                }
+                // remove unused values
+                regsRead.removeLast(64 - numericCast(regsReadCount))
+                regsWritten.removeLast(64 - numericCast(regsWrittenCount))
+                return (read: regsRead, written: regsWritten)
+            } catch CapstoneError.unsupportedArchitecture {
+                // fallthrough to implicit regs
+            }
+        }
+        // implicit regs from detail
+        let regsRead: [UInt16] = readDetailsArray(array: detail.regs_read, size: detail.regs_read_count)
+        let regsWritten: [UInt16] = readDetailsArray(array: detail.regs_write, size: detail.regs_write_count)
         return (read: regsRead, written: regsWritten)
+    }
+    
+    func getRegsAccessed(implicitly: Bool) -> (read: [String], written: [String]) {
+        guard hasDetail, let registers = try? getRegIdsAccessed(implicitly: implicitly) else {
+            return (read: [], written: [])
+        }
+        return (read: registers.read.compactMap({ mgr.cs.name(ofRegister: numericCast($0)) }),
+                written: registers.written.compactMap({ mgr.cs.name(ofRegister: numericCast($0)) }))
     }
 }
 
@@ -187,35 +191,23 @@ extension PlatformInstruction_IG {
 }
 
 extension PlatformInstruction {
-    /// Registers read by this instruction.
-    /// This API is only valid when detail mode is on (it's off by default)
-    public var registersRead: [RegType] {
-        getRegsRead().compactMap({ RegType(rawValue: $0) })
-    }
-    
-    /// Registers written by this instruction.
-    /// This API is only valid when detail mode is on (it's off by default)
-    public var registersWritten: [RegType] {
-        getRegsWritten().compactMap({ RegType(rawValue: $0) })
-    }
-    
-    /// Registers read and written by this instruction.
+    /// Registers implicitly and explicitly accessed by this instruction.
     /// This API is only valid when detail mode is on (it's off by default)
     public var registersAccessed: (read: [RegType], written: [RegType]) {
-        guard let registers = try? getRegsAccessed() else {
+        getRegsAccessed(implicitly: false)
+    }
+    
+    /// Registers implicitly accessed by this instruction.
+    /// This API is only valid when detail mode is on (it's off by default)
+    public var registersAccessedImplicitly: (read: [RegType], written: [RegType]) {
+        getRegsAccessed(implicitly: true)
+    }
+    
+    func getRegsAccessed(implicitly: Bool) -> (read: [RegType], written: [RegType]) {
+        guard hasDetail, let registers = try? getRegIdsAccessed(implicitly: implicitly) else {
             return (read: [], written: [])
         }
         return (read: registers.read.compactMap({ RegType(rawValue: $0) }),
                 written: registers.written.compactMap({ RegType(rawValue: $0) }))
-    }
-    
-    /// Register names read and written by this instruction.
-    /// This API is only valid when detail mode is on (it's off by default)
-    public var registerNamesAccessed: (read: [String], written: [String]) {
-        guard let registers = try? getRegsAccessed() else {
-            return (read: [], written: [])
-        }
-        return (read: registers.read.compactMap({ mgr.cs.name(ofRegister: numericCast($0)) }),
-                written: registers.written.compactMap({ mgr.cs.name(ofRegister: numericCast($0)) }))
     }
 }
