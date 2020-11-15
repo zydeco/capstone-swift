@@ -17,11 +17,15 @@ struct PlatformTest {
     }
     
     func run(address: UInt64, options testOptions: Options = Options.default) throws {
+        try run(address: address, options: testOptions) { ($1 as! InstructionDetailsPrintable).printInstructionDetails(cs: $0) }
+    }
+    
+    func run(address: UInt64, options testOptions: Options = Options.default, iterator: (Capstone, Instruction) -> Void) throws {
         // Initialize Capstone
         let capstone = try Capstone(arch: arch, mode: mode)
-        try capstone.set(option: .detail(value: true))
+        try testOptions.capstoneOptions.forEach({ try capstone.set(option: $0) })
         try options.forEach({ try capstone.set(option: $0) })
-        
+
         print(testOptions.separator)
         print("Platform: \(name)")
         let codeFormat = testOptions.uppercaseHex ? "0x%02X " : "0x%02x "
@@ -35,9 +39,7 @@ struct PlatformTest {
         }
         
         print("Disasm:")
-        instructions
-            .map({ $0 as! InstructionDetailsPrintable })
-            .forEach({ $0.printInstructionDetails(cs: capstone) })
+        instructions.forEach({ iterator(capstone, $0) })
         if let lastInstruction = instructions.last, testOptions.printEndAddress {
             let endAddress = lastInstruction.address + numericCast(lastInstruction.size)
             print("0x\(hex(endAddress, uppercase: testOptions.uppercaseHex)):\n")
@@ -48,10 +50,18 @@ struct PlatformTest {
         let separator: String
         let uppercaseHex: Bool
         let printEndAddress: Bool
+        let capstoneOptions: [DisassemblyOption]
         
         static let `default` = Options(
+            separator: basic.separator,
+            uppercaseHex: basic.uppercaseHex,
+            printEndAddress: basic.printEndAddress,
+            capstoneOptions: [.detail(value: true)])
+        
+        static let basic = Options(
             separator: "****************",
             uppercaseHex: false,
-            printEndAddress: true)
+            printEndAddress: true,
+            capstoneOptions: [])
     }
 }

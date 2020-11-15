@@ -47,9 +47,44 @@ struct Code {
     static let xcoreCode = Data([0xfe, 0x0f, 0xfe, 0x17, 0x13, 0x17, 0xc6, 0xfe, 0xec, 0x17, 0x97, 0xf8, 0xec, 0x4f, 0x1f, 0xfd, 0xec, 0x37, 0x07, 0xf2, 0x45, 0x5b, 0xf9, 0xfa, 0x02, 0x06, 0x1b, 0x10, 0x09, 0xfd, 0xec, 0xa7])
     
     static let tms320c64xCode = Data([0x01, 0xac, 0x88, 0x40, 0x81, 0xac, 0x88, 0x43, 0x00, 0x00, 0x00, 0x00, 0x02, 0x90, 0x32, 0x96, 0x02, 0x80, 0x46, 0x9e, 0x05, 0x3c, 0x83, 0xe6, 0x0b, 0x0c, 0x8b, 0x24])
+
+    static let skipDataX86Code32 = Data([0x8d, 0x4c, 0x32, 0x08, 0x01, 0xd8, 0x81, 0xc6, 0x34, 0x12, 0x00, 0x00, 0x00, 0x91, 0x92])
+    static let randomCode = Data([0xed, 0x00, 0x00, 0x00, 0x00, 0x1a, 0x5a, 0x0f, 0x1f, 0xff, 0xc2, 0x09, 0x80, 0x00, 0x00, 0x00, 0x07, 0xf7, 0xeb, 0x2a, 0xff, 0xff, 0x7f, 0x57, 0xe3, 0x01, 0xff, 0xff, 0x7f, 0x57, 0xeb, 0x00, 0xf0, 0x00, 0x00, 0x24, 0xb2, 0x4f, 0x00, 0x78])
 }
 
 struct Tests {
+    // all tests in the same order as test_basic.c
+    static var allTests: [PlatformTest] {
+        x86Tests + armTests + mipsTests + arm64Tests + ppcTests + sparcTests + syszTests + xcoreTests + tms320c64xTests +
+        m68kTests + evmTests
+    }
+    
+    static let skipDataTests = [
+        PlatformTest(name: "X86 32 (Intel syntax) - Skip data",
+                     arch: .x86,
+                     mode: [Mode.bits.b32],
+                     code: Code.skipDataX86Code32,
+                     options: [.skipDataEnabled(true)]),
+        PlatformTest(name: "X86 32 (Intel syntax) - Skip data with custom mnemonic",
+                     arch: .x86,
+                     mode: [Mode.bits.b32],
+                     code: Code.skipDataX86Code32,
+                     options: [.skipData(mnemonic: "db")]),
+        PlatformTest(name: "Arm - Skip data",
+                     arch: .arm,
+                     mode: [Mode.arm.arm],
+                     code: Code.randomCode,
+                     options: [.skipDataEnabled(true)]),
+        PlatformTest(name: "Arm - Skip data with callback",
+                     arch: .arm,
+                     mode: [Mode.arm.arm],
+                     code: Code.randomCode,
+                     options: [.skipData(mnemonic: "db", callback: { (_, _, _) -> SkipDataResult in
+                        // always skip 2 bytes
+                        .skip(bytes: 2)
+                     })])
+    ]
+    
     static let armTests = [
         PlatformTest(name: "ARM",
                      arch: .arm,
