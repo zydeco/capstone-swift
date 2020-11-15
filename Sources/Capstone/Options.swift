@@ -27,7 +27,7 @@ public enum DisassemblyOption {
     ///   * XCore:   2 bytes.
     ///   * EVM:     1 bytes.
     ///   * MOS65XX: 1 bytes.
-    case skipData(mnemonic: String?, callback: SkipDataCallback?)
+    case skipData(mnemonic: String? = nil, callback: SkipDataCallback? = nil)
     /// Customize instruction mnemonic
     case mnemonic(_ mnemonic: String?, instruction: InstructionType)
     /// Print immediate operands in unsigned form
