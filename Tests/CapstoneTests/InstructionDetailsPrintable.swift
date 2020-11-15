@@ -774,3 +774,61 @@ extension XCoreInstruction: InstructionDetailsPrintable {
         print()
     }
 }
+
+extension TMS320C64xInstruction: InstructionDetailsPrintable {
+    func printInstructionDetails(cs: Capstone) {
+        printInstructionBase()
+        guard hasDetail else {
+            return
+        }
+        
+        let registerName = { (reg: Tms320c64xReg) -> String in
+            cs.name(ofRegister: reg)!
+        }
+        
+        if operands.count > 0 {
+            print("\top_count: \(operands.count)")
+        }
+        
+        for (i, op) in operands.enumerated() {
+            switch op.type {
+            case .invalid:
+                fatalError("Invalid operand")
+            case .reg:
+                print("\t\toperands[\(i)].type: REG = \(registerName(op.register))")
+            case .imm:
+                print("\t\toperands[\(i)].type: IMM = 0x\(hex(op.immediateValue!))")
+            case .mem:
+                print("\t\toperands[\(i)].type: MEM")
+                let mem = op.memory!
+                print("\t\t\toperands[\(i)].mem.base: REG = \(registerName(mem.base))")
+                switch mem.displacement {
+                case .constant(value: let value):
+                    print("\t\t\toperands[\(i)].mem.disptype: Constant")
+                    print("\t\t\toperands[\(i)].mem.disp: \(value)")
+                case .register(register: let reg):
+                    print("\t\t\toperands[\(i)].mem.disptype: Register")
+                    print("\t\t\toperands[\(i)].mem.disp: \(registerName(reg))")
+                }
+                print("\t\t\toperands[\(i)].mem.unit: \(mem.unit)")
+                print("\t\t\toperands[\(i)].mem.direction: \(mem.direction)")
+                print("\t\t\toperands[\(i)].mem.modify: \(mem.modification)")
+                print("\t\t\toperands[\(i)].mem.scaled: \(mem.scaled)")
+            case .regpair:
+                print("\t\toperands[\(i)].type: REGPAIR = \(op.registerPair.map({ registerName($0) }).joined(separator: ":"))")
+            }
+        }
+        
+        print("\tFunctional unit: \(functionalUnit!)")
+        if crossPath {
+            print("\tCrosspath: 1")
+        }
+        
+        if let cc = condition {
+            print("\tCondition: [\(cc.zero ? "!" : " ")\(registerName(cc.register))]")
+        }
+        print("\tParallel: \(parallel ? "true" : "false")")
+        
+        print()
+    }
+}
