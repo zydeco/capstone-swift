@@ -12,7 +12,7 @@ extension Instruction {
         }
         return insn.detail?.pointee
     }
-    
+
     public var hasDetail: Bool { mgr.cs.detail && insn.id != 0 }
 
     /// List of basic groups this instruction belongs to.
@@ -23,7 +23,7 @@ extension Instruction {
     public var baseGroups: [InstructionGroup] {
         return getInstructionGroups().compactMap({ InstructionGroup(rawValue: $0) })
     }
-    
+
     /// Check if a disassembled instruction belong to a particular group.
     /// This API is only valid when detail mode is on (it's off by default).
     /// When in 'diet' mode, this API is irrelevant because engine does not store registers.
@@ -32,31 +32,31 @@ extension Instruction {
     public func isIn(group: InstructionGroup) -> Bool {
         return withUnsafePointer(to: insn, { cs_insn_group(mgr.cs.handle, $0, UInt32(group.rawValue)) })
     }
-    
+
     /// List of group names this instruction belongs to.
     /// This API is only valid when detail mode is on (it's off by default).
     /// When in 'diet' mode, this API is irrelevant because engine does not store groups.
     public var groupNames: [String] {
         getInstructionGroups().compactMap({ String(cString: cs_group_name(mgr.cs.handle, UInt32($0))) })
     }
-    
+
     internal func getInstructionGroups() -> [UInt8] {
         readDetailsArray(array: detail?.groups, size: detail?.groups_count)
     }
-    
+
     /// Register names implicitly and explicitly accessed by this instruction.
     /// This API is only valid when detail mode is on (it's off by default)
     public var registerNamesAccessed: (read: [String], written: [String]) {
         getRegsAccessed(implicitly: false)
     }
-    
+
     /// Register names implicitly accessed by this instruction.
     /// This API is only valid when detail mode is on (it's off by default)
     public var registerNamesAccessedImplicitly: (read: [String], written: [String]) {
         getRegsAccessed(implicitly: true)
     }
-    
-    internal func readDetailsArray<E,A,C>(array: A?, size: C?) -> [E] where C: FixedWidthInteger {
+
+    internal func readDetailsArray<E, A, C>(array: A?, size: C?) -> [E] where C: FixedWidthInteger {
         guard let array = array, let size = size else {
             // skipped data or no details
             return []
@@ -67,7 +67,7 @@ extension Instruction {
             (0..<count).map({ regs[$0] })
         })})
     }
-    
+
     func getRegIdsAccessed(implicitly: Bool) throws -> (read: [UInt16], written: [UInt16]) {
         guard let detail = insn.detail?.pointee else {
             throw CapstoneError.detailNotAvailable
@@ -96,7 +96,7 @@ extension Instruction {
         let regsWritten: [UInt16] = readDetailsArray(array: detail.regs_write, size: detail.regs_write_count)
         return (read: regsRead, written: regsWritten)
     }
-    
+
     func getRegsAccessed(implicitly: Bool) -> (read: [String], written: [String]) {
         guard hasDetail, let registers = try? getRegIdsAccessed(implicitly: implicitly) else {
             return (read: [], written: [])
@@ -110,17 +110,16 @@ extension Instruction {
 public struct Access: OptionSet, CustomStringConvertible {
     // must match cs_ac_type
     public var rawValue: UInt32
-    
+
     public init(rawValue: UInt32) {
         self.rawValue = rawValue
     }
-    
+
     /// Operand read from memory or register.
     public static let read = Access(rawValue: 1)
     /// Operand write to memory or register.
     public static let write = Access(rawValue: 2)
-    
-    
+
     public var description: String {
         var description = ""
         if self.contains(Access.read) {
@@ -156,7 +155,7 @@ public enum InstructionGroup: UInt8 {
 
 public protocol OperandContainer {
     associatedtype OperandType where OperandType: InstructionOperand
-    
+
     /// Operands for this instruction
     /// Empty if detail mode is off
     var operands: [OperandType] { get }
@@ -165,14 +164,14 @@ public protocol OperandContainer {
 public protocol InstructionOperand {
     associatedtype OperandTypeType
     associatedtype OperandValueType
-    
+
     /// Operand type
     var type: OperandTypeType { get }
     /// Operand value
     var value: OperandValueType { get }
 }
 
-extension PlatformInstruction_IG {
+extension PlatformInstructionBase {
     /// List of architecture-specific groups this instruction belongs to.
     /// This API is only valid when detail mode is on (it's off by default)
     /// See `groups` for architecture-specific groups.
@@ -180,7 +179,7 @@ extension PlatformInstruction_IG {
     public var groups: [GroupType] {
         getInstructionGroups().compactMap({ GroupType(rawValue: $0) })
     }
-    
+
     /// Check if a disassembled instruction belong to a particular group.
     /// This API is only valid when detail mode is on (it's off by default)
     /// - parameter group: group to check
@@ -196,13 +195,13 @@ extension PlatformInstruction {
     public var registersAccessed: (read: [RegType], written: [RegType]) {
         getRegsAccessed(implicitly: false)
     }
-    
+
     /// Registers implicitly accessed by this instruction.
     /// This API is only valid when detail mode is on (it's off by default)
     public var registersAccessedImplicitly: (read: [RegType], written: [RegType]) {
         getRegsAccessed(implicitly: true)
     }
-    
+
     func getRegsAccessed(implicitly: Bool) -> (read: [RegType], written: [RegType]) {
         guard hasDetail, let registers = try? getRegIdsAccessed(implicitly: implicitly) else {
             return (read: [], written: [])

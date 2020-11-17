@@ -4,14 +4,12 @@ import Ccapstone
 /// An instance of Capstone used to disassemble code
 public class Capstone {
     public static var version: (major: Int32, minor: Int32) {
-        get {
-            var major: Int32 = 0
-            var minor: Int32 = 0
-            cs_version(&major, &minor)
-            return (major, minor)
-        }
+        var major: Int32 = 0
+        var minor: Int32 = 0
+        cs_version(&major, &minor)
+        return (major, minor)
     }
-    
+
     internal let handle: csh
     // when using skipdata options, the pointer to the mnemonic must be kept as long as it's used
     internal var skipDataMnemonicPtr: UnsafeMutablePointer<Int8>!
@@ -21,7 +19,7 @@ public class Capstone {
     internal let instructionClass: Instruction.Type
     // is detail mode enabled?
     internal var detail = false
-    
+
     /// Create an instance of Capstone
     ///  * parameter arch: `Architecture` type
     ///  * parameter mode: combination of `Mode` values - some are architecture-specific
@@ -30,7 +28,7 @@ public class Capstone {
         guard CS_VERSION_MAJOR == 5, Capstone.version.major == 5 else {
             throw CapstoneError.unsupportedVersion
         }
-        
+
         var h: csh = 0
         let err = cs_open(cs_arch(arch.rawValue), cs_mode(mode.rawValue), &h)
         guard err == CS_ERR_OK else {
@@ -39,25 +37,25 @@ public class Capstone {
         handle = h
         instructionClass = arch.instructionClass
     }
-    
+
     /// Check if an architecture is supported
     ///  * parameter arch: Architecture to check for
     ///  * returns: true if the architecture is supported, false otherwise
     public static func supports(arch: Architecture) -> Bool {
         return cs_support(Int32(arch.rawValue))
     }
-    
+
     /// Check build mode of the library
     public static func supports(buildMode: BuildMode) -> Bool {
         return cs_support(buildMode.rawValue)
     }
-    
+
     deinit {
         var h = handle
         cs_close(&h)
         skipDataMnemonicPtr?.deallocate()
     }
-    
+
     /// Disassembles binary code
     /// - parameter code: code to disassemble
     /// - parameter address: address of the first instruction in given `code`
@@ -69,7 +67,7 @@ public class Capstone {
         guard InsType.self == Instruction.self || InsType.self == instructionClass else {
             throw CapstoneError.unsupportedArchitecture
         }
-        var insnsPtr: UnsafeMutablePointer<cs_insn>? = nil
+        var insnsPtr: UnsafeMutablePointer<cs_insn>?
         currentCode = code
         let resultCount = code.withUnsafeBytes({ (ptr: UnsafeRawBufferPointer) in
             cs_disasm(handle, ptr.bindMemory(to: UInt8.self).baseAddress!, code.count, address, count ?? 0, &insnsPtr)
@@ -79,9 +77,11 @@ public class Capstone {
             throw CapstoneError(cs_errno(handle))
         }
         let mgr = InstructionMemoryManager(insns, count: resultCount, cs: self)
+        // swiftlint:disable force_cast
         return (0..<resultCount).map({ instructionClass.init(mgr, index: $0) as! InsType })
+        // swiftlint:enable force_cast
     }
-    
+
     /// Returns friendly name of an instruction in a string.
     public func name(ofInstruction id: UInt32) -> String? {
         guard let namePtr = cs_insn_name(handle, id) else {
@@ -89,17 +89,17 @@ public class Capstone {
         }
         return String(cString: namePtr)
     }
-    
+
     func name(ofRegister id: UInt16) -> String? {
         guard let namePtr = cs_reg_name(handle, numericCast(id)) else {
             return nil
         }
         return String(cString: namePtr)
     }
-    
+
     /// Returns friendly name of a register in a string.
     public func name<T: RawRepresentable>(ofRegister id: T) -> String? where T.RawValue == UInt16 {
-        guard instructionClass.RegisterType == T.self else {
+        guard instructionClass.registerType == T.self else {
             return nil
         }
         return name(ofRegister: id.rawValue)

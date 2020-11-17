@@ -6,29 +6,29 @@ extension Arm64Instruction: OperandContainer {
     public var conditionCode: Arm64Cc! {
         optionalEnumCast(detail?.arm64.cc, ignoring: ARM64_CC_INVALID)
     }
-    
+
     /// Does this instruction update flags?
     /// nil when detail mode is off
     public var updatesFlags: Bool! { detail?.arm64.update_flags }
-    
+
     /// Does this instruction write-back?
     /// nil when detail mode is off
     public var writeBack: Bool! { detail?.arm64.writeback }
-    
+
     public var operands: [Operand] {
         let operands: [cs_arm64_op] = readDetailsArray(array: detail?.arm64.operands, size: detail?.arm64.op_count)
         return operands.map({ Operand(op: $0, ins: instruction) })
     }
-    
+
     public struct Operand: InstructionOperand {
         internal var op: cs_arm64_op
         internal var ins: Arm64Ins
 
         public var type: Arm64Op { enumCast(op.type) }
-        
+
         /// Operand access mode
         public var access: Access { enumCast(op.access) }
-        
+
         /// Vector Index for some vector operands
         public var vectorIndex: Int! {
             guard op.vector_index != -1 else {
@@ -36,17 +36,17 @@ extension Arm64Instruction: OperandContainer {
             }
             return numericCast(op.vector_index)
         }
-        
+
         /// Vector Arrangement Specifier
         public var vectorArrangementSpecifier: Arm64Vas! {
             optionalEnumCast(op.vas, ignoring: ARM64_VAS_INVALID)
         }
-        
+
         /// Vector Element Size Specifier
         public var vectorElementSizeSpecifier: Arm64Vess! {
             optionalEnumCast(op.vess, ignoring: ARM64_VESS_INVALID)
         }
-        
+
         /// Shift for this operand
         public var shift: (type: Arm64Sft, value: UInt)! {
             guard op.shift.type != ARM64_SFT_INVALID else {
@@ -54,12 +54,12 @@ extension Arm64Instruction: OperandContainer {
             }
             return (type: enumCast(op.shift.type), value: numericCast(op.shift.value))
         }
-        
+
         /// Extender type of this operand
         public var extender: Arm64Ext! {
             optionalEnumCast(op.ext, ignoring: ARM64_EXT_INVALID)
         }
-        
+
         /// Operand value
         public var value: Arm64OperandValue {
             switch type {
@@ -98,7 +98,7 @@ extension Arm64Instruction: OperandContainer {
             }
             return Int64(0)
         }
-        
+
         /// Register value for REG operand
         public var register: Arm64Reg! {
             guard type == .reg else {
@@ -106,7 +106,7 @@ extension Arm64Instruction: OperandContainer {
             }
             return enumCast(op.reg)
         }
-        
+
         /// System register for REG_MRS and REG_MSR operands
         public var systemRegister: Arm64Sysreg! {
             guard type == .regMrs || type == .regMsr else {
@@ -114,7 +114,7 @@ extension Arm64Instruction: OperandContainer {
             }
             return enumCast(op.reg)
         }
-        
+
         /// Immediate value, or index for C-IMM or IMM operand
         public var immediateValue: Int64! {
             guard type == .imm || type == .cimm else {
@@ -122,7 +122,7 @@ extension Arm64Instruction: OperandContainer {
             }
             return op.imm
         }
-        
+
         /// Floating point value for FP operand
         public var doubleValue: Double! {
             guard type == .fp else {
@@ -130,7 +130,7 @@ extension Arm64Instruction: OperandContainer {
             }
             return op.fp
         }
-        
+
         /// base/index/displacement value for MEM operand.
         public var memory: Memory! {
             guard type == .mem else {
@@ -142,7 +142,7 @@ extension Arm64Instruction: OperandContainer {
                 displacement: op.mem.disp
             )
         }
-        
+
         /// PState field of MSR instruction.
         public var pState: Arm64Pstate! {
             guard type == .pstate else {
@@ -150,7 +150,7 @@ extension Arm64Instruction: OperandContainer {
             }
             return enumCast(op.pstate)
         }
-        
+
         /// PRFM operation.
         public var prefetch: Arm64Prfm! {
             guard type == .prefetch else {
@@ -158,7 +158,7 @@ extension Arm64Instruction: OperandContainer {
             }
             return enumCast(op.prefetch)
         }
-        
+
         /// Memory barrier operation (ISB/DMB/DSB instructions).
         public var barrier: Arm64Barrier! {
             guard type == .barrier else {
@@ -166,7 +166,7 @@ extension Arm64Instruction: OperandContainer {
             }
             return enumCast(op.barrier)
         }
-        
+
         /// Operand for IC operation
         public var ic: Arm64Ic! {
             guard type == .sys && ins == .ic else {
@@ -174,7 +174,7 @@ extension Arm64Instruction: OperandContainer {
             }
             return enumCast(op.sys)
         }
-        
+
         /// Operand for DC operation
         public var dc: Arm64Dc! {
             guard type == .sys && ins == .dc else {
@@ -182,7 +182,7 @@ extension Arm64Instruction: OperandContainer {
             }
             return enumCast(op.sys)
         }
-        
+
         /// Operand for AT operation
         public var at: Arm64At! {
             guard type == .sys && ins == .at else {
@@ -190,7 +190,7 @@ extension Arm64Instruction: OperandContainer {
             }
             return enumCast(op.sys)
         }
-        
+
         /// Operand for TLBI operation
         public var tlbi: Arm64Tlbi! {
             guard type == .sys && ins == .tlbi else {
@@ -198,7 +198,7 @@ extension Arm64Instruction: OperandContainer {
             }
             return enumCast(op.sys)
         }
-        
+
         /// Instruction's operand referring to memory
         public struct Memory {
             /// Base register
