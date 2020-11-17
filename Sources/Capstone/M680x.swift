@@ -10,26 +10,26 @@ extension M680xInstruction: OperandContainer {
     public var opFlags: M680xOpFlags! {
         optionalEnumCast(detail?.m680x.flags)
     }
-    
+
     public func isOperandInMnemonic(index: Int) -> Bool {
         guard let flags = opFlags else {
             return false
         }
         return (index == 0 && flags.contains(.firstOpInMnem)) || (index == 1 && flags.contains(.secondOpInMnem))
     }
-    
+
     public struct Operand: InstructionOperand {
         internal let op: cs_m680x_op
         public var isInMnemonic: Bool
-        
+
         public var type: M680xOp { enumCast(op.type) }
-        
+
         /// size of this operand (in bytes)
         public var size: UInt8 { op.size }
 
         /// Operand access mode
         public var access: Access { enumCast(op.access) }
-        
+
         public var value: M680xOperandValue {
             switch type {
             case .immediate:
@@ -50,7 +50,7 @@ extension M680xInstruction: OperandContainer {
                 fatalError("Invalid m680x operand type \(type.rawValue)")
             }
         }
-        
+
         /// Register value for register operand
         public var register: M680xReg! {
             guard type == .register else {
@@ -58,7 +58,7 @@ extension M680xInstruction: OperandContainer {
             }
             return enumCast(op.reg)
         }
-        
+
         /// Immediate value for immediate operand
         public var immediateValue: Int32! {
             guard type == .immediate else {
@@ -66,7 +66,7 @@ extension M680xInstruction: OperandContainer {
             }
             return op.imm
         }
-        
+
         /// Indexed addressing operand
         public var indexedAddress: IndexedAddress! {
             guard type == .indexed else {
@@ -74,7 +74,7 @@ extension M680xInstruction: OperandContainer {
             }
             return IndexedAddress(op.idx)
         }
-        
+
         /// Relative addressing operand (Bcc/LBcc)
         public var relativeAddress: RelativeAddress! {
             guard type == .relative else {
@@ -85,7 +85,7 @@ extension M680xInstruction: OperandContainer {
                 offset: op.rel.offset
             )
         }
-        
+
         /// Extended address
         public var extendedAddress: ExtendedAddress! {
             guard type == .extended else {
@@ -96,7 +96,7 @@ extension M680xInstruction: OperandContainer {
                 indirect: op.ext.indirect
             )
         }
-        
+
         /// Direct address
         public var directAddress: UInt16! {
             guard type == .direct else {
@@ -104,7 +104,7 @@ extension M680xInstruction: OperandContainer {
             }
             return UInt16(op.direct_addr)
         }
-        
+
         /// Constant value (bit index, page nr.)
         public var constantValue: UInt8! {
             guard type == .constant else {
@@ -112,7 +112,7 @@ extension M680xInstruction: OperandContainer {
             }
             return op.const_val
         }
-        
+
         /// Instruction's operand referring to indexed addressing
         public struct IndexedAddress {
             public let base: M680xReg?
@@ -121,13 +121,13 @@ extension M680xInstruction: OperandContainer {
             /// post-inc/decrement if flag `postIncDec` set, otherwise pre-inc/decrement
             public let incDec: Int8
             public let flags: M680xIdx
-            
+
             public var indirect: Bool { flags.contains(.indirect) }
             /// true if post-increment or post-decrement
             public var post: Bool { flags.contains(.postIncDec) }
             /// true if pre-increment or pre-decrement
             public var pre: Bool { !post }
-            
+
             init(_ idx: m680x_op_idx) {
                 base = optionalEnumCast(idx.base_reg, ignoring: M680X_REG_INVALID)
                 offset = (
@@ -140,7 +140,7 @@ extension M680xInstruction: OperandContainer {
                 flags = enumCast(idx.flags)
             }
         }
-        
+
         /// Instruction's memory operand referring to relative addressing (Bcc/LBcc)
         public struct RelativeAddress {
             /// The absolute address, calculated as PC + offset.
@@ -149,7 +149,7 @@ extension M680xInstruction: OperandContainer {
             /// the offset/displacement value
             public let offset: Int16
         }
-        
+
         /// Instruction's operand referring to extended addressing
         public struct ExtendedAddress {
             /// The absolute address

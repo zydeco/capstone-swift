@@ -9,15 +9,15 @@ final class CapstoneTests: XCTestCase {
         let version = Capstone.version
         print("Capstone version \(version)")
     }
-    
+
     func testBasic() throws {
-        try Tests.allTests.run(address: 0x1000, options: .default) { (cs, ins) in
+        try Tests.allTests.run(address: 0x1000, options: .default) { (_, ins) in
             print("0x\(hex(ins.address)):\t\(ins.mnemonic)\t\t\(ins.operandsString)")
         }
     }
-    
+
     func testDetail() throws {
-        try Tests.allTests.run(address: 0x1000) { (cs, ins) in
+        try Tests.allTests.run(address: 0x1000) { (_, ins) in
             print("0x\(hex(ins.address)):\t\(ins.mnemonic)\t\t\(ins.operandsString) // insn-ID: \(ins.id), insn-mnem: \(ins.mnemonic)")
             let regs = ins.registerNamesAccessedImplicitly
             if !regs.read.isEmpty {
@@ -32,24 +32,24 @@ final class CapstoneTests: XCTestCase {
             }
         }
     }
-    
+
     func testCustomMnemonic() throws {
         let code = Data([0x75, 0x01])
         let capstone = try Capstone(arch: .x86, mode: Mode.bits.b32)
-        
+
         // 1. Print out the instruction in default setup.
-        print("Disassemble X86 code with default instruction mnemonic");
+        print("Disassemble X86 code with default instruction mnemonic")
         let ins1 = try capstone.disassemble(code: code, address: 0x1000).first!
         print("\t\(ins1.mnemonic)\t\(ins1.operandsString)")
         XCTAssertEqual(ins1.mnemonic, "jne")
-        
+
         // 2. Customized mnemonic JNE to JNZ using CS_OPT_MNEMONIC option
         print("\nNow customize engine to change mnemonic from 'JNE' to 'JNZ'")
         try capstone.set(option: .mnemonic("jnz", instruction: X86Ins.jne))
         let ins2 = try capstone.disassemble(code: code, address: 0x1000).first!
         print("\t\(ins2.mnemonic)\t\(ins2.operandsString)")
         XCTAssertEqual(ins2.mnemonic, "jnz")
-        
+
         // 3. Reset engine to use the default mnemonic of JNE
         print("\nReset engine to use the default mnemonic")
         try capstone.set(option: .mnemonic(nil, instruction: X86Ins.jne))
@@ -57,13 +57,13 @@ final class CapstoneTests: XCTestCase {
         print("\t\(ins3.mnemonic)\t\(ins3.operandsString)")
         XCTAssertEqual(ins3.mnemonic, "jne")
     }
-    
+
     func testSkipData() throws {
-        try Tests.skipDataTests.run(address: 0x1000, options: .basic) { (cs, ins) in
+        try Tests.skipDataTests.run(address: 0x1000, options: .basic) { (_, ins) in
             print("0x\(hex(ins.address)):\t\(ins.mnemonic)\t\t\(ins.operandsString)")
         }
     }
-    
+
     func testArm() throws {
         try Tests.armTests.run(address: 0x80001000)
     }
@@ -71,31 +71,31 @@ final class CapstoneTests: XCTestCase {
     func testArm64() throws {
         try Tests.arm64Tests.run(address: 0x2c)
     }
-    
+
     func testPpc() throws {
         try Tests.ppcTests.run(address: 0x1000)
     }
-    
+
     func testX86() throws {
         try Tests.x86Tests.run(address: 0x1000)
     }
-    
+
     func testM68k() throws {
         try Tests.m68kTests.run(address: 0x1000)
     }
-    
+
     func testSparc() throws {
         try Tests.sparcTests.run(address: 0x1000)
     }
-    
+
     func testEvm() throws {
         try Tests.evmTests.run(address: 0x80001000)
     }
-    
+
     func testMips() throws {
         try Tests.mipsTests.run(address: 0x1000)
     }
-    
+
     func testM680x() throws {
         let options = PlatformTest.Options(
             separator: "********************",
@@ -108,19 +108,19 @@ final class CapstoneTests: XCTestCase {
     func testSysz() throws {
         try Tests.syszTests.run(address: 0x1000)
     }
-    
+
     func testXcore() throws {
         try Tests.xcoreTests.run(address: 0x1000)
     }
-    
+
     func testTms320c64x() throws {
         try Tests.tms320c64xTests.run(address: 0x1000)
     }
-    
+
     func testMos65xx() throws {
         try Tests.mos65xxTests.run(address: 0x1000)
     }
-    
+
     static var allTests = [
         ("testBasic", testBasic),
         ("testDetail", testDetail),
@@ -146,7 +146,7 @@ extension Array where Element == PlatformTest {
     func run(address: UInt64) throws {
         try forEach({ try $0.run(address: address )})
     }
-    
+
     func run(address: UInt64, options: PlatformTest.Options = PlatformTest.Options.default, iterator: (Capstone, Instruction) -> Void) throws {
         try forEach({ try $0.run(address: address, iterator: iterator)})
     }

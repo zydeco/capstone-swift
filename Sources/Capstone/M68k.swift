@@ -5,7 +5,7 @@ extension M68kInstruction: OperandContainer {
         let operands: [cs_m68k_op] = readDetailsArray(array: detail?.m68k.operands, size: detail?.m68k.op_count)
         return operands.map({ Operand(op: $0) })
     }
-    
+
     // Size of data operand works on in bytes (.b, .w, .l, etc)
     public var operationSize: OperationSize! {
         guard let size = detail?.m68k.op_size, size.type != M68K_SIZE_TYPE_INVALID else {
@@ -20,25 +20,24 @@ extension M68kInstruction: OperandContainer {
             return nil
         }
     }
-    
+
     /// Operation size of the current instruction (NOT the actually size of instruction)
     public enum OperationSize {
         case cpu(size: M68kCpuSize)
         case fpu(size: M68kFpuSize)
     }
-    
+
     /// Instruction operand
     public struct Operand: InstructionOperand {
         internal let op: cs_m68k_op
-        
-        public var type: M68kOp  { enumCast(op.type) }
-        
+
+        public var type: M68kOp { enumCast(op.type) }
+
         /// M68K addressing mode for this op
         public var addressingMode: M68kAm {
-            // FIXME: is this only relevant for memory operands?
             enumCast(op.address_mode)
         }
-        
+
         public var value: M68kOperandValue {
             switch type {
             case .reg:
@@ -61,7 +60,7 @@ extension M68kInstruction: OperandContainer {
                 fatalError("Invalid m68k operand type \(type.rawValue)")
             }
         }
-        
+
         /// Immediate value for imm operand
         public var immediateValue: UInt64! {
             guard type == .imm else {
@@ -69,7 +68,7 @@ extension M68kInstruction: OperandContainer {
             }
             return op.imm
         }
-        
+
         /// Immediate value for fpDouble operand
         public var doubleValue: Double! {
             guard type == .fpDouble else {
@@ -77,7 +76,7 @@ extension M68kInstruction: OperandContainer {
             }
             return op.dimm
         }
-        
+
         /// Immediate value for fpSingle operand
         public var floatValue: Float! {
             guard type == .fpSingle else {
@@ -85,7 +84,7 @@ extension M68kInstruction: OperandContainer {
             }
             return op.simm
         }
-        
+
         /// Register value for reg operand
         public var register: M68kReg! {
             guard type == .reg else {
@@ -93,7 +92,7 @@ extension M68kInstruction: OperandContainer {
             }
             return enumCast(op.reg)
         }
-        
+
         /// Register pair for regPair operand
         public var registerPair: [M68kReg]! {
             guard type == .regPair else {
@@ -101,7 +100,7 @@ extension M68kInstruction: OperandContainer {
             }
             return [enumCast(op.reg_pair.reg_0), enumCast(op.reg_pair.reg_1)]
         }
-        
+
         /// Register list for regBits operand
         public var registerList: [M68kReg]! {
             guard type == .regBits else {
@@ -112,7 +111,7 @@ extension M68kInstruction: OperandContainer {
                 .filter({ (op.register_bits & UInt32(1 << ($0 - 1))) != 0 })
                 .map({ M68kReg(rawValue: $0)! })
         }
-        
+
         /// Registers for reg, regPair or regBits operand
         public var registers: [M68kReg]! {
             switch type {
@@ -126,7 +125,7 @@ extension M68kInstruction: OperandContainer {
                 return nil
             }
         }
-        
+
         /// data when operand is targeting memory
         public var memory: Memory! {
             guard type == .mem else {
@@ -134,7 +133,7 @@ extension M68kInstruction: OperandContainer {
             }
             return Memory(op.mem)
         }
-        
+
         /// Data when operand is a branch displacement
         public var branchDisplacement: BranchDisplacement! {
             guard type == .brDisp else {
@@ -142,7 +141,7 @@ extension M68kInstruction: OperandContainer {
             }
             return BranchDisplacement(op.br_disp)
         }
-        
+
         /// Instruction's operand referring to memory
         public struct Memory {
             /// base register
@@ -159,10 +158,9 @@ extension M68kInstruction: OperandContainer {
             public let displacement: Int16
             /// used for bf* instructions
             public let bitField: (width: UInt8, offset: UInt8)?
-            
+
             init(_ mem: m68k_op_mem) {
                 base = optionalEnumCast(mem.base_reg, ignoring: M68K_REG_INVALID)
-                // FIXME: can scale exist without index?
                 if mem.index_reg != M68K_REG_INVALID {
                     index = (
                         register: enumCast(mem.index_reg),
@@ -186,12 +184,12 @@ extension M68kInstruction: OperandContainer {
                 }
             }
         }
-        
+
         /// Data when operand is a branch displacement
         public struct BranchDisplacement {
             public let size: M68kOpBrDispSize
             public let value: Int32
-            
+
             init(_ disp: m68k_op_br_disp) {
                 size = enumCast(disp.disp_size)
                 value = disp.disp
@@ -211,8 +209,8 @@ extension Array: M68kOperandValue where Element == M68kReg {
         map({ UInt32(1 << ($0.rawValue - 1)) }).reduce(0, { $0 + $1 })
     }
 }
-extension M68kInstruction.Operand.Memory : M68kOperandValue {}
-extension M68kInstruction.Operand.BranchDisplacement : M68kOperandValue {}
+extension M68kInstruction.Operand.Memory: M68kOperandValue {}
+extension M68kInstruction.Operand.BranchDisplacement: M68kOperandValue {}
 
 extension M68kAm: CustomStringConvertible {
     public var description: String {

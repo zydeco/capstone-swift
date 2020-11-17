@@ -5,17 +5,17 @@ extension Mos65xxInstruction: OperandContainer {
         let operands: [cs_mos65xx_op] = readDetailsArray(array: detail?.mos65xx.operands, size: detail?.mos65xx.op_count)
         return operands.map({ Operand(op: $0) })
     }
-    
+
     /// Addressing mode for this instruction
     public var addressingMode: Mos65xxAm! { optionalEnumCast(detail?.mos65xx.am) }
-    
+
     /// True if this instruction modifies flags
     public var modifiesFlags: Bool! { detail?.mos65xx.modifies_flags }
-    
+
     /// Instruction operand
     public struct Operand: InstructionOperand {
         internal let op: cs_mos65xx_op
-        
+
         public var type: Mos65xxOp { enumCast(op.type) }
 
         public var value: Mos65xxOperandValue {
@@ -30,7 +30,7 @@ extension Mos65xxInstruction: OperandContainer {
                 fatalError("Invalid mos65xx operand type \(type.rawValue)")
             }
         }
-        
+
         /// Register value for register operand
         public var register: Mos65xxReg! {
             guard type == .reg else {
@@ -38,7 +38,7 @@ extension Mos65xxInstruction: OperandContainer {
             }
             return enumCast(op.reg)
         }
-        
+
         /// Immediate value for immediate operand
         public var immediateValue: UInt16! {
             guard type == .imm else {
@@ -46,7 +46,7 @@ extension Mos65xxInstruction: OperandContainer {
             }
             return op.imm
         }
-        
+
         /// Address for memory operand
         public var address: UInt32! {
             guard type == .mem else {

@@ -68,32 +68,9 @@ extension Capstone {
         case .skipDataEnabled(let enabled):
             err = cs_option(handle, CS_OPT_SKIPDATA, enabled.csOptValue)
         case .skipData(mnemonic: let mnemonic, callback: let callback):
-            updateMnemonicPointer(mnemonic: mnemonic ?? ".byte")
-            skipDataCallback = callback
-            let cb: cs_skipdata_cb_t!
-            if callback == nil {
-                cb = nil
-            } else {
-                cb = { (code, codeSize, offset, userData) -> Int in
-                    let cs = Unmanaged<Capstone>.fromOpaque(userData!).takeUnretainedValue()
-                    switch(cs.skipDataCallback!(cs, cs.currentCode!, offset)) {
-                    case .skip(bytes: let bytes):
-                        return bytes
-                    case .stop:
-                        return 0
-                    }
-                }
-            }
-            
-            err = withUnsafePointer(to: cs_opt_skipdata(mnemonic: skipDataMnemonicPtr,
-                                                        callback: cb,
-                                                        user_data: Unmanaged.passUnretained(self).toOpaque()
-            ), {
-                cs_option(handle, CS_OPT_SKIPDATA, true.csOptValue)
-                return cs_option(handle, CS_OPT_SKIPDATA_SETUP, Int(bitPattern: $0))
-            })
+            err = setSkipData(mnemonic: mnemonic, callback: callback)
         case .mnemonic(_: let mnemonic, instruction: let instruction):
-            guard type(of:instruction) == instructionClass.InstructionType else {
+            guard type(of: instruction) == instructionClass.instructionType else {
                 throw CapstoneError.unsupportedArchitecture
             }
             err = mnemonic.withCString { mnemonicPtr in
@@ -106,7 +83,34 @@ extension Capstone {
             throw CapstoneError(err)
         }
     }
-    
+
+    private func setSkipData(mnemonic: String?, callback: SkipDataCallback?) -> cs_err {
+        updateMnemonicPointer(mnemonic: mnemonic ?? ".byte")
+        skipDataCallback = callback
+        let cb: cs_skipdata_cb_t!
+        if callback == nil {
+            cb = nil
+        } else {
+            cb = { (_, _, offset, userData) -> Int in
+                let cs = Unmanaged<Capstone>.fromOpaque(userData!).takeUnretainedValue()
+                switch(cs.skipDataCallback!(cs, cs.currentCode!, offset)) {
+                case .skip(bytes: let bytes):
+                    return bytes
+                case .stop:
+                    return 0
+                }
+            }
+        }
+
+        return withUnsafePointer(to: cs_opt_skipdata(mnemonic: skipDataMnemonicPtr,
+                                                     callback: cb,
+                                                     user_data: Unmanaged.passUnretained(self).toOpaque()
+        ), {
+            cs_option(handle, CS_OPT_SKIPDATA, true.csOptValue)
+            return cs_option(handle, CS_OPT_SKIPDATA_SETUP, Int(bitPattern: $0))
+        })
+    }
+
     private func updateMnemonicPointer(mnemonic: String?) {
         // mnemonic pointer used in cs_opt_skipdata must live as long as the handle is used
         skipDataMnemonicPtr?.deallocate()
