@@ -15,7 +15,7 @@ public struct Mode: OptionSet {
     }
 
     /// Endianness modes
-    public struct endian {
+    public enum endian {
         /// little-endian mode (default mode)
         public static let little = Mode(CS_MODE_LITTLE_ENDIAN)
         /// big-endian mode
@@ -23,7 +23,7 @@ public struct Mode: OptionSet {
     }
 
     /// Bitness modes
-    public struct bits {
+    public enum bits {
         /// 16-bit mode
         public static let b16 = Mode(CS_MODE_16)
         /// 32-bit mode
@@ -33,7 +33,7 @@ public struct Mode: OptionSet {
     }
 
     /// ARM modes
-    public struct arm {
+    public enum arm {
         /// 32-bit ARM
         public static let arm = Mode(CS_MODE_ARM)
         /// ARM's Thumb mode, including Thumb-2
@@ -45,7 +45,7 @@ public struct Mode: OptionSet {
     }
 
     /// MIPS modes
-    public struct mips {
+    public enum mips {
         /// MicroMips mode (MIPS)
         public static let micro = Mode(CS_MODE_MICRO)
         /// Mips II ISA
@@ -57,19 +57,19 @@ public struct Mode: OptionSet {
     }
 
     /// SPARC modes
-    public struct sparc {
+    public enum sparc {
         /// SparcV9 mode (Sparc)
         public static let v9 = Mode(CS_MODE_V9)
     }
 
     /// PowerPC modes
-    public struct ppc {
+    public enum ppc {
         /// Quad Processing eXtensions mode
         public static let qpx = Mode(CS_MODE_QPX)
     }
 
     /// M68K modes
-    public struct m68k {
+    public enum m68k {
         /// M68K 68000 mode
         public static let mc68000 = Mode(CS_MODE_M68K_000)
         /// M68K 68010 mode
@@ -85,7 +85,7 @@ public struct Mode: OptionSet {
     }
 
     /// M680X modes
-    public struct m680x {
+    public enum m680x {
         /// M680X Hitachi 6301,6303 mode
         public static let m6301 = Mode(CS_MODE_M680X_6301)
         /// M680X Hitachi 6309 mode
