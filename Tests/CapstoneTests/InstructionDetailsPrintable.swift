@@ -1,6 +1,10 @@
 import Capstone
 import Foundation
 
+// swiftlint:disable file_length
+// swiftlint:disable cyclomatic_complexity
+// swiftlint:disable function_body_length
+
 protocol InstructionDetailsPrintable {
     func printInstructionDetails(cs: Capstone)
 }
@@ -24,14 +28,14 @@ extension Instruction {
     func printInstructionBase() {
         print("0x\(String(address, radix: 16)):\t\(mnemonic)\t\(operandsString)")
     }
-    
+
     func printOperandAccess(index i: Int, access: Access) {
         guard !access.isEmpty else {
             return
         }
         print("\t\toperands[\(i)].access: \(access.testDescription)")
     }
-    
+
     func printRegisters(_ regs: (read: [String], written: [String])) {
         if !regs.read.isEmpty {
             print("\tRegisters read: \(regs.read.joined(separator: " "))")
@@ -60,25 +64,25 @@ func hex(_ data: Data) -> String {
     return data.reduce("") { $0 + String(format: "%02x", $1) }
 }
 
-fileprivate func printInstructionValue<T: RawRepresentable>(_ name: String, value: T?) where T.RawValue: FixedWidthInteger {
+private func printInstructionValue<T: RawRepresentable>(_ name: String, value: T?) where T.RawValue: FixedWidthInteger {
     printInstructionValue(name, value: value?.rawValue)
 }
 
-fileprivate func printInstructionValue(_ name: String, value: Bool?) {
+private func printInstructionValue(_ name: String, value: Bool?) {
     guard let value = value, value else {
         return
     }
     print("\t\(name): True")
 }
 
-fileprivate func printInstructionValue<T: FixedWidthInteger>(_ name: String, value: T?) {
+private func printInstructionValue<T: FixedWidthInteger>(_ name: String, value: T?) {
     guard let value = value else {
         return
     }
     print("\t\(name): \(value)")
 }
 
-fileprivate func printInstructionValue<T: FixedWidthInteger>(_ name: String, hex value: T?) {
+private func printInstructionValue<T: FixedWidthInteger>(_ name: String, hex value: T?) {
     guard let value = value else {
         return
     }
@@ -91,15 +95,15 @@ extension ArmInstruction: InstructionDetailsPrintable {
         guard hasDetail else {
             return
         }
-        
+
         let registerName = { (reg: ArmReg) -> String in
             cs.name(ofRegister: reg)!
         }
-        
+
         if operands.count > 0 {
             print("\top_count: \(operands.count)")
         }
-        
+
         for (i, op) in operands.enumerated() {
             switch op.type {
             case .invalid:
@@ -135,35 +139,35 @@ extension ArmInstruction: InstructionDetailsPrintable {
             case .sysreg:
                 print("\t\toperands[\(i)].type: SYSREG = \(op.systemRegister!.rawValue)")
             }
-            
+
             if let neonLane = op.neonLane {
                 print("\t\toperands[\(i)].neon_lane = \(neonLane)")
             }
-            
+
             printOperandAccess(index: i, access: op.access)
-            
+
             switch op.shift {
             case .some(.immediate(direction: let direction, value: let value)):
                 print("\t\t\tShift: \(direction.rawValue) = \(value)")
             case .some(.register(direction: let direction, register: let register)):
                 print("\t\t\tShift: \(direction.rawValue + 5) = \(registerName(register))")
             default:
-                break;
+                break
             }
-            
+
             if let vectorIndex = op.vectorIndex {
                 print("\t\toperands[\(i)].vector_index = \(vectorIndex)")
             }
-            
+
             if op.subtracted {
                 print("\t\tSubtracted: True")
             }
         }
-        
+
         if let cc = conditionCode, cc != .al {
             printInstructionValue("Code condition", value: cc)
         }
-        
+
         printInstructionValue("Update-flags", value: updatesFlags)
         printInstructionValue("Write-back", value: writeBack)
         printInstructionValue("CPSI-mode", value: cpsMode?.mode)
@@ -174,7 +178,7 @@ extension ArmInstruction: InstructionDetailsPrintable {
         }
         printInstructionValue("User-mode", value: usermode)
         printInstructionValue("Memory-barrier", value: memoryBarrier)
-        
+
         printRegisters(registerNamesAccessed)
         print()
     }
@@ -194,7 +198,7 @@ extension Arm64Instruction: InstructionDetailsPrintable {
         guard hasDetail else {
             return
         }
-        
+
         let registerName = { (reg: Arm64Reg) -> String in
             cs.name(ofRegister: reg)!
         }
@@ -202,7 +206,7 @@ extension Arm64Instruction: InstructionDetailsPrintable {
         if operands.count > 0 {
             print("\top_count: \(operands.count)")
         }
-        
+
         for (i, op) in operands.enumerated() {
             switch op.type {
             case .invalid:
@@ -232,44 +236,46 @@ extension Arm64Instruction: InstructionDetailsPrintable {
             case .pstate:
                 print("\t\toperands[\(i)].type: PSTATE = 0x\(hex(op.pState!.rawValue))")
             case .sys:
-                let value = op.value as! Arm64OperandSysValue
+                guard let value = op.value as? Arm64OperandSysValue else {
+                    fatalError("Invalid sys operand value: \(op.value)")
+                }
                 print("\t\toperands[\(i)].type: SYS = 0x\(hex(value.rawValue))")
             case .prefetch:
                 print("\t\toperands[\(i)].type: PREFETCH = 0x\(hex(op.prefetch!.rawValue))")
             case .barrier:
                 print("\t\toperands[\(i)].type: BARRIER = 0x\(hex(op.barrier!.rawValue))")
             }
-            
+
             printOperandAccess(index: i, access: op.access)
-            
+
             if let shift = op.shift {
                 print("\t\t\tShift: type = \(shift.type.rawValue), value = \(shift.value)")
             }
-            
+
             if let ext = op.extender {
                 print("\t\t\tExt: \(ext.rawValue)")
             }
-            
+
             if let vas = op.vectorArrangementSpecifier {
                 print("\t\t\tVector Arrangement Specifier: 0x\(hex(vas.rawValue))")
             }
-            
+
             if let vess = op.vectorElementSizeSpecifier {
                 print("\t\t\tVector Element Size Specifier: \(vess.rawValue)")
             }
-            
+
             if let vectorIndex = op.vectorIndex {
                 print("\t\t\tVector Index: \(vectorIndex)")
             }
         }
-        
+
         printInstructionValue("Update-flags", value: updatesFlags)
         printInstructionValue("Write-back", value: writeBack)
-        
+
         if let cc = conditionCode, cc != .al {
             printInstructionValue("Code-condition", value: cc)
         }
-        
+
         printRegisters(registerNamesAccessed)
         print()
     }
@@ -281,7 +287,7 @@ extension PowerPCInstruction: InstructionDetailsPrintable {
         guard hasDetail else {
             return
         }
-        
+
         let registerName = { (reg: PpcReg) -> String in
             cs.name(ofRegister: reg)!
         }
@@ -289,7 +295,7 @@ extension PowerPCInstruction: InstructionDetailsPrintable {
         if operands.count > 0 {
             print("\top_count: \(operands.count)")
         }
-        
+
         for (i, op) in operands.enumerated() {
             switch op.type {
             case .invalid:
@@ -313,11 +319,11 @@ extension PowerPCInstruction: InstructionDetailsPrintable {
                 print("\t\t\toperands[\(i)].crx.cond: \(op.condition.condition)")
             }
         }
-        
+
         printInstructionValue("Branch code", value: branchCode)
         printInstructionValue("Branch hint", value: branchHint)
         printInstructionValue("Update-CR0", value: updatesCR0)
-        
+
         print()
     }
 }
@@ -331,24 +337,24 @@ extension X86Instruction: InstructionDetailsPrintable {
                prefix.contains(.opsize) ? X86Prefix.opsize.rawValue : 0,
                prefix.contains(.addrsize) ? X86Prefix.addrsize.rawValue : 0)
     }
-    
+
     var formattedOpcode: String {
         // opcode formatted as 4 hex bytes
         var bytes = Array(repeating: UInt8(0), count: 4)
         bytes.replaceSubrange(0..<opcode.count, with: opcode)
         return String(format: "0x%02x 0x%02x 0x%02x 0x%02x ", bytes[0], bytes[1], bytes[2], bytes[3])
     }
-    
+
     func printInstructionDetails(cs: Capstone) {
         printInstructionBase()
         guard hasDetail else {
             return
         }
-        
+
         let registerName = { (reg: X86Reg) -> String in
             cs.name(ofRegister: reg)!
         }
-        
+
         print("\tPrefix:\(formattedPrefix)")
         print("\tOpcode:\(formattedOpcode)")
         printInstructionValue("rex", hex: rex ?? 0) // match C test output
@@ -360,14 +366,14 @@ extension X86Instruction: InstructionDetailsPrintable {
             printInstructionValue("disp_offset", hex: disp.offset)
             printInstructionValue("disp_size", hex: disp.size)
         }
-        
+
         if let sib = sib {
             printInstructionValue("sib", hex: sib.value)
             print("\t\tsib_base: \(registerName(sib.base))")
             print("\t\tsib_index: \(registerName(sib.index))")
             print("\t\tsib_scale: \(sib.scale)")
         }
-        
+
         printInstructionValue("xop_cc", value: xopConditionCode)
         printInstructionValue("sse_cc", value: sseConditionCode)
         printInstructionValue("avx_cc", value: avxConditionCode)
@@ -375,7 +381,7 @@ extension X86Instruction: InstructionDetailsPrintable {
             printInstructionValue("avx_sae", value: 1)
         }
         printInstructionValue("avx_rm", value: avxStaticRoundingMode)
-        
+
         // Print out all immediate operands
         let imms = operands.filter({ $0.type == .imm })
         if !imms.isEmpty {
@@ -388,11 +394,11 @@ extension X86Instruction: InstructionDetailsPrintable {
                 printInstructionValue("imm_size", hex: enc.size)
             }
         }
-        
+
         if operands.count > 0 {
             print("\top_count: \(operands.count)")
         }
-        
+
         // Print out all operands
         for (i, op) in operands.enumerated() {
             switch op.type {
@@ -420,7 +426,7 @@ extension X86Instruction: InstructionDetailsPrintable {
                     print("\t\t\toperands[\(i)].mem.disp: 0x\(hex(op.memory.displacement))")
                 }
             }
-            
+
             printInstructionValue("\toperands[\(i)].avx_bcast", value: op.avxBroadcastType)
             if op.avxZeroOpmask {
                 print("\t\toperands[\(i)].avx_zero_opmask: TRUE")
@@ -428,15 +434,15 @@ extension X86Instruction: InstructionDetailsPrintable {
             printInstructionValue("\toperands[\(i)].size", value: op.size)
             printOperandAccess(index: i, access: op.access)
         }
-        
+
         printRegisters(registerNamesAccessed)
-        
+
         if let flags = eFlags, !flags.isEmpty {
             print("\tEFLAGS: \(flags)")
         } else if let flags = fpuFlags, !flags.isEmpty {
             print("\tFPU_FLAGS: \(flags)")
         }
-        
+
         print()
     }
 }
@@ -447,15 +453,15 @@ extension M68kInstruction: InstructionDetailsPrintable {
         guard hasDetail else {
             return
         }
-        
+
         let registerName = { (reg: M68kReg) -> String in
             cs.name(ofRegister: reg)!
         }
-        
+
         if operands.count > 0 {
             print("\top_count: \(operands.count)")
         }
-        
+
         // print registers one in each line
         let registers = registerNamesAccessed
         for reg in registers.read {
@@ -464,9 +470,9 @@ extension M68kInstruction: InstructionDetailsPrintable {
         for reg in registers.written {
             print("\twriting to reg:   \(reg)")
         }
-        
+
         print("\tgroups_count: \(groups.count)")
-        
+
         for (i, op) in operands.enumerated() {
             switch op.type {
             case .invalid:
@@ -484,7 +490,7 @@ extension M68kInstruction: InstructionDetailsPrintable {
                 }
                 if let index = mem.index {
                     print("\t\t\toperands[\(i)].mem.index: REG = \(registerName(index.register))")
-                    print("\t\t\toperands[\(i)].mem.index: size = \(String(describing:index.size).prefix(1))")
+                    print("\t\t\toperands[\(i)].mem.index: size = \(String(describing: index.size).prefix(1))")
                 }
                 if mem.displacement != 0 {
                     print("\t\t\toperands[\(i)].mem.disp: 0x\(hex(mem.displacement))")
@@ -508,7 +514,7 @@ extension M68kInstruction: InstructionDetailsPrintable {
                 break
             }
         }
-        
+
         print()
     }
 }
@@ -519,15 +525,15 @@ extension SparcInstruction: InstructionDetailsPrintable {
         guard hasDetail else {
             return
         }
-        
+
         let registerName = { (reg: SparcReg) -> String in
             cs.name(ofRegister: reg)!
         }
-        
+
         if operands.count > 0 {
             print("\top_count: \(operands.count)")
         }
-        
+
         for (i, op) in operands.enumerated() {
             switch op.type {
             case .invalid:
@@ -548,7 +554,7 @@ extension SparcInstruction: InstructionDetailsPrintable {
                 }
             }
         }
-        
+
         printInstructionValue("Code condition", value: conditionCode)
         if !hint.isEmpty {
             printInstructionValue("Hint code", value: hint)
@@ -563,11 +569,11 @@ extension EthereumInstruction: InstructionDetailsPrintable {
         guard hasDetail else {
             return
         }
-        
+
         print("\tPop:     \(pop!)")
         print("\tPush:    \(push!)")
         print("\tGas fee: \(fee!)")
-        
+
         if !groups.isEmpty {
             print("\tGroups: \(groupNames.joined(separator: " ")) ")
         }
@@ -581,15 +587,15 @@ extension MipsInstruction: InstructionDetailsPrintable {
         guard hasDetail else {
             return
         }
-        
+
         let registerName = { (reg: MipsReg) -> String in
             cs.name(ofRegister: reg)!
         }
-        
+
         if operands.count > 0 {
             print("\top_count: \(operands.count)")
         }
-        
+
         for (i, op) in operands.enumerated() {
             switch op.type {
             case .invalid:
@@ -607,7 +613,7 @@ extension MipsInstruction: InstructionDetailsPrintable {
                 }
             }
         }
-        
+
         print()
     }
 }
@@ -619,15 +625,15 @@ extension M680xInstruction: InstructionDetailsPrintable {
             hexString.padding(toLength: 11, withPad: " ", startingAt: 0) :
             hexString + "         "
         print("0x\(hex(address, uppercase: false, digits: 4)): \(hexAndSpaces)\(mnemonic.padding(toLength: 5, withPad: " ", startingAt: 0)) \(operandsString)")
-        
+
         guard hasDetail else {
             return
         }
-        
+
         let registerName = { (reg: M680xReg) -> String in
             cs.name(ofRegister: reg)!
         }
-        
+
         if operands.count > 0 {
             print("\top_count: \(operands.count)")
         }
@@ -673,18 +679,18 @@ extension M680xInstruction: InstructionDetailsPrintable {
                     print("\t\t\t\(postPre) \(incDec): \(abs(value))")
                 }
             }
-            
+
             if op.size > 0 {
                 print("\t\t\tsize: \(op.size)")
             }
-            
+
             if !op.access.isEmpty {
                 print("\t\t\taccess: \(op.access.testDescription)")
             }
         }
-        
+
         printRegisters(registerNamesAccessed)
-        
+
         if !groups.isEmpty {
             printInstructionValue("groups_count", value: groups.count)
         }
@@ -698,15 +704,15 @@ extension SystemZInstruction: InstructionDetailsPrintable {
         guard hasDetail else {
             return
         }
-        
+
         let registerName = { (reg: SyszReg) -> String in
             cs.name(ofRegister: reg)!
         }
-        
+
         if operands.count > 0 {
             print("\top_count: \(operands.count)")
         }
-        
+
         for (i, op) in operands.enumerated() {
             switch op.type {
             case .invalid:
@@ -732,9 +738,9 @@ extension SystemZInstruction: InstructionDetailsPrintable {
                 }
             }
         }
-        
+
         printInstructionValue("Code condition", value: conditionCode)
-        
+
         print()
     }
 }
@@ -745,15 +751,15 @@ extension XCoreInstruction: InstructionDetailsPrintable {
         guard hasDetail else {
             return
         }
-        
+
         let registerName = { (reg: XcoreReg) -> String in
             cs.name(ofRegister: reg)!
         }
-        
+
         if operands.count > 0 {
             print("\top_count: \(operands.count)")
         }
-        
+
         for (i, op) in operands.enumerated() {
             switch op.type {
             case .invalid:
@@ -774,7 +780,7 @@ extension XCoreInstruction: InstructionDetailsPrintable {
                 }
             }
         }
-        
+
         print()
     }
 }
@@ -785,15 +791,15 @@ extension TMS320C64xInstruction: InstructionDetailsPrintable {
         guard hasDetail else {
             return
         }
-        
+
         let registerName = { (reg: Tms320c64xReg) -> String in
             cs.name(ofRegister: reg)!
         }
-        
+
         if operands.count > 0 {
             print("\top_count: \(operands.count)")
         }
-        
+
         for (i, op) in operands.enumerated() {
             switch op.type {
             case .invalid:
@@ -822,17 +828,17 @@ extension TMS320C64xInstruction: InstructionDetailsPrintable {
                 print("\t\toperands[\(i)].type: REGPAIR = \(op.registerPair.map({ registerName($0) }).joined(separator: ":"))")
             }
         }
-        
+
         print("\tFunctional unit: \(functionalUnit!)")
         if crossPath {
             print("\tCrosspath: 1")
         }
-        
+
         if let cc = condition {
             print("\tCondition: [\(cc.zero ? "!" : " ")\(registerName(cc.register))]")
         }
         print("\tParallel: \(parallel ? "true" : "false")")
-        
+
         print()
     }
 }

@@ -1,0 +1,8 @@
+excluded:
+  - Sources/Capstone/*Enums.swift
+disabled_rules:
+  - large_tuple
+  - nesting
+  - line_length
+identifier_name:
+  min_length: 1

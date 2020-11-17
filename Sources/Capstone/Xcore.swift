@@ -5,11 +5,11 @@ extension XCoreInstruction: OperandContainer {
         let operands: [cs_xcore_op] = readDetailsArray(array: detail?.xcore.operands, size: detail?.xcore.op_count)
         return operands.map({ Operand(op: $0) })
     }
-    
+
     /// Instruction operand
     public struct Operand: InstructionOperand {
         internal let op: cs_xcore_op
-        
+
         public var type: XcoreOp { enumCast(op.type) }
 
         public var value: XcoreOperandValue {
@@ -24,7 +24,7 @@ extension XCoreInstruction: OperandContainer {
                 fatalError("Invalid xcore operand type \(type.rawValue)")
             }
         }
-        
+
         /// Register value for register operand
         public var register: XcoreReg! {
             guard type == .reg else {
@@ -32,7 +32,7 @@ extension XCoreInstruction: OperandContainer {
             }
             return enumCast(op.reg)
         }
-        
+
         /// Immediate value for immediate operand
         public var immediateValue: Int32! {
             guard type == .imm else {
@@ -40,7 +40,7 @@ extension XCoreInstruction: OperandContainer {
             }
             return op.imm
         }
-        
+
         public var memory: Memory! {
             guard type == .mem else {
                 return nil
@@ -51,7 +51,7 @@ extension XCoreInstruction: OperandContainer {
                 displacement: op.mem.disp,
                 direction: numericCast(op.mem.direct))
         }
-        
+
         /// Instruction's operand referring to memory
         public struct Memory {
             public let base: XcoreReg

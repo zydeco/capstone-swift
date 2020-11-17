@@ -63,7 +63,7 @@ public class TMS320C64xInstruction: PlatformInstruction<Tms320c64xIns, Tms320c64
 public class M680xInstruction: PlatformInstruction<M680xIns, M680xGrp, M680xReg> {}
 
 /// Ethereum Instruction
-public class EthereumInstruction: PlatformInstruction_IG<EvmIns, EvmGrp> {}
+public class EthereumInstruction: PlatformInstructionBase<EvmIns, EvmGrp> {}
 
 public extension Architecture {
     /// The class for instructions used for this architecture
@@ -96,15 +96,15 @@ public extension Architecture {
             return EthereumInstruction.self
         }
     }
-    
+
     /// The type for registers used in this architecture, if any
     var registerType: Any.Type? {
-        instructionClass.RegisterType
+        instructionClass.registerType
     }
-    
+
     /// The type for instructions used in this architecture
     var instructionType: InstructionType.Type {
-        instructionClass.InstructionType
+        instructionClass.instructionType
     }
 }
 

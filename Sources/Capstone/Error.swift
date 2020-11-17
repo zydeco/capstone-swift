@@ -22,37 +22,33 @@ public enum CapstoneError: Error {
     case skipData
     /// Unsupported syntax
     case unsupportedSyntax(syntax: Syntax)
+    /// Unknown error
+    case unknown(code: UInt32)
+}
+
+extension cs_err: Hashable {
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(rawValue)
+    }
 }
 
 extension CapstoneError {
+    private static let errorMapping: [cs_err: CapstoneError] = [
+        CS_ERR_OK: .ok,
+        CS_ERR_MEM: .outOfMemory,
+        CS_ERR_ARCH: .unsupportedArchitecture,
+        CS_ERR_MODE: .invalidMode,
+        CS_ERR_OPTION: .invalidOption,
+        CS_ERR_DETAIL: .detailNotAvailable,
+        CS_ERR_VERSION: .unsupportedVersion,
+        CS_ERR_DIET: .notInDiet,
+        CS_ERR_SKIPDATA: .skipData,
+        CS_ERR_X86_ATT: .unsupportedSyntax(syntax: .att),
+        CS_ERR_X86_INTEL: .unsupportedSyntax(syntax: .intel),
+        CS_ERR_X86_MASM: .unsupportedSyntax(syntax: .masm)
+    ]
+
     init(_ err: cs_err) {
-        switch err {
-        case CS_ERR_OK:
-            self = .ok
-        case CS_ERR_MEM:
-            self = .outOfMemory
-        case CS_ERR_ARCH:
-            self = .unsupportedArchitecture
-        case CS_ERR_MODE:
-            self = .invalidMode
-        case CS_ERR_OPTION:
-            self = .invalidOption
-        case CS_ERR_DETAIL:
-            self = .detailNotAvailable
-        case CS_ERR_VERSION:
-            self = .unsupportedVersion
-        case CS_ERR_DIET:
-            self = .notInDiet
-        case CS_ERR_SKIPDATA:
-            self = .skipData
-        case CS_ERR_X86_ATT:
-            self = .unsupportedSyntax(syntax: .att)
-        case CS_ERR_X86_INTEL:
-            self = .unsupportedSyntax(syntax: .intel)
-        case CS_ERR_X86_MASM:
-            self = .unsupportedSyntax(syntax: .masm)
-        default:
-            self = .ok
-        }
+        self = CapstoneError.errorMapping[err] ?? .unknown(code: err.rawValue)
     }
 }

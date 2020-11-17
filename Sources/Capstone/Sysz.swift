@@ -5,14 +5,14 @@ extension SystemZInstruction: OperandContainer {
         let operands: [cs_sysz_op] = readDetailsArray(array: detail?.sysz.operands, size: detail?.sysz.op_count)
         return operands.map({ Operand(op: $0) })
     }
-    
+
     /// Condition code
     public var conditionCode: SyszCc! { optionalEnumCast(detail?.sysz.cc, ignoring: SYSZ_CC_INVALID) }
-    
+
     /// Instruction operand
     public struct Operand: InstructionOperand {
         internal let op: cs_sysz_op
-        
+
         public var type: SyszOp { enumCast(op.type) }
 
         public var value: SyszOperandValue {
@@ -29,7 +29,7 @@ extension SystemZInstruction: OperandContainer {
                 fatalError("Invalid sysz operand type \(type.rawValue)")
             }
         }
-        
+
         /// Register value for register operand
         public var register: SyszReg! {
             guard type == .reg else {
@@ -37,12 +37,12 @@ extension SystemZInstruction: OperandContainer {
             }
             return enumCast(op.reg)
         }
-        
+
         /// Access register for acreg operand
         public var accessRegister: UInt8! {
             return numericCast(op.reg.rawValue)
         }
-        
+
         /// Immediate value for immediate operand
         public var immediateValue: Int64! {
             guard type == .imm else {
@@ -50,7 +50,7 @@ extension SystemZInstruction: OperandContainer {
             }
             return op.imm
         }
-        
+
         public var memory: Memory! {
             guard type == .mem else {
                 return nil
@@ -61,7 +61,7 @@ extension SystemZInstruction: OperandContainer {
                 length: op.mem.length,
                 displacement: op.mem.disp)
         }
-        
+
         /// Instruction's operand referring to memory
         public struct Memory {
             public let base: SyszReg
