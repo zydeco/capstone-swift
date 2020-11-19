@@ -66,6 +66,10 @@ public struct Mode: OptionSet {
     public enum ppc {
         /// Quad Processing eXtensions mode
         public static let qpx = Mode(CS_MODE_QPX)
+        /// Signal Processing Engine mode
+        public static let spe = Mode(CS_MODE_SPE)
+        /// Book-E mode
+        public static let bookE = Mode(CS_MODE_BOOKE)
     }
 
     /// M68K modes
