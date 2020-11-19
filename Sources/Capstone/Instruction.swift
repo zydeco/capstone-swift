@@ -13,12 +13,6 @@ public class Instruction: CustomStringConvertible {
         self.index = index
     }
 
-    /// Instruction ID (basically a numeric ID for the instruction mnemonic)
-    /// This information is available even when detail option is disabled
-    public var id: UInt32 {
-        insn.id
-    }
-
     /// Address (EIP) of this instruction
     /// This information is available even when detail option is disabled
     public var address: UInt64 {

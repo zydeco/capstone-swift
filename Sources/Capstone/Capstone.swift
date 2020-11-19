@@ -82,8 +82,7 @@ public class Capstone {
         // swiftlint:enable force_cast
     }
 
-    /// Returns friendly name of an instruction in a string.
-    public func name(ofInstruction id: UInt32) -> String? {
+    func name(ofInstruction id: UInt32) -> String? {
         guard let namePtr = cs_insn_name(handle, id) else {
             return nil
         }
