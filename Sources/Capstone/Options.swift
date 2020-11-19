@@ -1,36 +1,54 @@
 import Foundation
 import Ccapstone
 
-/// Runtime option for the disassembled engine
+/// Runtime option for the disassembler engine.
 public enum DisassemblyOption {
-    /// Assembly output syntax
+    /// Assembly output syntax.
     case syntax(syntax: Syntax)
-    /// Break down instruction structure into details
+
+    /// Break down instruction structure into details.
+    ///
+    /// This enables accessing the following details from instructions:
+    /// - Operands
+    /// - Instruction groups
+    /// - Registers accessed
     case detail(value: Bool)
-    /// Change engine's mode at run-time
+
+    /// Change engine's mode at run-time.
     case mode(mode: Mode)
+
     /// Skip data when disassembling.
-    /// should be skipData(enabled: Bool) but swift is buggy, see https://bugs.swift.org/browse/SR-10077
+    // should be skipData(enabled: Bool) but swift is buggy, see https://bugs.swift.org/browse/SR-10077
     case skipDataEnabled(_ enabled: Bool)
+
     /// Custom setup to skip data when disassembling:
-    /// * mnemonic: If nil, ".byte" is used
-    /// * callback: User-defined callback to be called when Capstone hits data.
-    /// NOTE: if this callback pointer is nil, Capstone would skip a number of bytes depending on architectures, as following:
-    ///   * Arm:     2 bytes (Thumb mode) or 4 bytes.
-    ///   * Arm64:   4 bytes.
-    ///   * Mips:    4 bytes.
-    ///   * M680x:   1 byte.
-    ///   * PowerPC: 4 bytes.
-    ///   * Sparc:   4 bytes.
-    ///   * SystemZ: 2 bytes.
-    ///   * X86:     1 bytes.
-    ///   * XCore:   2 bytes.
-    ///   * EVM:     1 bytes.
-    ///   * MOS65XX: 1 bytes.
+    ///
+    /// Setting this implicitly enables skip data.
+    /// - `mnemonic`: If nil, ".byte" is used
+    /// -  `callback`: User-defined callback to be called when Capstone hits data.
+    ///
+    /// Note: if the callback is nil, Capstone will skip a number of bytes depending on architecture:
+    ///    * Arm: 2 bytes (Thumb mode) or 4 bytes.
+    ///    * Arm64: 4 bytes.
+    ///    * Mips: 4 bytes.
+    ///    * M680x: 1 byte.
+    ///    * PowerPC: 4 bytes.
+    ///    * Sparc: 4 bytes.
+    ///    * SystemZ: 2 bytes.
+    ///    * X86: 1 byte.
+    ///    * XCore: 2 bytes.
+    ///    * EVM: 1 byte.
+    ///    * MOS65xx: 1 byte.
     case skipData(mnemonic: String? = nil, callback: SkipDataCallback? = nil)
-    /// Customize instruction mnemonic
+
+    /// Customize an instruction mnemonic.
+    ///
+    /// Set to nil to remove the customization, and return to the default value.
     case mnemonic(_ mnemonic: String?, instruction: InstructionType)
-    /// Print immediate operands in unsigned form
+
+    /// Print immediate operands in unsigned form.
+    ///
+    /// This affects the instruction description and operands string, not the values of operands.
     case unsigned(value: Bool)
 }
 
@@ -51,6 +69,7 @@ public enum SkipDataResult {
 public typealias SkipDataCallback = (_ capstone: Capstone, _ code: Data, _ offset: Data.Index) -> SkipDataResult
 
 extension Capstone {
+    /// Set options for disassembly.
     public func set(option: DisassemblyOption) throws {
         let err: cs_err
         switch option {

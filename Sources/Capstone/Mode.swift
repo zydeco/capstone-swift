@@ -3,6 +3,8 @@ import Ccapstone
 // swiftlint:disable type_name
 
 /// Mode type
+///
+/// Used to set modes when creating an instance of Capstone.
 public struct Mode: OptionSet {
     public var rawValue: UInt32
 
@@ -58,7 +60,7 @@ public struct Mode: OptionSet {
 
     /// SPARC modes
     public enum sparc {
-        /// SparcV9 mode (Sparc)
+        /// SparcV9 mode
         public static let v9 = Mode(CS_MODE_V9)
     }
 
