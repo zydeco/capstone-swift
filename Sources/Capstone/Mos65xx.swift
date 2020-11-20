@@ -1,23 +1,37 @@
 import Ccapstone
 
 extension Mos65xxInstruction: OperandContainer {
+    /// Instruction operands.
+    ///
+    /// Empty when detail mode is off.
     public var operands: [Operand] {
         let operands: [cs_mos65xx_op] = readDetailsArray(array: detail?.mos65xx.operands, size: detail?.mos65xx.op_count)
         return operands.map({ Operand(op: $0) })
     }
 
-    /// Addressing mode for this instruction
+    /// Addressing mode for this instruction.
+    ///
+    /// `nil` when detail mode is off.
     public var addressingMode: Mos65xxAm! { optionalEnumCast(detail?.mos65xx.am) }
 
-    /// True if this instruction modifies flags
+    /// `true` if this instruction modifies flags.
+    ///
+    /// `nil` when detail mode is off.
     public var modifiesFlags: Bool! { detail?.mos65xx.modifies_flags }
 
-    /// Instruction operand
+    /// Operand for MOS65xx instructions.
+    ///
+    /// The operand's value can be accessed by the `value` property, or by a property corresponding to the operand's type:
+    /// - `register` or `registers` for `reg` operands.
+    /// - `immediateValue` for `imm` operands.
+    /// - `address` for `mem` operands.
     public struct Operand: InstructionOperand {
         internal let op: cs_mos65xx_op
 
+        /// Operand type.
         public var type: Mos65xxOp { enumCast(op.type) }
 
+        /// Operand value.
         public var value: Mos65xxOperandValue {
             switch type {
             case .imm:
@@ -31,7 +45,9 @@ extension Mos65xxInstruction: OperandContainer {
             }
         }
 
-        /// Register value for register operand
+        /// Register value for `reg` operand.
+        ///
+        /// `nil` when not an appropriate operand.
         public var register: Mos65xxReg! {
             guard type == .reg else {
                 return nil
@@ -39,7 +55,9 @@ extension Mos65xxInstruction: OperandContainer {
             return enumCast(op.reg)
         }
 
-        /// Immediate value for immediate operand
+        /// Immediate value for `imm` operand.
+        ///
+        /// `nil` when not an appropriate operand.
         public var immediateValue: UInt16! {
             guard type == .imm else {
                 return nil
@@ -47,7 +65,9 @@ extension Mos65xxInstruction: OperandContainer {
             return op.imm
         }
 
-        /// Address for memory operand
+        /// Address for `mem` operand.
+        ///
+        /// `nil` when not an appropriate operand.
         public var address: UInt32! {
             guard type == .mem else {
                 return nil
