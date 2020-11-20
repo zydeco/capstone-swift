@@ -1,17 +1,27 @@
 import Ccapstone
 
 extension XCoreInstruction: OperandContainer {
+    /// Instruction operands.
+    ///
+    /// Empty when detail mode is off.
     public var operands: [Operand] {
         let operands: [cs_xcore_op] = readDetailsArray(array: detail?.xcore.operands, size: detail?.xcore.op_count)
         return operands.map({ Operand(op: $0) })
     }
 
-    /// Instruction operand
+    /// Operand for XCore instructions.
+    ///
+    /// The operand's value can be accessed by the `value` property, or by a property corresponding to the operand's type:
+    /// - `register` for `reg` operands.
+    /// - `immediateValue` for `imm` operands.
+    /// - `memory` for `mem` operands.
     public struct Operand: InstructionOperand {
         internal let op: cs_xcore_op
 
+        /// Operand type.
         public var type: XcoreOp { enumCast(op.type) }
 
+        /// Operand value.
         public var value: XcoreOperandValue {
             switch type {
             case .imm:
@@ -25,7 +35,9 @@ extension XCoreInstruction: OperandContainer {
             }
         }
 
-        /// Register value for register operand
+        /// Register value for `reg` operand.
+        ///
+        /// `nil` when not an appropriate operand.
         public var register: XcoreReg! {
             guard type == .reg else {
                 return nil
@@ -33,7 +45,9 @@ extension XCoreInstruction: OperandContainer {
             return enumCast(op.reg)
         }
 
-        /// Immediate value for immediate operand
+        /// Immediate value for `imm` operand.
+        ///
+        /// `nil` when not an appropriate operand.
         public var immediateValue: Int32! {
             guard type == .imm else {
                 return nil
@@ -41,6 +55,9 @@ extension XCoreInstruction: OperandContainer {
             return op.imm
         }
 
+        /// Memory values for `mem` operand.
+        ///
+        /// `nil` when not an appropriate operand.
         public var memory: Memory! {
             guard type == .mem else {
                 return nil
@@ -52,7 +69,7 @@ extension XCoreInstruction: OperandContainer {
                 direction: numericCast(op.mem.direct))
         }
 
-        /// Instruction's operand referring to memory
+        /// Operand referring to memory
         public struct Memory {
             public let base: XcoreReg
             public let index: XcoreReg?

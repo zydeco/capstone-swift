@@ -1,35 +1,60 @@
 import Ccapstone
 
 extension M680xInstruction: OperandContainer {
+    /// Instruction operands.
+    ///
+    /// Empty when detail mode is off.
     public var operands: [Operand] {
         let operands: [cs_m680x_op] = readDetailsArray(array: detail?.m680x.operands, size: detail?.m680x.op_count)
         return operands.enumerated().map({ Operand(op: $0.element, isInMnemonic: isOperandInMnemonic(index: $0.offset)) })
     }
 
-    /// Flags indicating if operands are part of the mnemonic
+    /// Flags indicating if operands are part of the mnemonic.
+    ///
+    /// `nil` when detail mode is off.
     public var opFlags: M680xOpFlags! {
         optionalEnumCast(detail?.m680x.flags)
     }
 
-    public func isOperandInMnemonic(index: Int) -> Bool {
+    /// Check if an operand is part of the mnemonic.
+    ///
+    /// Some instructions can have implicit operands expressed as part of the mnemonic.
+    /// Example: `suba $10` has two operands: register A (implicit), and direct address $10.
+    /// - parameter index: operand to check for
+    /// - returns: `true` iff detail mode is on, and the operand is encoded in the mnemonic
+    func isOperandInMnemonic(index: Int) -> Bool {
         guard let flags = opFlags else {
             return false
         }
         return (index == 0 && flags.contains(.firstOpInMnem)) || (index == 1 && flags.contains(.secondOpInMnem))
     }
 
+    /// Operand for M680x instructions.
+    ///
+    /// The operand's value can be accessed by the `value` property, or by a property corresponding to the operand's type:
+    /// - `register` or `registers` for `reg` operands.
+    /// - `immediateValue` for `imm` operands.
+    /// - `constantValue` for `constant` operands.
+    /// - `indexedAddress` for `indexed` operands.
+    /// - `relativeAddress` for `relative` operands.
+    /// - `extendedAddress` for `extended` operands.
+    /// - `directAddress` for `direct` operands.
     public struct Operand: InstructionOperand {
         internal let op: cs_m680x_op
+
+        /// `true` if the operand is implicit in the mnemonic.
         public var isInMnemonic: Bool
 
+        /// Operand type.
         public var type: M680xOp { enumCast(op.type) }
 
-        /// size of this operand (in bytes)
+        /// Size of this operand (in bytes).
         public var size: UInt8 { op.size }
 
-        /// Operand access mode
+        /// Operand access mode.
         public var access: Access { enumCast(op.access) }
 
+        /// Operand value.
         public var value: M680xOperandValue {
             switch type {
             case .immediate:
@@ -51,7 +76,9 @@ extension M680xInstruction: OperandContainer {
             }
         }
 
-        /// Register value for register operand
+        /// Register value for `register` operand.
+        ///
+        /// `nil` when not an appropriate operand.
         public var register: M680xReg! {
             guard type == .register else {
                 return nil
@@ -59,7 +86,9 @@ extension M680xInstruction: OperandContainer {
             return enumCast(op.reg)
         }
 
-        /// Immediate value for immediate operand
+        /// Immediate value for `immediate` operand.
+        ///
+        /// `nil` when not an appropriate operand.
         public var immediateValue: Int32! {
             guard type == .immediate else {
                 return nil
@@ -67,7 +96,9 @@ extension M680xInstruction: OperandContainer {
             return op.imm
         }
 
-        /// Indexed addressing operand
+        /// Indexed addressing operand.
+        ///
+        /// `nil` when not an appropriate operand.
         public var indexedAddress: IndexedAddress! {
             guard type == .indexed else {
                 return nil
@@ -75,7 +106,9 @@ extension M680xInstruction: OperandContainer {
             return IndexedAddress(op.idx)
         }
 
-        /// Relative addressing operand (Bcc/LBcc)
+        /// Relative addressing operand (Bcc/LBcc).
+        ///
+        /// `nil` when not an appropriate operand.
         public var relativeAddress: RelativeAddress! {
             guard type == .relative else {
                 return nil
@@ -86,7 +119,9 @@ extension M680xInstruction: OperandContainer {
             )
         }
 
-        /// Extended address
+        /// Extended address.
+        ///
+        /// `nil` when not an appropriate operand.
         public var extendedAddress: ExtendedAddress! {
             guard type == .extended else {
                 return nil
@@ -97,7 +132,9 @@ extension M680xInstruction: OperandContainer {
             )
         }
 
-        /// Direct address
+        /// Direct address.
+        ///
+        /// `nil` when not an appropriate operand.
         public var directAddress: UInt16! {
             guard type == .direct else {
                 return nil
@@ -105,7 +142,9 @@ extension M680xInstruction: OperandContainer {
             return UInt16(op.direct_addr)
         }
 
-        /// Constant value (bit index, page nr.)
+        /// Constant value (bit index, page nr.).
+        ///
+        /// `nil` when not an appropriate operand.
         public var constantValue: UInt8! {
             guard type == .constant else {
                 return nil
@@ -113,19 +152,22 @@ extension M680xInstruction: OperandContainer {
             return op.const_val
         }
 
-        /// Instruction's operand referring to indexed addressing
+        /// Operand referring to indexed addressing.
         public struct IndexedAddress {
             public let base: M680xReg?
             public let offset: (register: M680xReg?, width: M680xOffset, value: Int16, address: UInt16)
-            /// Increment or decrement (-8 to 8)
-            /// post-inc/decrement if flag `postIncDec` set, otherwise pre-inc/decrement
+
+            /// Increment or decrement (-8 to 8).
+            ///
+            /// `post` or `pre` tell if it's pre-increment/decrement or post-increment/decrement.
             public let incDec: Int8
+            /// Indexed addressing flags.
             public let flags: M680xIdx
 
             public var indirect: Bool { flags.contains(.indirect) }
-            /// true if post-increment or post-decrement
+            /// `true` if post-increment or post-decrement.
             public var post: Bool { flags.contains(.postIncDec) }
-            /// true if pre-increment or pre-decrement
+            /// `true` if pre-increment or pre-decrement.
             public var pre: Bool { !post }
 
             init(_ idx: m680x_op_idx) {
@@ -141,20 +183,21 @@ extension M680xInstruction: OperandContainer {
             }
         }
 
-        /// Instruction's memory operand referring to relative addressing (Bcc/LBcc)
+        /// Operand referring to relative addressing (Bcc/LBcc).
         public struct RelativeAddress {
             /// The absolute address, calculated as PC + offset.
+            ///
             /// PC is the first address after the instruction.
             public let address: UInt16
-            /// the offset/displacement value
+            /// the offset/displacement value.
             public let offset: Int16
         }
 
-        /// Instruction's operand referring to extended addressing
+        /// Operand referring to extended addressing.
         public struct ExtendedAddress {
-            /// The absolute address
+            /// The absolute address.
             public let address: UInt16
-            /// true if extended indirect addressing
+            /// `true` if extended indirect addressing.
             public let indirect: Bool
         }
     }

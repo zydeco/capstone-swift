@@ -37,7 +37,7 @@ public class ArmInstruction: PlatformInstruction<ArmIns, ArmGrp, ArmReg> {}
 /// ARM-64 Instruction
 public class Arm64Instruction: PlatformInstruction<Arm64Ins, Arm64Grp, Arm64Reg> {}
 
-/// Mips Instruction
+/// MIPS Instruction
 public class MipsInstruction: PlatformInstruction<MipsIns, MipsGrp, MipsReg> {}
 
 /// X86 Instruction
@@ -46,7 +46,7 @@ public class X86Instruction: PlatformInstruction<X86Ins, X86Grp, X86Reg> {}
 /// PowerPC Instruction
 public class PowerPCInstruction: PlatformInstruction<PpcIns, PpcGrp, PpcReg> {}
 
-/// Sparc Instruction
+/// SPARC Instruction
 public class SparcInstruction: PlatformInstruction<SparcIns, SparcGrp, SparcReg> {}
 
 /// SystemZ Instruction
@@ -55,7 +55,7 @@ public class SystemZInstruction: PlatformInstruction<SyszIns, SyszGrp, SyszReg> 
 /// XCore Instruction
 public class XCoreInstruction: PlatformInstruction<XcoreIns, XcoreGrp, XcoreReg> {}
 
-/// 68K Instruction
+/// M68K Instruction
 public class M68kInstruction: PlatformInstruction<M68kIns, M68kGrp, M68kReg> {}
 
 /// TMS320C64x Instruction
@@ -67,12 +67,13 @@ public class M680xInstruction: PlatformInstruction<M680xIns, M680xGrp, M680xReg>
 /// Ethereum Instruction
 public class EthereumInstruction: PlatformInstructionBase<EvmIns, EvmGrp> {}
 
-/// MOS65XX Instruction
+/// MOS65xx Instruction
 public class Mos65xxInstruction: PlatformInstruction<Mos65xxIns, Mos65xxGrp, Mos65xxReg> {}
 
 public extension Architecture {
-    /// The class for instructions used for this architecture
-    /// `Instruction` is always a valid type
+    /// The class for disassembled instructions used for this architecture.
+    ///
+    /// This is a subclass of `Instruction`, with accessors for operands and architecture-specific properties.
     var instructionClass: Instruction.Type {
         switch self {
         case .arm:
@@ -104,17 +105,22 @@ public extension Architecture {
         }
     }
 
-    /// The type for registers used in this architecture, if any
+    /// The type for registers used in this architecture (if any).
+    ///
+    /// This is an enum with values corresponding to the registers.
     var registerType: Any.Type? {
         instructionClass.registerType
     }
 
-    /// The type for instructions used in this architecture
+    /// The type for instructions used in this architecture.
+    ///
+    /// This is an enum with values corresponding to instruction mnemonics.
     var instructionType: InstructionType.Type {
         instructionClass.instructionType
     }
 }
 
+/// Protocol conformed to by enumerations representing architecture-specific instructions.
 public protocol InstructionType {
     var rawValue: UInt32 { get }
     init?(rawValue: UInt32)
