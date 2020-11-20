@@ -1,12 +1,17 @@
 import Ccapstone
 
 extension TMS320C64xInstruction: OperandContainer {
+    /// Instruction operands.
+    ///
+    /// Empty when detail mode is off.
     public var operands: [Operand] {
         let operands: [cs_tms320c64x_op] = readDetailsArray(array: detail?.tms320c64x.operands, size: detail?.tms320c64x.op_count)
         return operands.map({ Operand(op: $0) })
     }
 
-    /// Condition
+    /// Condition.
+    ///
+    /// `nil` when detail mode is off.
     public var condition: (register: Tms320c64xReg, zero: Bool)! {
         guard let cc = detail?.tms320c64x.condition, cc.reg != 0 else {
             return nil
@@ -14,7 +19,9 @@ extension TMS320C64xInstruction: OperandContainer {
         return (register: enumCast(cc.reg), zero: cc.zero != 0)
     }
 
-    /// Functional Unit
+    /// Functional Unit.
+    ///
+    /// `nil` when detail mode is off.
     public var functionalUnit: FunctionalUnit! {
         guard let funit = detail?.tms320c64x.funit, funit.unit != 0 else {
             return nil
@@ -22,7 +29,9 @@ extension TMS320C64xInstruction: OperandContainer {
         return FunctionalUnit(unit: enumCast(funit.unit), side: funit.side)
     }
 
-    /// Cross path
+    /// Cross path.
+    ///
+    /// `nil` when detail mode is off.
     public var crossPath: Bool! {
         guard let value = detail?.tms320c64x.funit.crosspath else {
             return nil
@@ -30,7 +39,9 @@ extension TMS320C64xInstruction: OperandContainer {
         return value == 1
     }
 
-    /// Parallel
+    /// Parallel.
+    ///
+    /// `nil` when detail mode is off.
     public var parallel: Bool! {
         guard let value = detail?.tms320c64x.parallel else {
             return nil
@@ -43,12 +54,20 @@ extension TMS320C64xInstruction: OperandContainer {
         let side: UInt32
     }
 
-    /// Instruction operand
+    /// Operand for TMS320C64x instructions.
+    ///
+    /// The operand's value can be accessed by the `value` property, or by a property corresponding to the operand's type:
+    /// - `register` for `reg` operands.
+    /// - `registerPair` for `regpair` operands.
+    /// - `immediateValue` for `imm` operands.
+    /// - `memory` for `mem` operands.
     public struct Operand: InstructionOperand {
         internal let op: cs_tms320c64x_op
 
+        /// Operand type.
         public var type: Tms320c64xOp { enumCast(op.type) }
 
+        /// Operand value.
         public var value: Tms320c64xOperandValue {
             switch type {
             case .imm:
@@ -64,7 +83,9 @@ extension TMS320C64xInstruction: OperandContainer {
             }
         }
 
-        /// Register value for register operand
+        /// Register value for `reg` operand.
+        ///
+        /// `nil` when not an appropriate operand.
         public var register: Tms320c64xReg! {
             guard type == .reg else {
                 return nil
@@ -72,7 +93,9 @@ extension TMS320C64xInstruction: OperandContainer {
             return enumCast(op.reg)
         }
 
-        /// Register values for register pair operand
+        /// Register values for `regpair` operand.
+        ///
+        /// `nil` when not an appropriate operand.
         public var registerPair: [Tms320c64xReg]! {
             guard type == .regpair else {
                 return nil
@@ -80,7 +103,9 @@ extension TMS320C64xInstruction: OperandContainer {
             return [enumCast(op.reg+1), enumCast(op.reg)]
         }
 
-        /// Immediate value for immediate operand
+        /// Immediate value for `imm` operand.
+        ///
+        /// `nil` when not an appropriate operand.
         public var immediateValue: Int32! {
             guard type == .imm else {
                 return nil
@@ -88,6 +113,9 @@ extension TMS320C64xInstruction: OperandContainer {
             return op.imm
         }
 
+        /// Memory  for `mem` operand.
+        ///
+        /// `nil` when not an appropriate operand.
         public var memory: Memory! {
             guard type == .mem else {
                 return nil
@@ -95,21 +123,18 @@ extension TMS320C64xInstruction: OperandContainer {
             return Memory(op.mem)
         }
 
-        /// Instruction's operand referring to memory
+        /// Operand referring to memory
         public struct Memory {
             public let base: Tms320c64xReg
-            /// Displacement
             public let displacement: Displacement
             /// Unit of base and offset register
             public let unit: UInt32
             /// Offset scaled
             public let scaled: UInt32
-            /// Direction
             public let direction: Tms320c64xMemDir
-            /// Modification
             public let modification: Tms320c64xMemMod
 
-            /// Displacement type and value
+            /// Displacement type and value.
             public enum Displacement {
                 case constant(value: UInt32)
                 case register(register: Tms320c64xReg)
