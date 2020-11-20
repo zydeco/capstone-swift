@@ -1,12 +1,17 @@
 import Ccapstone
 
 extension M68kInstruction: OperandContainer {
+    /// Instruction operands.
+    ///
+    /// Empty when detail mode is off.
     public var operands: [Operand] {
         let operands: [cs_m68k_op] = readDetailsArray(array: detail?.m68k.operands, size: detail?.m68k.op_count)
         return operands.map({ Operand(op: $0) })
     }
 
-    // Size of data operand works on in bytes (.b, .w, .l, etc)
+    /// Size the data operand works on in bytes (.b, .w, .l).
+    ///
+    /// `nil` when detail mode is off.
     public var operationSize: OperationSize! {
         guard let size = detail?.m68k.op_size, size.type != M68K_SIZE_TYPE_INVALID else {
             return nil
@@ -21,23 +26,34 @@ extension M68kInstruction: OperandContainer {
         }
     }
 
-    /// Operation size of the current instruction (NOT the actually size of instruction)
+    /// Operation size of the current instruction (NOT the size of the instruction)
     public enum OperationSize {
         case cpu(size: M68kCpuSize)
         case fpu(size: M68kFpuSize)
     }
 
-    /// Instruction operand
+    /// Operand for M68k instructions.
+    ///
+    /// The operand's value can be accessed by the `value` property, or by a property corresponding to the operand's type:
+    /// - `register` or `registers` for `reg` operands.
+    /// - `immediateValue` for `imm` operands.
+    /// - `floatValue` for `fpSingle` operands.
+    /// - `doubleValue` for `fpDouble` operands.
+    /// - `registerList` or `registers` for `regBits` operands.
+    /// - `registerPair` or `registers` for `regPair` operands.
+    /// - `brDisp` for `branchDisplacement` operands.
     public struct Operand: InstructionOperand {
         internal let op: cs_m68k_op
 
+        /// Operand type.
         public var type: M68kOp { enumCast(op.type) }
 
-        /// M68K addressing mode for this op
+        /// M68K addressing mode for this op.
         public var addressingMode: M68kAm {
             enumCast(op.address_mode)
         }
 
+        /// Operand value.
         public var value: M68kOperandValue {
             switch type {
             case .reg:
@@ -61,7 +77,9 @@ extension M68kInstruction: OperandContainer {
             }
         }
 
-        /// Immediate value for imm operand
+        /// Immediate value for `imm` operand.
+        ///
+        /// `nil` when not an appropriate operand.
         public var immediateValue: UInt64! {
             guard type == .imm else {
                 return nil
@@ -69,7 +87,9 @@ extension M68kInstruction: OperandContainer {
             return op.imm
         }
 
-        /// Immediate value for fpDouble operand
+        /// Immediate value for `fpDouble` operand.
+        ///
+        /// `nil` when not an appropriate operand.
         public var doubleValue: Double! {
             guard type == .fpDouble else {
                 return nil
@@ -77,7 +97,9 @@ extension M68kInstruction: OperandContainer {
             return op.dimm
         }
 
-        /// Immediate value for fpSingle operand
+        /// Immediate value for `fpSingle` operand.
+        ///
+        /// `nil` when not an appropriate operand.
         public var floatValue: Float! {
             guard type == .fpSingle else {
                 return nil
@@ -85,7 +107,9 @@ extension M68kInstruction: OperandContainer {
             return op.simm
         }
 
-        /// Register value for reg operand
+        /// Register value for `reg` operand.
+        ///
+        /// `nil` when not an appropriate operand.
         public var register: M68kReg! {
             guard type == .reg else {
                 return nil
@@ -93,7 +117,9 @@ extension M68kInstruction: OperandContainer {
             return enumCast(op.reg)
         }
 
-        /// Register pair for regPair operand
+        /// Register pair for `regPair` operand.
+        ///
+        /// `nil` when not an appropriate operand.
         public var registerPair: [M68kReg]! {
             guard type == .regPair else {
                 return nil
@@ -101,7 +127,9 @@ extension M68kInstruction: OperandContainer {
             return [enumCast(op.reg_pair.reg_0), enumCast(op.reg_pair.reg_1)]
         }
 
-        /// Register list for regBits operand
+        /// Register list for `regBits` operand.
+        ///
+        /// `nil` when not an appropriate operand.
         public var registerList: [M68kReg]! {
             guard type == .regBits else {
                 return nil
@@ -112,7 +140,9 @@ extension M68kInstruction: OperandContainer {
                 .map({ M68kReg(rawValue: $0)! })
         }
 
-        /// Registers for reg, regPair or regBits operand
+        /// Registers for `reg`, `regPair` or `regBits` operand..
+        ///
+        /// `nil` when not an appropriate operand.
         public var registers: [M68kReg]! {
             switch type {
             case .reg:
@@ -126,7 +156,9 @@ extension M68kInstruction: OperandContainer {
             }
         }
 
-        /// data when operand is targeting memory
+        /// Data when operand is targeting memory.
+        ///
+        /// `nil` when not an appropriate operand.
         public var memory: Memory! {
             guard type == .mem else {
                 return nil
@@ -142,21 +174,21 @@ extension M68kInstruction: OperandContainer {
             return BranchDisplacement(op.br_disp)
         }
 
-        /// Instruction's operand referring to memory
+        /// Instruction operand referring to memory
         public struct Memory {
-            /// base register
+            /// Base register
             public let base: M68kReg?
-            /// index information
+            /// Index information
             public let index: (register: M68kReg, scale: UInt8, size: M68kCpuSize)?
-            /// indirect base register
+            /// Indirect base register
             public let indirectBase: M68kReg?
-            /// indirect displacement
+            /// Indirect displacement
             public let baseDisplacement: UInt32
-            /// outer displacement
+            /// Outer displacement
             public let outerDisplacement: UInt32
-            /// displacement value
+            /// Displacement value
             public let displacement: Int16
-            /// used for bf* instructions
+            /// Used for bf* instructions
             public let bitField: (width: UInt8, offset: UInt8)?
 
             init(_ mem: m68k_op_mem) {

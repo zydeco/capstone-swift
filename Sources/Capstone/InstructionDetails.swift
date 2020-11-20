@@ -13,27 +13,38 @@ extension Instruction {
         return insn.detail?.pointee
     }
 
+    /// True if details are available for this instruction.
+    ///
+    /// Details are available on instructions (not on skipped data) when disassembling in detail mode,
+    /// by setting the appropriate option:
+    /// ~~~
+    /// capstone.set(option: .detail(value: true))
+    /// ~~~
     public var hasDetail: Bool { mgr.cs.detail && insn.id != 0 }
 
-    /// List of basic groups this instruction belongs to.
-    /// This API is only valid when detail mode is on (it's off by default).
-    /// When in 'diet' mode, this API is irrelevant because engine does not store registers.
+    /// List of architecture-agnostic groups this instruction belongs to.
+    ///
+    /// The list will be empty in any of these cases:
+    /// * detail mode is off
+    /// * capstone is built in diet mode
+    /// * instruction groups are not implemented for this architecture
     /// See `groups` for architecture-specific groups.
-    /// - returns: list of groups, or `[.invalid]` if detail mode is disabled
     public var baseGroups: [InstructionGroup] {
         return getInstructionGroups().compactMap({ InstructionGroup(rawValue: $0) })
     }
 
-    /// Check if a disassembled instruction belong to a particular group.
+    /// Check if an instruction belong to a particular group.
+    ///
     /// This API is only valid when detail mode is on (it's off by default).
-    /// When in 'diet' mode, this API is irrelevant because engine does not store registers.
-    /// - parameter group: group to check
-    /// - returns: `true` if detail mode is enabled and the instruction belongs to this group, `false` otherwise
+    /// When in 'diet' mode, this API is irrelevant because engine does not store groups.
+    /// - parameter group: group to check.
+    /// - returns: `true` if the instruction belongs to this group, `false` otherwise.
     public func isIn(group: InstructionGroup) -> Bool {
         return withUnsafePointer(to: insn, { cs_insn_group(mgr.cs.handle, $0, UInt32(group.rawValue)) })
     }
 
     /// List of group names this instruction belongs to.
+    ///
     /// This API is only valid when detail mode is on (it's off by default).
     /// When in 'diet' mode, this API is irrelevant because engine does not store groups.
     public var groupNames: [String] {
@@ -45,13 +56,17 @@ extension Instruction {
     }
 
     /// Register names implicitly and explicitly accessed by this instruction.
-    /// This API is only valid when detail mode is on (it's off by default)
+    ///
+    /// This API is only valid when detail mode is on (it's off by default).
+    /// When in 'diet' mode, this API is irrelevant because engine does not store registers.
     public var registerNamesAccessed: (read: [String], written: [String]) {
         getRegsAccessed(implicitly: false)
     }
 
     /// Register names implicitly accessed by this instruction.
-    /// This API is only valid when detail mode is on (it's off by default)
+    ///
+    /// This API is only valid when detail mode is on (it's off by default).
+    /// When in 'diet' mode, this API is irrelevant because engine does not store registers.
     public var registerNamesAccessedImplicitly: (read: [String], written: [String]) {
         getRegsAccessed(implicitly: true)
     }
@@ -115,9 +130,9 @@ public struct Access: OptionSet, CustomStringConvertible {
         self.rawValue = rawValue
     }
 
-    /// Operand read from memory or register.
+    /// Operand reads from memory or register.
     public static let read = Access(rawValue: 1)
-    /// Operand write to memory or register.
+    /// Operand writes to memory or register.
     public static let write = Access(rawValue: 2)
 
     public var description: String {
@@ -153,14 +168,18 @@ public enum InstructionGroup: UInt8 {
     case branchRelative
 }
 
+/// Protocol for instructions that contain operands.
 public protocol OperandContainer {
+    /// Type of operands for this instruction.
     associatedtype OperandType where OperandType: InstructionOperand
 
-    /// Operands for this instruction
-    /// Empty if detail mode is off
+    /// Instruction operands.
+    ///
+    /// Empty when detail mode is off.
     var operands: [OperandType] { get }
 }
 
+/// Protocol for instruction operands.
 public protocol InstructionOperand {
     associatedtype OperandTypeType
     associatedtype OperandValueType
@@ -172,18 +191,23 @@ public protocol InstructionOperand {
 }
 
 extension PlatformInstructionBase {
-    /// List of architecture-specific groups this instruction belongs to.
-    /// This API is only valid when detail mode is on (it's off by default)
-    /// See `groups` for architecture-specific groups.
-    /// - returns `[.invalid]` if detail mode is disabled
+    /// List of architecture-specific groups the instruction belongs to.
+    ///
+    /// The list will be empty in any of these cases:
+    /// * detail mode is off
+    /// * capstone is built in diet mode
+    /// * instruction groups are not implemented for this architecture
+    /// See `baseGroups` for architecture-agnostic groups.
     public var groups: [GroupType] {
         getInstructionGroups().compactMap({ GroupType(rawValue: $0) })
     }
 
-    /// Check if a disassembled instruction belong to a particular group.
-    /// This API is only valid when detail mode is on (it's off by default)
-    /// - parameter group: group to check
-    /// - returns: `true` i the instruction belongs to this group, `false` otherwise
+    /// Check if an instruction belong to a particular group.
+    ///
+    /// This API is only valid when detail mode is on (it's off by default).
+    /// When in 'diet' mode, this API is irrelevant because engine does not store groups.
+    /// - parameter group: group to check.
+    /// - returns: `true` if the instruction belongs to this group, `false` otherwise.
     public func isIn(group: GroupType) -> Bool {
         return withUnsafePointer(to: insn, { cs_insn_group(mgr.cs.handle, $0, UInt32(group.rawValue)) })
     }
@@ -191,13 +215,17 @@ extension PlatformInstructionBase {
 
 extension PlatformInstruction {
     /// Registers implicitly and explicitly accessed by this instruction.
-    /// This API is only valid when detail mode is on (it's off by default)
+    ///
+    /// This API is only valid when detail mode is on (it's off by default).
+    /// When in 'diet' mode, this API is irrelevant because engine does not store registers.
     public var registersAccessed: (read: [RegType], written: [RegType]) {
         getRegsAccessed(implicitly: false)
     }
 
     /// Registers implicitly accessed by this instruction.
-    /// This API is only valid when detail mode is on (it's off by default)
+    /// 
+    /// This API is only valid when detail mode is on (it's off by default).
+    /// When in 'diet' mode, this API is irrelevant because engine does not store registers.
     public var registersAccessedImplicitly: (read: [RegType], written: [RegType]) {
         getRegsAccessed(implicitly: true)
     }

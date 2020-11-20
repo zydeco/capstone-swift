@@ -1,7 +1,6 @@
 // For Capstone Engine. AUTO-GENERATED FILE, DO NOT EDIT (X86)
 
 
-/// Calculate relative address for X86-64, given cs_insn structure
 /// X86 registers
 public enum X86Reg: UInt16 {
     case invalid = 0

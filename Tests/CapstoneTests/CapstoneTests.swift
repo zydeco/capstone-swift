@@ -18,7 +18,7 @@ final class CapstoneTests: XCTestCase {
 
     func testDetail() throws {
         try Tests.allTests.run(address: 0x1000) { (_, ins) in
-            print("0x\(hex(ins.address)):\t\(ins.mnemonic)\t\t\(ins.operandsString) // insn-ID: \(ins.id), insn-mnem: \(ins.mnemonic)")
+            print("0x\(hex(ins.address)):\t\(ins.mnemonic)\t\t\(ins.operandsString)")
             let regs = ins.registerNamesAccessedImplicitly
             if !regs.read.isEmpty {
                 print("\tImplicit registers read: \(regs.read.joined(separator: " ")) ")

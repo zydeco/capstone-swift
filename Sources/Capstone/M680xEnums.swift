@@ -114,8 +114,6 @@ public enum M680xGrp: UInt8 {
     case ending = 8
 }
 
-/// The first (register) operand is part of the
-/// instruction mnemonic
 public struct M680xOpFlags: OptionSet {
     public typealias RawValue = UInt8
     public let rawValue: RawValue
