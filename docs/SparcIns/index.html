@@ -1,0 +1,1784 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capstone - SparcIns</title>
+    <link rel="stylesheet" type="text/css" href="/all.css" media="all" />
+</head>
+<body>
+    <header>
+        <a href="/">
+            <strong>
+                Capstone
+            </strong>
+            <span>Documentation</span>
+        </a>
+        <sup>Beta</sup>
+    </header>
+
+    <!--
+    <form class="search">
+        <input type="search" placeholder="Search" />
+    </form>
+    -->
+
+    <nav>
+        <div class="wrapper">
+            <h2>On This Page</h2>
+            <ol><li><a href="#relationships">Relationships</a><ul><li><a href="#relationships">Conforms To</a></li></ul></li><li><a href="#enumeration cases">Enumeration Cases</a><ul><li class="case"><a href="#sparcins.invalid">invalid</a></li><li class="case"><a href="#sparcins.addcc">addcc</a></li><li class="case"><a href="#sparcins.addx">addx</a></li><li class="case"><a href="#sparcins.addxcc">addxcc</a></li><li class="case"><a href="#sparcins.addxc">addxc</a></li><li class="case"><a href="#sparcins.addxccc">addxccc</a></li><li class="case"><a href="#sparcins.add">add</a></li><li class="case"><a href="#sparcins.alignaddr">alignaddr</a></li><li class="case"><a href="#sparcins.alignaddrl">alignaddrl</a></li><li class="case"><a href="#sparcins.andcc">andcc</a></li><li class="case"><a href="#sparcins.andncc">andncc</a></li><li class="case"><a href="#sparcins.andn">andn</a></li><li class="case"><a href="#sparcins.and">and</a></li><li class="case"><a href="#sparcins.array16">array16</a></li><li class="case"><a href="#sparcins.array32">array32</a></li><li class="case"><a href="#sparcins.array8">array8</a></li><li class="case"><a href="#sparcins.b">b</a></li><li class="case"><a href="#sparcins.jmp">jmp</a></li><li class="case"><a href="#sparcins.bmask">bmask</a></li><li class="case"><a href="#sparcins.fb">fb</a></li><li class="case"><a href="#sparcins.brgez">brgez</a></li><li class="case"><a href="#sparcins.brgz">brgz</a></li><li class="case"><a href="#sparcins.brlez">brlez</a></li><li class="case"><a href="#sparcins.brlz">brlz</a></li><li class="case"><a href="#sparcins.brnz">brnz</a></li><li class="case"><a href="#sparcins.brz">brz</a></li><li class="case"><a href="#sparcins.bshuffle">bshuffle</a></li><li class="case"><a href="#sparcins.call">call</a></li><li class="case"><a href="#sparcins.casx">casx</a></li><li class="case"><a href="#sparcins.cas">cas</a></li><li class="case"><a href="#sparcins.cmask16">cmask16</a></li><li class="case"><a href="#sparcins.cmask32">cmask32</a></li><li class="case"><a href="#sparcins.cmask8">cmask8</a></li><li class="case"><a href="#sparcins.cmp">cmp</a></li><li class="case"><a href="#sparcins.edge16">edge16</a></li><li class="case"><a href="#sparcins.edge16l">edge16l</a></li><li class="case"><a href="#sparcins.edge16ln">edge16ln</a></li><li class="case"><a href="#sparcins.edge16n">edge16n</a></li><li class="case"><a href="#sparcins.edge32">edge32</a></li><li class="case"><a href="#sparcins.edge32l">edge32l</a></li><li class="case"><a href="#sparcins.edge32ln">edge32ln</a></li><li class="case"><a href="#sparcins.edge32n">edge32n</a></li><li class="case"><a href="#sparcins.edge8">edge8</a></li><li class="case"><a href="#sparcins.edge8l">edge8l</a></li><li class="case"><a href="#sparcins.edge8ln">edge8ln</a></li><li class="case"><a href="#sparcins.edge8n">edge8n</a></li><li class="case"><a href="#sparcins.fabsd">fabsd</a></li><li class="case"><a href="#sparcins.fabsq">fabsq</a></li><li class="case"><a href="#sparcins.fabss">fabss</a></li><li class="case"><a href="#sparcins.faddd">faddd</a></li><li class="case"><a href="#sparcins.faddq">faddq</a></li><li class="case"><a href="#sparcins.fadds">fadds</a></li><li class="case"><a href="#sparcins.faligndata">faligndata</a></li><li class="case"><a href="#sparcins.fand">fand</a></li><li class="case"><a href="#sparcins.fandnot1">fandnot1</a></li><li class="case"><a href="#sparcins.fandnot1s">fandnot1s</a></li><li class="case"><a href="#sparcins.fandnot2">fandnot2</a></li><li class="case"><a href="#sparcins.fandnot2s">fandnot2s</a></li><li class="case"><a href="#sparcins.fands">fands</a></li><li class="case"><a href="#sparcins.fchksm16">fchksm16</a></li><li class="case"><a href="#sparcins.fcmpd">fcmpd</a></li><li class="case"><a href="#sparcins.fcmpeq16">fcmpeq16</a></li><li class="case"><a href="#sparcins.fcmpeq32">fcmpeq32</a></li><li class="case"><a href="#sparcins.fcmpgt16">fcmpgt16</a></li><li class="case"><a href="#sparcins.fcmpgt32">fcmpgt32</a></li><li class="case"><a href="#sparcins.fcmple16">fcmple16</a></li><li class="case"><a href="#sparcins.fcmple32">fcmple32</a></li><li class="case"><a href="#sparcins.fcmpne16">fcmpne16</a></li><li class="case"><a href="#sparcins.fcmpne32">fcmpne32</a></li><li class="case"><a href="#sparcins.fcmpq">fcmpq</a></li><li class="case"><a href="#sparcins.fcmps">fcmps</a></li><li class="case"><a href="#sparcins.fdivd">fdivd</a></li><li class="case"><a href="#sparcins.fdivq">fdivq</a></li><li class="case"><a href="#sparcins.fdivs">fdivs</a></li><li class="case"><a href="#sparcins.fdmulq">fdmulq</a></li><li class="case"><a href="#sparcins.fdtoi">fdtoi</a></li><li class="case"><a href="#sparcins.fdtoq">fdtoq</a></li><li class="case"><a href="#sparcins.fdtos">fdtos</a></li><li class="case"><a href="#sparcins.fdtox">fdtox</a></li><li class="case"><a href="#sparcins.fexpand">fexpand</a></li><li class="case"><a href="#sparcins.fhaddd">fhaddd</a></li><li class="case"><a href="#sparcins.fhadds">fhadds</a></li><li class="case"><a href="#sparcins.fhsubd">fhsubd</a></li><li class="case"><a href="#sparcins.fhsubs">fhsubs</a></li><li class="case"><a href="#sparcins.fitod">fitod</a></li><li class="case"><a href="#sparcins.fitoq">fitoq</a></li><li class="case"><a href="#sparcins.fitos">fitos</a></li><li class="case"><a href="#sparcins.flcmpd">flcmpd</a></li><li class="case"><a href="#sparcins.flcmps">flcmps</a></li><li class="case"><a href="#sparcins.flushw">flushw</a></li><li class="case"><a href="#sparcins.fmean16">fmean16</a></li><li class="case"><a href="#sparcins.fmovd">fmovd</a></li><li class="case"><a href="#sparcins.fmovq">fmovq</a></li><li class="case"><a href="#sparcins.fmovrdgez">fmovrdgez</a></li><li class="case"><a href="#sparcins.fmovrqgez">fmovrqgez</a></li><li class="case"><a href="#sparcins.fmovrsgez">fmovrsgez</a></li><li class="case"><a href="#sparcins.fmovrdgz">fmovrdgz</a></li><li class="case"><a href="#sparcins.fmovrqgz">fmovrqgz</a></li><li class="case"><a href="#sparcins.fmovrsgz">fmovrsgz</a></li><li class="case"><a href="#sparcins.fmovrdlez">fmovrdlez</a></li><li class="case"><a href="#sparcins.fmovrqlez">fmovrqlez</a></li><li class="case"><a href="#sparcins.fmovrslez">fmovrslez</a></li><li class="case"><a href="#sparcins.fmovrdlz">fmovrdlz</a></li><li class="case"><a href="#sparcins.fmovrqlz">fmovrqlz</a></li><li class="case"><a href="#sparcins.fmovrslz">fmovrslz</a></li><li class="case"><a href="#sparcins.fmovrdnz">fmovrdnz</a></li><li class="case"><a href="#sparcins.fmovrqnz">fmovrqnz</a></li><li class="case"><a href="#sparcins.fmovrsnz">fmovrsnz</a></li><li class="case"><a href="#sparcins.fmovrdz">fmovrdz</a></li><li class="case"><a href="#sparcins.fmovrqz">fmovrqz</a></li><li class="case"><a href="#sparcins.fmovrsz">fmovrsz</a></li><li class="case"><a href="#sparcins.fmovs">fmovs</a></li><li class="case"><a href="#sparcins.fmul8sux16">fmul8sux16</a></li><li class="case"><a href="#sparcins.fmul8ulx16">fmul8ulx16</a></li><li class="case"><a href="#sparcins.fmul8x16">fmul8x16</a></li><li class="case"><a href="#sparcins.fmul8x16al">fmul8x16al</a></li><li class="case"><a href="#sparcins.fmul8x16au">fmul8x16au</a></li><li class="case"><a href="#sparcins.fmuld">fmuld</a></li><li class="case"><a href="#sparcins.fmuld8sux16">fmuld8sux16</a></li><li class="case"><a href="#sparcins.fmuld8ulx16">fmuld8ulx16</a></li><li class="case"><a href="#sparcins.fmulq">fmulq</a></li><li class="case"><a href="#sparcins.fmuls">fmuls</a></li><li class="case"><a href="#sparcins.fnaddd">fnaddd</a></li><li class="case"><a href="#sparcins.fnadds">fnadds</a></li><li class="case"><a href="#sparcins.fnand">fnand</a></li><li class="case"><a href="#sparcins.fnands">fnands</a></li><li class="case"><a href="#sparcins.fnegd">fnegd</a></li><li class="case"><a href="#sparcins.fnegq">fnegq</a></li><li class="case"><a href="#sparcins.fnegs">fnegs</a></li><li class="case"><a href="#sparcins.fnhaddd">fnhaddd</a></li><li class="case"><a href="#sparcins.fnhadds">fnhadds</a></li><li class="case"><a href="#sparcins.fnor">fnor</a></li><li class="case"><a href="#sparcins.fnors">fnors</a></li><li class="case"><a href="#sparcins.fnot1">fnot1</a></li><li class="case"><a href="#sparcins.fnot1s">fnot1s</a></li><li class="case"><a href="#sparcins.fnot2">fnot2</a></li><li class="case"><a href="#sparcins.fnot2s">fnot2s</a></li><li class="case"><a href="#sparcins.fone">fone</a></li><li class="case"><a href="#sparcins.fones">fones</a></li><li class="case"><a href="#sparcins.`for`">`for`</a></li><li class="case"><a href="#sparcins.fornot1">fornot1</a></li><li class="case"><a href="#sparcins.fornot1s">fornot1s</a></li><li class="case"><a href="#sparcins.fornot2">fornot2</a></li><li class="case"><a href="#sparcins.fornot2s">fornot2s</a></li><li class="case"><a href="#sparcins.fors">fors</a></li><li class="case"><a href="#sparcins.fpack16">fpack16</a></li><li class="case"><a href="#sparcins.fpack32">fpack32</a></li><li class="case"><a href="#sparcins.fpackfix">fpackfix</a></li><li class="case"><a href="#sparcins.fpadd16">fpadd16</a></li><li class="case"><a href="#sparcins.fpadd16s">fpadd16s</a></li><li class="case"><a href="#sparcins.fpadd32">fpadd32</a></li><li class="case"><a href="#sparcins.fpadd32s">fpadd32s</a></li><li class="case"><a href="#sparcins.fpadd64">fpadd64</a></li><li class="case"><a href="#sparcins.fpmerge">fpmerge</a></li><li class="case"><a href="#sparcins.fpsub16">fpsub16</a></li><li class="case"><a href="#sparcins.fpsub16s">fpsub16s</a></li><li class="case"><a href="#sparcins.fpsub32">fpsub32</a></li><li class="case"><a href="#sparcins.fpsub32s">fpsub32s</a></li><li class="case"><a href="#sparcins.fqtod">fqtod</a></li><li class="case"><a href="#sparcins.fqtoi">fqtoi</a></li><li class="case"><a href="#sparcins.fqtos">fqtos</a></li><li class="case"><a href="#sparcins.fqtox">fqtox</a></li><li class="case"><a href="#sparcins.fslas16">fslas16</a></li><li class="case"><a href="#sparcins.fslas32">fslas32</a></li><li class="case"><a href="#sparcins.fsll16">fsll16</a></li><li class="case"><a href="#sparcins.fsll32">fsll32</a></li><li class="case"><a href="#sparcins.fsmuld">fsmuld</a></li><li class="case"><a href="#sparcins.fsqrtd">fsqrtd</a></li><li class="case"><a href="#sparcins.fsqrtq">fsqrtq</a></li><li class="case"><a href="#sparcins.fsqrts">fsqrts</a></li><li class="case"><a href="#sparcins.fsra16">fsra16</a></li><li class="case"><a href="#sparcins.fsra32">fsra32</a></li><li class="case"><a href="#sparcins.fsrc1">fsrc1</a></li><li class="case"><a href="#sparcins.fsrc1s">fsrc1s</a></li><li class="case"><a href="#sparcins.fsrc2">fsrc2</a></li><li class="case"><a href="#sparcins.fsrc2s">fsrc2s</a></li><li class="case"><a href="#sparcins.fsrl16">fsrl16</a></li><li class="case"><a href="#sparcins.fsrl32">fsrl32</a></li><li class="case"><a href="#sparcins.fstod">fstod</a></li><li class="case"><a href="#sparcins.fstoi">fstoi</a></li><li class="case"><a href="#sparcins.fstoq">fstoq</a></li><li class="case"><a href="#sparcins.fstox">fstox</a></li><li class="case"><a href="#sparcins.fsubd">fsubd</a></li><li class="case"><a href="#sparcins.fsubq">fsubq</a></li><li class="case"><a href="#sparcins.fsubs">fsubs</a></li><li class="case"><a href="#sparcins.fxnor">fxnor</a></li><li class="case"><a href="#sparcins.fxnors">fxnors</a></li><li class="case"><a href="#sparcins.fxor">fxor</a></li><li class="case"><a href="#sparcins.fxors">fxors</a></li><li class="case"><a href="#sparcins.fxtod">fxtod</a></li><li class="case"><a href="#sparcins.fxtoq">fxtoq</a></li><li class="case"><a href="#sparcins.fxtos">fxtos</a></li><li class="case"><a href="#sparcins.fzero">fzero</a></li><li class="case"><a href="#sparcins.fzeros">fzeros</a></li><li class="case"><a href="#sparcins.jmpl">jmpl</a></li><li class="case"><a href="#sparcins.ldd">ldd</a></li><li class="case"><a href="#sparcins.ld">ld</a></li><li class="case"><a href="#sparcins.ldq">ldq</a></li><li class="case"><a href="#sparcins.ldsb">ldsb</a></li><li class="case"><a href="#sparcins.ldsh">ldsh</a></li><li class="case"><a href="#sparcins.ldsw">ldsw</a></li><li class="case"><a href="#sparcins.ldub">ldub</a></li><li class="case"><a href="#sparcins.lduh">lduh</a></li><li class="case"><a href="#sparcins.ldx">ldx</a></li><li class="case"><a href="#sparcins.lzcnt">lzcnt</a></li><li class="case"><a href="#sparcins.membar">membar</a></li><li class="case"><a href="#sparcins.movdtox">movdtox</a></li><li class="case"><a href="#sparcins.mov">mov</a></li><li class="case"><a href="#sparcins.movrgez">movrgez</a></li><li class="case"><a href="#sparcins.movrgz">movrgz</a></li><li class="case"><a href="#sparcins.movrlez">movrlez</a></li><li class="case"><a href="#sparcins.movrlz">movrlz</a></li><li class="case"><a href="#sparcins.movrnz">movrnz</a></li><li class="case"><a href="#sparcins.movrz">movrz</a></li><li class="case"><a href="#sparcins.movstosw">movstosw</a></li><li class="case"><a href="#sparcins.movstouw">movstouw</a></li><li class="case"><a href="#sparcins.mulx">mulx</a></li><li class="case"><a href="#sparcins.nop">nop</a></li><li class="case"><a href="#sparcins.orcc">orcc</a></li><li class="case"><a href="#sparcins.orncc">orncc</a></li><li class="case"><a href="#sparcins.orn">orn</a></li><li class="case"><a href="#sparcins.or">or</a></li><li class="case"><a href="#sparcins.pdist">pdist</a></li><li class="case"><a href="#sparcins.pdistn">pdistn</a></li><li class="case"><a href="#sparcins.popc">popc</a></li><li class="case"><a href="#sparcins.rd">rd</a></li><li class="case"><a href="#sparcins.restore">restore</a></li><li class="case"><a href="#sparcins.rett">rett</a></li><li class="case"><a href="#sparcins.save">save</a></li><li class="case"><a href="#sparcins.sdivcc">sdivcc</a></li><li class="case"><a href="#sparcins.sdivx">sdivx</a></li><li class="case"><a href="#sparcins.sdiv">sdiv</a></li><li class="case"><a href="#sparcins.sethi">sethi</a></li><li class="case"><a href="#sparcins.shutdown">shutdown</a></li><li class="case"><a href="#sparcins.siam">siam</a></li><li class="case"><a href="#sparcins.sllx">sllx</a></li><li class="case"><a href="#sparcins.sll">sll</a></li><li class="case"><a href="#sparcins.smulcc">smulcc</a></li><li class="case"><a href="#sparcins.smul">smul</a></li><li class="case"><a href="#sparcins.srax">srax</a></li><li class="case"><a href="#sparcins.sra">sra</a></li><li class="case"><a href="#sparcins.srlx">srlx</a></li><li class="case"><a href="#sparcins.srl">srl</a></li><li class="case"><a href="#sparcins.stbar">stbar</a></li><li class="case"><a href="#sparcins.stb">stb</a></li><li class="case"><a href="#sparcins.std">std</a></li><li class="case"><a href="#sparcins.st">st</a></li><li class="case"><a href="#sparcins.sth">sth</a></li><li class="case"><a href="#sparcins.stq">stq</a></li><li class="case"><a href="#sparcins.stx">stx</a></li><li class="case"><a href="#sparcins.subcc">subcc</a></li><li class="case"><a href="#sparcins.subx">subx</a></li><li class="case"><a href="#sparcins.subxcc">subxcc</a></li><li class="case"><a href="#sparcins.sub">sub</a></li><li class="case"><a href="#sparcins.swap">swap</a></li><li class="case"><a href="#sparcins.taddcctv">taddcctv</a></li><li class="case"><a href="#sparcins.taddcc">taddcc</a></li><li class="case"><a href="#sparcins.t">t</a></li><li class="case"><a href="#sparcins.tsubcctv">tsubcctv</a></li><li class="case"><a href="#sparcins.tsubcc">tsubcc</a></li><li class="case"><a href="#sparcins.udivcc">udivcc</a></li><li class="case"><a href="#sparcins.udivx">udivx</a></li><li class="case"><a href="#sparcins.udiv">udiv</a></li><li class="case"><a href="#sparcins.umulcc">umulcc</a></li><li class="case"><a href="#sparcins.umulxhi">umulxhi</a></li><li class="case"><a href="#sparcins.umul">umul</a></li><li class="case"><a href="#sparcins.unimp">unimp</a></li><li class="case"><a href="#sparcins.fcmped">fcmped</a></li><li class="case"><a href="#sparcins.fcmpeq">fcmpeq</a></li><li class="case"><a href="#sparcins.fcmpes">fcmpes</a></li><li class="case"><a href="#sparcins.wr">wr</a></li><li class="case"><a href="#sparcins.xmulx">xmulx</a></li><li class="case"><a href="#sparcins.xmulxhi">xmulxhi</a></li><li class="case"><a href="#sparcins.xnorcc">xnorcc</a></li><li class="case"><a href="#sparcins.xnor">xnor</a></li><li class="case"><a href="#sparcins.xorcc">xorcc</a></li><li class="case"><a href="#sparcins.xor">xor</a></li><li class="case"><a href="#sparcins.ret">ret</a></li><li class="case"><a href="#sparcins.retl">retl</a></li><li class="case"><a href="#sparcins.ending">ending</a></li></ul></li></ol>
+        </div>
+    </nav>
+
+    <main>
+        <article>
+            <h1>
+    <small>Enumeration</small>
+    <code class="name">Sparc​Ins</code>
+</h1>
+
+<html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">enum</span> <span class="type">SparcIns</span></code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>SPARC instruction</p>
+
+</div>
+<section id="relationships">
+    <h2 hidden>Relationships</h2>
+        <figure>
+    <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.36.0 (20140111.2315)
+ -->
+<!-- Title: %3 Pages: 1 -->
+<svg width="872pt" height="116pt"
+ viewBox="0.00 0.00 872.00 116.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 112)">
+<title>%3</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-112 868,-112 868,4 -4,4"/>
+<!-- SparcIns -->
+<g id="node1" class="node"><title>SparcIns</title>
+<g id="a_node1"><a xlink:href="/SparcIns" xlink:title="SparcIns">
+<path fill="none" stroke="black" stroke-width="3" d="M528,-108C528,-108 336,-108 336,-108 330,-108 324,-102 324,-96 324,-96 324,-84 324,-84 324,-78 330,-72 336,-72 336,-72 528,-72 528,-72 534,-72 540,-78 540,-84 540,-84 540,-96 540,-96 540,-102 534,-108 528,-108"/>
+<text text-anchor="middle" x="432" y="-86.3" font-family="Menlo" font-size="14.00">SparcIns</text>
+</a>
+</g>
+</g>
+<!-- UInt32 -->
+<g id="node2" class="node"><title>UInt32</title>
+<path fill="none" stroke="black" d="M528,-36C528,-36 336,-36 336,-36 330,-36 324,-30 324,-24 324,-24 324,-12 324,-12 324,-6 330,-0 336,-0 336,-0 528,-0 528,-0 534,-0 540,-6 540,-12 540,-12 540,-24 540,-24 540,-30 534,-36 528,-36"/>
+<text text-anchor="middle" x="432" y="-14.3" font-family="Menlo" font-size="14.00">UInt32</text>
+</g>
+<!-- SparcIns&#45;&gt;UInt32 -->
+<g id="edge1" class="edge"><title>SparcIns&#45;&gt;UInt32</title>
+<path fill="none" stroke="black" d="M432,-71.6966C432,-63.9827 432,-54.7125 432,-46.1124"/>
+<polygon fill="black" stroke="black" points="435.5,-46.1043 432,-36.1043 428.5,-46.1044 435.5,-46.1043"/>
+</g>
+</g>
+</svg>
+
+
+    <figcaption hidden>Inheritance graph for SparcIns.</figcaption>
+</figure>
+        <h3>Conforms To</h3>
+<dl>
+    <dt class="unknown"><code>UInt32</code></dt>
+</dl>
+</section>
+    <section id="enumeration cases">
+        <h2>Enumeration Cases</h2>
+
+        <div role="article" class="case" id="sparcins.invalid">
+    <h3>
+        <code>invalid</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">invalid</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.addcc">
+    <h3>
+        <code>addcc</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">addcc</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.addx">
+    <h3>
+        <code>addx</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">addx</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.addxcc">
+    <h3>
+        <code>addxcc</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">addxcc</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.addxc">
+    <h3>
+        <code>addxc</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">addxc</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.addxccc">
+    <h3>
+        <code>addxccc</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">addxccc</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.add">
+    <h3>
+        <code>add</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">add</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.alignaddr">
+    <h3>
+        <code>alignaddr</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">alignaddr</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.alignaddrl">
+    <h3>
+        <code>alignaddrl</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">alignaddrl</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.andcc">
+    <h3>
+        <code>andcc</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">andcc</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.andncc">
+    <h3>
+        <code>andncc</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">andncc</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.andn">
+    <h3>
+        <code>andn</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">andn</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.and">
+    <h3>
+        <code>and</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">and</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.array16">
+    <h3>
+        <code>array16</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">array16</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.array32">
+    <h3>
+        <code>array32</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">array32</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.array8">
+    <h3>
+        <code>array8</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">array8</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.b">
+    <h3>
+        <code>b</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">b</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.jmp">
+    <h3>
+        <code>jmp</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">jmp</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.bmask">
+    <h3>
+        <code>bmask</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">bmask</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fb">
+    <h3>
+        <code>fb</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fb</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.brgez">
+    <h3>
+        <code>brgez</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">brgez</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.brgz">
+    <h3>
+        <code>brgz</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">brgz</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.brlez">
+    <h3>
+        <code>brlez</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">brlez</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.brlz">
+    <h3>
+        <code>brlz</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">brlz</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.brnz">
+    <h3>
+        <code>brnz</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">brnz</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.brz">
+    <h3>
+        <code>brz</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">brz</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.bshuffle">
+    <h3>
+        <code>bshuffle</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">bshuffle</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.call">
+    <h3>
+        <code>call</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">call</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.casx">
+    <h3>
+        <code>casx</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">casx</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.cas">
+    <h3>
+        <code>cas</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cas</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.cmask16">
+    <h3>
+        <code>cmask16</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cmask16</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.cmask32">
+    <h3>
+        <code>cmask32</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cmask32</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.cmask8">
+    <h3>
+        <code>cmask8</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cmask8</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.cmp">
+    <h3>
+        <code>cmp</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cmp</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.edge16">
+    <h3>
+        <code>edge16</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">edge16</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.edge16l">
+    <h3>
+        <code>edge16l</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">edge16l</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.edge16ln">
+    <h3>
+        <code>edge16ln</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">edge16ln</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.edge16n">
+    <h3>
+        <code>edge16n</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">edge16n</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.edge32">
+    <h3>
+        <code>edge32</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">edge32</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.edge32l">
+    <h3>
+        <code>edge32l</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">edge32l</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.edge32ln">
+    <h3>
+        <code>edge32ln</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">edge32ln</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.edge32n">
+    <h3>
+        <code>edge32n</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">edge32n</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.edge8">
+    <h3>
+        <code>edge8</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">edge8</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.edge8l">
+    <h3>
+        <code>edge8l</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">edge8l</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.edge8ln">
+    <h3>
+        <code>edge8ln</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">edge8ln</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.edge8n">
+    <h3>
+        <code>edge8n</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">edge8n</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fabsd">
+    <h3>
+        <code>fabsd</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fabsd</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fabsq">
+    <h3>
+        <code>fabsq</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fabsq</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fabss">
+    <h3>
+        <code>fabss</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fabss</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.faddd">
+    <h3>
+        <code>faddd</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">faddd</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.faddq">
+    <h3>
+        <code>faddq</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">faddq</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fadds">
+    <h3>
+        <code>fadds</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fadds</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.faligndata">
+    <h3>
+        <code>faligndata</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">faligndata</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fand">
+    <h3>
+        <code>fand</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fand</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fandnot1">
+    <h3>
+        <code>fandnot1</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fandnot1</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fandnot1s">
+    <h3>
+        <code>fandnot1s</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fandnot1s</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fandnot2">
+    <h3>
+        <code>fandnot2</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fandnot2</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fandnot2s">
+    <h3>
+        <code>fandnot2s</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fandnot2s</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fands">
+    <h3>
+        <code>fands</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fands</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fchksm16">
+    <h3>
+        <code>fchksm16</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fchksm16</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fcmpd">
+    <h3>
+        <code>fcmpd</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fcmpd</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fcmpeq16">
+    <h3>
+        <code>fcmpeq16</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fcmpeq16</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fcmpeq32">
+    <h3>
+        <code>fcmpeq32</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fcmpeq32</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fcmpgt16">
+    <h3>
+        <code>fcmpgt16</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fcmpgt16</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fcmpgt32">
+    <h3>
+        <code>fcmpgt32</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fcmpgt32</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fcmple16">
+    <h3>
+        <code>fcmple16</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fcmple16</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fcmple32">
+    <h3>
+        <code>fcmple32</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fcmple32</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fcmpne16">
+    <h3>
+        <code>fcmpne16</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fcmpne16</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fcmpne32">
+    <h3>
+        <code>fcmpne32</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fcmpne32</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fcmpq">
+    <h3>
+        <code>fcmpq</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fcmpq</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fcmps">
+    <h3>
+        <code>fcmps</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fcmps</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fdivd">
+    <h3>
+        <code>fdivd</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fdivd</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fdivq">
+    <h3>
+        <code>fdivq</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fdivq</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fdivs">
+    <h3>
+        <code>fdivs</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fdivs</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fdmulq">
+    <h3>
+        <code>fdmulq</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fdmulq</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fdtoi">
+    <h3>
+        <code>fdtoi</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fdtoi</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fdtoq">
+    <h3>
+        <code>fdtoq</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fdtoq</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fdtos">
+    <h3>
+        <code>fdtos</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fdtos</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fdtox">
+    <h3>
+        <code>fdtox</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fdtox</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fexpand">
+    <h3>
+        <code>fexpand</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fexpand</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fhaddd">
+    <h3>
+        <code>fhaddd</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fhaddd</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fhadds">
+    <h3>
+        <code>fhadds</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fhadds</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fhsubd">
+    <h3>
+        <code>fhsubd</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fhsubd</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fhsubs">
+    <h3>
+        <code>fhsubs</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fhsubs</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fitod">
+    <h3>
+        <code>fitod</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fitod</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fitoq">
+    <h3>
+        <code>fitoq</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fitoq</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fitos">
+    <h3>
+        <code>fitos</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fitos</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.flcmpd">
+    <h3>
+        <code>flcmpd</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">flcmpd</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.flcmps">
+    <h3>
+        <code>flcmps</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">flcmps</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.flushw">
+    <h3>
+        <code>flushw</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">flushw</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fmean16">
+    <h3>
+        <code>fmean16</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fmean16</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fmovd">
+    <h3>
+        <code>fmovd</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fmovd</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fmovq">
+    <h3>
+        <code>fmovq</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fmovq</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fmovrdgez">
+    <h3>
+        <code>fmovrdgez</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fmovrdgez</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fmovrqgez">
+    <h3>
+        <code>fmovrqgez</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fmovrqgez</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fmovrsgez">
+    <h3>
+        <code>fmovrsgez</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fmovrsgez</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fmovrdgz">
+    <h3>
+        <code>fmovrdgz</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fmovrdgz</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fmovrqgz">
+    <h3>
+        <code>fmovrqgz</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fmovrqgz</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fmovrsgz">
+    <h3>
+        <code>fmovrsgz</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fmovrsgz</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fmovrdlez">
+    <h3>
+        <code>fmovrdlez</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fmovrdlez</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fmovrqlez">
+    <h3>
+        <code>fmovrqlez</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fmovrqlez</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fmovrslez">
+    <h3>
+        <code>fmovrslez</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fmovrslez</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fmovrdlz">
+    <h3>
+        <code>fmovrdlz</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fmovrdlz</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fmovrqlz">
+    <h3>
+        <code>fmovrqlz</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fmovrqlz</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fmovrslz">
+    <h3>
+        <code>fmovrslz</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fmovrslz</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fmovrdnz">
+    <h3>
+        <code>fmovrdnz</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fmovrdnz</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fmovrqnz">
+    <h3>
+        <code>fmovrqnz</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fmovrqnz</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fmovrsnz">
+    <h3>
+        <code>fmovrsnz</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fmovrsnz</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fmovrdz">
+    <h3>
+        <code>fmovrdz</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fmovrdz</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fmovrqz">
+    <h3>
+        <code>fmovrqz</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fmovrqz</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fmovrsz">
+    <h3>
+        <code>fmovrsz</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fmovrsz</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fmovs">
+    <h3>
+        <code>fmovs</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fmovs</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fmul8sux16">
+    <h3>
+        <code>fmul8sux16</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fmul8sux16</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fmul8ulx16">
+    <h3>
+        <code>fmul8ulx16</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fmul8ulx16</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fmul8x16">
+    <h3>
+        <code>fmul8x16</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fmul8x16</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fmul8x16al">
+    <h3>
+        <code>fmul8x16al</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fmul8x16al</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fmul8x16au">
+    <h3>
+        <code>fmul8x16au</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fmul8x16au</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fmuld">
+    <h3>
+        <code>fmuld</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fmuld</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fmuld8sux16">
+    <h3>
+        <code>fmuld8sux16</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fmuld8sux16</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fmuld8ulx16">
+    <h3>
+        <code>fmuld8ulx16</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fmuld8ulx16</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fmulq">
+    <h3>
+        <code>fmulq</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fmulq</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fmuls">
+    <h3>
+        <code>fmuls</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fmuls</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fnaddd">
+    <h3>
+        <code>fnaddd</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fnaddd</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fnadds">
+    <h3>
+        <code>fnadds</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fnadds</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fnand">
+    <h3>
+        <code>fnand</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fnand</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fnands">
+    <h3>
+        <code>fnands</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fnands</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fnegd">
+    <h3>
+        <code>fnegd</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fnegd</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fnegq">
+    <h3>
+        <code>fnegq</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fnegq</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fnegs">
+    <h3>
+        <code>fnegs</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fnegs</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fnhaddd">
+    <h3>
+        <code>fnhaddd</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fnhaddd</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fnhadds">
+    <h3>
+        <code>fnhadds</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fnhadds</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fnor">
+    <h3>
+        <code>fnor</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fnor</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fnors">
+    <h3>
+        <code>fnors</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fnors</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fnot1">
+    <h3>
+        <code>fnot1</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fnot1</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fnot1s">
+    <h3>
+        <code>fnot1s</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fnot1s</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fnot2">
+    <h3>
+        <code>fnot2</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fnot2</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fnot2s">
+    <h3>
+        <code>fnot2s</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fnot2s</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fone">
+    <h3>
+        <code>fone</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fone</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fones">
+    <h3>
+        <code>fones</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fones</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.`for`">
+    <h3>
+        <code>`for`</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">`for`</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fornot1">
+    <h3>
+        <code>fornot1</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fornot1</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fornot1s">
+    <h3>
+        <code>fornot1s</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fornot1s</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fornot2">
+    <h3>
+        <code>fornot2</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fornot2</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fornot2s">
+    <h3>
+        <code>fornot2s</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fornot2s</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fors">
+    <h3>
+        <code>fors</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fors</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fpack16">
+    <h3>
+        <code>fpack16</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fpack16</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fpack32">
+    <h3>
+        <code>fpack32</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fpack32</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fpackfix">
+    <h3>
+        <code>fpackfix</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fpackfix</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fpadd16">
+    <h3>
+        <code>fpadd16</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fpadd16</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fpadd16s">
+    <h3>
+        <code>fpadd16s</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fpadd16s</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fpadd32">
+    <h3>
+        <code>fpadd32</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fpadd32</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fpadd32s">
+    <h3>
+        <code>fpadd32s</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fpadd32s</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fpadd64">
+    <h3>
+        <code>fpadd64</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fpadd64</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fpmerge">
+    <h3>
+        <code>fpmerge</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fpmerge</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fpsub16">
+    <h3>
+        <code>fpsub16</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fpsub16</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fpsub16s">
+    <h3>
+        <code>fpsub16s</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fpsub16s</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fpsub32">
+    <h3>
+        <code>fpsub32</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fpsub32</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fpsub32s">
+    <h3>
+        <code>fpsub32s</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fpsub32s</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fqtod">
+    <h3>
+        <code>fqtod</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fqtod</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fqtoi">
+    <h3>
+        <code>fqtoi</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fqtoi</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fqtos">
+    <h3>
+        <code>fqtos</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fqtos</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fqtox">
+    <h3>
+        <code>fqtox</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fqtox</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fslas16">
+    <h3>
+        <code>fslas16</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fslas16</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fslas32">
+    <h3>
+        <code>fslas32</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fslas32</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fsll16">
+    <h3>
+        <code>fsll16</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fsll16</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fsll32">
+    <h3>
+        <code>fsll32</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fsll32</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fsmuld">
+    <h3>
+        <code>fsmuld</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fsmuld</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fsqrtd">
+    <h3>
+        <code>fsqrtd</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fsqrtd</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fsqrtq">
+    <h3>
+        <code>fsqrtq</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fsqrtq</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fsqrts">
+    <h3>
+        <code>fsqrts</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fsqrts</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fsra16">
+    <h3>
+        <code>fsra16</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fsra16</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fsra32">
+    <h3>
+        <code>fsra32</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fsra32</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fsrc1">
+    <h3>
+        <code>fsrc1</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fsrc1</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fsrc1s">
+    <h3>
+        <code>fsrc1s</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fsrc1s</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fsrc2">
+    <h3>
+        <code>fsrc2</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fsrc2</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fsrc2s">
+    <h3>
+        <code>fsrc2s</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fsrc2s</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fsrl16">
+    <h3>
+        <code>fsrl16</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fsrl16</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fsrl32">
+    <h3>
+        <code>fsrl32</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fsrl32</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fstod">
+    <h3>
+        <code>fstod</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fstod</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fstoi">
+    <h3>
+        <code>fstoi</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fstoi</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fstoq">
+    <h3>
+        <code>fstoq</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fstoq</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fstox">
+    <h3>
+        <code>fstox</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fstox</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fsubd">
+    <h3>
+        <code>fsubd</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fsubd</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fsubq">
+    <h3>
+        <code>fsubq</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fsubq</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fsubs">
+    <h3>
+        <code>fsubs</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fsubs</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fxnor">
+    <h3>
+        <code>fxnor</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fxnor</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fxnors">
+    <h3>
+        <code>fxnors</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fxnors</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fxor">
+    <h3>
+        <code>fxor</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fxor</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fxors">
+    <h3>
+        <code>fxors</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fxors</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fxtod">
+    <h3>
+        <code>fxtod</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fxtod</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fxtoq">
+    <h3>
+        <code>fxtoq</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fxtoq</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fxtos">
+    <h3>
+        <code>fxtos</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fxtos</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fzero">
+    <h3>
+        <code>fzero</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fzero</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fzeros">
+    <h3>
+        <code>fzeros</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fzeros</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.jmpl">
+    <h3>
+        <code>jmpl</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">jmpl</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.ldd">
+    <h3>
+        <code>ldd</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ldd</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.ld">
+    <h3>
+        <code>ld</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ld</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.ldq">
+    <h3>
+        <code>ldq</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ldq</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.ldsb">
+    <h3>
+        <code>ldsb</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ldsb</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.ldsh">
+    <h3>
+        <code>ldsh</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ldsh</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.ldsw">
+    <h3>
+        <code>ldsw</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ldsw</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.ldub">
+    <h3>
+        <code>ldub</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ldub</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.lduh">
+    <h3>
+        <code>lduh</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">lduh</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.ldx">
+    <h3>
+        <code>ldx</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ldx</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.lzcnt">
+    <h3>
+        <code>lzcnt</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">lzcnt</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.membar">
+    <h3>
+        <code>membar</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">membar</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.movdtox">
+    <h3>
+        <code>movdtox</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">movdtox</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.mov">
+    <h3>
+        <code>mov</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">mov</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.movrgez">
+    <h3>
+        <code>movrgez</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">movrgez</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.movrgz">
+    <h3>
+        <code>movrgz</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">movrgz</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.movrlez">
+    <h3>
+        <code>movrlez</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">movrlez</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.movrlz">
+    <h3>
+        <code>movrlz</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">movrlz</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.movrnz">
+    <h3>
+        <code>movrnz</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">movrnz</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.movrz">
+    <h3>
+        <code>movrz</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">movrz</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.movstosw">
+    <h3>
+        <code>movstosw</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">movstosw</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.movstouw">
+    <h3>
+        <code>movstouw</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">movstouw</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.mulx">
+    <h3>
+        <code>mulx</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">mulx</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.nop">
+    <h3>
+        <code>nop</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">nop</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.orcc">
+    <h3>
+        <code>orcc</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">orcc</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.orncc">
+    <h3>
+        <code>orncc</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">orncc</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.orn">
+    <h3>
+        <code>orn</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">orn</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.or">
+    <h3>
+        <code>or</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">or</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.pdist">
+    <h3>
+        <code>pdist</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">pdist</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.pdistn">
+    <h3>
+        <code>pdistn</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">pdistn</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.popc">
+    <h3>
+        <code>popc</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">popc</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.rd">
+    <h3>
+        <code>rd</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">rd</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.restore">
+    <h3>
+        <code>restore</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">restore</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.rett">
+    <h3>
+        <code>rett</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">rett</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.save">
+    <h3>
+        <code>save</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">save</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.sdivcc">
+    <h3>
+        <code>sdivcc</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">sdivcc</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.sdivx">
+    <h3>
+        <code>sdivx</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">sdivx</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.sdiv">
+    <h3>
+        <code>sdiv</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">sdiv</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.sethi">
+    <h3>
+        <code>sethi</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">sethi</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.shutdown">
+    <h3>
+        <code>shutdown</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">shutdown</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.siam">
+    <h3>
+        <code>siam</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">siam</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.sllx">
+    <h3>
+        <code>sllx</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">sllx</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.sll">
+    <h3>
+        <code>sll</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">sll</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.smulcc">
+    <h3>
+        <code>smulcc</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">smulcc</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.smul">
+    <h3>
+        <code>smul</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">smul</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.srax">
+    <h3>
+        <code>srax</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">srax</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.sra">
+    <h3>
+        <code>sra</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">sra</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.srlx">
+    <h3>
+        <code>srlx</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">srlx</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.srl">
+    <h3>
+        <code>srl</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">srl</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.stbar">
+    <h3>
+        <code>stbar</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">stbar</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.stb">
+    <h3>
+        <code>stb</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">stb</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.std">
+    <h3>
+        <code>std</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">std</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.st">
+    <h3>
+        <code>st</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">st</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.sth">
+    <h3>
+        <code>sth</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">sth</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.stq">
+    <h3>
+        <code>stq</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">stq</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.stx">
+    <h3>
+        <code>stx</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">stx</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.subcc">
+    <h3>
+        <code>subcc</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">subcc</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.subx">
+    <h3>
+        <code>subx</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">subx</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.subxcc">
+    <h3>
+        <code>subxcc</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">subxcc</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.sub">
+    <h3>
+        <code>sub</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">sub</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.swap">
+    <h3>
+        <code>swap</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">swap</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.taddcctv">
+    <h3>
+        <code>taddcctv</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">taddcctv</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.taddcc">
+    <h3>
+        <code>taddcc</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">taddcc</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.t">
+    <h3>
+        <code>t</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">t</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.tsubcctv">
+    <h3>
+        <code>tsubcctv</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">tsubcctv</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.tsubcc">
+    <h3>
+        <code>tsubcc</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">tsubcc</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.udivcc">
+    <h3>
+        <code>udivcc</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">udivcc</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.udivx">
+    <h3>
+        <code>udivx</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">udivx</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.udiv">
+    <h3>
+        <code>udiv</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">udiv</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.umulcc">
+    <h3>
+        <code>umulcc</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">umulcc</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.umulxhi">
+    <h3>
+        <code>umulxhi</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">umulxhi</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.umul">
+    <h3>
+        <code>umul</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">umul</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.unimp">
+    <h3>
+        <code>unimp</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">unimp</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fcmped">
+    <h3>
+        <code>fcmped</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fcmped</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fcmpeq">
+    <h3>
+        <code>fcmpeq</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fcmpeq</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.fcmpes">
+    <h3>
+        <code>fcmpes</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fcmpes</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.wr">
+    <h3>
+        <code>wr</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">wr</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.xmulx">
+    <h3>
+        <code>xmulx</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">xmulx</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.xmulxhi">
+    <h3>
+        <code>xmulxhi</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">xmulxhi</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.xnorcc">
+    <h3>
+        <code>xnorcc</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">xnorcc</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.xnor">
+    <h3>
+        <code>xnor</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">xnor</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.xorcc">
+    <h3>
+        <code>xorcc</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">xorcc</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.xor">
+    <h3>
+        <code>xor</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">xor</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.ret">
+    <h3>
+        <code>ret</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ret</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.retl">
+    <h3>
+        <code>retl</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">retl</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="sparcins.ending">
+    <h3>
+        <code>ending</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ending</span></code></pre></body></html>
+</div>
+    </section>
+
+
+
+        </article>
+    </main>
+
+    <footer>
+        <p>
+    Generated on <time datetime="2020-11-21T15:19:30+0100">21 November 2020</time> using <a href="https://github.com/SwiftDocOrg/swift-doc">swift-doc</a> <span class="version">1.0.0-beta.5</span>.
+</p>
+    </footer>
+</body>
+</html>

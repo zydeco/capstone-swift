@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capstone - ArmReg</title>
+    <link rel="stylesheet" type="text/css" href="/all.css" media="all" />
+</head>
+<body>
+    <header>
+        <a href="/">
+            <strong>
+                Capstone
+            </strong>
+            <span>Documentation</span>
+        </a>
+        <sup>Beta</sup>
+    </header>
+
+    <!--
+    <form class="search">
+        <input type="search" placeholder="Search" />
+    </form>
+    -->
+
+    <nav>
+        <div class="wrapper">
+            <h2>On This Page</h2>
+            <ol><li><a href="#relationships">Relationships</a><ul><li><a href="#relationships">Conforms To</a></li></ul></li><li><a href="#enumeration cases">Enumeration Cases</a><ul><li class="case"><a href="#armreg.invalid">invalid</a></li><li class="case"><a href="#armreg.apsr">apsr</a></li><li class="case"><a href="#armreg.apsrnzcv">apsr​Nzcv</a></li><li class="case"><a href="#armreg.cpsr">cpsr</a></li><li class="case"><a href="#armreg.fpexc">fpexc</a></li><li class="case"><a href="#armreg.fpinst">fpinst</a></li><li class="case"><a href="#armreg.fpscr">fpscr</a></li><li class="case"><a href="#armreg.fpscrnzcv">fpscr​Nzcv</a></li><li class="case"><a href="#armreg.fpsid">fpsid</a></li><li class="case"><a href="#armreg.itstate">itstate</a></li><li class="case"><a href="#armreg.lr">lr</a></li><li class="case"><a href="#armreg.pc">pc</a></li><li class="case"><a href="#armreg.sp">sp</a></li><li class="case"><a href="#armreg.spsr">spsr</a></li><li class="case"><a href="#armreg.d0">d0</a></li><li class="case"><a href="#armreg.d1">d1</a></li><li class="case"><a href="#armreg.d2">d2</a></li><li class="case"><a href="#armreg.d3">d3</a></li><li class="case"><a href="#armreg.d4">d4</a></li><li class="case"><a href="#armreg.d5">d5</a></li><li class="case"><a href="#armreg.d6">d6</a></li><li class="case"><a href="#armreg.d7">d7</a></li><li class="case"><a href="#armreg.d8">d8</a></li><li class="case"><a href="#armreg.d9">d9</a></li><li class="case"><a href="#armreg.d10">d10</a></li><li class="case"><a href="#armreg.d11">d11</a></li><li class="case"><a href="#armreg.d12">d12</a></li><li class="case"><a href="#armreg.d13">d13</a></li><li class="case"><a href="#armreg.d14">d14</a></li><li class="case"><a href="#armreg.d15">d15</a></li><li class="case"><a href="#armreg.d16">d16</a></li><li class="case"><a href="#armreg.d17">d17</a></li><li class="case"><a href="#armreg.d18">d18</a></li><li class="case"><a href="#armreg.d19">d19</a></li><li class="case"><a href="#armreg.d20">d20</a></li><li class="case"><a href="#armreg.d21">d21</a></li><li class="case"><a href="#armreg.d22">d22</a></li><li class="case"><a href="#armreg.d23">d23</a></li><li class="case"><a href="#armreg.d24">d24</a></li><li class="case"><a href="#armreg.d25">d25</a></li><li class="case"><a href="#armreg.d26">d26</a></li><li class="case"><a href="#armreg.d27">d27</a></li><li class="case"><a href="#armreg.d28">d28</a></li><li class="case"><a href="#armreg.d29">d29</a></li><li class="case"><a href="#armreg.d30">d30</a></li><li class="case"><a href="#armreg.d31">d31</a></li><li class="case"><a href="#armreg.fpinst2">fpinst2</a></li><li class="case"><a href="#armreg.mvfr0">mvfr0</a></li><li class="case"><a href="#armreg.mvfr1">mvfr1</a></li><li class="case"><a href="#armreg.mvfr2">mvfr2</a></li><li class="case"><a href="#armreg.q0">q0</a></li><li class="case"><a href="#armreg.q1">q1</a></li><li class="case"><a href="#armreg.q2">q2</a></li><li class="case"><a href="#armreg.q3">q3</a></li><li class="case"><a href="#armreg.q4">q4</a></li><li class="case"><a href="#armreg.q5">q5</a></li><li class="case"><a href="#armreg.q6">q6</a></li><li class="case"><a href="#armreg.q7">q7</a></li><li class="case"><a href="#armreg.q8">q8</a></li><li class="case"><a href="#armreg.q9">q9</a></li><li class="case"><a href="#armreg.q10">q10</a></li><li class="case"><a href="#armreg.q11">q11</a></li><li class="case"><a href="#armreg.q12">q12</a></li><li class="case"><a href="#armreg.q13">q13</a></li><li class="case"><a href="#armreg.q14">q14</a></li><li class="case"><a href="#armreg.q15">q15</a></li><li class="case"><a href="#armreg.r0">r0</a></li><li class="case"><a href="#armreg.r1">r1</a></li><li class="case"><a href="#armreg.r2">r2</a></li><li class="case"><a href="#armreg.r3">r3</a></li><li class="case"><a href="#armreg.r4">r4</a></li><li class="case"><a href="#armreg.r5">r5</a></li><li class="case"><a href="#armreg.r6">r6</a></li><li class="case"><a href="#armreg.r7">r7</a></li><li class="case"><a href="#armreg.r8">r8</a></li><li class="case"><a href="#armreg.r9">r9</a></li><li class="case"><a href="#armreg.r10">r10</a></li><li class="case"><a href="#armreg.r11">r11</a></li><li class="case"><a href="#armreg.r12">r12</a></li><li class="case"><a href="#armreg.s0">s0</a></li><li class="case"><a href="#armreg.s1">s1</a></li><li class="case"><a href="#armreg.s2">s2</a></li><li class="case"><a href="#armreg.s3">s3</a></li><li class="case"><a href="#armreg.s4">s4</a></li><li class="case"><a href="#armreg.s5">s5</a></li><li class="case"><a href="#armreg.s6">s6</a></li><li class="case"><a href="#armreg.s7">s7</a></li><li class="case"><a href="#armreg.s8">s8</a></li><li class="case"><a href="#armreg.s9">s9</a></li><li class="case"><a href="#armreg.s10">s10</a></li><li class="case"><a href="#armreg.s11">s11</a></li><li class="case"><a href="#armreg.s12">s12</a></li><li class="case"><a href="#armreg.s13">s13</a></li><li class="case"><a href="#armreg.s14">s14</a></li><li class="case"><a href="#armreg.s15">s15</a></li><li class="case"><a href="#armreg.s16">s16</a></li><li class="case"><a href="#armreg.s17">s17</a></li><li class="case"><a href="#armreg.s18">s18</a></li><li class="case"><a href="#armreg.s19">s19</a></li><li class="case"><a href="#armreg.s20">s20</a></li><li class="case"><a href="#armreg.s21">s21</a></li><li class="case"><a href="#armreg.s22">s22</a></li><li class="case"><a href="#armreg.s23">s23</a></li><li class="case"><a href="#armreg.s24">s24</a></li><li class="case"><a href="#armreg.s25">s25</a></li><li class="case"><a href="#armreg.s26">s26</a></li><li class="case"><a href="#armreg.s27">s27</a></li><li class="case"><a href="#armreg.s28">s28</a></li><li class="case"><a href="#armreg.s29">s29</a></li><li class="case"><a href="#armreg.s30">s30</a></li><li class="case"><a href="#armreg.s31">s31</a></li><li class="case"><a href="#armreg.ending">ending</a></li></ul></li><li><a href="#properties">Properties</a><ul><li class="variable"><a href="#armreg.r13">r13</a></li><li class="variable"><a href="#armreg.r14">r14</a></li><li class="variable"><a href="#armreg.r15">r15</a></li><li class="variable"><a href="#armreg.sb">sb</a></li><li class="variable"><a href="#armreg.sl">sl</a></li><li class="variable"><a href="#armreg.fp">fp</a></li><li class="variable"><a href="#armreg.ip">ip</a></li></ul></li></ol>
+        </div>
+    </nav>
+
+    <main>
+        <article>
+            <h1>
+    <small>Enumeration</small>
+    <code class="name">Arm​Reg</code>
+</h1>
+
+<html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">enum</span> <span class="type">ArmReg</span></code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>ARM registers</p>
+
+</div>
+<section id="relationships">
+    <h2 hidden>Relationships</h2>
+        <figure>
+    <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.36.0 (20140111.2315)
+ -->
+<!-- Title: %3 Pages: 1 -->
+<svg width="872pt" height="116pt"
+ viewBox="0.00 0.00 872.00 116.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 112)">
+<title>%3</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-112 868,-112 868,4 -4,4"/>
+<!-- ArmReg -->
+<g id="node1" class="node"><title>ArmReg</title>
+<g id="a_node1"><a xlink:href="/ArmReg" xlink:title="ArmReg">
+<path fill="none" stroke="black" stroke-width="3" d="M528,-108C528,-108 336,-108 336,-108 330,-108 324,-102 324,-96 324,-96 324,-84 324,-84 324,-78 330,-72 336,-72 336,-72 528,-72 528,-72 534,-72 540,-78 540,-84 540,-84 540,-96 540,-96 540,-102 534,-108 528,-108"/>
+<text text-anchor="middle" x="432" y="-86.3" font-family="Menlo" font-size="14.00">ArmReg</text>
+</a>
+</g>
+</g>
+<!-- UInt16 -->
+<g id="node2" class="node"><title>UInt16</title>
+<path fill="none" stroke="black" d="M528,-36C528,-36 336,-36 336,-36 330,-36 324,-30 324,-24 324,-24 324,-12 324,-12 324,-6 330,-0 336,-0 336,-0 528,-0 528,-0 534,-0 540,-6 540,-12 540,-12 540,-24 540,-24 540,-30 534,-36 528,-36"/>
+<text text-anchor="middle" x="432" y="-14.3" font-family="Menlo" font-size="14.00">UInt16</text>
+</g>
+<!-- ArmReg&#45;&gt;UInt16 -->
+<g id="edge1" class="edge"><title>ArmReg&#45;&gt;UInt16</title>
+<path fill="none" stroke="black" d="M432,-71.6966C432,-63.9827 432,-54.7125 432,-46.1124"/>
+<polygon fill="black" stroke="black" points="435.5,-46.1043 432,-36.1043 428.5,-46.1044 435.5,-46.1043"/>
+</g>
+</g>
+</svg>
+
+
+    <figcaption hidden>Inheritance graph for ArmReg.</figcaption>
+</figure>
+        <h3>Conforms To</h3>
+<dl>
+    <dt class="unknown"><code>UInt16</code></dt>
+</dl>
+</section>
+    <section id="enumeration cases">
+        <h2>Enumeration Cases</h2>
+
+        <div role="article" class="case" id="armreg.invalid">
+    <h3>
+        <code>invalid</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">invalid</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armreg.apsr">
+    <h3>
+        <code>apsr</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">apsr</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armreg.apsrnzcv">
+    <h3>
+        <code>apsr​Nzcv</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">apsrNzcv</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armreg.cpsr">
+    <h3>
+        <code>cpsr</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cpsr</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armreg.fpexc">
+    <h3>
+        <code>fpexc</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fpexc</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armreg.fpinst">
+    <h3>
+        <code>fpinst</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fpinst</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armreg.fpscr">
+    <h3>
+        <code>fpscr</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fpscr</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armreg.fpscrnzcv">
+    <h3>
+        <code>fpscr​Nzcv</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fpscrNzcv</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armreg.fpsid">
+    <h3>
+        <code>fpsid</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fpsid</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armreg.itstate">
+    <h3>
+        <code>itstate</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">itstate</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armreg.lr">
+    <h3>
+        <code>lr</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">lr</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armreg.pc">
+    <h3>
+        <code>pc</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">pc</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armreg.sp">
+    <h3>
+        <code>sp</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">sp</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armreg.spsr">
+    <h3>
+        <code>spsr</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">spsr</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armreg.d0">
+    <h3>
+        <code>d0</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">d0</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armreg.d1">
+    <h3>
+        <code>d1</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">d1</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armreg.d2">
+    <h3>
+        <code>d2</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">d2</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armreg.d3">
+    <h3>
+        <code>d3</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">d3</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armreg.d4">
+    <h3>
+        <code>d4</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">d4</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armreg.d5">
+    <h3>
+        <code>d5</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">d5</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armreg.d6">
+    <h3>
+        <code>d6</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">d6</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armreg.d7">
+    <h3>
+        <code>d7</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">d7</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armreg.d8">
+    <h3>
+        <code>d8</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">d8</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armreg.d9">
+    <h3>
+        <code>d9</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">d9</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armreg.d10">
+    <h3>
+        <code>d10</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">d10</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armreg.d11">
+    <h3>
+        <code>d11</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">d11</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armreg.d12">
+    <h3>
+        <code>d12</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">d12</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armreg.d13">
+    <h3>
+        <code>d13</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">d13</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armreg.d14">
+    <h3>
+        <code>d14</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">d14</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armreg.d15">
+    <h3>
+        <code>d15</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">d15</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armreg.d16">
+    <h3>
+        <code>d16</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">d16</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armreg.d17">
+    <h3>
+        <code>d17</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">d17</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armreg.d18">
+    <h3>
+        <code>d18</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">d18</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armreg.d19">
+    <h3>
+        <code>d19</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">d19</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armreg.d20">
+    <h3>
+        <code>d20</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">d20</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armreg.d21">
+    <h3>
+        <code>d21</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">d21</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armreg.d22">
+    <h3>
+        <code>d22</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">d22</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armreg.d23">
+    <h3>
+        <code>d23</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">d23</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armreg.d24">
+    <h3>
+        <code>d24</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">d24</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armreg.d25">
+    <h3>
+        <code>d25</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">d25</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armreg.d26">
+    <h3>
+        <code>d26</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">d26</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armreg.d27">
+    <h3>
+        <code>d27</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">d27</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armreg.d28">
+    <h3>
+        <code>d28</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">d28</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armreg.d29">
+    <h3>
+        <code>d29</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">d29</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armreg.d30">
+    <h3>
+        <code>d30</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">d30</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armreg.d31">
+    <h3>
+        <code>d31</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">d31</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armreg.fpinst2">
+    <h3>
+        <code>fpinst2</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fpinst2</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armreg.mvfr0">
+    <h3>
+        <code>mvfr0</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">mvfr0</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armreg.mvfr1">
+    <h3>
+        <code>mvfr1</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">mvfr1</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armreg.mvfr2">
+    <h3>
+        <code>mvfr2</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">mvfr2</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armreg.q0">
+    <h3>
+        <code>q0</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">q0</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armreg.q1">
+    <h3>
+        <code>q1</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">q1</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armreg.q2">
+    <h3>
+        <code>q2</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">q2</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armreg.q3">
+    <h3>
+        <code>q3</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">q3</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armreg.q4">
+    <h3>
+        <code>q4</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">q4</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armreg.q5">
+    <h3>
+        <code>q5</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">q5</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armreg.q6">
+    <h3>
+        <code>q6</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">q6</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armreg.q7">
+    <h3>
+        <code>q7</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">q7</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armreg.q8">
+    <h3>
+        <code>q8</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">q8</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armreg.q9">
+    <h3>
+        <code>q9</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">q9</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armreg.q10">
+    <h3>
+        <code>q10</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">q10</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armreg.q11">
+    <h3>
+        <code>q11</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">q11</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armreg.q12">
+    <h3>
+        <code>q12</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">q12</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armreg.q13">
+    <h3>
+        <code>q13</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">q13</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armreg.q14">
+    <h3>
+        <code>q14</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">q14</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armreg.q15">
+    <h3>
+        <code>q15</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">q15</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armreg.r0">
+    <h3>
+        <code>r0</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">r0</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armreg.r1">
+    <h3>
+        <code>r1</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">r1</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armreg.r2">
+    <h3>
+        <code>r2</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">r2</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armreg.r3">
+    <h3>
+        <code>r3</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">r3</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armreg.r4">
+    <h3>
+        <code>r4</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">r4</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armreg.r5">
+    <h3>
+        <code>r5</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">r5</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armreg.r6">
+    <h3>
+        <code>r6</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">r6</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armreg.r7">
+    <h3>
+        <code>r7</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">r7</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armreg.r8">
+    <h3>
+        <code>r8</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">r8</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armreg.r9">
+    <h3>
+        <code>r9</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">r9</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armreg.r10">
+    <h3>
+        <code>r10</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">r10</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armreg.r11">
+    <h3>
+        <code>r11</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">r11</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armreg.r12">
+    <h3>
+        <code>r12</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">r12</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armreg.s0">
+    <h3>
+        <code>s0</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">s0</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armreg.s1">
+    <h3>
+        <code>s1</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">s1</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armreg.s2">
+    <h3>
+        <code>s2</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">s2</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armreg.s3">
+    <h3>
+        <code>s3</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">s3</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armreg.s4">
+    <h3>
+        <code>s4</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">s4</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armreg.s5">
+    <h3>
+        <code>s5</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">s5</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armreg.s6">
+    <h3>
+        <code>s6</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">s6</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armreg.s7">
+    <h3>
+        <code>s7</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">s7</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armreg.s8">
+    <h3>
+        <code>s8</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">s8</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armreg.s9">
+    <h3>
+        <code>s9</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">s9</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armreg.s10">
+    <h3>
+        <code>s10</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">s10</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armreg.s11">
+    <h3>
+        <code>s11</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">s11</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armreg.s12">
+    <h3>
+        <code>s12</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">s12</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armreg.s13">
+    <h3>
+        <code>s13</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">s13</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armreg.s14">
+    <h3>
+        <code>s14</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">s14</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armreg.s15">
+    <h3>
+        <code>s15</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">s15</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armreg.s16">
+    <h3>
+        <code>s16</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">s16</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armreg.s17">
+    <h3>
+        <code>s17</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">s17</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armreg.s18">
+    <h3>
+        <code>s18</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">s18</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armreg.s19">
+    <h3>
+        <code>s19</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">s19</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armreg.s20">
+    <h3>
+        <code>s20</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">s20</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armreg.s21">
+    <h3>
+        <code>s21</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">s21</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armreg.s22">
+    <h3>
+        <code>s22</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">s22</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armreg.s23">
+    <h3>
+        <code>s23</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">s23</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armreg.s24">
+    <h3>
+        <code>s24</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">s24</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armreg.s25">
+    <h3>
+        <code>s25</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">s25</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armreg.s26">
+    <h3>
+        <code>s26</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">s26</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armreg.s27">
+    <h3>
+        <code>s27</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">s27</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armreg.s28">
+    <h3>
+        <code>s28</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">s28</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armreg.s29">
+    <h3>
+        <code>s29</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">s29</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armreg.s30">
+    <h3>
+        <code>s30</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">s30</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armreg.s31">
+    <h3>
+        <code>s31</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">s31</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armreg.ending">
+    <h3>
+        <code>ending</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ending</span></code></pre></body></html>
+</div>
+    </section>
+    <section id="properties">
+        <h2>Properties</h2>
+
+        <div role="article" class="variable" id="armreg.r13">
+    <h3>
+        <code>r13</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">r13</span> = <span class="number literal">12</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="armreg.r14">
+    <h3>
+        <code>r14</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">r14</span> = <span class="number literal">10</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="armreg.r15">
+    <h3>
+        <code>r15</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">r15</span> = <span class="number literal">11</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="armreg.sb">
+    <h3>
+        <code>sb</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">sb</span> = <span class="number literal">75</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="armreg.sl">
+    <h3>
+        <code>sl</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">sl</span> = <span class="number literal">76</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="armreg.fp">
+    <h3>
+        <code>fp</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">fp</span> = <span class="number literal">77</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="armreg.ip">
+    <h3>
+        <code>ip</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">ip</span> = <span class="number literal">78</span></code></pre></body></html>
+</div>
+    </section>
+
+
+
+        </article>
+    </main>
+
+    <footer>
+        <p>
+    Generated on <time datetime="2020-11-21T15:19:13+0100">21 November 2020</time> using <a href="https://github.com/SwiftDocOrg/swift-doc">swift-doc</a> <span class="version">1.0.0-beta.5</span>.
+</p>
+    </footer>
+</body>
+</html>

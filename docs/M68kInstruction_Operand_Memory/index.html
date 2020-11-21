@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capstone - M68kInstruction.Operand.Memory</title>
+    <link rel="stylesheet" type="text/css" href="/all.css" media="all" />
+</head>
+<body>
+    <header>
+        <a href="/">
+            <strong>
+                Capstone
+            </strong>
+            <span>Documentation</span>
+        </a>
+        <sup>Beta</sup>
+    </header>
+
+    <!--
+    <form class="search">
+        <input type="search" placeholder="Search" />
+    </form>
+    -->
+
+    <nav>
+        <div class="wrapper">
+            <h2>On This Page</h2>
+            <ol><li><a href="#relationships">Relationships</a><ul><li><a href="#relationships">Member Of</a></li></ul></li><li><a href="#properties">Properties</a><ul><li class="variable"><a href="#m68kinstruction.operand.memory.base">base</a></li><li class="variable"><a href="#m68kinstruction.operand.memory.index">index</a></li><li class="variable"><a href="#m68kinstruction.operand.memory.indirectbase">indirect​Base</a></li><li class="variable"><a href="#m68kinstruction.operand.memory.basedisplacement">base​Displacement</a></li><li class="variable"><a href="#m68kinstruction.operand.memory.outerdisplacement">outer​Displacement</a></li><li class="variable"><a href="#m68kinstruction.operand.memory.displacement">displacement</a></li><li class="variable"><a href="#m68kinstruction.operand.memory.bitfield">bit​Field</a></li></ul></li></ol>
+        </div>
+    </nav>
+
+    <main>
+        <article>
+            <h1>
+    <small>Structure</small>
+    <code class="name">M68kInstruction.​Operand.​Memory</code>
+</h1>
+
+<html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">struct</span> <span class="type">Memory</span></code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>Instruction operand referring to memory</p>
+
+</div>
+<section id="relationships">
+    <h2 hidden>Relationships</h2>
+        
+        <h3>Member Of</h3>
+<dl>
+    <dt class="structure"><code><a href="/M68kInstruction_Operand">M68kInstruction.Operand</a></code></dt>
+<dd><p>Operand for M68k instructions.</p>
+</dd>
+</dl>
+</section>
+    <section id="properties">
+        <h2>Properties</h2>
+
+        <div role="article" class="variable" id="m68kinstruction.operand.memory.base">
+    <h3>
+        <code>base</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">base</span>: <a href="/M68kReg"><span class="type">M68kReg</span></a>?</code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>Base register</p>
+
+</div>
+</div>
+<div role="article" class="variable" id="m68kinstruction.operand.memory.index">
+    <h3>
+        <code>index</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">index</span>: (<span class="variable">register</span>: <a href="/M68kReg"><span class="type">M68kReg</span></a>, <span class="variable">scale</span>: <span class="type">UInt8</span>, <span class="variable">size</span>: <a href="/M68kCpuSize"><span class="type">M68kCpuSize</span></a>)?</code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>Index information</p>
+
+</div>
+</div>
+<div role="article" class="variable" id="m68kinstruction.operand.memory.indirectbase">
+    <h3>
+        <code>indirect​Base</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">indirectBase</span>: <a href="/M68kReg"><span class="type">M68kReg</span></a>?</code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>Indirect base register</p>
+
+</div>
+</div>
+<div role="article" class="variable" id="m68kinstruction.operand.memory.basedisplacement">
+    <h3>
+        <code>base​Displacement</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">baseDisplacement</span>: <span class="type">UInt32</span></code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>Indirect displacement</p>
+
+</div>
+</div>
+<div role="article" class="variable" id="m68kinstruction.operand.memory.outerdisplacement">
+    <h3>
+        <code>outer​Displacement</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">outerDisplacement</span>: <span class="type">UInt32</span></code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>Outer displacement</p>
+
+</div>
+</div>
+<div role="article" class="variable" id="m68kinstruction.operand.memory.displacement">
+    <h3>
+        <code>displacement</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">displacement</span>: <span class="type">Int16</span></code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>Displacement value</p>
+
+</div>
+</div>
+<div role="article" class="variable" id="m68kinstruction.operand.memory.bitfield">
+    <h3>
+        <code>bit​Field</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">bitField</span>: (<span class="variable">width</span>: <span class="type">UInt8</span>, <span class="variable">offset</span>: <span class="type">UInt8</span>)?</code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>Used for bf* instructions</p>
+
+</div>
+</div>
+    </section>
+
+
+
+        </article>
+    </main>
+
+    <footer>
+        <p>
+    Generated on <time datetime="2020-11-21T15:19:20+0100">21 November 2020</time> using <a href="https://github.com/SwiftDocOrg/swift-doc">swift-doc</a> <span class="version">1.0.0-beta.5</span>.
+</p>
+    </footer>
+</body>
+</html>

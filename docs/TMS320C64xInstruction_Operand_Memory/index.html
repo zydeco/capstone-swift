@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capstone - TMS320C64xInstruction.Operand.Memory</title>
+    <link rel="stylesheet" type="text/css" href="/all.css" media="all" />
+</head>
+<body>
+    <header>
+        <a href="/">
+            <strong>
+                Capstone
+            </strong>
+            <span>Documentation</span>
+        </a>
+        <sup>Beta</sup>
+    </header>
+
+    <!--
+    <form class="search">
+        <input type="search" placeholder="Search" />
+    </form>
+    -->
+
+    <nav>
+        <div class="wrapper">
+            <h2>On This Page</h2>
+            <ol><li><a href="#relationships">Relationships</a><ul><li><a href="#relationships">Member Of</a></li><li><a href="#relationships">Nested Types</a></li></ul></li><li><a href="#properties">Properties</a><ul><li class="variable"><a href="#tms320c64xinstruction.operand.memory.base">base</a></li><li class="variable"><a href="#tms320c64xinstruction.operand.memory.displacement">displacement</a></li><li class="variable"><a href="#tms320c64xinstruction.operand.memory.unit">unit</a></li><li class="variable"><a href="#tms320c64xinstruction.operand.memory.scaled">scaled</a></li><li class="variable"><a href="#tms320c64xinstruction.operand.memory.direction">direction</a></li><li class="variable"><a href="#tms320c64xinstruction.operand.memory.modification">modification</a></li></ul></li></ol>
+        </div>
+    </nav>
+
+    <main>
+        <article>
+            <h1>
+    <small>Structure</small>
+    <code class="name">TMS320C64xInstruction.​Operand.​Memory</code>
+</h1>
+
+<html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">struct</span> <span class="type">Memory</span></code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>Operand referring to memory</p>
+
+</div>
+<section id="relationships">
+    <h2 hidden>Relationships</h2>
+        
+        <h3>Member Of</h3>
+<dl>
+    <dt class="structure"><code><a href="/TMS320C64xInstruction_Operand">TMS320C64xInstruction.Operand</a></code></dt>
+<dd><p>Operand for TMS320C64x instructions.</p>
+</dd>
+</dl>
+<h3>Nested Types</h3>
+<dl>
+    <dt class="enumeration"><code><a href="/TMS320C64xInstruction_Operand_Memory_Displacement">TMS320C64xInstruction.Operand.Memory.Displacement</a></code></dt>
+<dd><p>Displacement type and value.</p>
+</dd>
+</dl>
+</section>
+    <section id="properties">
+        <h2>Properties</h2>
+
+        <div role="article" class="variable" id="tms320c64xinstruction.operand.memory.base">
+    <h3>
+        <code>base</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">base</span>: <a href="/Tms320c64xReg"><span class="type">Tms320c64xReg</span></a></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="tms320c64xinstruction.operand.memory.displacement">
+    <h3>
+        <code>displacement</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">displacement</span>: <span class="type">Displacement</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="tms320c64xinstruction.operand.memory.unit">
+    <h3>
+        <code>unit</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">unit</span>: <span class="type">UInt32</span></code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>Unit of base and offset register</p>
+
+</div>
+</div>
+<div role="article" class="variable" id="tms320c64xinstruction.operand.memory.scaled">
+    <h3>
+        <code>scaled</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">scaled</span>: <span class="type">UInt32</span></code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>Offset scaled</p>
+
+</div>
+</div>
+<div role="article" class="variable" id="tms320c64xinstruction.operand.memory.direction">
+    <h3>
+        <code>direction</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">direction</span>: <a href="/Tms320c64xMemDir"><span class="type">Tms320c64xMemDir</span></a></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="tms320c64xinstruction.operand.memory.modification">
+    <h3>
+        <code>modification</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">modification</span>: <a href="/Tms320c64xMemMod"><span class="type">Tms320c64xMemMod</span></a></code></pre></body></html>
+</div>
+    </section>
+
+
+
+        </article>
+    </main>
+
+    <footer>
+        <p>
+    Generated on <time datetime="2020-11-21T15:19:26+0100">21 November 2020</time> using <a href="https://github.com/SwiftDocOrg/swift-doc">swift-doc</a> <span class="version">1.0.0-beta.5</span>.
+</p>
+    </footer>
+</body>
+</html>

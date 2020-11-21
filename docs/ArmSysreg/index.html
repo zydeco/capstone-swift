@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capstone - ArmSysreg</title>
+    <link rel="stylesheet" type="text/css" href="/all.css" media="all" />
+</head>
+<body>
+    <header>
+        <a href="/">
+            <strong>
+                Capstone
+            </strong>
+            <span>Documentation</span>
+        </a>
+        <sup>Beta</sup>
+    </header>
+
+    <!--
+    <form class="search">
+        <input type="search" placeholder="Search" />
+    </form>
+    -->
+
+    <nav>
+        <div class="wrapper">
+            <h2>On This Page</h2>
+            <ol><li><a href="#relationships">Relationships</a><ul><li><a href="#relationships">Conforms To</a></li></ul></li><li><a href="#enumeration cases">Enumeration Cases</a><ul><li class="case"><a href="#armsysreg.invalid">invalid</a></li><li class="case"><a href="#armsysreg.spsrc">spsr​C</a></li><li class="case"><a href="#armsysreg.spsrx">spsr​X</a></li><li class="case"><a href="#armsysreg.spsrs">spsr​S</a></li><li class="case"><a href="#armsysreg.spsrf">spsr​F</a></li><li class="case"><a href="#armsysreg.cpsrc">cpsr​C</a></li><li class="case"><a href="#armsysreg.cpsrx">cpsr​X</a></li><li class="case"><a href="#armsysreg.cpsrs">cpsr​S</a></li><li class="case"><a href="#armsysreg.cpsrf">cpsr​F</a></li><li class="case"><a href="#armsysreg.apsr">apsr</a></li><li class="case"><a href="#armsysreg.apsrg">apsr​G</a></li><li class="case"><a href="#armsysreg.apsrnzcvq">apsr​Nzcvq</a></li><li class="case"><a href="#armsysreg.apsrnzcvqg">apsr​Nzcvqg</a></li><li class="case"><a href="#armsysreg.iapsr">iapsr</a></li><li class="case"><a href="#armsysreg.iapsrg">iapsr​G</a></li><li class="case"><a href="#armsysreg.iapsrnzcvqg">iapsr​Nzcvqg</a></li><li class="case"><a href="#armsysreg.iapsrnzcvq">iapsr​Nzcvq</a></li><li class="case"><a href="#armsysreg.eapsr">eapsr</a></li><li class="case"><a href="#armsysreg.eapsrg">eapsr​G</a></li><li class="case"><a href="#armsysreg.eapsrnzcvqg">eapsr​Nzcvqg</a></li><li class="case"><a href="#armsysreg.eapsrnzcvq">eapsr​Nzcvq</a></li><li class="case"><a href="#armsysreg.xpsr">xpsr</a></li><li class="case"><a href="#armsysreg.xpsrg">xpsr​G</a></li><li class="case"><a href="#armsysreg.xpsrnzcvqg">xpsr​Nzcvqg</a></li><li class="case"><a href="#armsysreg.xpsrnzcvq">xpsr​Nzcvq</a></li><li class="case"><a href="#armsysreg.ipsr">ipsr</a></li><li class="case"><a href="#armsysreg.epsr">epsr</a></li><li class="case"><a href="#armsysreg.iepsr">iepsr</a></li><li class="case"><a href="#armsysreg.msp">msp</a></li><li class="case"><a href="#armsysreg.psp">psp</a></li><li class="case"><a href="#armsysreg.primask">primask</a></li><li class="case"><a href="#armsysreg.basepri">basepri</a></li><li class="case"><a href="#armsysreg.baseprimax">basepri​Max</a></li><li class="case"><a href="#armsysreg.faultmask">faultmask</a></li><li class="case"><a href="#armsysreg.control">control</a></li><li class="case"><a href="#armsysreg.msplim">msplim</a></li><li class="case"><a href="#armsysreg.psplim">psplim</a></li><li class="case"><a href="#armsysreg.mspns">msp​Ns</a></li><li class="case"><a href="#armsysreg.pspns">psp​Ns</a></li><li class="case"><a href="#armsysreg.msplimns">msplim​Ns</a></li><li class="case"><a href="#armsysreg.psplimns">psplim​Ns</a></li><li class="case"><a href="#armsysreg.primaskns">primask​Ns</a></li><li class="case"><a href="#armsysreg.baseprins">basepri​Ns</a></li><li class="case"><a href="#armsysreg.faultmaskns">faultmask​Ns</a></li><li class="case"><a href="#armsysreg.controlns">control​Ns</a></li><li class="case"><a href="#armsysreg.spns">sp​Ns</a></li><li class="case"><a href="#armsysreg.r8usr">r8Usr</a></li><li class="case"><a href="#armsysreg.r9usr">r9Usr</a></li><li class="case"><a href="#armsysreg.r10usr">r10Usr</a></li><li class="case"><a href="#armsysreg.r11usr">r11Usr</a></li><li class="case"><a href="#armsysreg.r12usr">r12Usr</a></li><li class="case"><a href="#armsysreg.spusr">sp​Usr</a></li><li class="case"><a href="#armsysreg.lrusr">lr​Usr</a></li><li class="case"><a href="#armsysreg.r8fiq">r8Fiq</a></li><li class="case"><a href="#armsysreg.r9fiq">r9Fiq</a></li><li class="case"><a href="#armsysreg.r10fiq">r10Fiq</a></li><li class="case"><a href="#armsysreg.r11fiq">r11Fiq</a></li><li class="case"><a href="#armsysreg.r12fiq">r12Fiq</a></li><li class="case"><a href="#armsysreg.spfiq">sp​Fiq</a></li><li class="case"><a href="#armsysreg.lrfiq">lr​Fiq</a></li><li class="case"><a href="#armsysreg.lrirq">lr​Irq</a></li><li class="case"><a href="#armsysreg.spirq">sp​Irq</a></li><li class="case"><a href="#armsysreg.lrsvc">lr​Svc</a></li><li class="case"><a href="#armsysreg.spsvc">sp​Svc</a></li><li class="case"><a href="#armsysreg.lrabt">lr​Abt</a></li><li class="case"><a href="#armsysreg.spabt">sp​Abt</a></li><li class="case"><a href="#armsysreg.lrund">lr​Und</a></li><li class="case"><a href="#armsysreg.spund">sp​Und</a></li><li class="case"><a href="#armsysreg.lrmon">lr​Mon</a></li><li class="case"><a href="#armsysreg.spmon">sp​Mon</a></li><li class="case"><a href="#armsysreg.elrhyp">elr​Hyp</a></li><li class="case"><a href="#armsysreg.sphyp">sp​Hyp</a></li><li class="case"><a href="#armsysreg.spsrfiq">spsr​Fiq</a></li><li class="case"><a href="#armsysreg.spsrirq">spsr​Irq</a></li><li class="case"><a href="#armsysreg.spsrsvc">spsr​Svc</a></li><li class="case"><a href="#armsysreg.spsrabt">spsr​Abt</a></li><li class="case"><a href="#armsysreg.spsrund">spsr​Und</a></li><li class="case"><a href="#armsysreg.spsrmon">spsr​Mon</a></li><li class="case"><a href="#armsysreg.spsrhyp">spsr​Hyp</a></li><li class="case"><a href="#armsysreg.spsrcx">spsr​Cx</a></li><li class="case"><a href="#armsysreg.spsrcs">spsr​Cs</a></li><li class="case"><a href="#armsysreg.spsrxs">spsr​Xs</a></li><li class="case"><a href="#armsysreg.spsrcxs">spsr​Cxs</a></li><li class="case"><a href="#armsysreg.spsrcf">spsr​Cf</a></li><li class="case"><a href="#armsysreg.spsrxf">spsr​Xf</a></li><li class="case"><a href="#armsysreg.spsrcxf">spsr​Cxf</a></li><li class="case"><a href="#armsysreg.spsrsf">spsr​Sf</a></li><li class="case"><a href="#armsysreg.spsrcsf">spsr​Csf</a></li><li class="case"><a href="#armsysreg.spsrxsf">spsr​Xsf</a></li><li class="case"><a href="#armsysreg.spsrcxsf">spsr​Cxsf</a></li><li class="case"><a href="#armsysreg.cpsrcx">cpsr​Cx</a></li><li class="case"><a href="#armsysreg.cpsrcs">cpsr​Cs</a></li><li class="case"><a href="#armsysreg.cpsrxs">cpsr​Xs</a></li><li class="case"><a href="#armsysreg.cpsrcxs">cpsr​Cxs</a></li><li class="case"><a href="#armsysreg.cpsrcf">cpsr​Cf</a></li><li class="case"><a href="#armsysreg.cpsrxf">cpsr​Xf</a></li><li class="case"><a href="#armsysreg.cpsrcxf">cpsr​Cxf</a></li><li class="case"><a href="#armsysreg.cpsrsf">cpsr​Sf</a></li><li class="case"><a href="#armsysreg.cpsrcsf">cpsr​Csf</a></li><li class="case"><a href="#armsysreg.cpsrxsf">cpsr​Xsf</a></li><li class="case"><a href="#armsysreg.cpsrcxsf">cpsr​Cxsf</a></li></ul></li></ol>
+        </div>
+    </nav>
+
+    <main>
+        <article>
+            <h1>
+    <small>Enumeration</small>
+    <code class="name">Arm​Sysreg</code>
+</h1>
+
+<html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">enum</span> <span class="type">ArmSysreg</span></code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>Special registers for MSR</p>
+
+</div>
+<section id="relationships">
+    <h2 hidden>Relationships</h2>
+        <figure>
+    <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.36.0 (20140111.2315)
+ -->
+<!-- Title: %3 Pages: 1 -->
+<svg width="872pt" height="116pt"
+ viewBox="0.00 0.00 872.00 116.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 112)">
+<title>%3</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-112 868,-112 868,4 -4,4"/>
+<!-- ArmSysreg -->
+<g id="node1" class="node"><title>ArmSysreg</title>
+<g id="a_node1"><a xlink:href="/ArmSysreg" xlink:title="ArmSysreg">
+<path fill="none" stroke="black" stroke-width="3" d="M528,-108C528,-108 336,-108 336,-108 330,-108 324,-102 324,-96 324,-96 324,-84 324,-84 324,-78 330,-72 336,-72 336,-72 528,-72 528,-72 534,-72 540,-78 540,-84 540,-84 540,-96 540,-96 540,-102 534,-108 528,-108"/>
+<text text-anchor="middle" x="432" y="-86.3" font-family="Menlo" font-size="14.00">ArmSysreg</text>
+</a>
+</g>
+</g>
+<!-- UInt32 -->
+<g id="node2" class="node"><title>UInt32</title>
+<path fill="none" stroke="black" d="M528,-36C528,-36 336,-36 336,-36 330,-36 324,-30 324,-24 324,-24 324,-12 324,-12 324,-6 330,-0 336,-0 336,-0 528,-0 528,-0 534,-0 540,-6 540,-12 540,-12 540,-24 540,-24 540,-30 534,-36 528,-36"/>
+<text text-anchor="middle" x="432" y="-14.3" font-family="Menlo" font-size="14.00">UInt32</text>
+</g>
+<!-- ArmSysreg&#45;&gt;UInt32 -->
+<g id="edge1" class="edge"><title>ArmSysreg&#45;&gt;UInt32</title>
+<path fill="none" stroke="black" d="M432,-71.6966C432,-63.9827 432,-54.7125 432,-46.1124"/>
+<polygon fill="black" stroke="black" points="435.5,-46.1043 432,-36.1043 428.5,-46.1044 435.5,-46.1043"/>
+</g>
+</g>
+</svg>
+
+
+    <figcaption hidden>Inheritance graph for ArmSysreg.</figcaption>
+</figure>
+        <h3>Conforms To</h3>
+<dl>
+    <dt class="unknown"><code>UInt32</code></dt>
+</dl>
+</section>
+    <section id="enumeration cases">
+        <h2>Enumeration Cases</h2>
+
+        <div role="article" class="case" id="armsysreg.invalid">
+    <h3>
+        <code>invalid</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">invalid</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armsysreg.spsrc">
+    <h3>
+        <code>spsr​C</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">spsrC</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armsysreg.spsrx">
+    <h3>
+        <code>spsr​X</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">spsrX</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armsysreg.spsrs">
+    <h3>
+        <code>spsr​S</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">spsrS</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armsysreg.spsrf">
+    <h3>
+        <code>spsr​F</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">spsrF</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armsysreg.cpsrc">
+    <h3>
+        <code>cpsr​C</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cpsrC</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armsysreg.cpsrx">
+    <h3>
+        <code>cpsr​X</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cpsrX</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armsysreg.cpsrs">
+    <h3>
+        <code>cpsr​S</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cpsrS</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armsysreg.cpsrf">
+    <h3>
+        <code>cpsr​F</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cpsrF</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armsysreg.apsr">
+    <h3>
+        <code>apsr</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">apsr</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armsysreg.apsrg">
+    <h3>
+        <code>apsr​G</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">apsrG</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armsysreg.apsrnzcvq">
+    <h3>
+        <code>apsr​Nzcvq</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">apsrNzcvq</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armsysreg.apsrnzcvqg">
+    <h3>
+        <code>apsr​Nzcvqg</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">apsrNzcvqg</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armsysreg.iapsr">
+    <h3>
+        <code>iapsr</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">iapsr</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armsysreg.iapsrg">
+    <h3>
+        <code>iapsr​G</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">iapsrG</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armsysreg.iapsrnzcvqg">
+    <h3>
+        <code>iapsr​Nzcvqg</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">iapsrNzcvqg</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armsysreg.iapsrnzcvq">
+    <h3>
+        <code>iapsr​Nzcvq</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">iapsrNzcvq</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armsysreg.eapsr">
+    <h3>
+        <code>eapsr</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">eapsr</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armsysreg.eapsrg">
+    <h3>
+        <code>eapsr​G</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">eapsrG</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armsysreg.eapsrnzcvqg">
+    <h3>
+        <code>eapsr​Nzcvqg</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">eapsrNzcvqg</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armsysreg.eapsrnzcvq">
+    <h3>
+        <code>eapsr​Nzcvq</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">eapsrNzcvq</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armsysreg.xpsr">
+    <h3>
+        <code>xpsr</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">xpsr</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armsysreg.xpsrg">
+    <h3>
+        <code>xpsr​G</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">xpsrG</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armsysreg.xpsrnzcvqg">
+    <h3>
+        <code>xpsr​Nzcvqg</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">xpsrNzcvqg</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armsysreg.xpsrnzcvq">
+    <h3>
+        <code>xpsr​Nzcvq</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">xpsrNzcvq</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armsysreg.ipsr">
+    <h3>
+        <code>ipsr</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ipsr</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armsysreg.epsr">
+    <h3>
+        <code>epsr</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">epsr</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armsysreg.iepsr">
+    <h3>
+        <code>iepsr</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">iepsr</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armsysreg.msp">
+    <h3>
+        <code>msp</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">msp</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armsysreg.psp">
+    <h3>
+        <code>psp</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">psp</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armsysreg.primask">
+    <h3>
+        <code>primask</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">primask</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armsysreg.basepri">
+    <h3>
+        <code>basepri</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">basepri</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armsysreg.baseprimax">
+    <h3>
+        <code>basepri​Max</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">basepriMax</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armsysreg.faultmask">
+    <h3>
+        <code>faultmask</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">faultmask</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armsysreg.control">
+    <h3>
+        <code>control</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">control</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armsysreg.msplim">
+    <h3>
+        <code>msplim</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">msplim</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armsysreg.psplim">
+    <h3>
+        <code>psplim</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">psplim</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armsysreg.mspns">
+    <h3>
+        <code>msp​Ns</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">mspNs</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armsysreg.pspns">
+    <h3>
+        <code>psp​Ns</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">pspNs</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armsysreg.msplimns">
+    <h3>
+        <code>msplim​Ns</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">msplimNs</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armsysreg.psplimns">
+    <h3>
+        <code>psplim​Ns</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">psplimNs</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armsysreg.primaskns">
+    <h3>
+        <code>primask​Ns</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">primaskNs</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armsysreg.baseprins">
+    <h3>
+        <code>basepri​Ns</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">basepriNs</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armsysreg.faultmaskns">
+    <h3>
+        <code>faultmask​Ns</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">faultmaskNs</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armsysreg.controlns">
+    <h3>
+        <code>control​Ns</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">controlNs</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armsysreg.spns">
+    <h3>
+        <code>sp​Ns</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">spNs</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armsysreg.r8usr">
+    <h3>
+        <code>r8Usr</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">r8Usr</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armsysreg.r9usr">
+    <h3>
+        <code>r9Usr</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">r9Usr</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armsysreg.r10usr">
+    <h3>
+        <code>r10Usr</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">r10Usr</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armsysreg.r11usr">
+    <h3>
+        <code>r11Usr</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">r11Usr</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armsysreg.r12usr">
+    <h3>
+        <code>r12Usr</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">r12Usr</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armsysreg.spusr">
+    <h3>
+        <code>sp​Usr</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">spUsr</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armsysreg.lrusr">
+    <h3>
+        <code>lr​Usr</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">lrUsr</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armsysreg.r8fiq">
+    <h3>
+        <code>r8Fiq</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">r8Fiq</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armsysreg.r9fiq">
+    <h3>
+        <code>r9Fiq</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">r9Fiq</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armsysreg.r10fiq">
+    <h3>
+        <code>r10Fiq</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">r10Fiq</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armsysreg.r11fiq">
+    <h3>
+        <code>r11Fiq</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">r11Fiq</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armsysreg.r12fiq">
+    <h3>
+        <code>r12Fiq</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">r12Fiq</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armsysreg.spfiq">
+    <h3>
+        <code>sp​Fiq</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">spFiq</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armsysreg.lrfiq">
+    <h3>
+        <code>lr​Fiq</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">lrFiq</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armsysreg.lrirq">
+    <h3>
+        <code>lr​Irq</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">lrIrq</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armsysreg.spirq">
+    <h3>
+        <code>sp​Irq</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">spIrq</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armsysreg.lrsvc">
+    <h3>
+        <code>lr​Svc</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">lrSvc</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armsysreg.spsvc">
+    <h3>
+        <code>sp​Svc</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">spSvc</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armsysreg.lrabt">
+    <h3>
+        <code>lr​Abt</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">lrAbt</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armsysreg.spabt">
+    <h3>
+        <code>sp​Abt</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">spAbt</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armsysreg.lrund">
+    <h3>
+        <code>lr​Und</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">lrUnd</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armsysreg.spund">
+    <h3>
+        <code>sp​Und</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">spUnd</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armsysreg.lrmon">
+    <h3>
+        <code>lr​Mon</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">lrMon</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armsysreg.spmon">
+    <h3>
+        <code>sp​Mon</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">spMon</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armsysreg.elrhyp">
+    <h3>
+        <code>elr​Hyp</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">elrHyp</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armsysreg.sphyp">
+    <h3>
+        <code>sp​Hyp</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">spHyp</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armsysreg.spsrfiq">
+    <h3>
+        <code>spsr​Fiq</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">spsrFiq</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armsysreg.spsrirq">
+    <h3>
+        <code>spsr​Irq</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">spsrIrq</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armsysreg.spsrsvc">
+    <h3>
+        <code>spsr​Svc</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">spsrSvc</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armsysreg.spsrabt">
+    <h3>
+        <code>spsr​Abt</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">spsrAbt</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armsysreg.spsrund">
+    <h3>
+        <code>spsr​Und</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">spsrUnd</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armsysreg.spsrmon">
+    <h3>
+        <code>spsr​Mon</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">spsrMon</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armsysreg.spsrhyp">
+    <h3>
+        <code>spsr​Hyp</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">spsrHyp</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armsysreg.spsrcx">
+    <h3>
+        <code>spsr​Cx</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">spsrCx</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armsysreg.spsrcs">
+    <h3>
+        <code>spsr​Cs</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">spsrCs</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armsysreg.spsrxs">
+    <h3>
+        <code>spsr​Xs</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">spsrXs</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armsysreg.spsrcxs">
+    <h3>
+        <code>spsr​Cxs</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">spsrCxs</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armsysreg.spsrcf">
+    <h3>
+        <code>spsr​Cf</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">spsrCf</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armsysreg.spsrxf">
+    <h3>
+        <code>spsr​Xf</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">spsrXf</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armsysreg.spsrcxf">
+    <h3>
+        <code>spsr​Cxf</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">spsrCxf</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armsysreg.spsrsf">
+    <h3>
+        <code>spsr​Sf</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">spsrSf</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armsysreg.spsrcsf">
+    <h3>
+        <code>spsr​Csf</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">spsrCsf</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armsysreg.spsrxsf">
+    <h3>
+        <code>spsr​Xsf</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">spsrXsf</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armsysreg.spsrcxsf">
+    <h3>
+        <code>spsr​Cxsf</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">spsrCxsf</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armsysreg.cpsrcx">
+    <h3>
+        <code>cpsr​Cx</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cpsrCx</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armsysreg.cpsrcs">
+    <h3>
+        <code>cpsr​Cs</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cpsrCs</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armsysreg.cpsrxs">
+    <h3>
+        <code>cpsr​Xs</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cpsrXs</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armsysreg.cpsrcxs">
+    <h3>
+        <code>cpsr​Cxs</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cpsrCxs</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armsysreg.cpsrcf">
+    <h3>
+        <code>cpsr​Cf</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cpsrCf</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armsysreg.cpsrxf">
+    <h3>
+        <code>cpsr​Xf</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cpsrXf</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armsysreg.cpsrcxf">
+    <h3>
+        <code>cpsr​Cxf</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cpsrCxf</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armsysreg.cpsrsf">
+    <h3>
+        <code>cpsr​Sf</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cpsrSf</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armsysreg.cpsrcsf">
+    <h3>
+        <code>cpsr​Csf</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cpsrCsf</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armsysreg.cpsrxsf">
+    <h3>
+        <code>cpsr​Xsf</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cpsrXsf</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armsysreg.cpsrcxsf">
+    <h3>
+        <code>cpsr​Cxsf</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cpsrCxsf</span></code></pre></body></html>
+</div>
+    </section>
+
+
+
+        </article>
+    </main>
+
+    <footer>
+        <p>
+    Generated on <time datetime="2020-11-21T15:19:25+0100">21 November 2020</time> using <a href="https://github.com/SwiftDocOrg/swift-doc">swift-doc</a> <span class="version">1.0.0-beta.5</span>.
+</p>
+    </footer>
+</body>
+</html>

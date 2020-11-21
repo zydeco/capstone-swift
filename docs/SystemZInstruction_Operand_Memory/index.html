@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capstone - SystemZInstruction.Operand.Memory</title>
+    <link rel="stylesheet" type="text/css" href="/all.css" media="all" />
+</head>
+<body>
+    <header>
+        <a href="/">
+            <strong>
+                Capstone
+            </strong>
+            <span>Documentation</span>
+        </a>
+        <sup>Beta</sup>
+    </header>
+
+    <!--
+    <form class="search">
+        <input type="search" placeholder="Search" />
+    </form>
+    -->
+
+    <nav>
+        <div class="wrapper">
+            <h2>On This Page</h2>
+            <ol><li><a href="#relationships">Relationships</a><ul><li><a href="#relationships">Member Of</a></li></ul></li><li><a href="#properties">Properties</a><ul><li class="variable"><a href="#systemzinstruction.operand.memory.base">base</a></li><li class="variable"><a href="#systemzinstruction.operand.memory.index">index</a></li><li class="variable"><a href="#systemzinstruction.operand.memory.length">length</a></li><li class="variable"><a href="#systemzinstruction.operand.memory.displacement">displacement</a></li></ul></li></ol>
+        </div>
+    </nav>
+
+    <main>
+        <article>
+            <h1>
+    <small>Structure</small>
+    <code class="name">System​ZInstruction.​Operand.​Memory</code>
+</h1>
+
+<html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">struct</span> <span class="type">Memory</span></code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>Operand value referring to memory.</p>
+
+</div>
+<section id="relationships">
+    <h2 hidden>Relationships</h2>
+        
+        <h3>Member Of</h3>
+<dl>
+    <dt class="structure"><code><a href="/SystemZInstruction_Operand">SystemZInstruction.Operand</a></code></dt>
+<dd><p>Operand for SystemZ instructions.</p>
+</dd>
+</dl>
+</section>
+    <section id="properties">
+        <h2>Properties</h2>
+
+        <div role="article" class="variable" id="systemzinstruction.operand.memory.base">
+    <h3>
+        <code>base</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">base</span>: <a href="/SyszReg"><span class="type">SyszReg</span></a></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="systemzinstruction.operand.memory.index">
+    <h3>
+        <code>index</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">index</span>: <a href="/SyszReg"><span class="type">SyszReg</span></a>?</code></pre></body></html>
+</div>
+<div role="article" class="variable" id="systemzinstruction.operand.memory.length">
+    <h3>
+        <code>length</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">length</span>: <span class="type">UInt64</span></code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>BDLAddr operand.</p>
+
+</div>
+</div>
+<div role="article" class="variable" id="systemzinstruction.operand.memory.displacement">
+    <h3>
+        <code>displacement</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">displacement</span>: <span class="type">Int64</span></code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>displacement/offset value.</p>
+
+</div>
+</div>
+    </section>
+
+
+
+        </article>
+    </main>
+
+    <footer>
+        <p>
+    Generated on <time datetime="2020-11-21T15:19:15+0100">21 November 2020</time> using <a href="https://github.com/SwiftDocOrg/swift-doc">swift-doc</a> <span class="version">1.0.0-beta.5</span>.
+</p>
+    </footer>
+</body>
+</html>

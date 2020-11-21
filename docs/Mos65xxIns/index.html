@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capstone - Mos65xxIns</title>
+    <link rel="stylesheet" type="text/css" href="/all.css" media="all" />
+</head>
+<body>
+    <header>
+        <a href="/">
+            <strong>
+                Capstone
+            </strong>
+            <span>Documentation</span>
+        </a>
+        <sup>Beta</sup>
+    </header>
+
+    <!--
+    <form class="search">
+        <input type="search" placeholder="Search" />
+    </form>
+    -->
+
+    <nav>
+        <div class="wrapper">
+            <h2>On This Page</h2>
+            <ol><li><a href="#relationships">Relationships</a><ul><li><a href="#relationships">Conforms To</a></li></ul></li><li><a href="#enumeration cases">Enumeration Cases</a><ul><li class="case"><a href="#mos65xxins.invalid">invalid</a></li><li class="case"><a href="#mos65xxins.adc">adc</a></li><li class="case"><a href="#mos65xxins.and">and</a></li><li class="case"><a href="#mos65xxins.asl">asl</a></li><li class="case"><a href="#mos65xxins.bbr">bbr</a></li><li class="case"><a href="#mos65xxins.bbs">bbs</a></li><li class="case"><a href="#mos65xxins.bcc">bcc</a></li><li class="case"><a href="#mos65xxins.bcs">bcs</a></li><li class="case"><a href="#mos65xxins.beq">beq</a></li><li class="case"><a href="#mos65xxins.bit">bit</a></li><li class="case"><a href="#mos65xxins.bmi">bmi</a></li><li class="case"><a href="#mos65xxins.bne">bne</a></li><li class="case"><a href="#mos65xxins.bpl">bpl</a></li><li class="case"><a href="#mos65xxins.bra">bra</a></li><li class="case"><a href="#mos65xxins.brk">brk</a></li><li class="case"><a href="#mos65xxins.brl">brl</a></li><li class="case"><a href="#mos65xxins.bvc">bvc</a></li><li class="case"><a href="#mos65xxins.bvs">bvs</a></li><li class="case"><a href="#mos65xxins.clc">clc</a></li><li class="case"><a href="#mos65xxins.cld">cld</a></li><li class="case"><a href="#mos65xxins.cli">cli</a></li><li class="case"><a href="#mos65xxins.clv">clv</a></li><li class="case"><a href="#mos65xxins.cmp">cmp</a></li><li class="case"><a href="#mos65xxins.cop">cop</a></li><li class="case"><a href="#mos65xxins.cpx">cpx</a></li><li class="case"><a href="#mos65xxins.cpy">cpy</a></li><li class="case"><a href="#mos65xxins.dec">dec</a></li><li class="case"><a href="#mos65xxins.dex">dex</a></li><li class="case"><a href="#mos65xxins.dey">dey</a></li><li class="case"><a href="#mos65xxins.eor">eor</a></li><li class="case"><a href="#mos65xxins.inc">inc</a></li><li class="case"><a href="#mos65xxins.inx">inx</a></li><li class="case"><a href="#mos65xxins.iny">iny</a></li><li class="case"><a href="#mos65xxins.jml">jml</a></li><li class="case"><a href="#mos65xxins.jmp">jmp</a></li><li class="case"><a href="#mos65xxins.jsl">jsl</a></li><li class="case"><a href="#mos65xxins.jsr">jsr</a></li><li class="case"><a href="#mos65xxins.lda">lda</a></li><li class="case"><a href="#mos65xxins.ldx">ldx</a></li><li class="case"><a href="#mos65xxins.ldy">ldy</a></li><li class="case"><a href="#mos65xxins.lsr">lsr</a></li><li class="case"><a href="#mos65xxins.mvn">mvn</a></li><li class="case"><a href="#mos65xxins.mvp">mvp</a></li><li class="case"><a href="#mos65xxins.nop">nop</a></li><li class="case"><a href="#mos65xxins.ora">ora</a></li><li class="case"><a href="#mos65xxins.pea">pea</a></li><li class="case"><a href="#mos65xxins.pei">pei</a></li><li class="case"><a href="#mos65xxins.per">per</a></li><li class="case"><a href="#mos65xxins.pha">pha</a></li><li class="case"><a href="#mos65xxins.phb">phb</a></li><li class="case"><a href="#mos65xxins.phd">phd</a></li><li class="case"><a href="#mos65xxins.phk">phk</a></li><li class="case"><a href="#mos65xxins.php">php</a></li><li class="case"><a href="#mos65xxins.phx">phx</a></li><li class="case"><a href="#mos65xxins.phy">phy</a></li><li class="case"><a href="#mos65xxins.pla">pla</a></li><li class="case"><a href="#mos65xxins.plb">plb</a></li><li class="case"><a href="#mos65xxins.pld">pld</a></li><li class="case"><a href="#mos65xxins.plp">plp</a></li><li class="case"><a href="#mos65xxins.plx">plx</a></li><li class="case"><a href="#mos65xxins.ply">ply</a></li><li class="case"><a href="#mos65xxins.rep">rep</a></li><li class="case"><a href="#mos65xxins.rmb">rmb</a></li><li class="case"><a href="#mos65xxins.rol">rol</a></li><li class="case"><a href="#mos65xxins.ror">ror</a></li><li class="case"><a href="#mos65xxins.rti">rti</a></li><li class="case"><a href="#mos65xxins.rtl">rtl</a></li><li class="case"><a href="#mos65xxins.rts">rts</a></li><li class="case"><a href="#mos65xxins.sbc">sbc</a></li><li class="case"><a href="#mos65xxins.sec">sec</a></li><li class="case"><a href="#mos65xxins.sed">sed</a></li><li class="case"><a href="#mos65xxins.sei">sei</a></li><li class="case"><a href="#mos65xxins.sep">sep</a></li><li class="case"><a href="#mos65xxins.smb">smb</a></li><li class="case"><a href="#mos65xxins.sta">sta</a></li><li class="case"><a href="#mos65xxins.stp">stp</a></li><li class="case"><a href="#mos65xxins.stx">stx</a></li><li class="case"><a href="#mos65xxins.sty">sty</a></li><li class="case"><a href="#mos65xxins.stz">stz</a></li><li class="case"><a href="#mos65xxins.tax">tax</a></li><li class="case"><a href="#mos65xxins.tay">tay</a></li><li class="case"><a href="#mos65xxins.tcd">tcd</a></li><li class="case"><a href="#mos65xxins.tcs">tcs</a></li><li class="case"><a href="#mos65xxins.tdc">tdc</a></li><li class="case"><a href="#mos65xxins.trb">trb</a></li><li class="case"><a href="#mos65xxins.tsb">tsb</a></li><li class="case"><a href="#mos65xxins.tsc">tsc</a></li><li class="case"><a href="#mos65xxins.tsx">tsx</a></li><li class="case"><a href="#mos65xxins.txa">txa</a></li><li class="case"><a href="#mos65xxins.txs">txs</a></li><li class="case"><a href="#mos65xxins.txy">txy</a></li><li class="case"><a href="#mos65xxins.tya">tya</a></li><li class="case"><a href="#mos65xxins.tyx">tyx</a></li><li class="case"><a href="#mos65xxins.wai">wai</a></li><li class="case"><a href="#mos65xxins.wdm">wdm</a></li><li class="case"><a href="#mos65xxins.xba">xba</a></li><li class="case"><a href="#mos65xxins.xce">xce</a></li><li class="case"><a href="#mos65xxins.ending">ending</a></li></ul></li></ol>
+        </div>
+    </nav>
+
+    <main>
+        <article>
+            <h1>
+    <small>Enumeration</small>
+    <code class="name">Mos65xx​Ins</code>
+</h1>
+
+<html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">enum</span> <span class="type">Mos65xxIns</span></code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>MOS65XX instruction</p>
+
+</div>
+<section id="relationships">
+    <h2 hidden>Relationships</h2>
+        <figure>
+    <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.36.0 (20140111.2315)
+ -->
+<!-- Title: %3 Pages: 1 -->
+<svg width="872pt" height="116pt"
+ viewBox="0.00 0.00 872.00 116.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 112)">
+<title>%3</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-112 868,-112 868,4 -4,4"/>
+<!-- Mos65xxIns -->
+<g id="node1" class="node"><title>Mos65xxIns</title>
+<g id="a_node1"><a xlink:href="/Mos65xxIns" xlink:title="Mos65xxIns">
+<path fill="none" stroke="black" stroke-width="3" d="M528,-108C528,-108 336,-108 336,-108 330,-108 324,-102 324,-96 324,-96 324,-84 324,-84 324,-78 330,-72 336,-72 336,-72 528,-72 528,-72 534,-72 540,-78 540,-84 540,-84 540,-96 540,-96 540,-102 534,-108 528,-108"/>
+<text text-anchor="middle" x="432" y="-86.3" font-family="Menlo" font-size="14.00">Mos65xxIns</text>
+</a>
+</g>
+</g>
+<!-- UInt32 -->
+<g id="node2" class="node"><title>UInt32</title>
+<path fill="none" stroke="black" d="M528,-36C528,-36 336,-36 336,-36 330,-36 324,-30 324,-24 324,-24 324,-12 324,-12 324,-6 330,-0 336,-0 336,-0 528,-0 528,-0 534,-0 540,-6 540,-12 540,-12 540,-24 540,-24 540,-30 534,-36 528,-36"/>
+<text text-anchor="middle" x="432" y="-14.3" font-family="Menlo" font-size="14.00">UInt32</text>
+</g>
+<!-- Mos65xxIns&#45;&gt;UInt32 -->
+<g id="edge1" class="edge"><title>Mos65xxIns&#45;&gt;UInt32</title>
+<path fill="none" stroke="black" d="M432,-71.6966C432,-63.9827 432,-54.7125 432,-46.1124"/>
+<polygon fill="black" stroke="black" points="435.5,-46.1043 432,-36.1043 428.5,-46.1044 435.5,-46.1043"/>
+</g>
+</g>
+</svg>
+
+
+    <figcaption hidden>Inheritance graph for Mos65xxIns.</figcaption>
+</figure>
+        <h3>Conforms To</h3>
+<dl>
+    <dt class="unknown"><code>UInt32</code></dt>
+</dl>
+</section>
+    <section id="enumeration cases">
+        <h2>Enumeration Cases</h2>
+
+        <div role="article" class="case" id="mos65xxins.invalid">
+    <h3>
+        <code>invalid</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">invalid</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mos65xxins.adc">
+    <h3>
+        <code>adc</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">adc</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mos65xxins.and">
+    <h3>
+        <code>and</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">and</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mos65xxins.asl">
+    <h3>
+        <code>asl</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">asl</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mos65xxins.bbr">
+    <h3>
+        <code>bbr</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">bbr</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mos65xxins.bbs">
+    <h3>
+        <code>bbs</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">bbs</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mos65xxins.bcc">
+    <h3>
+        <code>bcc</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">bcc</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mos65xxins.bcs">
+    <h3>
+        <code>bcs</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">bcs</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mos65xxins.beq">
+    <h3>
+        <code>beq</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">beq</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mos65xxins.bit">
+    <h3>
+        <code>bit</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">bit</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mos65xxins.bmi">
+    <h3>
+        <code>bmi</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">bmi</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mos65xxins.bne">
+    <h3>
+        <code>bne</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">bne</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mos65xxins.bpl">
+    <h3>
+        <code>bpl</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">bpl</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mos65xxins.bra">
+    <h3>
+        <code>bra</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">bra</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mos65xxins.brk">
+    <h3>
+        <code>brk</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">brk</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mos65xxins.brl">
+    <h3>
+        <code>brl</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">brl</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mos65xxins.bvc">
+    <h3>
+        <code>bvc</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">bvc</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mos65xxins.bvs">
+    <h3>
+        <code>bvs</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">bvs</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mos65xxins.clc">
+    <h3>
+        <code>clc</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">clc</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mos65xxins.cld">
+    <h3>
+        <code>cld</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cld</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mos65xxins.cli">
+    <h3>
+        <code>cli</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cli</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mos65xxins.clv">
+    <h3>
+        <code>clv</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">clv</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mos65xxins.cmp">
+    <h3>
+        <code>cmp</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cmp</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mos65xxins.cop">
+    <h3>
+        <code>cop</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cop</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mos65xxins.cpx">
+    <h3>
+        <code>cpx</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cpx</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mos65xxins.cpy">
+    <h3>
+        <code>cpy</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cpy</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mos65xxins.dec">
+    <h3>
+        <code>dec</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">dec</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mos65xxins.dex">
+    <h3>
+        <code>dex</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">dex</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mos65xxins.dey">
+    <h3>
+        <code>dey</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">dey</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mos65xxins.eor">
+    <h3>
+        <code>eor</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">eor</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mos65xxins.inc">
+    <h3>
+        <code>inc</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">inc</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mos65xxins.inx">
+    <h3>
+        <code>inx</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">inx</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mos65xxins.iny">
+    <h3>
+        <code>iny</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">iny</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mos65xxins.jml">
+    <h3>
+        <code>jml</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">jml</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mos65xxins.jmp">
+    <h3>
+        <code>jmp</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">jmp</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mos65xxins.jsl">
+    <h3>
+        <code>jsl</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">jsl</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mos65xxins.jsr">
+    <h3>
+        <code>jsr</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">jsr</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mos65xxins.lda">
+    <h3>
+        <code>lda</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">lda</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mos65xxins.ldx">
+    <h3>
+        <code>ldx</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ldx</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mos65xxins.ldy">
+    <h3>
+        <code>ldy</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ldy</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mos65xxins.lsr">
+    <h3>
+        <code>lsr</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">lsr</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mos65xxins.mvn">
+    <h3>
+        <code>mvn</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">mvn</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mos65xxins.mvp">
+    <h3>
+        <code>mvp</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">mvp</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mos65xxins.nop">
+    <h3>
+        <code>nop</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">nop</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mos65xxins.ora">
+    <h3>
+        <code>ora</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ora</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mos65xxins.pea">
+    <h3>
+        <code>pea</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">pea</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mos65xxins.pei">
+    <h3>
+        <code>pei</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">pei</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mos65xxins.per">
+    <h3>
+        <code>per</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">per</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mos65xxins.pha">
+    <h3>
+        <code>pha</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">pha</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mos65xxins.phb">
+    <h3>
+        <code>phb</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">phb</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mos65xxins.phd">
+    <h3>
+        <code>phd</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">phd</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mos65xxins.phk">
+    <h3>
+        <code>phk</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">phk</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mos65xxins.php">
+    <h3>
+        <code>php</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">php</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mos65xxins.phx">
+    <h3>
+        <code>phx</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">phx</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mos65xxins.phy">
+    <h3>
+        <code>phy</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">phy</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mos65xxins.pla">
+    <h3>
+        <code>pla</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">pla</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mos65xxins.plb">
+    <h3>
+        <code>plb</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">plb</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mos65xxins.pld">
+    <h3>
+        <code>pld</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">pld</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mos65xxins.plp">
+    <h3>
+        <code>plp</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">plp</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mos65xxins.plx">
+    <h3>
+        <code>plx</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">plx</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mos65xxins.ply">
+    <h3>
+        <code>ply</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ply</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mos65xxins.rep">
+    <h3>
+        <code>rep</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">rep</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mos65xxins.rmb">
+    <h3>
+        <code>rmb</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">rmb</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mos65xxins.rol">
+    <h3>
+        <code>rol</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">rol</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mos65xxins.ror">
+    <h3>
+        <code>ror</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ror</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mos65xxins.rti">
+    <h3>
+        <code>rti</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">rti</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mos65xxins.rtl">
+    <h3>
+        <code>rtl</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">rtl</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mos65xxins.rts">
+    <h3>
+        <code>rts</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">rts</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mos65xxins.sbc">
+    <h3>
+        <code>sbc</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">sbc</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mos65xxins.sec">
+    <h3>
+        <code>sec</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">sec</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mos65xxins.sed">
+    <h3>
+        <code>sed</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">sed</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mos65xxins.sei">
+    <h3>
+        <code>sei</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">sei</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mos65xxins.sep">
+    <h3>
+        <code>sep</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">sep</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mos65xxins.smb">
+    <h3>
+        <code>smb</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">smb</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mos65xxins.sta">
+    <h3>
+        <code>sta</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">sta</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mos65xxins.stp">
+    <h3>
+        <code>stp</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">stp</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mos65xxins.stx">
+    <h3>
+        <code>stx</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">stx</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mos65xxins.sty">
+    <h3>
+        <code>sty</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">sty</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mos65xxins.stz">
+    <h3>
+        <code>stz</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">stz</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mos65xxins.tax">
+    <h3>
+        <code>tax</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">tax</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mos65xxins.tay">
+    <h3>
+        <code>tay</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">tay</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mos65xxins.tcd">
+    <h3>
+        <code>tcd</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">tcd</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mos65xxins.tcs">
+    <h3>
+        <code>tcs</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">tcs</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mos65xxins.tdc">
+    <h3>
+        <code>tdc</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">tdc</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mos65xxins.trb">
+    <h3>
+        <code>trb</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">trb</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mos65xxins.tsb">
+    <h3>
+        <code>tsb</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">tsb</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mos65xxins.tsc">
+    <h3>
+        <code>tsc</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">tsc</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mos65xxins.tsx">
+    <h3>
+        <code>tsx</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">tsx</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mos65xxins.txa">
+    <h3>
+        <code>txa</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">txa</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mos65xxins.txs">
+    <h3>
+        <code>txs</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">txs</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mos65xxins.txy">
+    <h3>
+        <code>txy</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">txy</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mos65xxins.tya">
+    <h3>
+        <code>tya</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">tya</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mos65xxins.tyx">
+    <h3>
+        <code>tyx</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">tyx</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mos65xxins.wai">
+    <h3>
+        <code>wai</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">wai</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mos65xxins.wdm">
+    <h3>
+        <code>wdm</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">wdm</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mos65xxins.xba">
+    <h3>
+        <code>xba</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">xba</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mos65xxins.xce">
+    <h3>
+        <code>xce</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">xce</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mos65xxins.ending">
+    <h3>
+        <code>ending</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ending</span></code></pre></body></html>
+</div>
+    </section>
+
+
+
+        </article>
+    </main>
+
+    <footer>
+        <p>
+    Generated on <time datetime="2020-11-21T15:19:28+0100">21 November 2020</time> using <a href="https://github.com/SwiftDocOrg/swift-doc">swift-doc</a> <span class="version">1.0.0-beta.5</span>.
+</p>
+    </footer>
+</body>
+</html>

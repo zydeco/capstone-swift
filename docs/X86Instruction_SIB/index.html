@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capstone - X86Instruction.SIB</title>
+    <link rel="stylesheet" type="text/css" href="/all.css" media="all" />
+</head>
+<body>
+    <header>
+        <a href="/">
+            <strong>
+                Capstone
+            </strong>
+            <span>Documentation</span>
+        </a>
+        <sup>Beta</sup>
+    </header>
+
+    <!--
+    <form class="search">
+        <input type="search" placeholder="Search" />
+    </form>
+    -->
+
+    <nav>
+        <div class="wrapper">
+            <h2>On This Page</h2>
+            <ol><li><a href="#relationships">Relationships</a><ul><li><a href="#relationships">Member Of</a></li></ul></li><li><a href="#properties">Properties</a><ul><li class="variable"><a href="#x86instruction.sib.scale">scale</a></li><li class="variable"><a href="#x86instruction.sib.index">index</a></li><li class="variable"><a href="#x86instruction.sib.base">base</a></li><li class="variable"><a href="#x86instruction.sib.value">value</a></li></ul></li></ol>
+        </div>
+    </nav>
+
+    <main>
+        <article>
+            <h1>
+    <small>Structure</small>
+    <code class="name">X86Instruction.​SIB</code>
+</h1>
+
+<html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">struct</span> <span class="type">SIB</span></code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>SIB Layout</p>
+
+</div>
+<section id="relationships">
+    <h2 hidden>Relationships</h2>
+        
+        <h3>Member Of</h3>
+<dl>
+    <dt class="class"><code><a href="/X86Instruction">X86Instruction</a></code></dt>
+<dd><p>X86 Instruction</p>
+</dd>
+</dl>
+</section>
+    <section id="properties">
+        <h2>Properties</h2>
+
+        <div role="article" class="variable" id="x86instruction.sib.scale">
+    <h3>
+        <code>scale</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">scale</span>: <span class="type">Int8</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="x86instruction.sib.index">
+    <h3>
+        <code>index</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">index</span>: <a href="/X86Reg"><span class="type">X86Reg</span></a></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="x86instruction.sib.base">
+    <h3>
+        <code>base</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">base</span>: <a href="/X86Reg"><span class="type">X86Reg</span></a></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="x86instruction.sib.value">
+    <h3>
+        <code>value</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">value</span>: <span class="type">UInt8</span></code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>Encoded scale/index/base.</p>
+
+</div>
+</div>
+    </section>
+
+
+
+        </article>
+    </main>
+
+    <footer>
+        <p>
+    Generated on <time datetime="2020-11-21T15:19:27+0100">21 November 2020</time> using <a href="https://github.com/SwiftDocOrg/swift-doc">swift-doc</a> <span class="version">1.0.0-beta.5</span>.
+</p>
+    </footer>
+</body>
+</html>

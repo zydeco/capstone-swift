@@ -1,0 +1,2942 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capstone - ArmIns</title>
+    <link rel="stylesheet" type="text/css" href="/all.css" media="all" />
+</head>
+<body>
+    <header>
+        <a href="/">
+            <strong>
+                Capstone
+            </strong>
+            <span>Documentation</span>
+        </a>
+        <sup>Beta</sup>
+    </header>
+
+    <!--
+    <form class="search">
+        <input type="search" placeholder="Search" />
+    </form>
+    -->
+
+    <nav>
+        <div class="wrapper">
+            <h2>On This Page</h2>
+            <ol><li><a href="#relationships">Relationships</a><ul><li><a href="#relationships">Conforms To</a></li></ul></li><li><a href="#enumeration cases">Enumeration Cases</a><ul><li class="case"><a href="#armins.invalid">invalid</a></li><li class="case"><a href="#armins.adc">adc</a></li><li class="case"><a href="#armins.add">add</a></li><li class="case"><a href="#armins.addw">addw</a></li><li class="case"><a href="#armins.adr">adr</a></li><li class="case"><a href="#armins.aesd">aesd</a></li><li class="case"><a href="#armins.aese">aese</a></li><li class="case"><a href="#armins.aesimc">aesimc</a></li><li class="case"><a href="#armins.aesmc">aesmc</a></li><li class="case"><a href="#armins.and">and</a></li><li class="case"><a href="#armins.asr">asr</a></li><li class="case"><a href="#armins.b">b</a></li><li class="case"><a href="#armins.bfc">bfc</a></li><li class="case"><a href="#armins.bfi">bfi</a></li><li class="case"><a href="#armins.bic">bic</a></li><li class="case"><a href="#armins.bkpt">bkpt</a></li><li class="case"><a href="#armins.bl">bl</a></li><li class="case"><a href="#armins.blx">blx</a></li><li class="case"><a href="#armins.blxns">blxns</a></li><li class="case"><a href="#armins.bx">bx</a></li><li class="case"><a href="#armins.bxj">bxj</a></li><li class="case"><a href="#armins.bxns">bxns</a></li><li class="case"><a href="#armins.cbnz">cbnz</a></li><li class="case"><a href="#armins.cbz">cbz</a></li><li class="case"><a href="#armins.cdp">cdp</a></li><li class="case"><a href="#armins.cdp2">cdp2</a></li><li class="case"><a href="#armins.clrex">clrex</a></li><li class="case"><a href="#armins.clz">clz</a></li><li class="case"><a href="#armins.cmn">cmn</a></li><li class="case"><a href="#armins.cmp">cmp</a></li><li class="case"><a href="#armins.cps">cps</a></li><li class="case"><a href="#armins.crc32b">crc32b</a></li><li class="case"><a href="#armins.crc32cb">crc32cb</a></li><li class="case"><a href="#armins.crc32ch">crc32ch</a></li><li class="case"><a href="#armins.crc32cw">crc32cw</a></li><li class="case"><a href="#armins.crc32h">crc32h</a></li><li class="case"><a href="#armins.crc32w">crc32w</a></li><li class="case"><a href="#armins.csdb">csdb</a></li><li class="case"><a href="#armins.dbg">dbg</a></li><li class="case"><a href="#armins.dcps1">dcps1</a></li><li class="case"><a href="#armins.dcps2">dcps2</a></li><li class="case"><a href="#armins.dcps3">dcps3</a></li><li class="case"><a href="#armins.dfb">dfb</a></li><li class="case"><a href="#armins.dmb">dmb</a></li><li class="case"><a href="#armins.dsb">dsb</a></li><li class="case"><a href="#armins.eor">eor</a></li><li class="case"><a href="#armins.eret">eret</a></li><li class="case"><a href="#armins.esb">esb</a></li><li class="case"><a href="#armins.faddd">faddd</a></li><li class="case"><a href="#armins.fadds">fadds</a></li><li class="case"><a href="#armins.fcmpzd">fcmpzd</a></li><li class="case"><a href="#armins.fcmpzs">fcmpzs</a></li><li class="case"><a href="#armins.fconstd">fconstd</a></li><li class="case"><a href="#armins.fconsts">fconsts</a></li><li class="case"><a href="#armins.fldmdbx">fldmdbx</a></li><li class="case"><a href="#armins.fldmiax">fldmiax</a></li><li class="case"><a href="#armins.fmdhr">fmdhr</a></li><li class="case"><a href="#armins.fmdlr">fmdlr</a></li><li class="case"><a href="#armins.fmstat">fmstat</a></li><li class="case"><a href="#armins.fstmdbx">fstmdbx</a></li><li class="case"><a href="#armins.fstmiax">fstmiax</a></li><li class="case"><a href="#armins.fsubd">fsubd</a></li><li class="case"><a href="#armins.fsubs">fsubs</a></li><li class="case"><a href="#armins.hint">hint</a></li><li class="case"><a href="#armins.hlt">hlt</a></li><li class="case"><a href="#armins.hvc">hvc</a></li><li class="case"><a href="#armins.isb">isb</a></li><li class="case"><a href="#armins.it">it</a></li><li class="case"><a href="#armins.lda">lda</a></li><li class="case"><a href="#armins.ldab">ldab</a></li><li class="case"><a href="#armins.ldaex">ldaex</a></li><li class="case"><a href="#armins.ldaexb">ldaexb</a></li><li class="case"><a href="#armins.ldaexd">ldaexd</a></li><li class="case"><a href="#armins.ldaexh">ldaexh</a></li><li class="case"><a href="#armins.ldah">ldah</a></li><li class="case"><a href="#armins.ldc">ldc</a></li><li class="case"><a href="#armins.ldc2">ldc2</a></li><li class="case"><a href="#armins.ldc2l">ldc2l</a></li><li class="case"><a href="#armins.ldcl">ldcl</a></li><li class="case"><a href="#armins.ldm">ldm</a></li><li class="case"><a href="#armins.ldmda">ldmda</a></li><li class="case"><a href="#armins.ldmdb">ldmdb</a></li><li class="case"><a href="#armins.ldmib">ldmib</a></li><li class="case"><a href="#armins.ldr">ldr</a></li><li class="case"><a href="#armins.ldrb">ldrb</a></li><li class="case"><a href="#armins.ldrbt">ldrbt</a></li><li class="case"><a href="#armins.ldrd">ldrd</a></li><li class="case"><a href="#armins.ldrex">ldrex</a></li><li class="case"><a href="#armins.ldrexb">ldrexb</a></li><li class="case"><a href="#armins.ldrexd">ldrexd</a></li><li class="case"><a href="#armins.ldrexh">ldrexh</a></li><li class="case"><a href="#armins.ldrh">ldrh</a></li><li class="case"><a href="#armins.ldrht">ldrht</a></li><li class="case"><a href="#armins.ldrsb">ldrsb</a></li><li class="case"><a href="#armins.ldrsbt">ldrsbt</a></li><li class="case"><a href="#armins.ldrsh">ldrsh</a></li><li class="case"><a href="#armins.ldrsht">ldrsht</a></li><li class="case"><a href="#armins.ldrt">ldrt</a></li><li class="case"><a href="#armins.lsl">lsl</a></li><li class="case"><a href="#armins.lsr">lsr</a></li><li class="case"><a href="#armins.mcr">mcr</a></li><li class="case"><a href="#armins.mcr2">mcr2</a></li><li class="case"><a href="#armins.mcrr">mcrr</a></li><li class="case"><a href="#armins.mcrr2">mcrr2</a></li><li class="case"><a href="#armins.mla">mla</a></li><li class="case"><a href="#armins.mls">mls</a></li><li class="case"><a href="#armins.mov">mov</a></li><li class="case"><a href="#armins.movs">movs</a></li><li class="case"><a href="#armins.movt">movt</a></li><li class="case"><a href="#armins.movw">movw</a></li><li class="case"><a href="#armins.mrc">mrc</a></li><li class="case"><a href="#armins.mrc2">mrc2</a></li><li class="case"><a href="#armins.mrrc">mrrc</a></li><li class="case"><a href="#armins.mrrc2">mrrc2</a></li><li class="case"><a href="#armins.mrs">mrs</a></li><li class="case"><a href="#armins.msr">msr</a></li><li class="case"><a href="#armins.mul">mul</a></li><li class="case"><a href="#armins.mvn">mvn</a></li><li class="case"><a href="#armins.neg">neg</a></li><li class="case"><a href="#armins.nop">nop</a></li><li class="case"><a href="#armins.orn">orn</a></li><li class="case"><a href="#armins.orr">orr</a></li><li class="case"><a href="#armins.pkhbt">pkhbt</a></li><li class="case"><a href="#armins.pkhtb">pkhtb</a></li><li class="case"><a href="#armins.pld">pld</a></li><li class="case"><a href="#armins.pldw">pldw</a></li><li class="case"><a href="#armins.pli">pli</a></li><li class="case"><a href="#armins.pop">pop</a></li><li class="case"><a href="#armins.push">push</a></li><li class="case"><a href="#armins.qadd">qadd</a></li><li class="case"><a href="#armins.qadd16">qadd16</a></li><li class="case"><a href="#armins.qadd8">qadd8</a></li><li class="case"><a href="#armins.qasx">qasx</a></li><li class="case"><a href="#armins.qdadd">qdadd</a></li><li class="case"><a href="#armins.qdsub">qdsub</a></li><li class="case"><a href="#armins.qsax">qsax</a></li><li class="case"><a href="#armins.qsub">qsub</a></li><li class="case"><a href="#armins.qsub16">qsub16</a></li><li class="case"><a href="#armins.qsub8">qsub8</a></li><li class="case"><a href="#armins.rbit">rbit</a></li><li class="case"><a href="#armins.rev">rev</a></li><li class="case"><a href="#armins.rev16">rev16</a></li><li class="case"><a href="#armins.revsh">revsh</a></li><li class="case"><a href="#armins.rfeda">rfeda</a></li><li class="case"><a href="#armins.rfedb">rfedb</a></li><li class="case"><a href="#armins.rfeia">rfeia</a></li><li class="case"><a href="#armins.rfeib">rfeib</a></li><li class="case"><a href="#armins.ror">ror</a></li><li class="case"><a href="#armins.rrx">rrx</a></li><li class="case"><a href="#armins.rsb">rsb</a></li><li class="case"><a href="#armins.rsc">rsc</a></li><li class="case"><a href="#armins.sadd16">sadd16</a></li><li class="case"><a href="#armins.sadd8">sadd8</a></li><li class="case"><a href="#armins.sasx">sasx</a></li><li class="case"><a href="#armins.sbc">sbc</a></li><li class="case"><a href="#armins.sbfx">sbfx</a></li><li class="case"><a href="#armins.sdiv">sdiv</a></li><li class="case"><a href="#armins.sel">sel</a></li><li class="case"><a href="#armins.setend">setend</a></li><li class="case"><a href="#armins.setpan">setpan</a></li><li class="case"><a href="#armins.sev">sev</a></li><li class="case"><a href="#armins.sevl">sevl</a></li><li class="case"><a href="#armins.sg">sg</a></li><li class="case"><a href="#armins.sha1c">sha1c</a></li><li class="case"><a href="#armins.sha1h">sha1h</a></li><li class="case"><a href="#armins.sha1m">sha1m</a></li><li class="case"><a href="#armins.sha1p">sha1p</a></li><li class="case"><a href="#armins.sha1su0">sha1su0</a></li><li class="case"><a href="#armins.sha1su1">sha1su1</a></li><li class="case"><a href="#armins.sha256h">sha256h</a></li><li class="case"><a href="#armins.sha256h2">sha256h2</a></li><li class="case"><a href="#armins.sha256su0">sha256su0</a></li><li class="case"><a href="#armins.sha256su1">sha256su1</a></li><li class="case"><a href="#armins.shadd16">shadd16</a></li><li class="case"><a href="#armins.shadd8">shadd8</a></li><li class="case"><a href="#armins.shasx">shasx</a></li><li class="case"><a href="#armins.shsax">shsax</a></li><li class="case"><a href="#armins.shsub16">shsub16</a></li><li class="case"><a href="#armins.shsub8">shsub8</a></li><li class="case"><a href="#armins.smc">smc</a></li><li class="case"><a href="#armins.smlabb">smlabb</a></li><li class="case"><a href="#armins.smlabt">smlabt</a></li><li class="case"><a href="#armins.smlad">smlad</a></li><li class="case"><a href="#armins.smladx">smladx</a></li><li class="case"><a href="#armins.smlal">smlal</a></li><li class="case"><a href="#armins.smlalbb">smlalbb</a></li><li class="case"><a href="#armins.smlalbt">smlalbt</a></li><li class="case"><a href="#armins.smlald">smlald</a></li><li class="case"><a href="#armins.smlaldx">smlaldx</a></li><li class="case"><a href="#armins.smlaltb">smlaltb</a></li><li class="case"><a href="#armins.smlaltt">smlaltt</a></li><li class="case"><a href="#armins.smlatb">smlatb</a></li><li class="case"><a href="#armins.smlatt">smlatt</a></li><li class="case"><a href="#armins.smlawb">smlawb</a></li><li class="case"><a href="#armins.smlawt">smlawt</a></li><li class="case"><a href="#armins.smlsd">smlsd</a></li><li class="case"><a href="#armins.smlsdx">smlsdx</a></li><li class="case"><a href="#armins.smlsld">smlsld</a></li><li class="case"><a href="#armins.smlsldx">smlsldx</a></li><li class="case"><a href="#armins.smmla">smmla</a></li><li class="case"><a href="#armins.smmlar">smmlar</a></li><li class="case"><a href="#armins.smmls">smmls</a></li><li class="case"><a href="#armins.smmlsr">smmlsr</a></li><li class="case"><a href="#armins.smmul">smmul</a></li><li class="case"><a href="#armins.smmulr">smmulr</a></li><li class="case"><a href="#armins.smuad">smuad</a></li><li class="case"><a href="#armins.smuadx">smuadx</a></li><li class="case"><a href="#armins.smulbb">smulbb</a></li><li class="case"><a href="#armins.smulbt">smulbt</a></li><li class="case"><a href="#armins.smull">smull</a></li><li class="case"><a href="#armins.smultb">smultb</a></li><li class="case"><a href="#armins.smultt">smultt</a></li><li class="case"><a href="#armins.smulwb">smulwb</a></li><li class="case"><a href="#armins.smulwt">smulwt</a></li><li class="case"><a href="#armins.smusd">smusd</a></li><li class="case"><a href="#armins.smusdx">smusdx</a></li><li class="case"><a href="#armins.srsda">srsda</a></li><li class="case"><a href="#armins.srsdb">srsdb</a></li><li class="case"><a href="#armins.srsia">srsia</a></li><li class="case"><a href="#armins.srsib">srsib</a></li><li class="case"><a href="#armins.ssat">ssat</a></li><li class="case"><a href="#armins.ssat16">ssat16</a></li><li class="case"><a href="#armins.ssax">ssax</a></li><li class="case"><a href="#armins.ssub16">ssub16</a></li><li class="case"><a href="#armins.ssub8">ssub8</a></li><li class="case"><a href="#armins.stc">stc</a></li><li class="case"><a href="#armins.stc2">stc2</a></li><li class="case"><a href="#armins.stc2l">stc2l</a></li><li class="case"><a href="#armins.stcl">stcl</a></li><li class="case"><a href="#armins.stl">stl</a></li><li class="case"><a href="#armins.stlb">stlb</a></li><li class="case"><a href="#armins.stlex">stlex</a></li><li class="case"><a href="#armins.stlexb">stlexb</a></li><li class="case"><a href="#armins.stlexd">stlexd</a></li><li class="case"><a href="#armins.stlexh">stlexh</a></li><li class="case"><a href="#armins.stlh">stlh</a></li><li class="case"><a href="#armins.stm">stm</a></li><li class="case"><a href="#armins.stmda">stmda</a></li><li class="case"><a href="#armins.stmdb">stmdb</a></li><li class="case"><a href="#armins.stmib">stmib</a></li><li class="case"><a href="#armins.str">str</a></li><li class="case"><a href="#armins.strb">strb</a></li><li class="case"><a href="#armins.strbt">strbt</a></li><li class="case"><a href="#armins.strd">strd</a></li><li class="case"><a href="#armins.strex">strex</a></li><li class="case"><a href="#armins.strexb">strexb</a></li><li class="case"><a href="#armins.strexd">strexd</a></li><li class="case"><a href="#armins.strexh">strexh</a></li><li class="case"><a href="#armins.strh">strh</a></li><li class="case"><a href="#armins.strht">strht</a></li><li class="case"><a href="#armins.strt">strt</a></li><li class="case"><a href="#armins.sub">sub</a></li><li class="case"><a href="#armins.subs">subs</a></li><li class="case"><a href="#armins.subw">subw</a></li><li class="case"><a href="#armins.svc">svc</a></li><li class="case"><a href="#armins.swp">swp</a></li><li class="case"><a href="#armins.swpb">swpb</a></li><li class="case"><a href="#armins.sxtab">sxtab</a></li><li class="case"><a href="#armins.sxtab16">sxtab16</a></li><li class="case"><a href="#armins.sxtah">sxtah</a></li><li class="case"><a href="#armins.sxtb">sxtb</a></li><li class="case"><a href="#armins.sxtb16">sxtb16</a></li><li class="case"><a href="#armins.sxth">sxth</a></li><li class="case"><a href="#armins.tbb">tbb</a></li><li class="case"><a href="#armins.tbh">tbh</a></li><li class="case"><a href="#armins.teq">teq</a></li><li class="case"><a href="#armins.trap">trap</a></li><li class="case"><a href="#armins.tsb">tsb</a></li><li class="case"><a href="#armins.tst">tst</a></li><li class="case"><a href="#armins.tt">tt</a></li><li class="case"><a href="#armins.tta">tta</a></li><li class="case"><a href="#armins.ttat">ttat</a></li><li class="case"><a href="#armins.ttt">ttt</a></li><li class="case"><a href="#armins.uadd16">uadd16</a></li><li class="case"><a href="#armins.uadd8">uadd8</a></li><li class="case"><a href="#armins.uasx">uasx</a></li><li class="case"><a href="#armins.ubfx">ubfx</a></li><li class="case"><a href="#armins.udf">udf</a></li><li class="case"><a href="#armins.udiv">udiv</a></li><li class="case"><a href="#armins.uhadd16">uhadd16</a></li><li class="case"><a href="#armins.uhadd8">uhadd8</a></li><li class="case"><a href="#armins.uhasx">uhasx</a></li><li class="case"><a href="#armins.uhsax">uhsax</a></li><li class="case"><a href="#armins.uhsub16">uhsub16</a></li><li class="case"><a href="#armins.uhsub8">uhsub8</a></li><li class="case"><a href="#armins.umaal">umaal</a></li><li class="case"><a href="#armins.umlal">umlal</a></li><li class="case"><a href="#armins.umull">umull</a></li><li class="case"><a href="#armins.uqadd16">uqadd16</a></li><li class="case"><a href="#armins.uqadd8">uqadd8</a></li><li class="case"><a href="#armins.uqasx">uqasx</a></li><li class="case"><a href="#armins.uqsax">uqsax</a></li><li class="case"><a href="#armins.uqsub16">uqsub16</a></li><li class="case"><a href="#armins.uqsub8">uqsub8</a></li><li class="case"><a href="#armins.usad8">usad8</a></li><li class="case"><a href="#armins.usada8">usada8</a></li><li class="case"><a href="#armins.usat">usat</a></li><li class="case"><a href="#armins.usat16">usat16</a></li><li class="case"><a href="#armins.usax">usax</a></li><li class="case"><a href="#armins.usub16">usub16</a></li><li class="case"><a href="#armins.usub8">usub8</a></li><li class="case"><a href="#armins.uxtab">uxtab</a></li><li class="case"><a href="#armins.uxtab16">uxtab16</a></li><li class="case"><a href="#armins.uxtah">uxtah</a></li><li class="case"><a href="#armins.uxtb">uxtb</a></li><li class="case"><a href="#armins.uxtb16">uxtb16</a></li><li class="case"><a href="#armins.uxth">uxth</a></li><li class="case"><a href="#armins.vaba">vaba</a></li><li class="case"><a href="#armins.vabal">vabal</a></li><li class="case"><a href="#armins.vabd">vabd</a></li><li class="case"><a href="#armins.vabdl">vabdl</a></li><li class="case"><a href="#armins.vabs">vabs</a></li><li class="case"><a href="#armins.vacge">vacge</a></li><li class="case"><a href="#armins.vacgt">vacgt</a></li><li class="case"><a href="#armins.vacle">vacle</a></li><li class="case"><a href="#armins.vaclt">vaclt</a></li><li class="case"><a href="#armins.vadd">vadd</a></li><li class="case"><a href="#armins.vaddhn">vaddhn</a></li><li class="case"><a href="#armins.vaddl">vaddl</a></li><li class="case"><a href="#armins.vaddw">vaddw</a></li><li class="case"><a href="#armins.vand">vand</a></li><li class="case"><a href="#armins.vbic">vbic</a></li><li class="case"><a href="#armins.vbif">vbif</a></li><li class="case"><a href="#armins.vbit">vbit</a></li><li class="case"><a href="#armins.vbsl">vbsl</a></li><li class="case"><a href="#armins.vcadd">vcadd</a></li><li class="case"><a href="#armins.vceq">vceq</a></li><li class="case"><a href="#armins.vcge">vcge</a></li><li class="case"><a href="#armins.vcgt">vcgt</a></li><li class="case"><a href="#armins.vcle">vcle</a></li><li class="case"><a href="#armins.vcls">vcls</a></li><li class="case"><a href="#armins.vclt">vclt</a></li><li class="case"><a href="#armins.vclz">vclz</a></li><li class="case"><a href="#armins.vcmla">vcmla</a></li><li class="case"><a href="#armins.vcmp">vcmp</a></li><li class="case"><a href="#armins.vcmpe">vcmpe</a></li><li class="case"><a href="#armins.vcnt">vcnt</a></li><li class="case"><a href="#armins.vcvt">vcvt</a></li><li class="case"><a href="#armins.vcvta">vcvta</a></li><li class="case"><a href="#armins.vcvtb">vcvtb</a></li><li class="case"><a href="#armins.vcvtm">vcvtm</a></li><li class="case"><a href="#armins.vcvtn">vcvtn</a></li><li class="case"><a href="#armins.vcvtp">vcvtp</a></li><li class="case"><a href="#armins.vcvtr">vcvtr</a></li><li class="case"><a href="#armins.vcvtt">vcvtt</a></li><li class="case"><a href="#armins.vdiv">vdiv</a></li><li class="case"><a href="#armins.vdup">vdup</a></li><li class="case"><a href="#armins.veor">veor</a></li><li class="case"><a href="#armins.vext">vext</a></li><li class="case"><a href="#armins.vfma">vfma</a></li><li class="case"><a href="#armins.vfms">vfms</a></li><li class="case"><a href="#armins.vfnma">vfnma</a></li><li class="case"><a href="#armins.vfnms">vfnms</a></li><li class="case"><a href="#armins.vhadd">vhadd</a></li><li class="case"><a href="#armins.vhsub">vhsub</a></li><li class="case"><a href="#armins.vins">vins</a></li><li class="case"><a href="#armins.vjcvt">vjcvt</a></li><li class="case"><a href="#armins.vld1">vld1</a></li><li class="case"><a href="#armins.vld2">vld2</a></li><li class="case"><a href="#armins.vld3">vld3</a></li><li class="case"><a href="#armins.vld4">vld4</a></li><li class="case"><a href="#armins.vldmdb">vldmdb</a></li><li class="case"><a href="#armins.vldmia">vldmia</a></li><li class="case"><a href="#armins.vldr">vldr</a></li><li class="case"><a href="#armins.vlldm">vlldm</a></li><li class="case"><a href="#armins.vlstm">vlstm</a></li><li class="case"><a href="#armins.vmax">vmax</a></li><li class="case"><a href="#armins.vmaxnm">vmaxnm</a></li><li class="case"><a href="#armins.vmin">vmin</a></li><li class="case"><a href="#armins.vminnm">vminnm</a></li><li class="case"><a href="#armins.vmla">vmla</a></li><li class="case"><a href="#armins.vmlal">vmlal</a></li><li class="case"><a href="#armins.vmls">vmls</a></li><li class="case"><a href="#armins.vmlsl">vmlsl</a></li><li class="case"><a href="#armins.vmov">vmov</a></li><li class="case"><a href="#armins.vmovl">vmovl</a></li><li class="case"><a href="#armins.vmovn">vmovn</a></li><li class="case"><a href="#armins.vmovx">vmovx</a></li><li class="case"><a href="#armins.vmrs">vmrs</a></li><li class="case"><a href="#armins.vmsr">vmsr</a></li><li class="case"><a href="#armins.vmul">vmul</a></li><li class="case"><a href="#armins.vmull">vmull</a></li><li class="case"><a href="#armins.vmvn">vmvn</a></li><li class="case"><a href="#armins.vneg">vneg</a></li><li class="case"><a href="#armins.vnmla">vnmla</a></li><li class="case"><a href="#armins.vnmls">vnmls</a></li><li class="case"><a href="#armins.vnmul">vnmul</a></li><li class="case"><a href="#armins.vorn">vorn</a></li><li class="case"><a href="#armins.vorr">vorr</a></li><li class="case"><a href="#armins.vpadal">vpadal</a></li><li class="case"><a href="#armins.vpadd">vpadd</a></li><li class="case"><a href="#armins.vpaddl">vpaddl</a></li><li class="case"><a href="#armins.vpmax">vpmax</a></li><li class="case"><a href="#armins.vpmin">vpmin</a></li><li class="case"><a href="#armins.vpop">vpop</a></li><li class="case"><a href="#armins.vpush">vpush</a></li><li class="case"><a href="#armins.vqabs">vqabs</a></li><li class="case"><a href="#armins.vqadd">vqadd</a></li><li class="case"><a href="#armins.vqdmlal">vqdmlal</a></li><li class="case"><a href="#armins.vqdmlsl">vqdmlsl</a></li><li class="case"><a href="#armins.vqdmulh">vqdmulh</a></li><li class="case"><a href="#armins.vqdmull">vqdmull</a></li><li class="case"><a href="#armins.vqmovn">vqmovn</a></li><li class="case"><a href="#armins.vqmovun">vqmovun</a></li><li class="case"><a href="#armins.vqneg">vqneg</a></li><li class="case"><a href="#armins.vqrdmlah">vqrdmlah</a></li><li class="case"><a href="#armins.vqrdmlsh">vqrdmlsh</a></li><li class="case"><a href="#armins.vqrdmulh">vqrdmulh</a></li><li class="case"><a href="#armins.vqrshl">vqrshl</a></li><li class="case"><a href="#armins.vqrshrn">vqrshrn</a></li><li class="case"><a href="#armins.vqrshrun">vqrshrun</a></li><li class="case"><a href="#armins.vqshl">vqshl</a></li><li class="case"><a href="#armins.vqshlu">vqshlu</a></li><li class="case"><a href="#armins.vqshrn">vqshrn</a></li><li class="case"><a href="#armins.vqshrun">vqshrun</a></li><li class="case"><a href="#armins.vqsub">vqsub</a></li><li class="case"><a href="#armins.vraddhn">vraddhn</a></li><li class="case"><a href="#armins.vrecpe">vrecpe</a></li><li class="case"><a href="#armins.vrecps">vrecps</a></li><li class="case"><a href="#armins.vrev16">vrev16</a></li><li class="case"><a href="#armins.vrev32">vrev32</a></li><li class="case"><a href="#armins.vrev64">vrev64</a></li><li class="case"><a href="#armins.vrhadd">vrhadd</a></li><li class="case"><a href="#armins.vrinta">vrinta</a></li><li class="case"><a href="#armins.vrintm">vrintm</a></li><li class="case"><a href="#armins.vrintn">vrintn</a></li><li class="case"><a href="#armins.vrintp">vrintp</a></li><li class="case"><a href="#armins.vrintr">vrintr</a></li><li class="case"><a href="#armins.vrintx">vrintx</a></li><li class="case"><a href="#armins.vrintz">vrintz</a></li><li class="case"><a href="#armins.vrshl">vrshl</a></li><li class="case"><a href="#armins.vrshr">vrshr</a></li><li class="case"><a href="#armins.vrshrn">vrshrn</a></li><li class="case"><a href="#armins.vrsqrte">vrsqrte</a></li><li class="case"><a href="#armins.vrsqrts">vrsqrts</a></li><li class="case"><a href="#armins.vrsra">vrsra</a></li><li class="case"><a href="#armins.vrsubhn">vrsubhn</a></li><li class="case"><a href="#armins.vsdot">vsdot</a></li><li class="case"><a href="#armins.vseleq">vseleq</a></li><li class="case"><a href="#armins.vselge">vselge</a></li><li class="case"><a href="#armins.vselgt">vselgt</a></li><li class="case"><a href="#armins.vselvs">vselvs</a></li><li class="case"><a href="#armins.vshl">vshl</a></li><li class="case"><a href="#armins.vshll">vshll</a></li><li class="case"><a href="#armins.vshr">vshr</a></li><li class="case"><a href="#armins.vshrn">vshrn</a></li><li class="case"><a href="#armins.vsli">vsli</a></li><li class="case"><a href="#armins.vsqrt">vsqrt</a></li><li class="case"><a href="#armins.vsra">vsra</a></li><li class="case"><a href="#armins.vsri">vsri</a></li><li class="case"><a href="#armins.vst1">vst1</a></li><li class="case"><a href="#armins.vst2">vst2</a></li><li class="case"><a href="#armins.vst3">vst3</a></li><li class="case"><a href="#armins.vst4">vst4</a></li><li class="case"><a href="#armins.vstmdb">vstmdb</a></li><li class="case"><a href="#armins.vstmia">vstmia</a></li><li class="case"><a href="#armins.vstr">vstr</a></li><li class="case"><a href="#armins.vsub">vsub</a></li><li class="case"><a href="#armins.vsubhn">vsubhn</a></li><li class="case"><a href="#armins.vsubl">vsubl</a></li><li class="case"><a href="#armins.vsubw">vsubw</a></li><li class="case"><a href="#armins.vswp">vswp</a></li><li class="case"><a href="#armins.vtbl">vtbl</a></li><li class="case"><a href="#armins.vtbx">vtbx</a></li><li class="case"><a href="#armins.vtrn">vtrn</a></li><li class="case"><a href="#armins.vtst">vtst</a></li><li class="case"><a href="#armins.vudot">vudot</a></li><li class="case"><a href="#armins.vuzp">vuzp</a></li><li class="case"><a href="#armins.vzip">vzip</a></li><li class="case"><a href="#armins.wfe">wfe</a></li><li class="case"><a href="#armins.wfi">wfi</a></li><li class="case"><a href="#armins.yield">yield</a></li><li class="case"><a href="#armins.ending">ending</a></li></ul></li></ol>
+        </div>
+    </nav>
+
+    <main>
+        <article>
+            <h1>
+    <small>Enumeration</small>
+    <code class="name">Arm​Ins</code>
+</h1>
+
+<html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">enum</span> <span class="type">ArmIns</span></code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>ARM instruction</p>
+
+</div>
+<section id="relationships">
+    <h2 hidden>Relationships</h2>
+        <figure>
+    <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.36.0 (20140111.2315)
+ -->
+<!-- Title: %3 Pages: 1 -->
+<svg width="872pt" height="116pt"
+ viewBox="0.00 0.00 872.00 116.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 112)">
+<title>%3</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-112 868,-112 868,4 -4,4"/>
+<!-- ArmIns -->
+<g id="node1" class="node"><title>ArmIns</title>
+<g id="a_node1"><a xlink:href="/ArmIns" xlink:title="ArmIns">
+<path fill="none" stroke="black" stroke-width="3" d="M528,-108C528,-108 336,-108 336,-108 330,-108 324,-102 324,-96 324,-96 324,-84 324,-84 324,-78 330,-72 336,-72 336,-72 528,-72 528,-72 534,-72 540,-78 540,-84 540,-84 540,-96 540,-96 540,-102 534,-108 528,-108"/>
+<text text-anchor="middle" x="432" y="-86.3" font-family="Menlo" font-size="14.00">ArmIns</text>
+</a>
+</g>
+</g>
+<!-- UInt32 -->
+<g id="node2" class="node"><title>UInt32</title>
+<path fill="none" stroke="black" d="M528,-36C528,-36 336,-36 336,-36 330,-36 324,-30 324,-24 324,-24 324,-12 324,-12 324,-6 330,-0 336,-0 336,-0 528,-0 528,-0 534,-0 540,-6 540,-12 540,-12 540,-24 540,-24 540,-30 534,-36 528,-36"/>
+<text text-anchor="middle" x="432" y="-14.3" font-family="Menlo" font-size="14.00">UInt32</text>
+</g>
+<!-- ArmIns&#45;&gt;UInt32 -->
+<g id="edge1" class="edge"><title>ArmIns&#45;&gt;UInt32</title>
+<path fill="none" stroke="black" d="M432,-71.6966C432,-63.9827 432,-54.7125 432,-46.1124"/>
+<polygon fill="black" stroke="black" points="435.5,-46.1043 432,-36.1043 428.5,-46.1044 435.5,-46.1043"/>
+</g>
+</g>
+</svg>
+
+
+    <figcaption hidden>Inheritance graph for ArmIns.</figcaption>
+</figure>
+        <h3>Conforms To</h3>
+<dl>
+    <dt class="unknown"><code>UInt32</code></dt>
+</dl>
+</section>
+    <section id="enumeration cases">
+        <h2>Enumeration Cases</h2>
+
+        <div role="article" class="case" id="armins.invalid">
+    <h3>
+        <code>invalid</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">invalid</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.adc">
+    <h3>
+        <code>adc</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">adc</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.add">
+    <h3>
+        <code>add</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">add</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.addw">
+    <h3>
+        <code>addw</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">addw</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.adr">
+    <h3>
+        <code>adr</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">adr</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.aesd">
+    <h3>
+        <code>aesd</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">aesd</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.aese">
+    <h3>
+        <code>aese</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">aese</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.aesimc">
+    <h3>
+        <code>aesimc</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">aesimc</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.aesmc">
+    <h3>
+        <code>aesmc</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">aesmc</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.and">
+    <h3>
+        <code>and</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">and</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.asr">
+    <h3>
+        <code>asr</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">asr</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.b">
+    <h3>
+        <code>b</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">b</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.bfc">
+    <h3>
+        <code>bfc</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">bfc</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.bfi">
+    <h3>
+        <code>bfi</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">bfi</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.bic">
+    <h3>
+        <code>bic</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">bic</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.bkpt">
+    <h3>
+        <code>bkpt</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">bkpt</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.bl">
+    <h3>
+        <code>bl</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">bl</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.blx">
+    <h3>
+        <code>blx</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">blx</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.blxns">
+    <h3>
+        <code>blxns</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">blxns</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.bx">
+    <h3>
+        <code>bx</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">bx</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.bxj">
+    <h3>
+        <code>bxj</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">bxj</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.bxns">
+    <h3>
+        <code>bxns</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">bxns</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.cbnz">
+    <h3>
+        <code>cbnz</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cbnz</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.cbz">
+    <h3>
+        <code>cbz</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cbz</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.cdp">
+    <h3>
+        <code>cdp</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cdp</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.cdp2">
+    <h3>
+        <code>cdp2</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cdp2</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.clrex">
+    <h3>
+        <code>clrex</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">clrex</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.clz">
+    <h3>
+        <code>clz</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">clz</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.cmn">
+    <h3>
+        <code>cmn</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cmn</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.cmp">
+    <h3>
+        <code>cmp</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cmp</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.cps">
+    <h3>
+        <code>cps</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cps</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.crc32b">
+    <h3>
+        <code>crc32b</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">crc32b</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.crc32cb">
+    <h3>
+        <code>crc32cb</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">crc32cb</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.crc32ch">
+    <h3>
+        <code>crc32ch</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">crc32ch</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.crc32cw">
+    <h3>
+        <code>crc32cw</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">crc32cw</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.crc32h">
+    <h3>
+        <code>crc32h</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">crc32h</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.crc32w">
+    <h3>
+        <code>crc32w</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">crc32w</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.csdb">
+    <h3>
+        <code>csdb</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">csdb</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.dbg">
+    <h3>
+        <code>dbg</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">dbg</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.dcps1">
+    <h3>
+        <code>dcps1</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">dcps1</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.dcps2">
+    <h3>
+        <code>dcps2</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">dcps2</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.dcps3">
+    <h3>
+        <code>dcps3</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">dcps3</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.dfb">
+    <h3>
+        <code>dfb</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">dfb</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.dmb">
+    <h3>
+        <code>dmb</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">dmb</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.dsb">
+    <h3>
+        <code>dsb</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">dsb</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.eor">
+    <h3>
+        <code>eor</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">eor</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.eret">
+    <h3>
+        <code>eret</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">eret</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.esb">
+    <h3>
+        <code>esb</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">esb</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.faddd">
+    <h3>
+        <code>faddd</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">faddd</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.fadds">
+    <h3>
+        <code>fadds</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fadds</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.fcmpzd">
+    <h3>
+        <code>fcmpzd</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fcmpzd</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.fcmpzs">
+    <h3>
+        <code>fcmpzs</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fcmpzs</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.fconstd">
+    <h3>
+        <code>fconstd</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fconstd</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.fconsts">
+    <h3>
+        <code>fconsts</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fconsts</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.fldmdbx">
+    <h3>
+        <code>fldmdbx</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fldmdbx</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.fldmiax">
+    <h3>
+        <code>fldmiax</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fldmiax</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.fmdhr">
+    <h3>
+        <code>fmdhr</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fmdhr</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.fmdlr">
+    <h3>
+        <code>fmdlr</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fmdlr</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.fmstat">
+    <h3>
+        <code>fmstat</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fmstat</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.fstmdbx">
+    <h3>
+        <code>fstmdbx</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fstmdbx</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.fstmiax">
+    <h3>
+        <code>fstmiax</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fstmiax</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.fsubd">
+    <h3>
+        <code>fsubd</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fsubd</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.fsubs">
+    <h3>
+        <code>fsubs</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fsubs</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.hint">
+    <h3>
+        <code>hint</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">hint</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.hlt">
+    <h3>
+        <code>hlt</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">hlt</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.hvc">
+    <h3>
+        <code>hvc</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">hvc</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.isb">
+    <h3>
+        <code>isb</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">isb</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.it">
+    <h3>
+        <code>it</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">it</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.lda">
+    <h3>
+        <code>lda</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">lda</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.ldab">
+    <h3>
+        <code>ldab</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ldab</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.ldaex">
+    <h3>
+        <code>ldaex</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ldaex</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.ldaexb">
+    <h3>
+        <code>ldaexb</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ldaexb</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.ldaexd">
+    <h3>
+        <code>ldaexd</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ldaexd</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.ldaexh">
+    <h3>
+        <code>ldaexh</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ldaexh</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.ldah">
+    <h3>
+        <code>ldah</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ldah</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.ldc">
+    <h3>
+        <code>ldc</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ldc</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.ldc2">
+    <h3>
+        <code>ldc2</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ldc2</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.ldc2l">
+    <h3>
+        <code>ldc2l</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ldc2l</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.ldcl">
+    <h3>
+        <code>ldcl</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ldcl</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.ldm">
+    <h3>
+        <code>ldm</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ldm</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.ldmda">
+    <h3>
+        <code>ldmda</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ldmda</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.ldmdb">
+    <h3>
+        <code>ldmdb</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ldmdb</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.ldmib">
+    <h3>
+        <code>ldmib</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ldmib</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.ldr">
+    <h3>
+        <code>ldr</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ldr</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.ldrb">
+    <h3>
+        <code>ldrb</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ldrb</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.ldrbt">
+    <h3>
+        <code>ldrbt</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ldrbt</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.ldrd">
+    <h3>
+        <code>ldrd</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ldrd</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.ldrex">
+    <h3>
+        <code>ldrex</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ldrex</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.ldrexb">
+    <h3>
+        <code>ldrexb</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ldrexb</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.ldrexd">
+    <h3>
+        <code>ldrexd</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ldrexd</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.ldrexh">
+    <h3>
+        <code>ldrexh</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ldrexh</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.ldrh">
+    <h3>
+        <code>ldrh</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ldrh</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.ldrht">
+    <h3>
+        <code>ldrht</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ldrht</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.ldrsb">
+    <h3>
+        <code>ldrsb</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ldrsb</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.ldrsbt">
+    <h3>
+        <code>ldrsbt</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ldrsbt</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.ldrsh">
+    <h3>
+        <code>ldrsh</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ldrsh</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.ldrsht">
+    <h3>
+        <code>ldrsht</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ldrsht</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.ldrt">
+    <h3>
+        <code>ldrt</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ldrt</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.lsl">
+    <h3>
+        <code>lsl</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">lsl</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.lsr">
+    <h3>
+        <code>lsr</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">lsr</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.mcr">
+    <h3>
+        <code>mcr</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">mcr</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.mcr2">
+    <h3>
+        <code>mcr2</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">mcr2</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.mcrr">
+    <h3>
+        <code>mcrr</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">mcrr</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.mcrr2">
+    <h3>
+        <code>mcrr2</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">mcrr2</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.mla">
+    <h3>
+        <code>mla</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">mla</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.mls">
+    <h3>
+        <code>mls</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">mls</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.mov">
+    <h3>
+        <code>mov</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">mov</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.movs">
+    <h3>
+        <code>movs</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">movs</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.movt">
+    <h3>
+        <code>movt</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">movt</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.movw">
+    <h3>
+        <code>movw</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">movw</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.mrc">
+    <h3>
+        <code>mrc</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">mrc</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.mrc2">
+    <h3>
+        <code>mrc2</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">mrc2</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.mrrc">
+    <h3>
+        <code>mrrc</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">mrrc</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.mrrc2">
+    <h3>
+        <code>mrrc2</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">mrrc2</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.mrs">
+    <h3>
+        <code>mrs</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">mrs</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.msr">
+    <h3>
+        <code>msr</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">msr</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.mul">
+    <h3>
+        <code>mul</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">mul</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.mvn">
+    <h3>
+        <code>mvn</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">mvn</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.neg">
+    <h3>
+        <code>neg</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">neg</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.nop">
+    <h3>
+        <code>nop</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">nop</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.orn">
+    <h3>
+        <code>orn</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">orn</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.orr">
+    <h3>
+        <code>orr</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">orr</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.pkhbt">
+    <h3>
+        <code>pkhbt</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">pkhbt</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.pkhtb">
+    <h3>
+        <code>pkhtb</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">pkhtb</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.pld">
+    <h3>
+        <code>pld</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">pld</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.pldw">
+    <h3>
+        <code>pldw</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">pldw</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.pli">
+    <h3>
+        <code>pli</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">pli</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.pop">
+    <h3>
+        <code>pop</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">pop</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.push">
+    <h3>
+        <code>push</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">push</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.qadd">
+    <h3>
+        <code>qadd</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">qadd</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.qadd16">
+    <h3>
+        <code>qadd16</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">qadd16</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.qadd8">
+    <h3>
+        <code>qadd8</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">qadd8</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.qasx">
+    <h3>
+        <code>qasx</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">qasx</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.qdadd">
+    <h3>
+        <code>qdadd</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">qdadd</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.qdsub">
+    <h3>
+        <code>qdsub</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">qdsub</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.qsax">
+    <h3>
+        <code>qsax</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">qsax</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.qsub">
+    <h3>
+        <code>qsub</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">qsub</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.qsub16">
+    <h3>
+        <code>qsub16</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">qsub16</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.qsub8">
+    <h3>
+        <code>qsub8</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">qsub8</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.rbit">
+    <h3>
+        <code>rbit</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">rbit</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.rev">
+    <h3>
+        <code>rev</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">rev</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.rev16">
+    <h3>
+        <code>rev16</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">rev16</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.revsh">
+    <h3>
+        <code>revsh</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">revsh</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.rfeda">
+    <h3>
+        <code>rfeda</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">rfeda</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.rfedb">
+    <h3>
+        <code>rfedb</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">rfedb</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.rfeia">
+    <h3>
+        <code>rfeia</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">rfeia</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.rfeib">
+    <h3>
+        <code>rfeib</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">rfeib</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.ror">
+    <h3>
+        <code>ror</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ror</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.rrx">
+    <h3>
+        <code>rrx</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">rrx</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.rsb">
+    <h3>
+        <code>rsb</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">rsb</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.rsc">
+    <h3>
+        <code>rsc</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">rsc</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.sadd16">
+    <h3>
+        <code>sadd16</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">sadd16</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.sadd8">
+    <h3>
+        <code>sadd8</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">sadd8</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.sasx">
+    <h3>
+        <code>sasx</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">sasx</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.sbc">
+    <h3>
+        <code>sbc</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">sbc</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.sbfx">
+    <h3>
+        <code>sbfx</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">sbfx</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.sdiv">
+    <h3>
+        <code>sdiv</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">sdiv</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.sel">
+    <h3>
+        <code>sel</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">sel</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.setend">
+    <h3>
+        <code>setend</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">setend</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.setpan">
+    <h3>
+        <code>setpan</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">setpan</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.sev">
+    <h3>
+        <code>sev</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">sev</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.sevl">
+    <h3>
+        <code>sevl</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">sevl</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.sg">
+    <h3>
+        <code>sg</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">sg</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.sha1c">
+    <h3>
+        <code>sha1c</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">sha1c</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.sha1h">
+    <h3>
+        <code>sha1h</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">sha1h</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.sha1m">
+    <h3>
+        <code>sha1m</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">sha1m</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.sha1p">
+    <h3>
+        <code>sha1p</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">sha1p</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.sha1su0">
+    <h3>
+        <code>sha1su0</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">sha1su0</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.sha1su1">
+    <h3>
+        <code>sha1su1</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">sha1su1</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.sha256h">
+    <h3>
+        <code>sha256h</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">sha256h</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.sha256h2">
+    <h3>
+        <code>sha256h2</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">sha256h2</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.sha256su0">
+    <h3>
+        <code>sha256su0</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">sha256su0</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.sha256su1">
+    <h3>
+        <code>sha256su1</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">sha256su1</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.shadd16">
+    <h3>
+        <code>shadd16</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">shadd16</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.shadd8">
+    <h3>
+        <code>shadd8</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">shadd8</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.shasx">
+    <h3>
+        <code>shasx</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">shasx</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.shsax">
+    <h3>
+        <code>shsax</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">shsax</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.shsub16">
+    <h3>
+        <code>shsub16</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">shsub16</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.shsub8">
+    <h3>
+        <code>shsub8</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">shsub8</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.smc">
+    <h3>
+        <code>smc</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">smc</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.smlabb">
+    <h3>
+        <code>smlabb</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">smlabb</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.smlabt">
+    <h3>
+        <code>smlabt</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">smlabt</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.smlad">
+    <h3>
+        <code>smlad</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">smlad</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.smladx">
+    <h3>
+        <code>smladx</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">smladx</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.smlal">
+    <h3>
+        <code>smlal</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">smlal</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.smlalbb">
+    <h3>
+        <code>smlalbb</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">smlalbb</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.smlalbt">
+    <h3>
+        <code>smlalbt</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">smlalbt</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.smlald">
+    <h3>
+        <code>smlald</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">smlald</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.smlaldx">
+    <h3>
+        <code>smlaldx</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">smlaldx</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.smlaltb">
+    <h3>
+        <code>smlaltb</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">smlaltb</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.smlaltt">
+    <h3>
+        <code>smlaltt</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">smlaltt</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.smlatb">
+    <h3>
+        <code>smlatb</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">smlatb</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.smlatt">
+    <h3>
+        <code>smlatt</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">smlatt</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.smlawb">
+    <h3>
+        <code>smlawb</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">smlawb</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.smlawt">
+    <h3>
+        <code>smlawt</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">smlawt</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.smlsd">
+    <h3>
+        <code>smlsd</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">smlsd</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.smlsdx">
+    <h3>
+        <code>smlsdx</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">smlsdx</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.smlsld">
+    <h3>
+        <code>smlsld</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">smlsld</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.smlsldx">
+    <h3>
+        <code>smlsldx</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">smlsldx</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.smmla">
+    <h3>
+        <code>smmla</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">smmla</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.smmlar">
+    <h3>
+        <code>smmlar</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">smmlar</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.smmls">
+    <h3>
+        <code>smmls</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">smmls</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.smmlsr">
+    <h3>
+        <code>smmlsr</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">smmlsr</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.smmul">
+    <h3>
+        <code>smmul</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">smmul</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.smmulr">
+    <h3>
+        <code>smmulr</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">smmulr</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.smuad">
+    <h3>
+        <code>smuad</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">smuad</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.smuadx">
+    <h3>
+        <code>smuadx</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">smuadx</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.smulbb">
+    <h3>
+        <code>smulbb</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">smulbb</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.smulbt">
+    <h3>
+        <code>smulbt</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">smulbt</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.smull">
+    <h3>
+        <code>smull</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">smull</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.smultb">
+    <h3>
+        <code>smultb</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">smultb</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.smultt">
+    <h3>
+        <code>smultt</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">smultt</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.smulwb">
+    <h3>
+        <code>smulwb</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">smulwb</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.smulwt">
+    <h3>
+        <code>smulwt</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">smulwt</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.smusd">
+    <h3>
+        <code>smusd</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">smusd</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.smusdx">
+    <h3>
+        <code>smusdx</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">smusdx</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.srsda">
+    <h3>
+        <code>srsda</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">srsda</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.srsdb">
+    <h3>
+        <code>srsdb</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">srsdb</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.srsia">
+    <h3>
+        <code>srsia</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">srsia</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.srsib">
+    <h3>
+        <code>srsib</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">srsib</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.ssat">
+    <h3>
+        <code>ssat</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ssat</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.ssat16">
+    <h3>
+        <code>ssat16</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ssat16</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.ssax">
+    <h3>
+        <code>ssax</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ssax</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.ssub16">
+    <h3>
+        <code>ssub16</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ssub16</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.ssub8">
+    <h3>
+        <code>ssub8</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ssub8</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.stc">
+    <h3>
+        <code>stc</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">stc</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.stc2">
+    <h3>
+        <code>stc2</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">stc2</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.stc2l">
+    <h3>
+        <code>stc2l</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">stc2l</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.stcl">
+    <h3>
+        <code>stcl</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">stcl</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.stl">
+    <h3>
+        <code>stl</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">stl</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.stlb">
+    <h3>
+        <code>stlb</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">stlb</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.stlex">
+    <h3>
+        <code>stlex</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">stlex</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.stlexb">
+    <h3>
+        <code>stlexb</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">stlexb</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.stlexd">
+    <h3>
+        <code>stlexd</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">stlexd</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.stlexh">
+    <h3>
+        <code>stlexh</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">stlexh</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.stlh">
+    <h3>
+        <code>stlh</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">stlh</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.stm">
+    <h3>
+        <code>stm</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">stm</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.stmda">
+    <h3>
+        <code>stmda</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">stmda</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.stmdb">
+    <h3>
+        <code>stmdb</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">stmdb</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.stmib">
+    <h3>
+        <code>stmib</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">stmib</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.str">
+    <h3>
+        <code>str</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">str</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.strb">
+    <h3>
+        <code>strb</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">strb</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.strbt">
+    <h3>
+        <code>strbt</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">strbt</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.strd">
+    <h3>
+        <code>strd</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">strd</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.strex">
+    <h3>
+        <code>strex</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">strex</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.strexb">
+    <h3>
+        <code>strexb</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">strexb</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.strexd">
+    <h3>
+        <code>strexd</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">strexd</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.strexh">
+    <h3>
+        <code>strexh</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">strexh</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.strh">
+    <h3>
+        <code>strh</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">strh</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.strht">
+    <h3>
+        <code>strht</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">strht</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.strt">
+    <h3>
+        <code>strt</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">strt</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.sub">
+    <h3>
+        <code>sub</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">sub</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.subs">
+    <h3>
+        <code>subs</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">subs</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.subw">
+    <h3>
+        <code>subw</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">subw</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.svc">
+    <h3>
+        <code>svc</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">svc</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.swp">
+    <h3>
+        <code>swp</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">swp</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.swpb">
+    <h3>
+        <code>swpb</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">swpb</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.sxtab">
+    <h3>
+        <code>sxtab</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">sxtab</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.sxtab16">
+    <h3>
+        <code>sxtab16</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">sxtab16</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.sxtah">
+    <h3>
+        <code>sxtah</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">sxtah</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.sxtb">
+    <h3>
+        <code>sxtb</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">sxtb</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.sxtb16">
+    <h3>
+        <code>sxtb16</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">sxtb16</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.sxth">
+    <h3>
+        <code>sxth</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">sxth</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.tbb">
+    <h3>
+        <code>tbb</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">tbb</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.tbh">
+    <h3>
+        <code>tbh</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">tbh</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.teq">
+    <h3>
+        <code>teq</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">teq</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.trap">
+    <h3>
+        <code>trap</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">trap</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.tsb">
+    <h3>
+        <code>tsb</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">tsb</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.tst">
+    <h3>
+        <code>tst</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">tst</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.tt">
+    <h3>
+        <code>tt</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">tt</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.tta">
+    <h3>
+        <code>tta</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">tta</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.ttat">
+    <h3>
+        <code>ttat</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ttat</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.ttt">
+    <h3>
+        <code>ttt</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ttt</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.uadd16">
+    <h3>
+        <code>uadd16</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">uadd16</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.uadd8">
+    <h3>
+        <code>uadd8</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">uadd8</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.uasx">
+    <h3>
+        <code>uasx</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">uasx</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.ubfx">
+    <h3>
+        <code>ubfx</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ubfx</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.udf">
+    <h3>
+        <code>udf</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">udf</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.udiv">
+    <h3>
+        <code>udiv</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">udiv</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.uhadd16">
+    <h3>
+        <code>uhadd16</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">uhadd16</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.uhadd8">
+    <h3>
+        <code>uhadd8</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">uhadd8</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.uhasx">
+    <h3>
+        <code>uhasx</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">uhasx</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.uhsax">
+    <h3>
+        <code>uhsax</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">uhsax</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.uhsub16">
+    <h3>
+        <code>uhsub16</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">uhsub16</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.uhsub8">
+    <h3>
+        <code>uhsub8</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">uhsub8</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.umaal">
+    <h3>
+        <code>umaal</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">umaal</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.umlal">
+    <h3>
+        <code>umlal</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">umlal</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.umull">
+    <h3>
+        <code>umull</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">umull</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.uqadd16">
+    <h3>
+        <code>uqadd16</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">uqadd16</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.uqadd8">
+    <h3>
+        <code>uqadd8</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">uqadd8</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.uqasx">
+    <h3>
+        <code>uqasx</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">uqasx</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.uqsax">
+    <h3>
+        <code>uqsax</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">uqsax</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.uqsub16">
+    <h3>
+        <code>uqsub16</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">uqsub16</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.uqsub8">
+    <h3>
+        <code>uqsub8</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">uqsub8</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.usad8">
+    <h3>
+        <code>usad8</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">usad8</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.usada8">
+    <h3>
+        <code>usada8</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">usada8</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.usat">
+    <h3>
+        <code>usat</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">usat</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.usat16">
+    <h3>
+        <code>usat16</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">usat16</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.usax">
+    <h3>
+        <code>usax</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">usax</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.usub16">
+    <h3>
+        <code>usub16</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">usub16</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.usub8">
+    <h3>
+        <code>usub8</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">usub8</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.uxtab">
+    <h3>
+        <code>uxtab</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">uxtab</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.uxtab16">
+    <h3>
+        <code>uxtab16</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">uxtab16</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.uxtah">
+    <h3>
+        <code>uxtah</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">uxtah</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.uxtb">
+    <h3>
+        <code>uxtb</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">uxtb</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.uxtb16">
+    <h3>
+        <code>uxtb16</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">uxtb16</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.uxth">
+    <h3>
+        <code>uxth</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">uxth</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vaba">
+    <h3>
+        <code>vaba</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vaba</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vabal">
+    <h3>
+        <code>vabal</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vabal</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vabd">
+    <h3>
+        <code>vabd</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vabd</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vabdl">
+    <h3>
+        <code>vabdl</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vabdl</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vabs">
+    <h3>
+        <code>vabs</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vabs</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vacge">
+    <h3>
+        <code>vacge</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vacge</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vacgt">
+    <h3>
+        <code>vacgt</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vacgt</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vacle">
+    <h3>
+        <code>vacle</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vacle</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vaclt">
+    <h3>
+        <code>vaclt</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vaclt</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vadd">
+    <h3>
+        <code>vadd</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vadd</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vaddhn">
+    <h3>
+        <code>vaddhn</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vaddhn</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vaddl">
+    <h3>
+        <code>vaddl</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vaddl</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vaddw">
+    <h3>
+        <code>vaddw</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vaddw</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vand">
+    <h3>
+        <code>vand</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vand</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vbic">
+    <h3>
+        <code>vbic</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vbic</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vbif">
+    <h3>
+        <code>vbif</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vbif</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vbit">
+    <h3>
+        <code>vbit</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vbit</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vbsl">
+    <h3>
+        <code>vbsl</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vbsl</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vcadd">
+    <h3>
+        <code>vcadd</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vcadd</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vceq">
+    <h3>
+        <code>vceq</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vceq</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vcge">
+    <h3>
+        <code>vcge</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vcge</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vcgt">
+    <h3>
+        <code>vcgt</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vcgt</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vcle">
+    <h3>
+        <code>vcle</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vcle</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vcls">
+    <h3>
+        <code>vcls</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vcls</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vclt">
+    <h3>
+        <code>vclt</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vclt</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vclz">
+    <h3>
+        <code>vclz</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vclz</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vcmla">
+    <h3>
+        <code>vcmla</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vcmla</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vcmp">
+    <h3>
+        <code>vcmp</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vcmp</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vcmpe">
+    <h3>
+        <code>vcmpe</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vcmpe</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vcnt">
+    <h3>
+        <code>vcnt</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vcnt</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vcvt">
+    <h3>
+        <code>vcvt</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vcvt</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vcvta">
+    <h3>
+        <code>vcvta</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vcvta</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vcvtb">
+    <h3>
+        <code>vcvtb</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vcvtb</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vcvtm">
+    <h3>
+        <code>vcvtm</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vcvtm</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vcvtn">
+    <h3>
+        <code>vcvtn</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vcvtn</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vcvtp">
+    <h3>
+        <code>vcvtp</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vcvtp</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vcvtr">
+    <h3>
+        <code>vcvtr</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vcvtr</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vcvtt">
+    <h3>
+        <code>vcvtt</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vcvtt</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vdiv">
+    <h3>
+        <code>vdiv</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vdiv</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vdup">
+    <h3>
+        <code>vdup</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vdup</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.veor">
+    <h3>
+        <code>veor</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">veor</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vext">
+    <h3>
+        <code>vext</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vext</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vfma">
+    <h3>
+        <code>vfma</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vfma</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vfms">
+    <h3>
+        <code>vfms</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vfms</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vfnma">
+    <h3>
+        <code>vfnma</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vfnma</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vfnms">
+    <h3>
+        <code>vfnms</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vfnms</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vhadd">
+    <h3>
+        <code>vhadd</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vhadd</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vhsub">
+    <h3>
+        <code>vhsub</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vhsub</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vins">
+    <h3>
+        <code>vins</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vins</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vjcvt">
+    <h3>
+        <code>vjcvt</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vjcvt</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vld1">
+    <h3>
+        <code>vld1</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vld1</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vld2">
+    <h3>
+        <code>vld2</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vld2</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vld3">
+    <h3>
+        <code>vld3</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vld3</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vld4">
+    <h3>
+        <code>vld4</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vld4</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vldmdb">
+    <h3>
+        <code>vldmdb</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vldmdb</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vldmia">
+    <h3>
+        <code>vldmia</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vldmia</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vldr">
+    <h3>
+        <code>vldr</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vldr</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vlldm">
+    <h3>
+        <code>vlldm</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vlldm</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vlstm">
+    <h3>
+        <code>vlstm</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vlstm</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vmax">
+    <h3>
+        <code>vmax</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vmax</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vmaxnm">
+    <h3>
+        <code>vmaxnm</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vmaxnm</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vmin">
+    <h3>
+        <code>vmin</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vmin</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vminnm">
+    <h3>
+        <code>vminnm</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vminnm</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vmla">
+    <h3>
+        <code>vmla</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vmla</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vmlal">
+    <h3>
+        <code>vmlal</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vmlal</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vmls">
+    <h3>
+        <code>vmls</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vmls</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vmlsl">
+    <h3>
+        <code>vmlsl</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vmlsl</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vmov">
+    <h3>
+        <code>vmov</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vmov</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vmovl">
+    <h3>
+        <code>vmovl</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vmovl</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vmovn">
+    <h3>
+        <code>vmovn</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vmovn</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vmovx">
+    <h3>
+        <code>vmovx</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vmovx</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vmrs">
+    <h3>
+        <code>vmrs</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vmrs</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vmsr">
+    <h3>
+        <code>vmsr</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vmsr</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vmul">
+    <h3>
+        <code>vmul</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vmul</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vmull">
+    <h3>
+        <code>vmull</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vmull</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vmvn">
+    <h3>
+        <code>vmvn</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vmvn</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vneg">
+    <h3>
+        <code>vneg</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vneg</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vnmla">
+    <h3>
+        <code>vnmla</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vnmla</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vnmls">
+    <h3>
+        <code>vnmls</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vnmls</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vnmul">
+    <h3>
+        <code>vnmul</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vnmul</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vorn">
+    <h3>
+        <code>vorn</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vorn</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vorr">
+    <h3>
+        <code>vorr</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vorr</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vpadal">
+    <h3>
+        <code>vpadal</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vpadal</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vpadd">
+    <h3>
+        <code>vpadd</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vpadd</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vpaddl">
+    <h3>
+        <code>vpaddl</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vpaddl</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vpmax">
+    <h3>
+        <code>vpmax</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vpmax</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vpmin">
+    <h3>
+        <code>vpmin</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vpmin</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vpop">
+    <h3>
+        <code>vpop</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vpop</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vpush">
+    <h3>
+        <code>vpush</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vpush</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vqabs">
+    <h3>
+        <code>vqabs</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vqabs</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vqadd">
+    <h3>
+        <code>vqadd</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vqadd</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vqdmlal">
+    <h3>
+        <code>vqdmlal</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vqdmlal</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vqdmlsl">
+    <h3>
+        <code>vqdmlsl</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vqdmlsl</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vqdmulh">
+    <h3>
+        <code>vqdmulh</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vqdmulh</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vqdmull">
+    <h3>
+        <code>vqdmull</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vqdmull</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vqmovn">
+    <h3>
+        <code>vqmovn</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vqmovn</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vqmovun">
+    <h3>
+        <code>vqmovun</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vqmovun</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vqneg">
+    <h3>
+        <code>vqneg</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vqneg</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vqrdmlah">
+    <h3>
+        <code>vqrdmlah</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vqrdmlah</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vqrdmlsh">
+    <h3>
+        <code>vqrdmlsh</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vqrdmlsh</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vqrdmulh">
+    <h3>
+        <code>vqrdmulh</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vqrdmulh</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vqrshl">
+    <h3>
+        <code>vqrshl</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vqrshl</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vqrshrn">
+    <h3>
+        <code>vqrshrn</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vqrshrn</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vqrshrun">
+    <h3>
+        <code>vqrshrun</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vqrshrun</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vqshl">
+    <h3>
+        <code>vqshl</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vqshl</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vqshlu">
+    <h3>
+        <code>vqshlu</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vqshlu</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vqshrn">
+    <h3>
+        <code>vqshrn</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vqshrn</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vqshrun">
+    <h3>
+        <code>vqshrun</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vqshrun</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vqsub">
+    <h3>
+        <code>vqsub</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vqsub</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vraddhn">
+    <h3>
+        <code>vraddhn</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vraddhn</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vrecpe">
+    <h3>
+        <code>vrecpe</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vrecpe</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vrecps">
+    <h3>
+        <code>vrecps</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vrecps</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vrev16">
+    <h3>
+        <code>vrev16</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vrev16</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vrev32">
+    <h3>
+        <code>vrev32</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vrev32</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vrev64">
+    <h3>
+        <code>vrev64</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vrev64</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vrhadd">
+    <h3>
+        <code>vrhadd</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vrhadd</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vrinta">
+    <h3>
+        <code>vrinta</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vrinta</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vrintm">
+    <h3>
+        <code>vrintm</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vrintm</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vrintn">
+    <h3>
+        <code>vrintn</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vrintn</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vrintp">
+    <h3>
+        <code>vrintp</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vrintp</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vrintr">
+    <h3>
+        <code>vrintr</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vrintr</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vrintx">
+    <h3>
+        <code>vrintx</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vrintx</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vrintz">
+    <h3>
+        <code>vrintz</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vrintz</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vrshl">
+    <h3>
+        <code>vrshl</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vrshl</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vrshr">
+    <h3>
+        <code>vrshr</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vrshr</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vrshrn">
+    <h3>
+        <code>vrshrn</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vrshrn</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vrsqrte">
+    <h3>
+        <code>vrsqrte</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vrsqrte</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vrsqrts">
+    <h3>
+        <code>vrsqrts</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vrsqrts</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vrsra">
+    <h3>
+        <code>vrsra</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vrsra</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vrsubhn">
+    <h3>
+        <code>vrsubhn</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vrsubhn</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vsdot">
+    <h3>
+        <code>vsdot</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vsdot</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vseleq">
+    <h3>
+        <code>vseleq</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vseleq</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vselge">
+    <h3>
+        <code>vselge</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vselge</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vselgt">
+    <h3>
+        <code>vselgt</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vselgt</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vselvs">
+    <h3>
+        <code>vselvs</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vselvs</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vshl">
+    <h3>
+        <code>vshl</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vshl</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vshll">
+    <h3>
+        <code>vshll</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vshll</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vshr">
+    <h3>
+        <code>vshr</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vshr</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vshrn">
+    <h3>
+        <code>vshrn</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vshrn</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vsli">
+    <h3>
+        <code>vsli</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vsli</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vsqrt">
+    <h3>
+        <code>vsqrt</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vsqrt</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vsra">
+    <h3>
+        <code>vsra</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vsra</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vsri">
+    <h3>
+        <code>vsri</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vsri</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vst1">
+    <h3>
+        <code>vst1</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vst1</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vst2">
+    <h3>
+        <code>vst2</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vst2</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vst3">
+    <h3>
+        <code>vst3</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vst3</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vst4">
+    <h3>
+        <code>vst4</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vst4</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vstmdb">
+    <h3>
+        <code>vstmdb</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vstmdb</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vstmia">
+    <h3>
+        <code>vstmia</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vstmia</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vstr">
+    <h3>
+        <code>vstr</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vstr</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vsub">
+    <h3>
+        <code>vsub</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vsub</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vsubhn">
+    <h3>
+        <code>vsubhn</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vsubhn</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vsubl">
+    <h3>
+        <code>vsubl</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vsubl</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vsubw">
+    <h3>
+        <code>vsubw</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vsubw</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vswp">
+    <h3>
+        <code>vswp</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vswp</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vtbl">
+    <h3>
+        <code>vtbl</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vtbl</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vtbx">
+    <h3>
+        <code>vtbx</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vtbx</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vtrn">
+    <h3>
+        <code>vtrn</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vtrn</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vtst">
+    <h3>
+        <code>vtst</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vtst</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vudot">
+    <h3>
+        <code>vudot</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vudot</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vuzp">
+    <h3>
+        <code>vuzp</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vuzp</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.vzip">
+    <h3>
+        <code>vzip</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vzip</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.wfe">
+    <h3>
+        <code>wfe</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">wfe</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.wfi">
+    <h3>
+        <code>wfi</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">wfi</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.yield">
+    <h3>
+        <code>yield</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">yield</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="armins.ending">
+    <h3>
+        <code>ending</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ending</span></code></pre></body></html>
+</div>
+    </section>
+
+
+
+        </article>
+    </main>
+
+    <footer>
+        <p>
+    Generated on <time datetime="2020-11-21T15:19:18+0100">21 November 2020</time> using <a href="https://github.com/SwiftDocOrg/swift-doc">swift-doc</a> <span class="version">1.0.0-beta.5</span>.
+</p>
+    </footer>
+</body>
+</html>

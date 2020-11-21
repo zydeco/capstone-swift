@@ -1,0 +1,1586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capstone - X86Reg</title>
+    <link rel="stylesheet" type="text/css" href="/all.css" media="all" />
+</head>
+<body>
+    <header>
+        <a href="/">
+            <strong>
+                Capstone
+            </strong>
+            <span>Documentation</span>
+        </a>
+        <sup>Beta</sup>
+    </header>
+
+    <!--
+    <form class="search">
+        <input type="search" placeholder="Search" />
+    </form>
+    -->
+
+    <nav>
+        <div class="wrapper">
+            <h2>On This Page</h2>
+            <ol><li><a href="#relationships">Relationships</a><ul><li><a href="#relationships">Conforms To</a></li></ul></li><li><a href="#enumeration cases">Enumeration Cases</a><ul><li class="case"><a href="#x86reg.invalid">invalid</a></li><li class="case"><a href="#x86reg.ah">ah</a></li><li class="case"><a href="#x86reg.al">al</a></li><li class="case"><a href="#x86reg.ax">ax</a></li><li class="case"><a href="#x86reg.bh">bh</a></li><li class="case"><a href="#x86reg.bl">bl</a></li><li class="case"><a href="#x86reg.bp">bp</a></li><li class="case"><a href="#x86reg.bpl">bpl</a></li><li class="case"><a href="#x86reg.bx">bx</a></li><li class="case"><a href="#x86reg.ch">ch</a></li><li class="case"><a href="#x86reg.cl">cl</a></li><li class="case"><a href="#x86reg.cs">cs</a></li><li class="case"><a href="#x86reg.cx">cx</a></li><li class="case"><a href="#x86reg.dh">dh</a></li><li class="case"><a href="#x86reg.di">di</a></li><li class="case"><a href="#x86reg.dil">dil</a></li><li class="case"><a href="#x86reg.dl">dl</a></li><li class="case"><a href="#x86reg.ds">ds</a></li><li class="case"><a href="#x86reg.dx">dx</a></li><li class="case"><a href="#x86reg.eax">eax</a></li><li class="case"><a href="#x86reg.ebp">ebp</a></li><li class="case"><a href="#x86reg.ebx">ebx</a></li><li class="case"><a href="#x86reg.ecx">ecx</a></li><li class="case"><a href="#x86reg.edi">edi</a></li><li class="case"><a href="#x86reg.edx">edx</a></li><li class="case"><a href="#x86reg.eflags">eflags</a></li><li class="case"><a href="#x86reg.eip">eip</a></li><li class="case"><a href="#x86reg.eiz">eiz</a></li><li class="case"><a href="#x86reg.es">es</a></li><li class="case"><a href="#x86reg.esi">esi</a></li><li class="case"><a href="#x86reg.esp">esp</a></li><li class="case"><a href="#x86reg.fpsw">fpsw</a></li><li class="case"><a href="#x86reg.fs">fs</a></li><li class="case"><a href="#x86reg.gs">gs</a></li><li class="case"><a href="#x86reg.ip">ip</a></li><li class="case"><a href="#x86reg.rax">rax</a></li><li class="case"><a href="#x86reg.rbp">rbp</a></li><li class="case"><a href="#x86reg.rbx">rbx</a></li><li class="case"><a href="#x86reg.rcx">rcx</a></li><li class="case"><a href="#x86reg.rdi">rdi</a></li><li class="case"><a href="#x86reg.rdx">rdx</a></li><li class="case"><a href="#x86reg.rip">rip</a></li><li class="case"><a href="#x86reg.riz">riz</a></li><li class="case"><a href="#x86reg.rsi">rsi</a></li><li class="case"><a href="#x86reg.rsp">rsp</a></li><li class="case"><a href="#x86reg.si">si</a></li><li class="case"><a href="#x86reg.sil">sil</a></li><li class="case"><a href="#x86reg.sp">sp</a></li><li class="case"><a href="#x86reg.spl">spl</a></li><li class="case"><a href="#x86reg.ss">ss</a></li><li class="case"><a href="#x86reg.cr0">cr0</a></li><li class="case"><a href="#x86reg.cr1">cr1</a></li><li class="case"><a href="#x86reg.cr2">cr2</a></li><li class="case"><a href="#x86reg.cr3">cr3</a></li><li class="case"><a href="#x86reg.cr4">cr4</a></li><li class="case"><a href="#x86reg.cr5">cr5</a></li><li class="case"><a href="#x86reg.cr6">cr6</a></li><li class="case"><a href="#x86reg.cr7">cr7</a></li><li class="case"><a href="#x86reg.cr8">cr8</a></li><li class="case"><a href="#x86reg.cr9">cr9</a></li><li class="case"><a href="#x86reg.cr10">cr10</a></li><li class="case"><a href="#x86reg.cr11">cr11</a></li><li class="case"><a href="#x86reg.cr12">cr12</a></li><li class="case"><a href="#x86reg.cr13">cr13</a></li><li class="case"><a href="#x86reg.cr14">cr14</a></li><li class="case"><a href="#x86reg.cr15">cr15</a></li><li class="case"><a href="#x86reg.dr0">dr0</a></li><li class="case"><a href="#x86reg.dr1">dr1</a></li><li class="case"><a href="#x86reg.dr2">dr2</a></li><li class="case"><a href="#x86reg.dr3">dr3</a></li><li class="case"><a href="#x86reg.dr4">dr4</a></li><li class="case"><a href="#x86reg.dr5">dr5</a></li><li class="case"><a href="#x86reg.dr6">dr6</a></li><li class="case"><a href="#x86reg.dr7">dr7</a></li><li class="case"><a href="#x86reg.dr8">dr8</a></li><li class="case"><a href="#x86reg.dr9">dr9</a></li><li class="case"><a href="#x86reg.dr10">dr10</a></li><li class="case"><a href="#x86reg.dr11">dr11</a></li><li class="case"><a href="#x86reg.dr12">dr12</a></li><li class="case"><a href="#x86reg.dr13">dr13</a></li><li class="case"><a href="#x86reg.dr14">dr14</a></li><li class="case"><a href="#x86reg.dr15">dr15</a></li><li class="case"><a href="#x86reg.fp0">fp0</a></li><li class="case"><a href="#x86reg.fp1">fp1</a></li><li class="case"><a href="#x86reg.fp2">fp2</a></li><li class="case"><a href="#x86reg.fp3">fp3</a></li><li class="case"><a href="#x86reg.fp4">fp4</a></li><li class="case"><a href="#x86reg.fp5">fp5</a></li><li class="case"><a href="#x86reg.fp6">fp6</a></li><li class="case"><a href="#x86reg.fp7">fp7</a></li><li class="case"><a href="#x86reg.k0">k0</a></li><li class="case"><a href="#x86reg.k1">k1</a></li><li class="case"><a href="#x86reg.k2">k2</a></li><li class="case"><a href="#x86reg.k3">k3</a></li><li class="case"><a href="#x86reg.k4">k4</a></li><li class="case"><a href="#x86reg.k5">k5</a></li><li class="case"><a href="#x86reg.k6">k6</a></li><li class="case"><a href="#x86reg.k7">k7</a></li><li class="case"><a href="#x86reg.mm0">mm0</a></li><li class="case"><a href="#x86reg.mm1">mm1</a></li><li class="case"><a href="#x86reg.mm2">mm2</a></li><li class="case"><a href="#x86reg.mm3">mm3</a></li><li class="case"><a href="#x86reg.mm4">mm4</a></li><li class="case"><a href="#x86reg.mm5">mm5</a></li><li class="case"><a href="#x86reg.mm6">mm6</a></li><li class="case"><a href="#x86reg.mm7">mm7</a></li><li class="case"><a href="#x86reg.r8">r8</a></li><li class="case"><a href="#x86reg.r9">r9</a></li><li class="case"><a href="#x86reg.r10">r10</a></li><li class="case"><a href="#x86reg.r11">r11</a></li><li class="case"><a href="#x86reg.r12">r12</a></li><li class="case"><a href="#x86reg.r13">r13</a></li><li class="case"><a href="#x86reg.r14">r14</a></li><li class="case"><a href="#x86reg.r15">r15</a></li><li class="case"><a href="#x86reg.st0">st0</a></li><li class="case"><a href="#x86reg.st1">st1</a></li><li class="case"><a href="#x86reg.st2">st2</a></li><li class="case"><a href="#x86reg.st3">st3</a></li><li class="case"><a href="#x86reg.st4">st4</a></li><li class="case"><a href="#x86reg.st5">st5</a></li><li class="case"><a href="#x86reg.st6">st6</a></li><li class="case"><a href="#x86reg.st7">st7</a></li><li class="case"><a href="#x86reg.xmm0">xmm0</a></li><li class="case"><a href="#x86reg.xmm1">xmm1</a></li><li class="case"><a href="#x86reg.xmm2">xmm2</a></li><li class="case"><a href="#x86reg.xmm3">xmm3</a></li><li class="case"><a href="#x86reg.xmm4">xmm4</a></li><li class="case"><a href="#x86reg.xmm5">xmm5</a></li><li class="case"><a href="#x86reg.xmm6">xmm6</a></li><li class="case"><a href="#x86reg.xmm7">xmm7</a></li><li class="case"><a href="#x86reg.xmm8">xmm8</a></li><li class="case"><a href="#x86reg.xmm9">xmm9</a></li><li class="case"><a href="#x86reg.xmm10">xmm10</a></li><li class="case"><a href="#x86reg.xmm11">xmm11</a></li><li class="case"><a href="#x86reg.xmm12">xmm12</a></li><li class="case"><a href="#x86reg.xmm13">xmm13</a></li><li class="case"><a href="#x86reg.xmm14">xmm14</a></li><li class="case"><a href="#x86reg.xmm15">xmm15</a></li><li class="case"><a href="#x86reg.xmm16">xmm16</a></li><li class="case"><a href="#x86reg.xmm17">xmm17</a></li><li class="case"><a href="#x86reg.xmm18">xmm18</a></li><li class="case"><a href="#x86reg.xmm19">xmm19</a></li><li class="case"><a href="#x86reg.xmm20">xmm20</a></li><li class="case"><a href="#x86reg.xmm21">xmm21</a></li><li class="case"><a href="#x86reg.xmm22">xmm22</a></li><li class="case"><a href="#x86reg.xmm23">xmm23</a></li><li class="case"><a href="#x86reg.xmm24">xmm24</a></li><li class="case"><a href="#x86reg.xmm25">xmm25</a></li><li class="case"><a href="#x86reg.xmm26">xmm26</a></li><li class="case"><a href="#x86reg.xmm27">xmm27</a></li><li class="case"><a href="#x86reg.xmm28">xmm28</a></li><li class="case"><a href="#x86reg.xmm29">xmm29</a></li><li class="case"><a href="#x86reg.xmm30">xmm30</a></li><li class="case"><a href="#x86reg.xmm31">xmm31</a></li><li class="case"><a href="#x86reg.ymm0">ymm0</a></li><li class="case"><a href="#x86reg.ymm1">ymm1</a></li><li class="case"><a href="#x86reg.ymm2">ymm2</a></li><li class="case"><a href="#x86reg.ymm3">ymm3</a></li><li class="case"><a href="#x86reg.ymm4">ymm4</a></li><li class="case"><a href="#x86reg.ymm5">ymm5</a></li><li class="case"><a href="#x86reg.ymm6">ymm6</a></li><li class="case"><a href="#x86reg.ymm7">ymm7</a></li><li class="case"><a href="#x86reg.ymm8">ymm8</a></li><li class="case"><a href="#x86reg.ymm9">ymm9</a></li><li class="case"><a href="#x86reg.ymm10">ymm10</a></li><li class="case"><a href="#x86reg.ymm11">ymm11</a></li><li class="case"><a href="#x86reg.ymm12">ymm12</a></li><li class="case"><a href="#x86reg.ymm13">ymm13</a></li><li class="case"><a href="#x86reg.ymm14">ymm14</a></li><li class="case"><a href="#x86reg.ymm15">ymm15</a></li><li class="case"><a href="#x86reg.ymm16">ymm16</a></li><li class="case"><a href="#x86reg.ymm17">ymm17</a></li><li class="case"><a href="#x86reg.ymm18">ymm18</a></li><li class="case"><a href="#x86reg.ymm19">ymm19</a></li><li class="case"><a href="#x86reg.ymm20">ymm20</a></li><li class="case"><a href="#x86reg.ymm21">ymm21</a></li><li class="case"><a href="#x86reg.ymm22">ymm22</a></li><li class="case"><a href="#x86reg.ymm23">ymm23</a></li><li class="case"><a href="#x86reg.ymm24">ymm24</a></li><li class="case"><a href="#x86reg.ymm25">ymm25</a></li><li class="case"><a href="#x86reg.ymm26">ymm26</a></li><li class="case"><a href="#x86reg.ymm27">ymm27</a></li><li class="case"><a href="#x86reg.ymm28">ymm28</a></li><li class="case"><a href="#x86reg.ymm29">ymm29</a></li><li class="case"><a href="#x86reg.ymm30">ymm30</a></li><li class="case"><a href="#x86reg.ymm31">ymm31</a></li><li class="case"><a href="#x86reg.zmm0">zmm0</a></li><li class="case"><a href="#x86reg.zmm1">zmm1</a></li><li class="case"><a href="#x86reg.zmm2">zmm2</a></li><li class="case"><a href="#x86reg.zmm3">zmm3</a></li><li class="case"><a href="#x86reg.zmm4">zmm4</a></li><li class="case"><a href="#x86reg.zmm5">zmm5</a></li><li class="case"><a href="#x86reg.zmm6">zmm6</a></li><li class="case"><a href="#x86reg.zmm7">zmm7</a></li><li class="case"><a href="#x86reg.zmm8">zmm8</a></li><li class="case"><a href="#x86reg.zmm9">zmm9</a></li><li class="case"><a href="#x86reg.zmm10">zmm10</a></li><li class="case"><a href="#x86reg.zmm11">zmm11</a></li><li class="case"><a href="#x86reg.zmm12">zmm12</a></li><li class="case"><a href="#x86reg.zmm13">zmm13</a></li><li class="case"><a href="#x86reg.zmm14">zmm14</a></li><li class="case"><a href="#x86reg.zmm15">zmm15</a></li><li class="case"><a href="#x86reg.zmm16">zmm16</a></li><li class="case"><a href="#x86reg.zmm17">zmm17</a></li><li class="case"><a href="#x86reg.zmm18">zmm18</a></li><li class="case"><a href="#x86reg.zmm19">zmm19</a></li><li class="case"><a href="#x86reg.zmm20">zmm20</a></li><li class="case"><a href="#x86reg.zmm21">zmm21</a></li><li class="case"><a href="#x86reg.zmm22">zmm22</a></li><li class="case"><a href="#x86reg.zmm23">zmm23</a></li><li class="case"><a href="#x86reg.zmm24">zmm24</a></li><li class="case"><a href="#x86reg.zmm25">zmm25</a></li><li class="case"><a href="#x86reg.zmm26">zmm26</a></li><li class="case"><a href="#x86reg.zmm27">zmm27</a></li><li class="case"><a href="#x86reg.zmm28">zmm28</a></li><li class="case"><a href="#x86reg.zmm29">zmm29</a></li><li class="case"><a href="#x86reg.zmm30">zmm30</a></li><li class="case"><a href="#x86reg.zmm31">zmm31</a></li><li class="case"><a href="#x86reg.r8b">r8b</a></li><li class="case"><a href="#x86reg.r9b">r9b</a></li><li class="case"><a href="#x86reg.r10b">r10b</a></li><li class="case"><a href="#x86reg.r11b">r11b</a></li><li class="case"><a href="#x86reg.r12b">r12b</a></li><li class="case"><a href="#x86reg.r13b">r13b</a></li><li class="case"><a href="#x86reg.r14b">r14b</a></li><li class="case"><a href="#x86reg.r15b">r15b</a></li><li class="case"><a href="#x86reg.r8d">r8d</a></li><li class="case"><a href="#x86reg.r9d">r9d</a></li><li class="case"><a href="#x86reg.r10d">r10d</a></li><li class="case"><a href="#x86reg.r11d">r11d</a></li><li class="case"><a href="#x86reg.r12d">r12d</a></li><li class="case"><a href="#x86reg.r13d">r13d</a></li><li class="case"><a href="#x86reg.r14d">r14d</a></li><li class="case"><a href="#x86reg.r15d">r15d</a></li><li class="case"><a href="#x86reg.r8w">r8w</a></li><li class="case"><a href="#x86reg.r9w">r9w</a></li><li class="case"><a href="#x86reg.r10w">r10w</a></li><li class="case"><a href="#x86reg.r11w">r11w</a></li><li class="case"><a href="#x86reg.r12w">r12w</a></li><li class="case"><a href="#x86reg.r13w">r13w</a></li><li class="case"><a href="#x86reg.r14w">r14w</a></li><li class="case"><a href="#x86reg.r15w">r15w</a></li><li class="case"><a href="#x86reg.bnd0">bnd0</a></li><li class="case"><a href="#x86reg.bnd1">bnd1</a></li><li class="case"><a href="#x86reg.bnd2">bnd2</a></li><li class="case"><a href="#x86reg.bnd3">bnd3</a></li><li class="case"><a href="#x86reg.ending">ending</a></li></ul></li></ol>
+        </div>
+    </nav>
+
+    <main>
+        <article>
+            <h1>
+    <small>Enumeration</small>
+    <code class="name">X86Reg</code>
+</h1>
+
+<html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">enum</span> <span class="type">X86Reg</span></code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>X86 registers</p>
+
+</div>
+<section id="relationships">
+    <h2 hidden>Relationships</h2>
+        <figure>
+    <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.36.0 (20140111.2315)
+ -->
+<!-- Title: %3 Pages: 1 -->
+<svg width="872pt" height="116pt"
+ viewBox="0.00 0.00 872.00 116.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 112)">
+<title>%3</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-112 868,-112 868,4 -4,4"/>
+<!-- X86Reg -->
+<g id="node1" class="node"><title>X86Reg</title>
+<g id="a_node1"><a xlink:href="/X86Reg" xlink:title="X86Reg">
+<path fill="none" stroke="black" stroke-width="3" d="M528,-108C528,-108 336,-108 336,-108 330,-108 324,-102 324,-96 324,-96 324,-84 324,-84 324,-78 330,-72 336,-72 336,-72 528,-72 528,-72 534,-72 540,-78 540,-84 540,-84 540,-96 540,-96 540,-102 534,-108 528,-108"/>
+<text text-anchor="middle" x="432" y="-86.3" font-family="Menlo" font-size="14.00">X86Reg</text>
+</a>
+</g>
+</g>
+<!-- UInt16 -->
+<g id="node2" class="node"><title>UInt16</title>
+<path fill="none" stroke="black" d="M528,-36C528,-36 336,-36 336,-36 330,-36 324,-30 324,-24 324,-24 324,-12 324,-12 324,-6 330,-0 336,-0 336,-0 528,-0 528,-0 534,-0 540,-6 540,-12 540,-12 540,-24 540,-24 540,-30 534,-36 528,-36"/>
+<text text-anchor="middle" x="432" y="-14.3" font-family="Menlo" font-size="14.00">UInt16</text>
+</g>
+<!-- X86Reg&#45;&gt;UInt16 -->
+<g id="edge1" class="edge"><title>X86Reg&#45;&gt;UInt16</title>
+<path fill="none" stroke="black" d="M432,-71.6966C432,-63.9827 432,-54.7125 432,-46.1124"/>
+<polygon fill="black" stroke="black" points="435.5,-46.1043 432,-36.1043 428.5,-46.1044 435.5,-46.1043"/>
+</g>
+</g>
+</svg>
+
+
+    <figcaption hidden>Inheritance graph for X86Reg.</figcaption>
+</figure>
+        <h3>Conforms To</h3>
+<dl>
+    <dt class="unknown"><code>UInt16</code></dt>
+</dl>
+</section>
+    <section id="enumeration cases">
+        <h2>Enumeration Cases</h2>
+
+        <div role="article" class="case" id="x86reg.invalid">
+    <h3>
+        <code>invalid</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">invalid</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.ah">
+    <h3>
+        <code>ah</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ah</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.al">
+    <h3>
+        <code>al</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">al</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.ax">
+    <h3>
+        <code>ax</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ax</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.bh">
+    <h3>
+        <code>bh</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">bh</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.bl">
+    <h3>
+        <code>bl</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">bl</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.bp">
+    <h3>
+        <code>bp</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">bp</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.bpl">
+    <h3>
+        <code>bpl</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">bpl</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.bx">
+    <h3>
+        <code>bx</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">bx</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.ch">
+    <h3>
+        <code>ch</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ch</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.cl">
+    <h3>
+        <code>cl</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cl</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.cs">
+    <h3>
+        <code>cs</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cs</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.cx">
+    <h3>
+        <code>cx</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cx</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.dh">
+    <h3>
+        <code>dh</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">dh</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.di">
+    <h3>
+        <code>di</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">di</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.dil">
+    <h3>
+        <code>dil</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">dil</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.dl">
+    <h3>
+        <code>dl</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">dl</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.ds">
+    <h3>
+        <code>ds</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ds</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.dx">
+    <h3>
+        <code>dx</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">dx</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.eax">
+    <h3>
+        <code>eax</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">eax</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.ebp">
+    <h3>
+        <code>ebp</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ebp</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.ebx">
+    <h3>
+        <code>ebx</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ebx</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.ecx">
+    <h3>
+        <code>ecx</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ecx</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.edi">
+    <h3>
+        <code>edi</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">edi</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.edx">
+    <h3>
+        <code>edx</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">edx</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.eflags">
+    <h3>
+        <code>eflags</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">eflags</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.eip">
+    <h3>
+        <code>eip</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">eip</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.eiz">
+    <h3>
+        <code>eiz</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">eiz</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.es">
+    <h3>
+        <code>es</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">es</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.esi">
+    <h3>
+        <code>esi</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">esi</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.esp">
+    <h3>
+        <code>esp</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">esp</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.fpsw">
+    <h3>
+        <code>fpsw</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fpsw</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.fs">
+    <h3>
+        <code>fs</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fs</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.gs">
+    <h3>
+        <code>gs</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">gs</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.ip">
+    <h3>
+        <code>ip</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ip</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.rax">
+    <h3>
+        <code>rax</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">rax</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.rbp">
+    <h3>
+        <code>rbp</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">rbp</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.rbx">
+    <h3>
+        <code>rbx</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">rbx</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.rcx">
+    <h3>
+        <code>rcx</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">rcx</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.rdi">
+    <h3>
+        <code>rdi</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">rdi</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.rdx">
+    <h3>
+        <code>rdx</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">rdx</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.rip">
+    <h3>
+        <code>rip</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">rip</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.riz">
+    <h3>
+        <code>riz</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">riz</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.rsi">
+    <h3>
+        <code>rsi</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">rsi</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.rsp">
+    <h3>
+        <code>rsp</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">rsp</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.si">
+    <h3>
+        <code>si</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">si</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.sil">
+    <h3>
+        <code>sil</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">sil</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.sp">
+    <h3>
+        <code>sp</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">sp</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.spl">
+    <h3>
+        <code>spl</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">spl</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.ss">
+    <h3>
+        <code>ss</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ss</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.cr0">
+    <h3>
+        <code>cr0</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cr0</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.cr1">
+    <h3>
+        <code>cr1</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cr1</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.cr2">
+    <h3>
+        <code>cr2</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cr2</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.cr3">
+    <h3>
+        <code>cr3</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cr3</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.cr4">
+    <h3>
+        <code>cr4</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cr4</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.cr5">
+    <h3>
+        <code>cr5</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cr5</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.cr6">
+    <h3>
+        <code>cr6</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cr6</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.cr7">
+    <h3>
+        <code>cr7</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cr7</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.cr8">
+    <h3>
+        <code>cr8</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cr8</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.cr9">
+    <h3>
+        <code>cr9</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cr9</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.cr10">
+    <h3>
+        <code>cr10</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cr10</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.cr11">
+    <h3>
+        <code>cr11</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cr11</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.cr12">
+    <h3>
+        <code>cr12</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cr12</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.cr13">
+    <h3>
+        <code>cr13</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cr13</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.cr14">
+    <h3>
+        <code>cr14</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cr14</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.cr15">
+    <h3>
+        <code>cr15</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cr15</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.dr0">
+    <h3>
+        <code>dr0</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">dr0</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.dr1">
+    <h3>
+        <code>dr1</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">dr1</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.dr2">
+    <h3>
+        <code>dr2</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">dr2</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.dr3">
+    <h3>
+        <code>dr3</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">dr3</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.dr4">
+    <h3>
+        <code>dr4</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">dr4</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.dr5">
+    <h3>
+        <code>dr5</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">dr5</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.dr6">
+    <h3>
+        <code>dr6</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">dr6</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.dr7">
+    <h3>
+        <code>dr7</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">dr7</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.dr8">
+    <h3>
+        <code>dr8</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">dr8</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.dr9">
+    <h3>
+        <code>dr9</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">dr9</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.dr10">
+    <h3>
+        <code>dr10</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">dr10</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.dr11">
+    <h3>
+        <code>dr11</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">dr11</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.dr12">
+    <h3>
+        <code>dr12</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">dr12</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.dr13">
+    <h3>
+        <code>dr13</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">dr13</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.dr14">
+    <h3>
+        <code>dr14</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">dr14</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.dr15">
+    <h3>
+        <code>dr15</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">dr15</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.fp0">
+    <h3>
+        <code>fp0</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fp0</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.fp1">
+    <h3>
+        <code>fp1</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fp1</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.fp2">
+    <h3>
+        <code>fp2</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fp2</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.fp3">
+    <h3>
+        <code>fp3</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fp3</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.fp4">
+    <h3>
+        <code>fp4</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fp4</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.fp5">
+    <h3>
+        <code>fp5</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fp5</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.fp6">
+    <h3>
+        <code>fp6</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fp6</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.fp7">
+    <h3>
+        <code>fp7</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fp7</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.k0">
+    <h3>
+        <code>k0</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">k0</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.k1">
+    <h3>
+        <code>k1</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">k1</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.k2">
+    <h3>
+        <code>k2</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">k2</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.k3">
+    <h3>
+        <code>k3</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">k3</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.k4">
+    <h3>
+        <code>k4</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">k4</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.k5">
+    <h3>
+        <code>k5</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">k5</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.k6">
+    <h3>
+        <code>k6</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">k6</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.k7">
+    <h3>
+        <code>k7</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">k7</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.mm0">
+    <h3>
+        <code>mm0</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">mm0</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.mm1">
+    <h3>
+        <code>mm1</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">mm1</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.mm2">
+    <h3>
+        <code>mm2</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">mm2</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.mm3">
+    <h3>
+        <code>mm3</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">mm3</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.mm4">
+    <h3>
+        <code>mm4</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">mm4</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.mm5">
+    <h3>
+        <code>mm5</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">mm5</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.mm6">
+    <h3>
+        <code>mm6</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">mm6</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.mm7">
+    <h3>
+        <code>mm7</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">mm7</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.r8">
+    <h3>
+        <code>r8</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">r8</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.r9">
+    <h3>
+        <code>r9</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">r9</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.r10">
+    <h3>
+        <code>r10</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">r10</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.r11">
+    <h3>
+        <code>r11</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">r11</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.r12">
+    <h3>
+        <code>r12</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">r12</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.r13">
+    <h3>
+        <code>r13</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">r13</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.r14">
+    <h3>
+        <code>r14</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">r14</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.r15">
+    <h3>
+        <code>r15</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">r15</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.st0">
+    <h3>
+        <code>st0</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">st0</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.st1">
+    <h3>
+        <code>st1</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">st1</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.st2">
+    <h3>
+        <code>st2</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">st2</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.st3">
+    <h3>
+        <code>st3</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">st3</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.st4">
+    <h3>
+        <code>st4</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">st4</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.st5">
+    <h3>
+        <code>st5</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">st5</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.st6">
+    <h3>
+        <code>st6</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">st6</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.st7">
+    <h3>
+        <code>st7</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">st7</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.xmm0">
+    <h3>
+        <code>xmm0</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">xmm0</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.xmm1">
+    <h3>
+        <code>xmm1</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">xmm1</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.xmm2">
+    <h3>
+        <code>xmm2</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">xmm2</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.xmm3">
+    <h3>
+        <code>xmm3</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">xmm3</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.xmm4">
+    <h3>
+        <code>xmm4</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">xmm4</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.xmm5">
+    <h3>
+        <code>xmm5</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">xmm5</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.xmm6">
+    <h3>
+        <code>xmm6</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">xmm6</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.xmm7">
+    <h3>
+        <code>xmm7</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">xmm7</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.xmm8">
+    <h3>
+        <code>xmm8</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">xmm8</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.xmm9">
+    <h3>
+        <code>xmm9</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">xmm9</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.xmm10">
+    <h3>
+        <code>xmm10</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">xmm10</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.xmm11">
+    <h3>
+        <code>xmm11</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">xmm11</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.xmm12">
+    <h3>
+        <code>xmm12</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">xmm12</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.xmm13">
+    <h3>
+        <code>xmm13</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">xmm13</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.xmm14">
+    <h3>
+        <code>xmm14</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">xmm14</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.xmm15">
+    <h3>
+        <code>xmm15</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">xmm15</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.xmm16">
+    <h3>
+        <code>xmm16</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">xmm16</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.xmm17">
+    <h3>
+        <code>xmm17</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">xmm17</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.xmm18">
+    <h3>
+        <code>xmm18</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">xmm18</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.xmm19">
+    <h3>
+        <code>xmm19</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">xmm19</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.xmm20">
+    <h3>
+        <code>xmm20</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">xmm20</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.xmm21">
+    <h3>
+        <code>xmm21</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">xmm21</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.xmm22">
+    <h3>
+        <code>xmm22</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">xmm22</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.xmm23">
+    <h3>
+        <code>xmm23</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">xmm23</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.xmm24">
+    <h3>
+        <code>xmm24</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">xmm24</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.xmm25">
+    <h3>
+        <code>xmm25</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">xmm25</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.xmm26">
+    <h3>
+        <code>xmm26</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">xmm26</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.xmm27">
+    <h3>
+        <code>xmm27</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">xmm27</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.xmm28">
+    <h3>
+        <code>xmm28</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">xmm28</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.xmm29">
+    <h3>
+        <code>xmm29</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">xmm29</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.xmm30">
+    <h3>
+        <code>xmm30</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">xmm30</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.xmm31">
+    <h3>
+        <code>xmm31</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">xmm31</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.ymm0">
+    <h3>
+        <code>ymm0</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ymm0</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.ymm1">
+    <h3>
+        <code>ymm1</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ymm1</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.ymm2">
+    <h3>
+        <code>ymm2</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ymm2</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.ymm3">
+    <h3>
+        <code>ymm3</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ymm3</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.ymm4">
+    <h3>
+        <code>ymm4</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ymm4</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.ymm5">
+    <h3>
+        <code>ymm5</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ymm5</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.ymm6">
+    <h3>
+        <code>ymm6</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ymm6</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.ymm7">
+    <h3>
+        <code>ymm7</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ymm7</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.ymm8">
+    <h3>
+        <code>ymm8</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ymm8</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.ymm9">
+    <h3>
+        <code>ymm9</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ymm9</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.ymm10">
+    <h3>
+        <code>ymm10</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ymm10</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.ymm11">
+    <h3>
+        <code>ymm11</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ymm11</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.ymm12">
+    <h3>
+        <code>ymm12</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ymm12</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.ymm13">
+    <h3>
+        <code>ymm13</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ymm13</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.ymm14">
+    <h3>
+        <code>ymm14</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ymm14</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.ymm15">
+    <h3>
+        <code>ymm15</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ymm15</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.ymm16">
+    <h3>
+        <code>ymm16</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ymm16</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.ymm17">
+    <h3>
+        <code>ymm17</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ymm17</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.ymm18">
+    <h3>
+        <code>ymm18</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ymm18</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.ymm19">
+    <h3>
+        <code>ymm19</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ymm19</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.ymm20">
+    <h3>
+        <code>ymm20</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ymm20</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.ymm21">
+    <h3>
+        <code>ymm21</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ymm21</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.ymm22">
+    <h3>
+        <code>ymm22</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ymm22</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.ymm23">
+    <h3>
+        <code>ymm23</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ymm23</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.ymm24">
+    <h3>
+        <code>ymm24</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ymm24</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.ymm25">
+    <h3>
+        <code>ymm25</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ymm25</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.ymm26">
+    <h3>
+        <code>ymm26</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ymm26</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.ymm27">
+    <h3>
+        <code>ymm27</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ymm27</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.ymm28">
+    <h3>
+        <code>ymm28</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ymm28</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.ymm29">
+    <h3>
+        <code>ymm29</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ymm29</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.ymm30">
+    <h3>
+        <code>ymm30</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ymm30</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.ymm31">
+    <h3>
+        <code>ymm31</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ymm31</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.zmm0">
+    <h3>
+        <code>zmm0</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">zmm0</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.zmm1">
+    <h3>
+        <code>zmm1</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">zmm1</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.zmm2">
+    <h3>
+        <code>zmm2</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">zmm2</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.zmm3">
+    <h3>
+        <code>zmm3</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">zmm3</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.zmm4">
+    <h3>
+        <code>zmm4</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">zmm4</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.zmm5">
+    <h3>
+        <code>zmm5</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">zmm5</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.zmm6">
+    <h3>
+        <code>zmm6</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">zmm6</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.zmm7">
+    <h3>
+        <code>zmm7</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">zmm7</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.zmm8">
+    <h3>
+        <code>zmm8</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">zmm8</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.zmm9">
+    <h3>
+        <code>zmm9</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">zmm9</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.zmm10">
+    <h3>
+        <code>zmm10</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">zmm10</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.zmm11">
+    <h3>
+        <code>zmm11</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">zmm11</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.zmm12">
+    <h3>
+        <code>zmm12</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">zmm12</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.zmm13">
+    <h3>
+        <code>zmm13</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">zmm13</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.zmm14">
+    <h3>
+        <code>zmm14</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">zmm14</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.zmm15">
+    <h3>
+        <code>zmm15</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">zmm15</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.zmm16">
+    <h3>
+        <code>zmm16</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">zmm16</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.zmm17">
+    <h3>
+        <code>zmm17</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">zmm17</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.zmm18">
+    <h3>
+        <code>zmm18</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">zmm18</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.zmm19">
+    <h3>
+        <code>zmm19</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">zmm19</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.zmm20">
+    <h3>
+        <code>zmm20</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">zmm20</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.zmm21">
+    <h3>
+        <code>zmm21</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">zmm21</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.zmm22">
+    <h3>
+        <code>zmm22</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">zmm22</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.zmm23">
+    <h3>
+        <code>zmm23</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">zmm23</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.zmm24">
+    <h3>
+        <code>zmm24</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">zmm24</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.zmm25">
+    <h3>
+        <code>zmm25</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">zmm25</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.zmm26">
+    <h3>
+        <code>zmm26</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">zmm26</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.zmm27">
+    <h3>
+        <code>zmm27</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">zmm27</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.zmm28">
+    <h3>
+        <code>zmm28</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">zmm28</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.zmm29">
+    <h3>
+        <code>zmm29</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">zmm29</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.zmm30">
+    <h3>
+        <code>zmm30</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">zmm30</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.zmm31">
+    <h3>
+        <code>zmm31</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">zmm31</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.r8b">
+    <h3>
+        <code>r8b</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">r8b</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.r9b">
+    <h3>
+        <code>r9b</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">r9b</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.r10b">
+    <h3>
+        <code>r10b</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">r10b</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.r11b">
+    <h3>
+        <code>r11b</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">r11b</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.r12b">
+    <h3>
+        <code>r12b</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">r12b</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.r13b">
+    <h3>
+        <code>r13b</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">r13b</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.r14b">
+    <h3>
+        <code>r14b</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">r14b</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.r15b">
+    <h3>
+        <code>r15b</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">r15b</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.r8d">
+    <h3>
+        <code>r8d</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">r8d</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.r9d">
+    <h3>
+        <code>r9d</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">r9d</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.r10d">
+    <h3>
+        <code>r10d</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">r10d</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.r11d">
+    <h3>
+        <code>r11d</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">r11d</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.r12d">
+    <h3>
+        <code>r12d</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">r12d</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.r13d">
+    <h3>
+        <code>r13d</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">r13d</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.r14d">
+    <h3>
+        <code>r14d</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">r14d</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.r15d">
+    <h3>
+        <code>r15d</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">r15d</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.r8w">
+    <h3>
+        <code>r8w</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">r8w</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.r9w">
+    <h3>
+        <code>r9w</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">r9w</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.r10w">
+    <h3>
+        <code>r10w</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">r10w</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.r11w">
+    <h3>
+        <code>r11w</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">r11w</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.r12w">
+    <h3>
+        <code>r12w</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">r12w</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.r13w">
+    <h3>
+        <code>r13w</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">r13w</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.r14w">
+    <h3>
+        <code>r14w</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">r14w</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.r15w">
+    <h3>
+        <code>r15w</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">r15w</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.bnd0">
+    <h3>
+        <code>bnd0</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">bnd0</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.bnd1">
+    <h3>
+        <code>bnd1</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">bnd1</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.bnd2">
+    <h3>
+        <code>bnd2</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">bnd2</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.bnd3">
+    <h3>
+        <code>bnd3</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">bnd3</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="x86reg.ending">
+    <h3>
+        <code>ending</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ending</span></code></pre></body></html>
+</div>
+    </section>
+
+
+
+        </article>
+    </main>
+
+    <footer>
+        <p>
+    Generated on <time datetime="2020-11-21T15:19:30+0100">21 November 2020</time> using <a href="https://github.com/SwiftDocOrg/swift-doc">swift-doc</a> <span class="version">1.0.0-beta.5</span>.
+</p>
+    </footer>
+</body>
+</html>

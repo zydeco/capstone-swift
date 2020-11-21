@@ -1,0 +1,1336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capstone - MipsInsMod</title>
+    <link rel="stylesheet" type="text/css" href="/all.css" media="all" />
+</head>
+<body>
+    <header>
+        <a href="/">
+            <strong>
+                Capstone
+            </strong>
+            <span>Documentation</span>
+        </a>
+        <sup>Beta</sup>
+    </header>
+
+    <!--
+    <form class="search">
+        <input type="search" placeholder="Search" />
+    </form>
+    -->
+
+    <nav>
+        <div class="wrapper">
+            <h2>On This Page</h2>
+            <ol><li><a href="#relationships">Relationships</a><ul><li><a href="#relationships">Conforms To</a></li></ul></li><li><a href="#enumeration cases">Enumeration Cases</a><ul><li class="case"><a href="#mipsinsmod.s">s</a></li><li class="case"><a href="#mipsinsmod.u">u</a></li><li class="case"><a href="#mipsinsmod.move">move</a></li><li class="case"><a href="#mipsinsmod.movep">movep</a></li><li class="case"><a href="#mipsinsmod.movf">movf</a></li><li class="case"><a href="#mipsinsmod.movn">movn</a></li><li class="case"><a href="#mipsinsmod.movt">movt</a></li><li class="case"><a href="#mipsinsmod.movz">movz</a></li><li class="case"><a href="#mipsinsmod.msub">msub</a></li><li class="case"><a href="#mipsinsmod.msubf">msubf</a></li><li class="case"><a href="#mipsinsmod.msubrq">msubr​Q</a></li><li class="case"><a href="#mipsinsmod.msubu">msubu</a></li><li class="case"><a href="#mipsinsmod.msubv">msubv</a></li><li class="case"><a href="#mipsinsmod.msubq">msub​Q</a></li><li class="case"><a href="#mipsinsmod.mtc0">mtc0</a></li><li class="case"><a href="#mipsinsmod.mtc1">mtc1</a></li><li class="case"><a href="#mipsinsmod.mtc2">mtc2</a></li><li class="case"><a href="#mipsinsmod.mthc1">mthc1</a></li><li class="case"><a href="#mipsinsmod.mthi">mthi</a></li><li class="case"><a href="#mipsinsmod.mthlip">mthlip</a></li><li class="case"><a href="#mipsinsmod.mtlo">mtlo</a></li><li class="case"><a href="#mipsinsmod.mtm0">mtm0</a></li><li class="case"><a href="#mipsinsmod.mtm1">mtm1</a></li><li class="case"><a href="#mipsinsmod.mtm2">mtm2</a></li><li class="case"><a href="#mipsinsmod.mtp0">mtp0</a></li><li class="case"><a href="#mipsinsmod.mtp1">mtp1</a></li><li class="case"><a href="#mipsinsmod.mtp2">mtp2</a></li><li class="case"><a href="#mipsinsmod.muh">muh</a></li><li class="case"><a href="#mipsinsmod.muhu">muhu</a></li><li class="case"><a href="#mipsinsmod.muleqs">muleq​S</a></li><li class="case"><a href="#mipsinsmod.muleus">muleu​S</a></li><li class="case"><a href="#mipsinsmod.mulqrs">mulq​Rs</a></li><li class="case"><a href="#mipsinsmod.mulqs">mulq​S</a></li><li class="case"><a href="#mipsinsmod.mulrq">mulr​Q</a></li><li class="case"><a href="#mipsinsmod.mulsaqs">mulsaq​S</a></li><li class="case"><a href="#mipsinsmod.mulsa">mulsa</a></li><li class="case"><a href="#mipsinsmod.mult">mult</a></li><li class="case"><a href="#mipsinsmod.multu">multu</a></li><li class="case"><a href="#mipsinsmod.mulu">mulu</a></li><li class="case"><a href="#mipsinsmod.mulv">mulv</a></li><li class="case"><a href="#mipsinsmod.mulq">mul​Q</a></li><li class="case"><a href="#mipsinsmod.muls">mul​S</a></li><li class="case"><a href="#mipsinsmod.nloc">nloc</a></li><li class="case"><a href="#mipsinsmod.nlzc">nlzc</a></li><li class="case"><a href="#mipsinsmod.nmadd">nmadd</a></li><li class="case"><a href="#mipsinsmod.nmsub">nmsub</a></li><li class="case"><a href="#mipsinsmod.nor">nor</a></li><li class="case"><a href="#mipsinsmod.nori">nori</a></li><li class="case"><a href="#mipsinsmod.not16">not16</a></li><li class="case"><a href="#mipsinsmod.not">not</a></li><li class="case"><a href="#mipsinsmod.or">or</a></li><li class="case"><a href="#mipsinsmod.or16">or16</a></li><li class="case"><a href="#mipsinsmod.ori">ori</a></li><li class="case"><a href="#mipsinsmod.packrl">packrl</a></li><li class="case"><a href="#mipsinsmod.pause">pause</a></li><li class="case"><a href="#mipsinsmod.pckev">pckev</a></li><li class="case"><a href="#mipsinsmod.pckod">pckod</a></li><li class="case"><a href="#mipsinsmod.pcnt">pcnt</a></li><li class="case"><a href="#mipsinsmod.pick">pick</a></li><li class="case"><a href="#mipsinsmod.pop">pop</a></li><li class="case"><a href="#mipsinsmod.precequ">precequ</a></li><li class="case"><a href="#mipsinsmod.preceq">preceq</a></li><li class="case"><a href="#mipsinsmod.preceu">preceu</a></li><li class="case"><a href="#mipsinsmod.precrqus">precrqu​S</a></li><li class="case"><a href="#mipsinsmod.precrq">precrq</a></li><li class="case"><a href="#mipsinsmod.precrqrs">precrq​Rs</a></li><li class="case"><a href="#mipsinsmod.precr">precr</a></li><li class="case"><a href="#mipsinsmod.precrsra">precr​Sra</a></li><li class="case"><a href="#mipsinsmod.precrsrar">precr​Sra​R</a></li><li class="case"><a href="#mipsinsmod.pref">pref</a></li><li class="case"><a href="#mipsinsmod.prepend">prepend</a></li><li class="case"><a href="#mipsinsmod.raddu">raddu</a></li><li class="case"><a href="#mipsinsmod.rddsp">rddsp</a></li><li class="case"><a href="#mipsinsmod.rdhwr">rdhwr</a></li><li class="case"><a href="#mipsinsmod.replv">replv</a></li><li class="case"><a href="#mipsinsmod.repl">repl</a></li><li class="case"><a href="#mipsinsmod.rint">rint</a></li><li class="case"><a href="#mipsinsmod.rotr">rotr</a></li><li class="case"><a href="#mipsinsmod.rotrv">rotrv</a></li><li class="case"><a href="#mipsinsmod.round">round</a></li><li class="case"><a href="#mipsinsmod.sats">sat​S</a></li><li class="case"><a href="#mipsinsmod.satu">sat​U</a></li><li class="case"><a href="#mipsinsmod.sb">sb</a></li><li class="case"><a href="#mipsinsmod.sb16">sb16</a></li><li class="case"><a href="#mipsinsmod.sc">sc</a></li><li class="case"><a href="#mipsinsmod.scd">scd</a></li><li class="case"><a href="#mipsinsmod.sd">sd</a></li><li class="case"><a href="#mipsinsmod.sdbbp">sdbbp</a></li><li class="case"><a href="#mipsinsmod.sdbbp16">sdbbp16</a></li><li class="case"><a href="#mipsinsmod.sdc1">sdc1</a></li><li class="case"><a href="#mipsinsmod.sdc2">sdc2</a></li><li class="case"><a href="#mipsinsmod.sdc3">sdc3</a></li><li class="case"><a href="#mipsinsmod.sdl">sdl</a></li><li class="case"><a href="#mipsinsmod.sdr">sdr</a></li><li class="case"><a href="#mipsinsmod.sdxc1">sdxc1</a></li><li class="case"><a href="#mipsinsmod.seb">seb</a></li><li class="case"><a href="#mipsinsmod.seh">seh</a></li><li class="case"><a href="#mipsinsmod.seleqz">seleqz</a></li><li class="case"><a href="#mipsinsmod.selnez">selnez</a></li><li class="case"><a href="#mipsinsmod.sel">sel</a></li><li class="case"><a href="#mipsinsmod.seq">seq</a></li><li class="case"><a href="#mipsinsmod.seqi">seqi</a></li><li class="case"><a href="#mipsinsmod.sh">sh</a></li><li class="case"><a href="#mipsinsmod.sh16">sh16</a></li><li class="case"><a href="#mipsinsmod.shf">shf</a></li><li class="case"><a href="#mipsinsmod.shilo">shilo</a></li><li class="case"><a href="#mipsinsmod.shilov">shilov</a></li><li class="case"><a href="#mipsinsmod.shllv">shllv</a></li><li class="case"><a href="#mipsinsmod.shllvs">shllv​S</a></li><li class="case"><a href="#mipsinsmod.shll">shll</a></li><li class="case"><a href="#mipsinsmod.shlls">shll​S</a></li><li class="case"><a href="#mipsinsmod.shrav">shrav</a></li><li class="case"><a href="#mipsinsmod.shravr">shrav​R</a></li><li class="case"><a href="#mipsinsmod.shra">shra</a></li><li class="case"><a href="#mipsinsmod.shrar">shra​R</a></li><li class="case"><a href="#mipsinsmod.shrlv">shrlv</a></li><li class="case"><a href="#mipsinsmod.shrl">shrl</a></li><li class="case"><a href="#mipsinsmod.sldi">sldi</a></li><li class="case"><a href="#mipsinsmod.sld">sld</a></li><li class="case"><a href="#mipsinsmod.sll">sll</a></li><li class="case"><a href="#mipsinsmod.sll16">sll16</a></li><li class="case"><a href="#mipsinsmod.slli">slli</a></li><li class="case"><a href="#mipsinsmod.sllv">sllv</a></li><li class="case"><a href="#mipsinsmod.slt">slt</a></li><li class="case"><a href="#mipsinsmod.slti">slti</a></li><li class="case"><a href="#mipsinsmod.sltiu">sltiu</a></li><li class="case"><a href="#mipsinsmod.sltu">sltu</a></li><li class="case"><a href="#mipsinsmod.sne">sne</a></li><li class="case"><a href="#mipsinsmod.snei">snei</a></li><li class="case"><a href="#mipsinsmod.splati">splati</a></li><li class="case"><a href="#mipsinsmod.splat">splat</a></li><li class="case"><a href="#mipsinsmod.sra">sra</a></li><li class="case"><a href="#mipsinsmod.srai">srai</a></li><li class="case"><a href="#mipsinsmod.srari">srari</a></li><li class="case"><a href="#mipsinsmod.srar">srar</a></li><li class="case"><a href="#mipsinsmod.srav">srav</a></li><li class="case"><a href="#mipsinsmod.srl">srl</a></li><li class="case"><a href="#mipsinsmod.srl16">srl16</a></li><li class="case"><a href="#mipsinsmod.srli">srli</a></li><li class="case"><a href="#mipsinsmod.srlri">srlri</a></li><li class="case"><a href="#mipsinsmod.srlr">srlr</a></li><li class="case"><a href="#mipsinsmod.srlv">srlv</a></li><li class="case"><a href="#mipsinsmod.ssnop">ssnop</a></li><li class="case"><a href="#mipsinsmod.st">st</a></li><li class="case"><a href="#mipsinsmod.subqh">subqh</a></li><li class="case"><a href="#mipsinsmod.subqhr">subqh​R</a></li><li class="case"><a href="#mipsinsmod.subq">subq</a></li><li class="case"><a href="#mipsinsmod.subqs">subq​S</a></li><li class="case"><a href="#mipsinsmod.subsusu">subsus​U</a></li><li class="case"><a href="#mipsinsmod.subsuus">subsuu​S</a></li><li class="case"><a href="#mipsinsmod.subss">subs​S</a></li><li class="case"><a href="#mipsinsmod.subsu">subs​U</a></li><li class="case"><a href="#mipsinsmod.subu16">subu16</a></li><li class="case"><a href="#mipsinsmod.subuh">subuh</a></li><li class="case"><a href="#mipsinsmod.subuhr">subuh​R</a></li><li class="case"><a href="#mipsinsmod.subu">subu</a></li><li class="case"><a href="#mipsinsmod.subus">subu​S</a></li><li class="case"><a href="#mipsinsmod.subvi">subvi</a></li><li class="case"><a href="#mipsinsmod.subv">subv</a></li><li class="case"><a href="#mipsinsmod.suxc1">suxc1</a></li><li class="case"><a href="#mipsinsmod.sw">sw</a></li><li class="case"><a href="#mipsinsmod.sw16">sw16</a></li><li class="case"><a href="#mipsinsmod.swc1">swc1</a></li><li class="case"><a href="#mipsinsmod.swc2">swc2</a></li><li class="case"><a href="#mipsinsmod.swc3">swc3</a></li><li class="case"><a href="#mipsinsmod.swl">swl</a></li><li class="case"><a href="#mipsinsmod.swm16">swm16</a></li><li class="case"><a href="#mipsinsmod.swm32">swm32</a></li><li class="case"><a href="#mipsinsmod.swp">swp</a></li><li class="case"><a href="#mipsinsmod.swr">swr</a></li><li class="case"><a href="#mipsinsmod.swxc1">swxc1</a></li><li class="case"><a href="#mipsinsmod.sync">sync</a></li><li class="case"><a href="#mipsinsmod.synci">synci</a></li><li class="case"><a href="#mipsinsmod.syscall">syscall</a></li><li class="case"><a href="#mipsinsmod.teq">teq</a></li><li class="case"><a href="#mipsinsmod.teqi">teqi</a></li><li class="case"><a href="#mipsinsmod.tge">tge</a></li><li class="case"><a href="#mipsinsmod.tgei">tgei</a></li><li class="case"><a href="#mipsinsmod.tgeiu">tgeiu</a></li><li class="case"><a href="#mipsinsmod.tgeu">tgeu</a></li><li class="case"><a href="#mipsinsmod.tlbp">tlbp</a></li><li class="case"><a href="#mipsinsmod.tlbr">tlbr</a></li><li class="case"><a href="#mipsinsmod.tlbwi">tlbwi</a></li><li class="case"><a href="#mipsinsmod.tlbwr">tlbwr</a></li><li class="case"><a href="#mipsinsmod.tlt">tlt</a></li><li class="case"><a href="#mipsinsmod.tlti">tlti</a></li><li class="case"><a href="#mipsinsmod.tltiu">tltiu</a></li><li class="case"><a href="#mipsinsmod.tltu">tltu</a></li><li class="case"><a href="#mipsinsmod.tne">tne</a></li><li class="case"><a href="#mipsinsmod.tnei">tnei</a></li><li class="case"><a href="#mipsinsmod.trunc">trunc</a></li><li class="case"><a href="#mipsinsmod.v3mulu">v3mulu</a></li><li class="case"><a href="#mipsinsmod.vmm0">vmm0</a></li><li class="case"><a href="#mipsinsmod.vmulu">vmulu</a></li><li class="case"><a href="#mipsinsmod.vshf">vshf</a></li><li class="case"><a href="#mipsinsmod.wait">wait</a></li><li class="case"><a href="#mipsinsmod.wrdsp">wrdsp</a></li><li class="case"><a href="#mipsinsmod.wsbh">wsbh</a></li><li class="case"><a href="#mipsinsmod.xor">xor</a></li><li class="case"><a href="#mipsinsmod.xor16">xor16</a></li><li class="case"><a href="#mipsinsmod.xori">xori</a></li><li class="case"><a href="#mipsinsmod.nop">nop</a></li><li class="case"><a href="#mipsinsmod.negu">negu</a></li><li class="case"><a href="#mipsinsmod.jalrhb">jalr​Hb</a></li><li class="case"><a href="#mipsinsmod.jrhb">jr​Hb</a></li><li class="case"><a href="#mipsinsmod.ending">ending</a></li></ul></li></ol>
+        </div>
+    </nav>
+
+    <main>
+        <article>
+            <h1>
+    <small>Enumeration</small>
+    <code class="name">Mips​Ins​Mod</code>
+</h1>
+
+<html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">enum</span> <span class="type">MipsInsMod</span></code></pre></body></html>
+<section id="relationships">
+    <h2 hidden>Relationships</h2>
+        <figure>
+    <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.36.0 (20140111.2315)
+ -->
+<!-- Title: %3 Pages: 1 -->
+<svg width="872pt" height="116pt"
+ viewBox="0.00 0.00 872.00 116.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 112)">
+<title>%3</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-112 868,-112 868,4 -4,4"/>
+<!-- MipsInsMod -->
+<g id="node1" class="node"><title>MipsInsMod</title>
+<g id="a_node1"><a xlink:href="/MipsInsMod" xlink:title="MipsInsMod">
+<path fill="none" stroke="black" stroke-width="3" d="M528,-108C528,-108 336,-108 336,-108 330,-108 324,-102 324,-96 324,-96 324,-84 324,-84 324,-78 330,-72 336,-72 336,-72 528,-72 528,-72 534,-72 540,-78 540,-84 540,-84 540,-96 540,-96 540,-102 534,-108 528,-108"/>
+<text text-anchor="middle" x="432" y="-86.3" font-family="Menlo" font-size="14.00">MipsInsMod</text>
+</a>
+</g>
+</g>
+<!-- UInt32 -->
+<g id="node2" class="node"><title>UInt32</title>
+<path fill="none" stroke="black" d="M528,-36C528,-36 336,-36 336,-36 330,-36 324,-30 324,-24 324,-24 324,-12 324,-12 324,-6 330,-0 336,-0 336,-0 528,-0 528,-0 534,-0 540,-6 540,-12 540,-12 540,-24 540,-24 540,-30 534,-36 528,-36"/>
+<text text-anchor="middle" x="432" y="-14.3" font-family="Menlo" font-size="14.00">UInt32</text>
+</g>
+<!-- MipsInsMod&#45;&gt;UInt32 -->
+<g id="edge1" class="edge"><title>MipsInsMod&#45;&gt;UInt32</title>
+<path fill="none" stroke="black" d="M432,-71.6966C432,-63.9827 432,-54.7125 432,-46.1124"/>
+<polygon fill="black" stroke="black" points="435.5,-46.1043 432,-36.1043 428.5,-46.1044 435.5,-46.1043"/>
+</g>
+</g>
+</svg>
+
+
+    <figcaption hidden>Inheritance graph for MipsInsMod.</figcaption>
+</figure>
+        <h3>Conforms To</h3>
+<dl>
+    <dt class="unknown"><code>UInt32</code></dt>
+</dl>
+</section>
+    <section id="enumeration cases">
+        <h2>Enumeration Cases</h2>
+
+        <div role="article" class="case" id="mipsinsmod.s">
+    <h3>
+        <code>s</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">s</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.u">
+    <h3>
+        <code>u</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">u</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.move">
+    <h3>
+        <code>move</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">move</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.movep">
+    <h3>
+        <code>movep</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">movep</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.movf">
+    <h3>
+        <code>movf</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">movf</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.movn">
+    <h3>
+        <code>movn</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">movn</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.movt">
+    <h3>
+        <code>movt</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">movt</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.movz">
+    <h3>
+        <code>movz</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">movz</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.msub">
+    <h3>
+        <code>msub</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">msub</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.msubf">
+    <h3>
+        <code>msubf</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">msubf</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.msubrq">
+    <h3>
+        <code>msubr​Q</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">msubrQ</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.msubu">
+    <h3>
+        <code>msubu</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">msubu</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.msubv">
+    <h3>
+        <code>msubv</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">msubv</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.msubq">
+    <h3>
+        <code>msub​Q</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">msubQ</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.mtc0">
+    <h3>
+        <code>mtc0</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">mtc0</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.mtc1">
+    <h3>
+        <code>mtc1</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">mtc1</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.mtc2">
+    <h3>
+        <code>mtc2</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">mtc2</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.mthc1">
+    <h3>
+        <code>mthc1</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">mthc1</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.mthi">
+    <h3>
+        <code>mthi</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">mthi</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.mthlip">
+    <h3>
+        <code>mthlip</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">mthlip</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.mtlo">
+    <h3>
+        <code>mtlo</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">mtlo</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.mtm0">
+    <h3>
+        <code>mtm0</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">mtm0</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.mtm1">
+    <h3>
+        <code>mtm1</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">mtm1</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.mtm2">
+    <h3>
+        <code>mtm2</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">mtm2</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.mtp0">
+    <h3>
+        <code>mtp0</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">mtp0</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.mtp1">
+    <h3>
+        <code>mtp1</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">mtp1</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.mtp2">
+    <h3>
+        <code>mtp2</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">mtp2</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.muh">
+    <h3>
+        <code>muh</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">muh</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.muhu">
+    <h3>
+        <code>muhu</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">muhu</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.muleqs">
+    <h3>
+        <code>muleq​S</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">muleqS</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.muleus">
+    <h3>
+        <code>muleu​S</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">muleuS</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.mulqrs">
+    <h3>
+        <code>mulq​Rs</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">mulqRs</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.mulqs">
+    <h3>
+        <code>mulq​S</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">mulqS</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.mulrq">
+    <h3>
+        <code>mulr​Q</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">mulrQ</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.mulsaqs">
+    <h3>
+        <code>mulsaq​S</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">mulsaqS</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.mulsa">
+    <h3>
+        <code>mulsa</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">mulsa</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.mult">
+    <h3>
+        <code>mult</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">mult</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.multu">
+    <h3>
+        <code>multu</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">multu</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.mulu">
+    <h3>
+        <code>mulu</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">mulu</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.mulv">
+    <h3>
+        <code>mulv</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">mulv</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.mulq">
+    <h3>
+        <code>mul​Q</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">mulQ</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.muls">
+    <h3>
+        <code>mul​S</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">mulS</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.nloc">
+    <h3>
+        <code>nloc</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">nloc</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.nlzc">
+    <h3>
+        <code>nlzc</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">nlzc</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.nmadd">
+    <h3>
+        <code>nmadd</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">nmadd</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.nmsub">
+    <h3>
+        <code>nmsub</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">nmsub</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.nor">
+    <h3>
+        <code>nor</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">nor</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.nori">
+    <h3>
+        <code>nori</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">nori</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.not16">
+    <h3>
+        <code>not16</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">not16</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.not">
+    <h3>
+        <code>not</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">not</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.or">
+    <h3>
+        <code>or</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">or</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.or16">
+    <h3>
+        <code>or16</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">or16</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.ori">
+    <h3>
+        <code>ori</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ori</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.packrl">
+    <h3>
+        <code>packrl</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">packrl</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.pause">
+    <h3>
+        <code>pause</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">pause</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.pckev">
+    <h3>
+        <code>pckev</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">pckev</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.pckod">
+    <h3>
+        <code>pckod</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">pckod</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.pcnt">
+    <h3>
+        <code>pcnt</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">pcnt</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.pick">
+    <h3>
+        <code>pick</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">pick</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.pop">
+    <h3>
+        <code>pop</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">pop</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.precequ">
+    <h3>
+        <code>precequ</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">precequ</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.preceq">
+    <h3>
+        <code>preceq</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">preceq</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.preceu">
+    <h3>
+        <code>preceu</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">preceu</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.precrqus">
+    <h3>
+        <code>precrqu​S</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">precrquS</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.precrq">
+    <h3>
+        <code>precrq</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">precrq</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.precrqrs">
+    <h3>
+        <code>precrq​Rs</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">precrqRs</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.precr">
+    <h3>
+        <code>precr</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">precr</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.precrsra">
+    <h3>
+        <code>precr​Sra</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">precrSra</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.precrsrar">
+    <h3>
+        <code>precr​Sra​R</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">precrSraR</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.pref">
+    <h3>
+        <code>pref</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">pref</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.prepend">
+    <h3>
+        <code>prepend</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">prepend</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.raddu">
+    <h3>
+        <code>raddu</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">raddu</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.rddsp">
+    <h3>
+        <code>rddsp</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">rddsp</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.rdhwr">
+    <h3>
+        <code>rdhwr</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">rdhwr</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.replv">
+    <h3>
+        <code>replv</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">replv</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.repl">
+    <h3>
+        <code>repl</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">repl</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.rint">
+    <h3>
+        <code>rint</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">rint</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.rotr">
+    <h3>
+        <code>rotr</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">rotr</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.rotrv">
+    <h3>
+        <code>rotrv</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">rotrv</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.round">
+    <h3>
+        <code>round</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">round</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.sats">
+    <h3>
+        <code>sat​S</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">satS</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.satu">
+    <h3>
+        <code>sat​U</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">satU</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.sb">
+    <h3>
+        <code>sb</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">sb</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.sb16">
+    <h3>
+        <code>sb16</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">sb16</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.sc">
+    <h3>
+        <code>sc</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">sc</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.scd">
+    <h3>
+        <code>scd</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">scd</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.sd">
+    <h3>
+        <code>sd</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">sd</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.sdbbp">
+    <h3>
+        <code>sdbbp</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">sdbbp</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.sdbbp16">
+    <h3>
+        <code>sdbbp16</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">sdbbp16</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.sdc1">
+    <h3>
+        <code>sdc1</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">sdc1</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.sdc2">
+    <h3>
+        <code>sdc2</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">sdc2</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.sdc3">
+    <h3>
+        <code>sdc3</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">sdc3</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.sdl">
+    <h3>
+        <code>sdl</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">sdl</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.sdr">
+    <h3>
+        <code>sdr</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">sdr</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.sdxc1">
+    <h3>
+        <code>sdxc1</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">sdxc1</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.seb">
+    <h3>
+        <code>seb</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">seb</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.seh">
+    <h3>
+        <code>seh</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">seh</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.seleqz">
+    <h3>
+        <code>seleqz</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">seleqz</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.selnez">
+    <h3>
+        <code>selnez</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">selnez</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.sel">
+    <h3>
+        <code>sel</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">sel</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.seq">
+    <h3>
+        <code>seq</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">seq</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.seqi">
+    <h3>
+        <code>seqi</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">seqi</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.sh">
+    <h3>
+        <code>sh</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">sh</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.sh16">
+    <h3>
+        <code>sh16</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">sh16</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.shf">
+    <h3>
+        <code>shf</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">shf</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.shilo">
+    <h3>
+        <code>shilo</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">shilo</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.shilov">
+    <h3>
+        <code>shilov</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">shilov</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.shllv">
+    <h3>
+        <code>shllv</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">shllv</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.shllvs">
+    <h3>
+        <code>shllv​S</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">shllvS</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.shll">
+    <h3>
+        <code>shll</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">shll</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.shlls">
+    <h3>
+        <code>shll​S</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">shllS</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.shrav">
+    <h3>
+        <code>shrav</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">shrav</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.shravr">
+    <h3>
+        <code>shrav​R</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">shravR</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.shra">
+    <h3>
+        <code>shra</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">shra</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.shrar">
+    <h3>
+        <code>shra​R</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">shraR</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.shrlv">
+    <h3>
+        <code>shrlv</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">shrlv</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.shrl">
+    <h3>
+        <code>shrl</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">shrl</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.sldi">
+    <h3>
+        <code>sldi</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">sldi</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.sld">
+    <h3>
+        <code>sld</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">sld</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.sll">
+    <h3>
+        <code>sll</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">sll</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.sll16">
+    <h3>
+        <code>sll16</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">sll16</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.slli">
+    <h3>
+        <code>slli</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">slli</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.sllv">
+    <h3>
+        <code>sllv</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">sllv</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.slt">
+    <h3>
+        <code>slt</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">slt</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.slti">
+    <h3>
+        <code>slti</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">slti</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.sltiu">
+    <h3>
+        <code>sltiu</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">sltiu</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.sltu">
+    <h3>
+        <code>sltu</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">sltu</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.sne">
+    <h3>
+        <code>sne</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">sne</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.snei">
+    <h3>
+        <code>snei</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">snei</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.splati">
+    <h3>
+        <code>splati</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">splati</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.splat">
+    <h3>
+        <code>splat</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">splat</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.sra">
+    <h3>
+        <code>sra</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">sra</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.srai">
+    <h3>
+        <code>srai</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">srai</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.srari">
+    <h3>
+        <code>srari</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">srari</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.srar">
+    <h3>
+        <code>srar</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">srar</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.srav">
+    <h3>
+        <code>srav</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">srav</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.srl">
+    <h3>
+        <code>srl</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">srl</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.srl16">
+    <h3>
+        <code>srl16</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">srl16</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.srli">
+    <h3>
+        <code>srli</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">srli</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.srlri">
+    <h3>
+        <code>srlri</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">srlri</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.srlr">
+    <h3>
+        <code>srlr</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">srlr</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.srlv">
+    <h3>
+        <code>srlv</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">srlv</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.ssnop">
+    <h3>
+        <code>ssnop</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ssnop</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.st">
+    <h3>
+        <code>st</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">st</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.subqh">
+    <h3>
+        <code>subqh</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">subqh</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.subqhr">
+    <h3>
+        <code>subqh​R</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">subqhR</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.subq">
+    <h3>
+        <code>subq</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">subq</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.subqs">
+    <h3>
+        <code>subq​S</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">subqS</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.subsusu">
+    <h3>
+        <code>subsus​U</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">subsusU</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.subsuus">
+    <h3>
+        <code>subsuu​S</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">subsuuS</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.subss">
+    <h3>
+        <code>subs​S</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">subsS</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.subsu">
+    <h3>
+        <code>subs​U</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">subsU</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.subu16">
+    <h3>
+        <code>subu16</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">subu16</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.subuh">
+    <h3>
+        <code>subuh</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">subuh</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.subuhr">
+    <h3>
+        <code>subuh​R</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">subuhR</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.subu">
+    <h3>
+        <code>subu</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">subu</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.subus">
+    <h3>
+        <code>subu​S</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">subuS</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.subvi">
+    <h3>
+        <code>subvi</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">subvi</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.subv">
+    <h3>
+        <code>subv</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">subv</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.suxc1">
+    <h3>
+        <code>suxc1</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">suxc1</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.sw">
+    <h3>
+        <code>sw</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">sw</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.sw16">
+    <h3>
+        <code>sw16</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">sw16</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.swc1">
+    <h3>
+        <code>swc1</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">swc1</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.swc2">
+    <h3>
+        <code>swc2</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">swc2</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.swc3">
+    <h3>
+        <code>swc3</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">swc3</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.swl">
+    <h3>
+        <code>swl</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">swl</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.swm16">
+    <h3>
+        <code>swm16</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">swm16</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.swm32">
+    <h3>
+        <code>swm32</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">swm32</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.swp">
+    <h3>
+        <code>swp</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">swp</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.swr">
+    <h3>
+        <code>swr</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">swr</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.swxc1">
+    <h3>
+        <code>swxc1</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">swxc1</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.sync">
+    <h3>
+        <code>sync</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">sync</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.synci">
+    <h3>
+        <code>synci</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">synci</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.syscall">
+    <h3>
+        <code>syscall</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">syscall</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.teq">
+    <h3>
+        <code>teq</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">teq</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.teqi">
+    <h3>
+        <code>teqi</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">teqi</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.tge">
+    <h3>
+        <code>tge</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">tge</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.tgei">
+    <h3>
+        <code>tgei</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">tgei</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.tgeiu">
+    <h3>
+        <code>tgeiu</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">tgeiu</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.tgeu">
+    <h3>
+        <code>tgeu</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">tgeu</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.tlbp">
+    <h3>
+        <code>tlbp</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">tlbp</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.tlbr">
+    <h3>
+        <code>tlbr</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">tlbr</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.tlbwi">
+    <h3>
+        <code>tlbwi</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">tlbwi</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.tlbwr">
+    <h3>
+        <code>tlbwr</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">tlbwr</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.tlt">
+    <h3>
+        <code>tlt</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">tlt</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.tlti">
+    <h3>
+        <code>tlti</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">tlti</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.tltiu">
+    <h3>
+        <code>tltiu</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">tltiu</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.tltu">
+    <h3>
+        <code>tltu</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">tltu</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.tne">
+    <h3>
+        <code>tne</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">tne</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.tnei">
+    <h3>
+        <code>tnei</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">tnei</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.trunc">
+    <h3>
+        <code>trunc</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">trunc</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.v3mulu">
+    <h3>
+        <code>v3mulu</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">v3mulu</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.vmm0">
+    <h3>
+        <code>vmm0</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vmm0</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.vmulu">
+    <h3>
+        <code>vmulu</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vmulu</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.vshf">
+    <h3>
+        <code>vshf</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vshf</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.wait">
+    <h3>
+        <code>wait</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">wait</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.wrdsp">
+    <h3>
+        <code>wrdsp</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">wrdsp</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.wsbh">
+    <h3>
+        <code>wsbh</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">wsbh</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.xor">
+    <h3>
+        <code>xor</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">xor</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.xor16">
+    <h3>
+        <code>xor16</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">xor16</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.xori">
+    <h3>
+        <code>xori</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">xori</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.nop">
+    <h3>
+        <code>nop</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">nop</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.negu">
+    <h3>
+        <code>negu</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">negu</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.jalrhb">
+    <h3>
+        <code>jalr​Hb</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">jalrHb</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.jrhb">
+    <h3>
+        <code>jr​Hb</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">jrHb</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsinsmod.ending">
+    <h3>
+        <code>ending</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ending</span></code></pre></body></html>
+</div>
+    </section>
+
+
+
+        </article>
+    </main>
+
+    <footer>
+        <p>
+    Generated on <time datetime="2020-11-21T15:19:18+0100">21 November 2020</time> using <a href="https://github.com/SwiftDocOrg/swift-doc">swift-doc</a> <span class="version">1.0.0-beta.5</span>.
+</p>
+    </footer>
+</body>
+</html>

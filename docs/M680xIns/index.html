@@ -1,0 +1,2400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capstone - M680xIns</title>
+    <link rel="stylesheet" type="text/css" href="/all.css" media="all" />
+</head>
+<body>
+    <header>
+        <a href="/">
+            <strong>
+                Capstone
+            </strong>
+            <span>Documentation</span>
+        </a>
+        <sup>Beta</sup>
+    </header>
+
+    <!--
+    <form class="search">
+        <input type="search" placeholder="Search" />
+    </form>
+    -->
+
+    <nav>
+        <div class="wrapper">
+            <h2>On This Page</h2>
+            <ol><li><a href="#relationships">Relationships</a><ul><li><a href="#relationships">Conforms To</a></li></ul></li><li><a href="#enumeration cases">Enumeration Cases</a><ul><li class="case"><a href="#m680xins.invld">invld</a></li><li class="case"><a href="#m680xins.aba">aba</a></li><li class="case"><a href="#m680xins.abx">abx</a></li><li class="case"><a href="#m680xins.aby">aby</a></li><li class="case"><a href="#m680xins.adc">adc</a></li><li class="case"><a href="#m680xins.adca">adca</a></li><li class="case"><a href="#m680xins.adcb">adcb</a></li><li class="case"><a href="#m680xins.adcd">adcd</a></li><li class="case"><a href="#m680xins.adcr">adcr</a></li><li class="case"><a href="#m680xins.add">add</a></li><li class="case"><a href="#m680xins.adda">adda</a></li><li class="case"><a href="#m680xins.addb">addb</a></li><li class="case"><a href="#m680xins.addd">addd</a></li><li class="case"><a href="#m680xins.adde">adde</a></li><li class="case"><a href="#m680xins.addf">addf</a></li><li class="case"><a href="#m680xins.addr">addr</a></li><li class="case"><a href="#m680xins.addw">addw</a></li><li class="case"><a href="#m680xins.aim">aim</a></li><li class="case"><a href="#m680xins.ais">ais</a></li><li class="case"><a href="#m680xins.aix">aix</a></li><li class="case"><a href="#m680xins.and">and</a></li><li class="case"><a href="#m680xins.anda">anda</a></li><li class="case"><a href="#m680xins.andb">andb</a></li><li class="case"><a href="#m680xins.andcc">andcc</a></li><li class="case"><a href="#m680xins.andd">andd</a></li><li class="case"><a href="#m680xins.andr">andr</a></li><li class="case"><a href="#m680xins.asl">asl</a></li><li class="case"><a href="#m680xins.asla">asla</a></li><li class="case"><a href="#m680xins.aslb">aslb</a></li><li class="case"><a href="#m680xins.asld">asld</a></li><li class="case"><a href="#m680xins.asr">asr</a></li><li class="case"><a href="#m680xins.asra">asra</a></li><li class="case"><a href="#m680xins.asrb">asrb</a></li><li class="case"><a href="#m680xins.asrd">asrd</a></li><li class="case"><a href="#m680xins.asrx">asrx</a></li><li class="case"><a href="#m680xins.band">band</a></li><li class="case"><a href="#m680xins.bcc">bcc</a></li><li class="case"><a href="#m680xins.bclr">bclr</a></li><li class="case"><a href="#m680xins.bcs">bcs</a></li><li class="case"><a href="#m680xins.beor">beor</a></li><li class="case"><a href="#m680xins.beq">beq</a></li><li class="case"><a href="#m680xins.bge">bge</a></li><li class="case"><a href="#m680xins.bgnd">bgnd</a></li><li class="case"><a href="#m680xins.bgt">bgt</a></li><li class="case"><a href="#m680xins.bhcc">bhcc</a></li><li class="case"><a href="#m680xins.bhcs">bhcs</a></li><li class="case"><a href="#m680xins.bhi">bhi</a></li><li class="case"><a href="#m680xins.biand">biand</a></li><li class="case"><a href="#m680xins.bieor">bieor</a></li><li class="case"><a href="#m680xins.bih">bih</a></li><li class="case"><a href="#m680xins.bil">bil</a></li><li class="case"><a href="#m680xins.bior">bior</a></li><li class="case"><a href="#m680xins.bit">bit</a></li><li class="case"><a href="#m680xins.bita">bita</a></li><li class="case"><a href="#m680xins.bitb">bitb</a></li><li class="case"><a href="#m680xins.bitd">bitd</a></li><li class="case"><a href="#m680xins.bitmd">bitmd</a></li><li class="case"><a href="#m680xins.ble">ble</a></li><li class="case"><a href="#m680xins.bls">bls</a></li><li class="case"><a href="#m680xins.blt">blt</a></li><li class="case"><a href="#m680xins.bmc">bmc</a></li><li class="case"><a href="#m680xins.bmi">bmi</a></li><li class="case"><a href="#m680xins.bms">bms</a></li><li class="case"><a href="#m680xins.bne">bne</a></li><li class="case"><a href="#m680xins.bor">bor</a></li><li class="case"><a href="#m680xins.bpl">bpl</a></li><li class="case"><a href="#m680xins.brclr">brclr</a></li><li class="case"><a href="#m680xins.brset">brset</a></li><li class="case"><a href="#m680xins.bra">bra</a></li><li class="case"><a href="#m680xins.brn">brn</a></li><li class="case"><a href="#m680xins.bset">bset</a></li><li class="case"><a href="#m680xins.bsr">bsr</a></li><li class="case"><a href="#m680xins.bvc">bvc</a></li><li class="case"><a href="#m680xins.bvs">bvs</a></li><li class="case"><a href="#m680xins.call">call</a></li><li class="case"><a href="#m680xins.cba">cba</a></li><li class="case"><a href="#m680xins.cbeq">cbeq</a></li><li class="case"><a href="#m680xins.cbeqa">cbeqa</a></li><li class="case"><a href="#m680xins.cbeqx">cbeqx</a></li><li class="case"><a href="#m680xins.clc">clc</a></li><li class="case"><a href="#m680xins.cli">cli</a></li><li class="case"><a href="#m680xins.clr">clr</a></li><li class="case"><a href="#m680xins.clra">clra</a></li><li class="case"><a href="#m680xins.clrb">clrb</a></li><li class="case"><a href="#m680xins.clrd">clrd</a></li><li class="case"><a href="#m680xins.clre">clre</a></li><li class="case"><a href="#m680xins.clrf">clrf</a></li><li class="case"><a href="#m680xins.clrh">clrh</a></li><li class="case"><a href="#m680xins.clrw">clrw</a></li><li class="case"><a href="#m680xins.clrx">clrx</a></li><li class="case"><a href="#m680xins.clv">clv</a></li><li class="case"><a href="#m680xins.cmp">cmp</a></li><li class="case"><a href="#m680xins.cmpa">cmpa</a></li><li class="case"><a href="#m680xins.cmpb">cmpb</a></li><li class="case"><a href="#m680xins.cmpd">cmpd</a></li><li class="case"><a href="#m680xins.cmpe">cmpe</a></li><li class="case"><a href="#m680xins.cmpf">cmpf</a></li><li class="case"><a href="#m680xins.cmpr">cmpr</a></li><li class="case"><a href="#m680xins.cmps">cmps</a></li><li class="case"><a href="#m680xins.cmpu">cmpu</a></li><li class="case"><a href="#m680xins.cmpw">cmpw</a></li><li class="case"><a href="#m680xins.cmpx">cmpx</a></li><li class="case"><a href="#m680xins.cmpy">cmpy</a></li><li class="case"><a href="#m680xins.com">com</a></li><li class="case"><a href="#m680xins.coma">coma</a></li><li class="case"><a href="#m680xins.comb">comb</a></li><li class="case"><a href="#m680xins.comd">comd</a></li><li class="case"><a href="#m680xins.come">come</a></li><li class="case"><a href="#m680xins.comf">comf</a></li><li class="case"><a href="#m680xins.comw">comw</a></li><li class="case"><a href="#m680xins.comx">comx</a></li><li class="case"><a href="#m680xins.cpd">cpd</a></li><li class="case"><a href="#m680xins.cphx">cphx</a></li><li class="case"><a href="#m680xins.cps">cps</a></li><li class="case"><a href="#m680xins.cpx">cpx</a></li><li class="case"><a href="#m680xins.cpy">cpy</a></li><li class="case"><a href="#m680xins.cwai">cwai</a></li><li class="case"><a href="#m680xins.daa">daa</a></li><li class="case"><a href="#m680xins.dbeq">dbeq</a></li><li class="case"><a href="#m680xins.dbne">dbne</a></li><li class="case"><a href="#m680xins.dbnz">dbnz</a></li><li class="case"><a href="#m680xins.dbnza">dbnza</a></li><li class="case"><a href="#m680xins.dbnzx">dbnzx</a></li><li class="case"><a href="#m680xins.dec">dec</a></li><li class="case"><a href="#m680xins.deca">deca</a></li><li class="case"><a href="#m680xins.decb">decb</a></li><li class="case"><a href="#m680xins.decd">decd</a></li><li class="case"><a href="#m680xins.dece">dece</a></li><li class="case"><a href="#m680xins.decf">decf</a></li><li class="case"><a href="#m680xins.decw">decw</a></li><li class="case"><a href="#m680xins.decx">decx</a></li><li class="case"><a href="#m680xins.des">des</a></li><li class="case"><a href="#m680xins.dex">dex</a></li><li class="case"><a href="#m680xins.dey">dey</a></li><li class="case"><a href="#m680xins.div">div</a></li><li class="case"><a href="#m680xins.divd">divd</a></li><li class="case"><a href="#m680xins.divq">divq</a></li><li class="case"><a href="#m680xins.ediv">ediv</a></li><li class="case"><a href="#m680xins.edivs">edivs</a></li><li class="case"><a href="#m680xins.eim">eim</a></li><li class="case"><a href="#m680xins.emacs">emacs</a></li><li class="case"><a href="#m680xins.emaxd">emaxd</a></li><li class="case"><a href="#m680xins.emaxm">emaxm</a></li><li class="case"><a href="#m680xins.emind">emind</a></li><li class="case"><a href="#m680xins.eminm">eminm</a></li><li class="case"><a href="#m680xins.emul">emul</a></li><li class="case"><a href="#m680xins.emuls">emuls</a></li><li class="case"><a href="#m680xins.eor">eor</a></li><li class="case"><a href="#m680xins.eora">eora</a></li><li class="case"><a href="#m680xins.eorb">eorb</a></li><li class="case"><a href="#m680xins.eord">eord</a></li><li class="case"><a href="#m680xins.eorr">eorr</a></li><li class="case"><a href="#m680xins.etbl">etbl</a></li><li class="case"><a href="#m680xins.exg">exg</a></li><li class="case"><a href="#m680xins.fdiv">fdiv</a></li><li class="case"><a href="#m680xins.ibeq">ibeq</a></li><li class="case"><a href="#m680xins.ibne">ibne</a></li><li class="case"><a href="#m680xins.idiv">idiv</a></li><li class="case"><a href="#m680xins.idivs">idivs</a></li><li class="case"><a href="#m680xins.illgl">illgl</a></li><li class="case"><a href="#m680xins.inc">inc</a></li><li class="case"><a href="#m680xins.inca">inca</a></li><li class="case"><a href="#m680xins.incb">incb</a></li><li class="case"><a href="#m680xins.incd">incd</a></li><li class="case"><a href="#m680xins.ince">ince</a></li><li class="case"><a href="#m680xins.incf">incf</a></li><li class="case"><a href="#m680xins.incw">incw</a></li><li class="case"><a href="#m680xins.incx">incx</a></li><li class="case"><a href="#m680xins.ins">ins</a></li><li class="case"><a href="#m680xins.inx">inx</a></li><li class="case"><a href="#m680xins.iny">iny</a></li><li class="case"><a href="#m680xins.jmp">jmp</a></li><li class="case"><a href="#m680xins.jsr">jsr</a></li><li class="case"><a href="#m680xins.lbcc">lbcc</a></li><li class="case"><a href="#m680xins.lbcs">lbcs</a></li><li class="case"><a href="#m680xins.lbeq">lbeq</a></li><li class="case"><a href="#m680xins.lbge">lbge</a></li><li class="case"><a href="#m680xins.lbgt">lbgt</a></li><li class="case"><a href="#m680xins.lbhi">lbhi</a></li><li class="case"><a href="#m680xins.lble">lble</a></li><li class="case"><a href="#m680xins.lbls">lbls</a></li><li class="case"><a href="#m680xins.lblt">lblt</a></li><li class="case"><a href="#m680xins.lbmi">lbmi</a></li><li class="case"><a href="#m680xins.lbne">lbne</a></li><li class="case"><a href="#m680xins.lbpl">lbpl</a></li><li class="case"><a href="#m680xins.lbra">lbra</a></li><li class="case"><a href="#m680xins.lbrn">lbrn</a></li><li class="case"><a href="#m680xins.lbsr">lbsr</a></li><li class="case"><a href="#m680xins.lbvc">lbvc</a></li><li class="case"><a href="#m680xins.lbvs">lbvs</a></li><li class="case"><a href="#m680xins.lda">lda</a></li><li class="case"><a href="#m680xins.ldaa">ldaa</a></li><li class="case"><a href="#m680xins.ldab">ldab</a></li><li class="case"><a href="#m680xins.ldb">ldb</a></li><li class="case"><a href="#m680xins.ldbt">ldbt</a></li><li class="case"><a href="#m680xins.ldd">ldd</a></li><li class="case"><a href="#m680xins.lde">lde</a></li><li class="case"><a href="#m680xins.ldf">ldf</a></li><li class="case"><a href="#m680xins.ldhx">ldhx</a></li><li class="case"><a href="#m680xins.ldmd">ldmd</a></li><li class="case"><a href="#m680xins.ldq">ldq</a></li><li class="case"><a href="#m680xins.lds">lds</a></li><li class="case"><a href="#m680xins.ldu">ldu</a></li><li class="case"><a href="#m680xins.ldw">ldw</a></li><li class="case"><a href="#m680xins.ldx">ldx</a></li><li class="case"><a href="#m680xins.ldy">ldy</a></li><li class="case"><a href="#m680xins.leas">leas</a></li><li class="case"><a href="#m680xins.leau">leau</a></li><li class="case"><a href="#m680xins.leax">leax</a></li><li class="case"><a href="#m680xins.leay">leay</a></li><li class="case"><a href="#m680xins.lsl">lsl</a></li><li class="case"><a href="#m680xins.lsla">lsla</a></li><li class="case"><a href="#m680xins.lslb">lslb</a></li><li class="case"><a href="#m680xins.lsld">lsld</a></li><li class="case"><a href="#m680xins.lslx">lslx</a></li><li class="case"><a href="#m680xins.lsr">lsr</a></li><li class="case"><a href="#m680xins.lsra">lsra</a></li><li class="case"><a href="#m680xins.lsrb">lsrb</a></li><li class="case"><a href="#m680xins.lsrd">lsrd</a></li><li class="case"><a href="#m680xins.lsrw">lsrw</a></li><li class="case"><a href="#m680xins.lsrx">lsrx</a></li><li class="case"><a href="#m680xins.maxa">maxa</a></li><li class="case"><a href="#m680xins.maxm">maxm</a></li><li class="case"><a href="#m680xins.mem">mem</a></li><li class="case"><a href="#m680xins.mina">mina</a></li><li class="case"><a href="#m680xins.minm">minm</a></li><li class="case"><a href="#m680xins.mov">mov</a></li><li class="case"><a href="#m680xins.movb">movb</a></li><li class="case"><a href="#m680xins.movw">movw</a></li><li class="case"><a href="#m680xins.mul">mul</a></li><li class="case"><a href="#m680xins.muld">muld</a></li><li class="case"><a href="#m680xins.neg">neg</a></li><li class="case"><a href="#m680xins.nega">nega</a></li><li class="case"><a href="#m680xins.negb">negb</a></li><li class="case"><a href="#m680xins.negd">negd</a></li><li class="case"><a href="#m680xins.negx">negx</a></li><li class="case"><a href="#m680xins.nop">nop</a></li><li class="case"><a href="#m680xins.nsa">nsa</a></li><li class="case"><a href="#m680xins.oim">oim</a></li><li class="case"><a href="#m680xins.ora">ora</a></li><li class="case"><a href="#m680xins.oraa">oraa</a></li><li class="case"><a href="#m680xins.orab">orab</a></li><li class="case"><a href="#m680xins.orb">orb</a></li><li class="case"><a href="#m680xins.orcc">orcc</a></li><li class="case"><a href="#m680xins.ord">ord</a></li><li class="case"><a href="#m680xins.orr">orr</a></li><li class="case"><a href="#m680xins.psha">psha</a></li><li class="case"><a href="#m680xins.pshb">pshb</a></li><li class="case"><a href="#m680xins.pshc">pshc</a></li><li class="case"><a href="#m680xins.pshd">pshd</a></li><li class="case"><a href="#m680xins.pshh">pshh</a></li><li class="case"><a href="#m680xins.pshs">pshs</a></li><li class="case"><a href="#m680xins.pshsw">pshsw</a></li><li class="case"><a href="#m680xins.pshu">pshu</a></li><li class="case"><a href="#m680xins.pshuw">pshuw</a></li><li class="case"><a href="#m680xins.pshx">pshx</a></li><li class="case"><a href="#m680xins.pshy">pshy</a></li><li class="case"><a href="#m680xins.pula">pula</a></li><li class="case"><a href="#m680xins.pulb">pulb</a></li><li class="case"><a href="#m680xins.pulc">pulc</a></li><li class="case"><a href="#m680xins.puld">puld</a></li><li class="case"><a href="#m680xins.pulh">pulh</a></li><li class="case"><a href="#m680xins.puls">puls</a></li><li class="case"><a href="#m680xins.pulsw">pulsw</a></li><li class="case"><a href="#m680xins.pulu">pulu</a></li><li class="case"><a href="#m680xins.puluw">puluw</a></li><li class="case"><a href="#m680xins.pulx">pulx</a></li><li class="case"><a href="#m680xins.puly">puly</a></li><li class="case"><a href="#m680xins.rev">rev</a></li><li class="case"><a href="#m680xins.revw">revw</a></li><li class="case"><a href="#m680xins.rol">rol</a></li><li class="case"><a href="#m680xins.rola">rola</a></li><li class="case"><a href="#m680xins.rolb">rolb</a></li><li class="case"><a href="#m680xins.rold">rold</a></li><li class="case"><a href="#m680xins.rolw">rolw</a></li><li class="case"><a href="#m680xins.rolx">rolx</a></li><li class="case"><a href="#m680xins.ror">ror</a></li><li class="case"><a href="#m680xins.rora">rora</a></li><li class="case"><a href="#m680xins.rorb">rorb</a></li><li class="case"><a href="#m680xins.rord">rord</a></li><li class="case"><a href="#m680xins.rorw">rorw</a></li><li class="case"><a href="#m680xins.rorx">rorx</a></li><li class="case"><a href="#m680xins.rsp">rsp</a></li><li class="case"><a href="#m680xins.rtc">rtc</a></li><li class="case"><a href="#m680xins.rti">rti</a></li><li class="case"><a href="#m680xins.rts">rts</a></li><li class="case"><a href="#m680xins.sba">sba</a></li><li class="case"><a href="#m680xins.sbc">sbc</a></li><li class="case"><a href="#m680xins.sbca">sbca</a></li><li class="case"><a href="#m680xins.sbcb">sbcb</a></li><li class="case"><a href="#m680xins.sbcd">sbcd</a></li><li class="case"><a href="#m680xins.sbcr">sbcr</a></li><li class="case"><a href="#m680xins.sec">sec</a></li><li class="case"><a href="#m680xins.sei">sei</a></li><li class="case"><a href="#m680xins.sev">sev</a></li><li class="case"><a href="#m680xins.sex">sex</a></li><li class="case"><a href="#m680xins.sexw">sexw</a></li><li class="case"><a href="#m680xins.slp">slp</a></li><li class="case"><a href="#m680xins.sta">sta</a></li><li class="case"><a href="#m680xins.staa">staa</a></li><li class="case"><a href="#m680xins.stab">stab</a></li><li class="case"><a href="#m680xins.stb">stb</a></li><li class="case"><a href="#m680xins.stbt">stbt</a></li><li class="case"><a href="#m680xins.std">std</a></li><li class="case"><a href="#m680xins.ste">ste</a></li><li class="case"><a href="#m680xins.stf">stf</a></li><li class="case"><a href="#m680xins.stop">stop</a></li><li class="case"><a href="#m680xins.sthx">sthx</a></li><li class="case"><a href="#m680xins.stq">stq</a></li><li class="case"><a href="#m680xins.sts">sts</a></li><li class="case"><a href="#m680xins.stu">stu</a></li><li class="case"><a href="#m680xins.stw">stw</a></li><li class="case"><a href="#m680xins.stx">stx</a></li><li class="case"><a href="#m680xins.sty">sty</a></li><li class="case"><a href="#m680xins.sub">sub</a></li><li class="case"><a href="#m680xins.suba">suba</a></li><li class="case"><a href="#m680xins.subb">subb</a></li><li class="case"><a href="#m680xins.subd">subd</a></li><li class="case"><a href="#m680xins.sube">sube</a></li><li class="case"><a href="#m680xins.subf">subf</a></li><li class="case"><a href="#m680xins.subr">subr</a></li><li class="case"><a href="#m680xins.subw">subw</a></li><li class="case"><a href="#m680xins.swi">swi</a></li><li class="case"><a href="#m680xins.swi2">swi2</a></li><li class="case"><a href="#m680xins.swi3">swi3</a></li><li class="case"><a href="#m680xins.sync">sync</a></li><li class="case"><a href="#m680xins.tab">tab</a></li><li class="case"><a href="#m680xins.tap">tap</a></li><li class="case"><a href="#m680xins.tax">tax</a></li><li class="case"><a href="#m680xins.tba">tba</a></li><li class="case"><a href="#m680xins.tbeq">tbeq</a></li><li class="case"><a href="#m680xins.tbl">tbl</a></li><li class="case"><a href="#m680xins.tbne">tbne</a></li><li class="case"><a href="#m680xins.test">test</a></li><li class="case"><a href="#m680xins.tfm">tfm</a></li><li class="case"><a href="#m680xins.tfr">tfr</a></li><li class="case"><a href="#m680xins.tim">tim</a></li><li class="case"><a href="#m680xins.tpa">tpa</a></li><li class="case"><a href="#m680xins.tst">tst</a></li><li class="case"><a href="#m680xins.tsta">tsta</a></li><li class="case"><a href="#m680xins.tstb">tstb</a></li><li class="case"><a href="#m680xins.tstd">tstd</a></li><li class="case"><a href="#m680xins.tste">tste</a></li><li class="case"><a href="#m680xins.tstf">tstf</a></li><li class="case"><a href="#m680xins.tstw">tstw</a></li><li class="case"><a href="#m680xins.tstx">tstx</a></li><li class="case"><a href="#m680xins.tsx">tsx</a></li><li class="case"><a href="#m680xins.tsy">tsy</a></li><li class="case"><a href="#m680xins.txa">txa</a></li><li class="case"><a href="#m680xins.txs">txs</a></li><li class="case"><a href="#m680xins.tys">tys</a></li><li class="case"><a href="#m680xins.wai">wai</a></li><li class="case"><a href="#m680xins.wait">wait</a></li><li class="case"><a href="#m680xins.wav">wav</a></li><li class="case"><a href="#m680xins.wavr">wavr</a></li><li class="case"><a href="#m680xins.xgdx">xgdx</a></li><li class="case"><a href="#m680xins.xgdy">xgdy</a></li><li class="case"><a href="#m680xins.ending">ending</a></li></ul></li></ol>
+        </div>
+    </nav>
+
+    <main>
+        <article>
+            <h1>
+    <small>Enumeration</small>
+    <code class="name">M680xIns</code>
+</h1>
+
+<html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">enum</span> <span class="type">M680xIns</span></code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>M680X instruction IDs</p>
+
+</div>
+<section id="relationships">
+    <h2 hidden>Relationships</h2>
+        <figure>
+    <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.36.0 (20140111.2315)
+ -->
+<!-- Title: %3 Pages: 1 -->
+<svg width="872pt" height="116pt"
+ viewBox="0.00 0.00 872.00 116.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 112)">
+<title>%3</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-112 868,-112 868,4 -4,4"/>
+<!-- M680xIns -->
+<g id="node1" class="node"><title>M680xIns</title>
+<g id="a_node1"><a xlink:href="/M680xIns" xlink:title="M680xIns">
+<path fill="none" stroke="black" stroke-width="3" d="M528,-108C528,-108 336,-108 336,-108 330,-108 324,-102 324,-96 324,-96 324,-84 324,-84 324,-78 330,-72 336,-72 336,-72 528,-72 528,-72 534,-72 540,-78 540,-84 540,-84 540,-96 540,-96 540,-102 534,-108 528,-108"/>
+<text text-anchor="middle" x="432" y="-86.3" font-family="Menlo" font-size="14.00">M680xIns</text>
+</a>
+</g>
+</g>
+<!-- UInt32 -->
+<g id="node2" class="node"><title>UInt32</title>
+<path fill="none" stroke="black" d="M528,-36C528,-36 336,-36 336,-36 330,-36 324,-30 324,-24 324,-24 324,-12 324,-12 324,-6 330,-0 336,-0 336,-0 528,-0 528,-0 534,-0 540,-6 540,-12 540,-12 540,-24 540,-24 540,-30 534,-36 528,-36"/>
+<text text-anchor="middle" x="432" y="-14.3" font-family="Menlo" font-size="14.00">UInt32</text>
+</g>
+<!-- M680xIns&#45;&gt;UInt32 -->
+<g id="edge1" class="edge"><title>M680xIns&#45;&gt;UInt32</title>
+<path fill="none" stroke="black" d="M432,-71.6966C432,-63.9827 432,-54.7125 432,-46.1124"/>
+<polygon fill="black" stroke="black" points="435.5,-46.1043 432,-36.1043 428.5,-46.1044 435.5,-46.1043"/>
+</g>
+</g>
+</svg>
+
+
+    <figcaption hidden>Inheritance graph for M680xIns.</figcaption>
+</figure>
+        <h3>Conforms To</h3>
+<dl>
+    <dt class="unknown"><code>UInt32</code></dt>
+</dl>
+</section>
+    <section id="enumeration cases">
+        <h2>Enumeration Cases</h2>
+
+        <div role="article" class="case" id="m680xins.invld">
+    <h3>
+        <code>invld</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">invld</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.aba">
+    <h3>
+        <code>aba</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">aba</span></code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>M6800/1/2/3</p>
+
+</div>
+</div>
+<div role="article" class="case" id="m680xins.abx">
+    <h3>
+        <code>abx</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">abx</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.aby">
+    <h3>
+        <code>aby</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">aby</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.adc">
+    <h3>
+        <code>adc</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">adc</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.adca">
+    <h3>
+        <code>adca</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">adca</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.adcb">
+    <h3>
+        <code>adcb</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">adcb</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.adcd">
+    <h3>
+        <code>adcd</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">adcd</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.adcr">
+    <h3>
+        <code>adcr</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">adcr</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.add">
+    <h3>
+        <code>add</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">add</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.adda">
+    <h3>
+        <code>adda</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">adda</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.addb">
+    <h3>
+        <code>addb</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">addb</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.addd">
+    <h3>
+        <code>addd</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">addd</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.adde">
+    <h3>
+        <code>adde</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">adde</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.addf">
+    <h3>
+        <code>addf</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">addf</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.addr">
+    <h3>
+        <code>addr</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">addr</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.addw">
+    <h3>
+        <code>addw</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">addw</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.aim">
+    <h3>
+        <code>aim</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">aim</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.ais">
+    <h3>
+        <code>ais</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ais</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.aix">
+    <h3>
+        <code>aix</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">aix</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.and">
+    <h3>
+        <code>and</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">and</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.anda">
+    <h3>
+        <code>anda</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">anda</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.andb">
+    <h3>
+        <code>andb</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">andb</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.andcc">
+    <h3>
+        <code>andcc</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">andcc</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.andd">
+    <h3>
+        <code>andd</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">andd</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.andr">
+    <h3>
+        <code>andr</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">andr</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.asl">
+    <h3>
+        <code>asl</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">asl</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.asla">
+    <h3>
+        <code>asla</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">asla</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.aslb">
+    <h3>
+        <code>aslb</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">aslb</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.asld">
+    <h3>
+        <code>asld</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">asld</span></code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>or LSLD</p>
+
+</div>
+</div>
+<div role="article" class="case" id="m680xins.asr">
+    <h3>
+        <code>asr</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">asr</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.asra">
+    <h3>
+        <code>asra</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">asra</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.asrb">
+    <h3>
+        <code>asrb</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">asrb</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.asrd">
+    <h3>
+        <code>asrd</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">asrd</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.asrx">
+    <h3>
+        <code>asrx</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">asrx</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.band">
+    <h3>
+        <code>band</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">band</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.bcc">
+    <h3>
+        <code>bcc</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">bcc</span></code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>or BHS</p>
+
+</div>
+</div>
+<div role="article" class="case" id="m680xins.bclr">
+    <h3>
+        <code>bclr</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">bclr</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.bcs">
+    <h3>
+        <code>bcs</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">bcs</span></code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>or BLO</p>
+
+</div>
+</div>
+<div role="article" class="case" id="m680xins.beor">
+    <h3>
+        <code>beor</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">beor</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.beq">
+    <h3>
+        <code>beq</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">beq</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.bge">
+    <h3>
+        <code>bge</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">bge</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.bgnd">
+    <h3>
+        <code>bgnd</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">bgnd</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.bgt">
+    <h3>
+        <code>bgt</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">bgt</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.bhcc">
+    <h3>
+        <code>bhcc</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">bhcc</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.bhcs">
+    <h3>
+        <code>bhcs</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">bhcs</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.bhi">
+    <h3>
+        <code>bhi</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">bhi</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.biand">
+    <h3>
+        <code>biand</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">biand</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.bieor">
+    <h3>
+        <code>bieor</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">bieor</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.bih">
+    <h3>
+        <code>bih</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">bih</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.bil">
+    <h3>
+        <code>bil</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">bil</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.bior">
+    <h3>
+        <code>bior</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">bior</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.bit">
+    <h3>
+        <code>bit</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">bit</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.bita">
+    <h3>
+        <code>bita</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">bita</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.bitb">
+    <h3>
+        <code>bitb</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">bitb</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.bitd">
+    <h3>
+        <code>bitd</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">bitd</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.bitmd">
+    <h3>
+        <code>bitmd</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">bitmd</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.ble">
+    <h3>
+        <code>ble</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ble</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.bls">
+    <h3>
+        <code>bls</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">bls</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.blt">
+    <h3>
+        <code>blt</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">blt</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.bmc">
+    <h3>
+        <code>bmc</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">bmc</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.bmi">
+    <h3>
+        <code>bmi</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">bmi</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.bms">
+    <h3>
+        <code>bms</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">bms</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.bne">
+    <h3>
+        <code>bne</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">bne</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.bor">
+    <h3>
+        <code>bor</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">bor</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.bpl">
+    <h3>
+        <code>bpl</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">bpl</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.brclr">
+    <h3>
+        <code>brclr</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">brclr</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.brset">
+    <h3>
+        <code>brset</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">brset</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.bra">
+    <h3>
+        <code>bra</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">bra</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.brn">
+    <h3>
+        <code>brn</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">brn</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.bset">
+    <h3>
+        <code>bset</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">bset</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.bsr">
+    <h3>
+        <code>bsr</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">bsr</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.bvc">
+    <h3>
+        <code>bvc</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">bvc</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.bvs">
+    <h3>
+        <code>bvs</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">bvs</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.call">
+    <h3>
+        <code>call</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">call</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.cba">
+    <h3>
+        <code>cba</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cba</span></code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>M6800/1/2/3</p>
+
+</div>
+</div>
+<div role="article" class="case" id="m680xins.cbeq">
+    <h3>
+        <code>cbeq</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cbeq</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.cbeqa">
+    <h3>
+        <code>cbeqa</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cbeqa</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.cbeqx">
+    <h3>
+        <code>cbeqx</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cbeqx</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.clc">
+    <h3>
+        <code>clc</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">clc</span></code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>M6800/1/2/3</p>
+
+</div>
+</div>
+<div role="article" class="case" id="m680xins.cli">
+    <h3>
+        <code>cli</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cli</span></code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>M6800/1/2/3</p>
+
+</div>
+</div>
+<div role="article" class="case" id="m680xins.clr">
+    <h3>
+        <code>clr</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">clr</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.clra">
+    <h3>
+        <code>clra</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">clra</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.clrb">
+    <h3>
+        <code>clrb</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">clrb</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.clrd">
+    <h3>
+        <code>clrd</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">clrd</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.clre">
+    <h3>
+        <code>clre</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">clre</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.clrf">
+    <h3>
+        <code>clrf</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">clrf</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.clrh">
+    <h3>
+        <code>clrh</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">clrh</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.clrw">
+    <h3>
+        <code>clrw</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">clrw</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.clrx">
+    <h3>
+        <code>clrx</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">clrx</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.clv">
+    <h3>
+        <code>clv</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">clv</span></code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>M6800/1/2/3</p>
+
+</div>
+</div>
+<div role="article" class="case" id="m680xins.cmp">
+    <h3>
+        <code>cmp</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cmp</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.cmpa">
+    <h3>
+        <code>cmpa</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cmpa</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.cmpb">
+    <h3>
+        <code>cmpb</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cmpb</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.cmpd">
+    <h3>
+        <code>cmpd</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cmpd</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.cmpe">
+    <h3>
+        <code>cmpe</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cmpe</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.cmpf">
+    <h3>
+        <code>cmpf</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cmpf</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.cmpr">
+    <h3>
+        <code>cmpr</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cmpr</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.cmps">
+    <h3>
+        <code>cmps</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cmps</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.cmpu">
+    <h3>
+        <code>cmpu</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cmpu</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.cmpw">
+    <h3>
+        <code>cmpw</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cmpw</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.cmpx">
+    <h3>
+        <code>cmpx</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cmpx</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.cmpy">
+    <h3>
+        <code>cmpy</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cmpy</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.com">
+    <h3>
+        <code>com</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">com</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.coma">
+    <h3>
+        <code>coma</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">coma</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.comb">
+    <h3>
+        <code>comb</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">comb</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.comd">
+    <h3>
+        <code>comd</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">comd</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.come">
+    <h3>
+        <code>come</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">come</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.comf">
+    <h3>
+        <code>comf</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">comf</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.comw">
+    <h3>
+        <code>comw</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">comw</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.comx">
+    <h3>
+        <code>comx</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">comx</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.cpd">
+    <h3>
+        <code>cpd</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cpd</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.cphx">
+    <h3>
+        <code>cphx</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cphx</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.cps">
+    <h3>
+        <code>cps</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cps</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.cpx">
+    <h3>
+        <code>cpx</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cpx</span></code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>M6800/1/2/3</p>
+
+</div>
+</div>
+<div role="article" class="case" id="m680xins.cpy">
+    <h3>
+        <code>cpy</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cpy</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.cwai">
+    <h3>
+        <code>cwai</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cwai</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.daa">
+    <h3>
+        <code>daa</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">daa</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.dbeq">
+    <h3>
+        <code>dbeq</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">dbeq</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.dbne">
+    <h3>
+        <code>dbne</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">dbne</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.dbnz">
+    <h3>
+        <code>dbnz</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">dbnz</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.dbnza">
+    <h3>
+        <code>dbnza</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">dbnza</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.dbnzx">
+    <h3>
+        <code>dbnzx</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">dbnzx</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.dec">
+    <h3>
+        <code>dec</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">dec</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.deca">
+    <h3>
+        <code>deca</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">deca</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.decb">
+    <h3>
+        <code>decb</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">decb</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.decd">
+    <h3>
+        <code>decd</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">decd</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.dece">
+    <h3>
+        <code>dece</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">dece</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.decf">
+    <h3>
+        <code>decf</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">decf</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.decw">
+    <h3>
+        <code>decw</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">decw</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.decx">
+    <h3>
+        <code>decx</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">decx</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.des">
+    <h3>
+        <code>des</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">des</span></code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>M6800/1/2/3</p>
+
+</div>
+</div>
+<div role="article" class="case" id="m680xins.dex">
+    <h3>
+        <code>dex</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">dex</span></code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>M6800/1/2/3</p>
+
+</div>
+</div>
+<div role="article" class="case" id="m680xins.dey">
+    <h3>
+        <code>dey</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">dey</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.div">
+    <h3>
+        <code>div</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">div</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.divd">
+    <h3>
+        <code>divd</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">divd</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.divq">
+    <h3>
+        <code>divq</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">divq</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.ediv">
+    <h3>
+        <code>ediv</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ediv</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.edivs">
+    <h3>
+        <code>edivs</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">edivs</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.eim">
+    <h3>
+        <code>eim</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">eim</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.emacs">
+    <h3>
+        <code>emacs</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">emacs</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.emaxd">
+    <h3>
+        <code>emaxd</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">emaxd</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.emaxm">
+    <h3>
+        <code>emaxm</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">emaxm</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.emind">
+    <h3>
+        <code>emind</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">emind</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.eminm">
+    <h3>
+        <code>eminm</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">eminm</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.emul">
+    <h3>
+        <code>emul</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">emul</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.emuls">
+    <h3>
+        <code>emuls</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">emuls</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.eor">
+    <h3>
+        <code>eor</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">eor</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.eora">
+    <h3>
+        <code>eora</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">eora</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.eorb">
+    <h3>
+        <code>eorb</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">eorb</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.eord">
+    <h3>
+        <code>eord</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">eord</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.eorr">
+    <h3>
+        <code>eorr</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">eorr</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.etbl">
+    <h3>
+        <code>etbl</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">etbl</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.exg">
+    <h3>
+        <code>exg</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">exg</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.fdiv">
+    <h3>
+        <code>fdiv</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fdiv</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.ibeq">
+    <h3>
+        <code>ibeq</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ibeq</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.ibne">
+    <h3>
+        <code>ibne</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ibne</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.idiv">
+    <h3>
+        <code>idiv</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">idiv</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.idivs">
+    <h3>
+        <code>idivs</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">idivs</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.illgl">
+    <h3>
+        <code>illgl</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">illgl</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.inc">
+    <h3>
+        <code>inc</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">inc</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.inca">
+    <h3>
+        <code>inca</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">inca</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.incb">
+    <h3>
+        <code>incb</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">incb</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.incd">
+    <h3>
+        <code>incd</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">incd</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.ince">
+    <h3>
+        <code>ince</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ince</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.incf">
+    <h3>
+        <code>incf</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">incf</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.incw">
+    <h3>
+        <code>incw</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">incw</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.incx">
+    <h3>
+        <code>incx</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">incx</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.ins">
+    <h3>
+        <code>ins</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ins</span></code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>M6800/1/2/3</p>
+
+</div>
+</div>
+<div role="article" class="case" id="m680xins.inx">
+    <h3>
+        <code>inx</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">inx</span></code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>M6800/1/2/3</p>
+
+</div>
+</div>
+<div role="article" class="case" id="m680xins.iny">
+    <h3>
+        <code>iny</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">iny</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.jmp">
+    <h3>
+        <code>jmp</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">jmp</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.jsr">
+    <h3>
+        <code>jsr</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">jsr</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.lbcc">
+    <h3>
+        <code>lbcc</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">lbcc</span></code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>or LBHS</p>
+
+</div>
+</div>
+<div role="article" class="case" id="m680xins.lbcs">
+    <h3>
+        <code>lbcs</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">lbcs</span></code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>or LBLO</p>
+
+</div>
+</div>
+<div role="article" class="case" id="m680xins.lbeq">
+    <h3>
+        <code>lbeq</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">lbeq</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.lbge">
+    <h3>
+        <code>lbge</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">lbge</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.lbgt">
+    <h3>
+        <code>lbgt</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">lbgt</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.lbhi">
+    <h3>
+        <code>lbhi</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">lbhi</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.lble">
+    <h3>
+        <code>lble</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">lble</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.lbls">
+    <h3>
+        <code>lbls</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">lbls</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.lblt">
+    <h3>
+        <code>lblt</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">lblt</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.lbmi">
+    <h3>
+        <code>lbmi</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">lbmi</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.lbne">
+    <h3>
+        <code>lbne</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">lbne</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.lbpl">
+    <h3>
+        <code>lbpl</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">lbpl</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.lbra">
+    <h3>
+        <code>lbra</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">lbra</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.lbrn">
+    <h3>
+        <code>lbrn</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">lbrn</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.lbsr">
+    <h3>
+        <code>lbsr</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">lbsr</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.lbvc">
+    <h3>
+        <code>lbvc</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">lbvc</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.lbvs">
+    <h3>
+        <code>lbvs</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">lbvs</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.lda">
+    <h3>
+        <code>lda</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">lda</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.ldaa">
+    <h3>
+        <code>ldaa</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ldaa</span></code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>M6800/1/2/3</p>
+
+</div>
+</div>
+<div role="article" class="case" id="m680xins.ldab">
+    <h3>
+        <code>ldab</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ldab</span></code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>M6800/1/2/3</p>
+
+</div>
+</div>
+<div role="article" class="case" id="m680xins.ldb">
+    <h3>
+        <code>ldb</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ldb</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.ldbt">
+    <h3>
+        <code>ldbt</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ldbt</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.ldd">
+    <h3>
+        <code>ldd</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ldd</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.lde">
+    <h3>
+        <code>lde</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">lde</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.ldf">
+    <h3>
+        <code>ldf</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ldf</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.ldhx">
+    <h3>
+        <code>ldhx</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ldhx</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.ldmd">
+    <h3>
+        <code>ldmd</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ldmd</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.ldq">
+    <h3>
+        <code>ldq</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ldq</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.lds">
+    <h3>
+        <code>lds</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">lds</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.ldu">
+    <h3>
+        <code>ldu</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ldu</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.ldw">
+    <h3>
+        <code>ldw</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ldw</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.ldx">
+    <h3>
+        <code>ldx</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ldx</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.ldy">
+    <h3>
+        <code>ldy</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ldy</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.leas">
+    <h3>
+        <code>leas</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">leas</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.leau">
+    <h3>
+        <code>leau</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">leau</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.leax">
+    <h3>
+        <code>leax</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">leax</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.leay">
+    <h3>
+        <code>leay</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">leay</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.lsl">
+    <h3>
+        <code>lsl</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">lsl</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.lsla">
+    <h3>
+        <code>lsla</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">lsla</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.lslb">
+    <h3>
+        <code>lslb</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">lslb</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.lsld">
+    <h3>
+        <code>lsld</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">lsld</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.lslx">
+    <h3>
+        <code>lslx</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">lslx</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.lsr">
+    <h3>
+        <code>lsr</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">lsr</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.lsra">
+    <h3>
+        <code>lsra</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">lsra</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.lsrb">
+    <h3>
+        <code>lsrb</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">lsrb</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.lsrd">
+    <h3>
+        <code>lsrd</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">lsrd</span></code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>or ASRD</p>
+
+</div>
+</div>
+<div role="article" class="case" id="m680xins.lsrw">
+    <h3>
+        <code>lsrw</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">lsrw</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.lsrx">
+    <h3>
+        <code>lsrx</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">lsrx</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.maxa">
+    <h3>
+        <code>maxa</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">maxa</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.maxm">
+    <h3>
+        <code>maxm</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">maxm</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.mem">
+    <h3>
+        <code>mem</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">mem</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.mina">
+    <h3>
+        <code>mina</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">mina</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.minm">
+    <h3>
+        <code>minm</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">minm</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.mov">
+    <h3>
+        <code>mov</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">mov</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.movb">
+    <h3>
+        <code>movb</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">movb</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.movw">
+    <h3>
+        <code>movw</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">movw</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.mul">
+    <h3>
+        <code>mul</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">mul</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.muld">
+    <h3>
+        <code>muld</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">muld</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.neg">
+    <h3>
+        <code>neg</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">neg</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.nega">
+    <h3>
+        <code>nega</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">nega</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.negb">
+    <h3>
+        <code>negb</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">negb</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.negd">
+    <h3>
+        <code>negd</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">negd</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.negx">
+    <h3>
+        <code>negx</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">negx</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.nop">
+    <h3>
+        <code>nop</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">nop</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.nsa">
+    <h3>
+        <code>nsa</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">nsa</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.oim">
+    <h3>
+        <code>oim</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">oim</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.ora">
+    <h3>
+        <code>ora</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ora</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.oraa">
+    <h3>
+        <code>oraa</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">oraa</span></code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>M6800/1/2/3</p>
+
+</div>
+</div>
+<div role="article" class="case" id="m680xins.orab">
+    <h3>
+        <code>orab</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">orab</span></code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>M6800/1/2/3</p>
+
+</div>
+</div>
+<div role="article" class="case" id="m680xins.orb">
+    <h3>
+        <code>orb</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">orb</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.orcc">
+    <h3>
+        <code>orcc</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">orcc</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.ord">
+    <h3>
+        <code>ord</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ord</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.orr">
+    <h3>
+        <code>orr</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">orr</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.psha">
+    <h3>
+        <code>psha</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">psha</span></code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>M6800/1/2/3</p>
+
+</div>
+</div>
+<div role="article" class="case" id="m680xins.pshb">
+    <h3>
+        <code>pshb</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">pshb</span></code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>M6800/1/2/3</p>
+
+</div>
+</div>
+<div role="article" class="case" id="m680xins.pshc">
+    <h3>
+        <code>pshc</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">pshc</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.pshd">
+    <h3>
+        <code>pshd</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">pshd</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.pshh">
+    <h3>
+        <code>pshh</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">pshh</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.pshs">
+    <h3>
+        <code>pshs</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">pshs</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.pshsw">
+    <h3>
+        <code>pshsw</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">pshsw</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.pshu">
+    <h3>
+        <code>pshu</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">pshu</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.pshuw">
+    <h3>
+        <code>pshuw</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">pshuw</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.pshx">
+    <h3>
+        <code>pshx</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">pshx</span></code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>M6800/1/2/3</p>
+
+</div>
+</div>
+<div role="article" class="case" id="m680xins.pshy">
+    <h3>
+        <code>pshy</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">pshy</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.pula">
+    <h3>
+        <code>pula</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">pula</span></code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>M6800/1/2/3</p>
+
+</div>
+</div>
+<div role="article" class="case" id="m680xins.pulb">
+    <h3>
+        <code>pulb</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">pulb</span></code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>M6800/1/2/3</p>
+
+</div>
+</div>
+<div role="article" class="case" id="m680xins.pulc">
+    <h3>
+        <code>pulc</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">pulc</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.puld">
+    <h3>
+        <code>puld</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">puld</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.pulh">
+    <h3>
+        <code>pulh</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">pulh</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.puls">
+    <h3>
+        <code>puls</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">puls</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.pulsw">
+    <h3>
+        <code>pulsw</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">pulsw</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.pulu">
+    <h3>
+        <code>pulu</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">pulu</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.puluw">
+    <h3>
+        <code>puluw</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">puluw</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.pulx">
+    <h3>
+        <code>pulx</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">pulx</span></code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>M6800/1/2/3</p>
+
+</div>
+</div>
+<div role="article" class="case" id="m680xins.puly">
+    <h3>
+        <code>puly</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">puly</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.rev">
+    <h3>
+        <code>rev</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">rev</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.revw">
+    <h3>
+        <code>revw</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">revw</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.rol">
+    <h3>
+        <code>rol</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">rol</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.rola">
+    <h3>
+        <code>rola</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">rola</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.rolb">
+    <h3>
+        <code>rolb</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">rolb</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.rold">
+    <h3>
+        <code>rold</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">rold</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.rolw">
+    <h3>
+        <code>rolw</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">rolw</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.rolx">
+    <h3>
+        <code>rolx</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">rolx</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.ror">
+    <h3>
+        <code>ror</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ror</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.rora">
+    <h3>
+        <code>rora</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">rora</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.rorb">
+    <h3>
+        <code>rorb</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">rorb</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.rord">
+    <h3>
+        <code>rord</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">rord</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.rorw">
+    <h3>
+        <code>rorw</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">rorw</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.rorx">
+    <h3>
+        <code>rorx</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">rorx</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.rsp">
+    <h3>
+        <code>rsp</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">rsp</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.rtc">
+    <h3>
+        <code>rtc</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">rtc</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.rti">
+    <h3>
+        <code>rti</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">rti</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.rts">
+    <h3>
+        <code>rts</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">rts</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.sba">
+    <h3>
+        <code>sba</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">sba</span></code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>M6800/1/2/3</p>
+
+</div>
+</div>
+<div role="article" class="case" id="m680xins.sbc">
+    <h3>
+        <code>sbc</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">sbc</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.sbca">
+    <h3>
+        <code>sbca</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">sbca</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.sbcb">
+    <h3>
+        <code>sbcb</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">sbcb</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.sbcd">
+    <h3>
+        <code>sbcd</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">sbcd</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.sbcr">
+    <h3>
+        <code>sbcr</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">sbcr</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.sec">
+    <h3>
+        <code>sec</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">sec</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.sei">
+    <h3>
+        <code>sei</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">sei</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.sev">
+    <h3>
+        <code>sev</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">sev</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.sex">
+    <h3>
+        <code>sex</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">sex</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.sexw">
+    <h3>
+        <code>sexw</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">sexw</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.slp">
+    <h3>
+        <code>slp</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">slp</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.sta">
+    <h3>
+        <code>sta</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">sta</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.staa">
+    <h3>
+        <code>staa</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">staa</span></code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>M6800/1/2/3</p>
+
+</div>
+</div>
+<div role="article" class="case" id="m680xins.stab">
+    <h3>
+        <code>stab</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">stab</span></code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>M6800/1/2/3</p>
+
+</div>
+</div>
+<div role="article" class="case" id="m680xins.stb">
+    <h3>
+        <code>stb</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">stb</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.stbt">
+    <h3>
+        <code>stbt</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">stbt</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.std">
+    <h3>
+        <code>std</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">std</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.ste">
+    <h3>
+        <code>ste</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ste</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.stf">
+    <h3>
+        <code>stf</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">stf</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.stop">
+    <h3>
+        <code>stop</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">stop</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.sthx">
+    <h3>
+        <code>sthx</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">sthx</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.stq">
+    <h3>
+        <code>stq</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">stq</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.sts">
+    <h3>
+        <code>sts</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">sts</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.stu">
+    <h3>
+        <code>stu</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">stu</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.stw">
+    <h3>
+        <code>stw</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">stw</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.stx">
+    <h3>
+        <code>stx</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">stx</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.sty">
+    <h3>
+        <code>sty</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">sty</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.sub">
+    <h3>
+        <code>sub</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">sub</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.suba">
+    <h3>
+        <code>suba</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">suba</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.subb">
+    <h3>
+        <code>subb</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">subb</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.subd">
+    <h3>
+        <code>subd</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">subd</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.sube">
+    <h3>
+        <code>sube</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">sube</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.subf">
+    <h3>
+        <code>subf</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">subf</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.subr">
+    <h3>
+        <code>subr</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">subr</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.subw">
+    <h3>
+        <code>subw</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">subw</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.swi">
+    <h3>
+        <code>swi</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">swi</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.swi2">
+    <h3>
+        <code>swi2</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">swi2</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.swi3">
+    <h3>
+        <code>swi3</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">swi3</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.sync">
+    <h3>
+        <code>sync</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">sync</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.tab">
+    <h3>
+        <code>tab</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">tab</span></code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>M6800/1/2/3</p>
+
+</div>
+</div>
+<div role="article" class="case" id="m680xins.tap">
+    <h3>
+        <code>tap</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">tap</span></code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>M6800/1/2/3</p>
+
+</div>
+</div>
+<div role="article" class="case" id="m680xins.tax">
+    <h3>
+        <code>tax</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">tax</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.tba">
+    <h3>
+        <code>tba</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">tba</span></code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>M6800/1/2/3</p>
+
+</div>
+</div>
+<div role="article" class="case" id="m680xins.tbeq">
+    <h3>
+        <code>tbeq</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">tbeq</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.tbl">
+    <h3>
+        <code>tbl</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">tbl</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.tbne">
+    <h3>
+        <code>tbne</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">tbne</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.test">
+    <h3>
+        <code>test</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">test</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.tfm">
+    <h3>
+        <code>tfm</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">tfm</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.tfr">
+    <h3>
+        <code>tfr</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">tfr</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.tim">
+    <h3>
+        <code>tim</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">tim</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.tpa">
+    <h3>
+        <code>tpa</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">tpa</span></code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>M6800/1/2/3</p>
+
+</div>
+</div>
+<div role="article" class="case" id="m680xins.tst">
+    <h3>
+        <code>tst</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">tst</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.tsta">
+    <h3>
+        <code>tsta</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">tsta</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.tstb">
+    <h3>
+        <code>tstb</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">tstb</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.tstd">
+    <h3>
+        <code>tstd</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">tstd</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.tste">
+    <h3>
+        <code>tste</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">tste</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.tstf">
+    <h3>
+        <code>tstf</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">tstf</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.tstw">
+    <h3>
+        <code>tstw</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">tstw</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.tstx">
+    <h3>
+        <code>tstx</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">tstx</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.tsx">
+    <h3>
+        <code>tsx</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">tsx</span></code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>M6800/1/2/3</p>
+
+</div>
+</div>
+<div role="article" class="case" id="m680xins.tsy">
+    <h3>
+        <code>tsy</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">tsy</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.txa">
+    <h3>
+        <code>txa</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">txa</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.txs">
+    <h3>
+        <code>txs</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">txs</span></code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>M6800/1/2/3</p>
+
+</div>
+</div>
+<div role="article" class="case" id="m680xins.tys">
+    <h3>
+        <code>tys</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">tys</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.wai">
+    <h3>
+        <code>wai</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">wai</span></code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>M6800/1/2/3</p>
+
+</div>
+</div>
+<div role="article" class="case" id="m680xins.wait">
+    <h3>
+        <code>wait</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">wait</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.wav">
+    <h3>
+        <code>wav</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">wav</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.wavr">
+    <h3>
+        <code>wavr</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">wavr</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.xgdx">
+    <h3>
+        <code>xgdx</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">xgdx</span></code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>HD6301</p>
+
+</div>
+</div>
+<div role="article" class="case" id="m680xins.xgdy">
+    <h3>
+        <code>xgdy</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">xgdy</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="m680xins.ending">
+    <h3>
+        <code>ending</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ending</span></code></pre></body></html>
+</div>
+    </section>
+
+
+
+        </article>
+    </main>
+
+    <footer>
+        <p>
+    Generated on <time datetime="2020-11-21T15:19:17+0100">21 November 2020</time> using <a href="https://github.com/SwiftDocOrg/swift-doc">swift-doc</a> <span class="version">1.0.0-beta.5</span>.
+</p>
+    </footer>
+</body>
+</html>

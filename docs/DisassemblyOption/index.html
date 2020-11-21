@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capstone - DisassemblyOption</title>
+    <link rel="stylesheet" type="text/css" href="/all.css" media="all" />
+</head>
+<body>
+    <header>
+        <a href="/">
+            <strong>
+                Capstone
+            </strong>
+            <span>Documentation</span>
+        </a>
+        <sup>Beta</sup>
+    </header>
+
+    <!--
+    <form class="search">
+        <input type="search" placeholder="Search" />
+    </form>
+    -->
+
+    <nav>
+        <div class="wrapper">
+            <h2>On This Page</h2>
+            <ol><li><a href="#enumeration cases">Enumeration Cases</a><ul><li class="case"><a href="#disassemblyoption.syntax">syntax</a></li><li class="case"><a href="#disassemblyoption.detail">detail</a></li><li class="case"><a href="#disassemblyoption.mode">mode</a></li><li class="case"><a href="#disassemblyoption.skipdataenabled">skip​Data​Enabled</a></li><li class="case"><a href="#disassemblyoption.skipdata">skip​Data</a></li><li class="case"><a href="#disassemblyoption.mnemonic">mnemonic</a></li><li class="case"><a href="#disassemblyoption.unsigned">unsigned</a></li></ul></li></ol>
+        </div>
+    </nav>
+
+    <main>
+        <article>
+            <h1>
+    <small>Enumeration</small>
+    <code class="name">Disassembly​Option</code>
+</h1>
+
+<html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">enum</span> <span class="type">DisassemblyOption</span></code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>Runtime option for the disassembler engine.</p>
+
+</div>
+
+    <section id="enumeration cases">
+        <h2>Enumeration Cases</h2>
+
+        <div role="article" class="case" id="disassemblyoption.syntax">
+    <h3>
+        <code>syntax</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">syntax</span>(<span class="variable">syntax</span>: <a href="/Syntax"><span class="type">Syntax</span></a>)</code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>Assembly output syntax.</p>
+
+</div>
+</div>
+<div role="article" class="case" id="disassemblyoption.detail">
+    <h3>
+        <code>detail</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">detail</span>(<span class="variable">value</span>: <span class="type">Bool</span>)</code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>Break down instruction structure into details.</p>
+
+</div>
+<div class="discussion">
+    <p>This enables accessing the following details from instructions:</p>
+
+<ul>
+<li>
+<p>Operands</p>
+</li>
+<li>
+<p>Instruction groups</p>
+</li>
+<li>
+<p>Registers accessed</p>
+</li>
+</ul>
+
+</div>
+</div>
+<div role="article" class="case" id="disassemblyoption.mode">
+    <h3>
+        <code>mode</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">mode</span>(<span class="variable">mode</span>: <a href="/Mode"><span class="type">Mode</span></a>)</code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>Change engine's mode at run-time.</p>
+
+</div>
+</div>
+<div role="article" class="case" id="disassemblyoption.skipdataenabled">
+    <h3>
+        <code>skip​Data​Enabled</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">skipDataEnabled</span>(<span class="keyword">_</span> <span class="variable">enabled</span>: <span class="type">Bool</span>)</code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>Skip data when disassembling.</p>
+
+</div>
+</div>
+<div role="article" class="case" id="disassemblyoption.skipdata">
+    <h3>
+        <code>skip​Data</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">skipData</span>(<span class="variable">mnemonic</span>: <span class="type">String</span>? = <span class="keyword">nil</span>, <span class="variable">callback</span>: <a href="/SkipDataCallback"><span class="type">SkipDataCallback</span></a>? = <span class="keyword">nil</span>)</code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>Custom setup to skip data when disassembling:</p>
+
+</div>
+<div class="discussion">
+    <p>Setting this implicitly enables skip data.</p>
+
+<ul>
+<li>
+<p><code>mnemonic</code>: If nil, &quot;.byte&quot; is used</p>
+</li>
+<li>
+<p><code>callback</code>: User-defined callback to be called when Capstone hits data.</p>
+</li>
+</ul>
+
+<p>Note: if the callback is nil, Capstone will skip a number of bytes depending on architecture:</p>
+
+<ul>
+<li>
+<p>Arm: 2 bytes (Thumb mode) or 4 bytes.</p>
+</li>
+<li>
+<p>Arm64: 4 bytes.</p>
+</li>
+<li>
+<p>Mips: 4 bytes.</p>
+</li>
+<li>
+<p>M680x: 1 byte.</p>
+</li>
+<li>
+<p>PowerPC: 4 bytes.</p>
+</li>
+<li>
+<p>Sparc: 4 bytes.</p>
+</li>
+<li>
+<p>SystemZ: 2 bytes.</p>
+</li>
+<li>
+<p>X86: 1 byte.</p>
+</li>
+<li>
+<p>XCore: 2 bytes.</p>
+</li>
+<li>
+<p>EVM: 1 byte.</p>
+</li>
+<li>
+<p>MOS65xx: 1 byte.</p>
+</li>
+</ul>
+
+</div>
+</div>
+<div role="article" class="case" id="disassemblyoption.mnemonic">
+    <h3>
+        <code>mnemonic</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">mnemonic</span>(<span class="keyword">_</span> <span class="variable">mnemonic</span>: <span class="type">String</span>?, <span class="variable">instruction</span>: <a href="/InstructionType"><span class="type">InstructionType</span></a>)</code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>Customize an instruction mnemonic.</p>
+
+</div>
+<div class="discussion">
+    <p>Set to nil to remove the customization, and return to the default value.</p>
+
+</div>
+</div>
+<div role="article" class="case" id="disassemblyoption.unsigned">
+    <h3>
+        <code>unsigned</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">unsigned</span>(<span class="variable">value</span>: <span class="type">Bool</span>)</code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>Print immediate operands in unsigned form.</p>
+
+</div>
+<div class="discussion">
+    <p>This affects the instruction description and operands string, not the values of operands.</p>
+
+</div>
+</div>
+    </section>
+
+
+
+        </article>
+    </main>
+
+    <footer>
+        <p>
+    Generated on <time datetime="2020-11-21T15:19:16+0100">21 November 2020</time> using <a href="https://github.com/SwiftDocOrg/swift-doc">swift-doc</a> <span class="version">1.0.0-beta.5</span>.
+</p>
+    </footer>
+</body>
+</html>

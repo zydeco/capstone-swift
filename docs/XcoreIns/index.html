@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capstone - XcoreIns</title>
+    <link rel="stylesheet" type="text/css" href="/all.css" media="all" />
+</head>
+<body>
+    <header>
+        <a href="/">
+            <strong>
+                Capstone
+            </strong>
+            <span>Documentation</span>
+        </a>
+        <sup>Beta</sup>
+    </header>
+
+    <!--
+    <form class="search">
+        <input type="search" placeholder="Search" />
+    </form>
+    -->
+
+    <nav>
+        <div class="wrapper">
+            <h2>On This Page</h2>
+            <ol><li><a href="#relationships">Relationships</a><ul><li><a href="#relationships">Conforms To</a></li></ul></li><li><a href="#enumeration cases">Enumeration Cases</a><ul><li class="case"><a href="#xcoreins.invalid">invalid</a></li><li class="case"><a href="#xcoreins.add">add</a></li><li class="case"><a href="#xcoreins.andnot">andnot</a></li><li class="case"><a href="#xcoreins.and">and</a></li><li class="case"><a href="#xcoreins.ashr">ashr</a></li><li class="case"><a href="#xcoreins.bau">bau</a></li><li class="case"><a href="#xcoreins.bitrev">bitrev</a></li><li class="case"><a href="#xcoreins.bla">bla</a></li><li class="case"><a href="#xcoreins.blat">blat</a></li><li class="case"><a href="#xcoreins.bl">bl</a></li><li class="case"><a href="#xcoreins.bf">bf</a></li><li class="case"><a href="#xcoreins.bt">bt</a></li><li class="case"><a href="#xcoreins.bu">bu</a></li><li class="case"><a href="#xcoreins.bru">bru</a></li><li class="case"><a href="#xcoreins.byterev">byterev</a></li><li class="case"><a href="#xcoreins.chkct">chkct</a></li><li class="case"><a href="#xcoreins.clre">clre</a></li><li class="case"><a href="#xcoreins.clrpt">clrpt</a></li><li class="case"><a href="#xcoreins.clrsr">clrsr</a></li><li class="case"><a href="#xcoreins.clz">clz</a></li><li class="case"><a href="#xcoreins.crc8">crc8</a></li><li class="case"><a href="#xcoreins.crc32">crc32</a></li><li class="case"><a href="#xcoreins.dcall">dcall</a></li><li class="case"><a href="#xcoreins.dentsp">dentsp</a></li><li class="case"><a href="#xcoreins.dgetreg">dgetreg</a></li><li class="case"><a href="#xcoreins.divs">divs</a></li><li class="case"><a href="#xcoreins.divu">divu</a></li><li class="case"><a href="#xcoreins.drestsp">drestsp</a></li><li class="case"><a href="#xcoreins.dret">dret</a></li><li class="case"><a href="#xcoreins.ecallf">ecallf</a></li><li class="case"><a href="#xcoreins.ecallt">ecallt</a></li><li class="case"><a href="#xcoreins.edu">edu</a></li><li class="case"><a href="#xcoreins.eef">eef</a></li><li class="case"><a href="#xcoreins.eet">eet</a></li><li class="case"><a href="#xcoreins.eeu">eeu</a></li><li class="case"><a href="#xcoreins.endin">endin</a></li><li class="case"><a href="#xcoreins.entsp">entsp</a></li><li class="case"><a href="#xcoreins.eq">eq</a></li><li class="case"><a href="#xcoreins.extdp">extdp</a></li><li class="case"><a href="#xcoreins.extsp">extsp</a></li><li class="case"><a href="#xcoreins.freer">freer</a></li><li class="case"><a href="#xcoreins.freet">freet</a></li><li class="case"><a href="#xcoreins.getd">getd</a></li><li class="case"><a href="#xcoreins.get">get</a></li><li class="case"><a href="#xcoreins.getn">getn</a></li><li class="case"><a href="#xcoreins.getr">getr</a></li><li class="case"><a href="#xcoreins.getsr">getsr</a></li><li class="case"><a href="#xcoreins.getst">getst</a></li><li class="case"><a href="#xcoreins.getts">getts</a></li><li class="case"><a href="#xcoreins.inct">inct</a></li><li class="case"><a href="#xcoreins.`init`">`init`</a></li><li class="case"><a href="#xcoreins.inpw">inpw</a></li><li class="case"><a href="#xcoreins.inshr">inshr</a></li><li class="case"><a href="#xcoreins.int">int</a></li><li class="case"><a href="#xcoreins.`in`">`in`</a></li><li class="case"><a href="#xcoreins.kcall">kcall</a></li><li class="case"><a href="#xcoreins.kentsp">kentsp</a></li><li class="case"><a href="#xcoreins.krestsp">krestsp</a></li><li class="case"><a href="#xcoreins.kret">kret</a></li><li class="case"><a href="#xcoreins.ladd">ladd</a></li><li class="case"><a href="#xcoreins.ld16s">ld16s</a></li><li class="case"><a href="#xcoreins.ld8u">ld8u</a></li><li class="case"><a href="#xcoreins.lda16">lda16</a></li><li class="case"><a href="#xcoreins.ldap">ldap</a></li><li class="case"><a href="#xcoreins.ldaw">ldaw</a></li><li class="case"><a href="#xcoreins.ldc">ldc</a></li><li class="case"><a href="#xcoreins.ldw">ldw</a></li><li class="case"><a href="#xcoreins.ldivu">ldivu</a></li><li class="case"><a href="#xcoreins.lmul">lmul</a></li><li class="case"><a href="#xcoreins.lss">lss</a></li><li class="case"><a href="#xcoreins.lsub">lsub</a></li><li class="case"><a href="#xcoreins.lsu">lsu</a></li><li class="case"><a href="#xcoreins.maccs">maccs</a></li><li class="case"><a href="#xcoreins.maccu">maccu</a></li><li class="case"><a href="#xcoreins.mjoin">mjoin</a></li><li class="case"><a href="#xcoreins.mkmsk">mkmsk</a></li><li class="case"><a href="#xcoreins.msync">msync</a></li><li class="case"><a href="#xcoreins.mul">mul</a></li><li class="case"><a href="#xcoreins.neg">neg</a></li><li class="case"><a href="#xcoreins.not">not</a></li><li class="case"><a href="#xcoreins.or">or</a></li><li class="case"><a href="#xcoreins.outct">outct</a></li><li class="case"><a href="#xcoreins.outpw">outpw</a></li><li class="case"><a href="#xcoreins.outshr">outshr</a></li><li class="case"><a href="#xcoreins.outt">outt</a></li><li class="case"><a href="#xcoreins.out">out</a></li><li class="case"><a href="#xcoreins.peek">peek</a></li><li class="case"><a href="#xcoreins.rems">rems</a></li><li class="case"><a href="#xcoreins.remu">remu</a></li><li class="case"><a href="#xcoreins.retsp">retsp</a></li><li class="case"><a href="#xcoreins.setclk">setclk</a></li><li class="case"><a href="#xcoreins.set">set</a></li><li class="case"><a href="#xcoreins.setc">setc</a></li><li class="case"><a href="#xcoreins.setd">setd</a></li><li class="case"><a href="#xcoreins.setev">setev</a></li><li class="case"><a href="#xcoreins.setn">setn</a></li><li class="case"><a href="#xcoreins.setpsc">setpsc</a></li><li class="case"><a href="#xcoreins.setpt">setpt</a></li><li class="case"><a href="#xcoreins.setrdy">setrdy</a></li><li class="case"><a href="#xcoreins.setsr">setsr</a></li><li class="case"><a href="#xcoreins.settw">settw</a></li><li class="case"><a href="#xcoreins.setv">setv</a></li><li class="case"><a href="#xcoreins.sext">sext</a></li><li class="case"><a href="#xcoreins.shl">shl</a></li><li class="case"><a href="#xcoreins.shr">shr</a></li><li class="case"><a href="#xcoreins.ssync">ssync</a></li><li class="case"><a href="#xcoreins.st16">st16</a></li><li class="case"><a href="#xcoreins.st8">st8</a></li><li class="case"><a href="#xcoreins.stw">stw</a></li><li class="case"><a href="#xcoreins.sub">sub</a></li><li class="case"><a href="#xcoreins.syncr">syncr</a></li><li class="case"><a href="#xcoreins.testct">testct</a></li><li class="case"><a href="#xcoreins.testlcl">testlcl</a></li><li class="case"><a href="#xcoreins.testwct">testwct</a></li><li class="case"><a href="#xcoreins.tsetmr">tsetmr</a></li><li class="case"><a href="#xcoreins.start">start</a></li><li class="case"><a href="#xcoreins.waitef">waitef</a></li><li class="case"><a href="#xcoreins.waitet">waitet</a></li><li class="case"><a href="#xcoreins.waiteu">waiteu</a></li><li class="case"><a href="#xcoreins.xor">xor</a></li><li class="case"><a href="#xcoreins.zext">zext</a></li><li class="case"><a href="#xcoreins.ending">ending</a></li></ul></li></ol>
+        </div>
+    </nav>
+
+    <main>
+        <article>
+            <h1>
+    <small>Enumeration</small>
+    <code class="name">Xcore​Ins</code>
+</h1>
+
+<html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">enum</span> <span class="type">XcoreIns</span></code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>XCore instruction</p>
+
+</div>
+<section id="relationships">
+    <h2 hidden>Relationships</h2>
+        <figure>
+    <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.36.0 (20140111.2315)
+ -->
+<!-- Title: %3 Pages: 1 -->
+<svg width="872pt" height="116pt"
+ viewBox="0.00 0.00 872.00 116.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 112)">
+<title>%3</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-112 868,-112 868,4 -4,4"/>
+<!-- XcoreIns -->
+<g id="node1" class="node"><title>XcoreIns</title>
+<g id="a_node1"><a xlink:href="/XcoreIns" xlink:title="XcoreIns">
+<path fill="none" stroke="black" stroke-width="3" d="M528,-108C528,-108 336,-108 336,-108 330,-108 324,-102 324,-96 324,-96 324,-84 324,-84 324,-78 330,-72 336,-72 336,-72 528,-72 528,-72 534,-72 540,-78 540,-84 540,-84 540,-96 540,-96 540,-102 534,-108 528,-108"/>
+<text text-anchor="middle" x="432" y="-86.3" font-family="Menlo" font-size="14.00">XcoreIns</text>
+</a>
+</g>
+</g>
+<!-- UInt32 -->
+<g id="node2" class="node"><title>UInt32</title>
+<path fill="none" stroke="black" d="M528,-36C528,-36 336,-36 336,-36 330,-36 324,-30 324,-24 324,-24 324,-12 324,-12 324,-6 330,-0 336,-0 336,-0 528,-0 528,-0 534,-0 540,-6 540,-12 540,-12 540,-24 540,-24 540,-30 534,-36 528,-36"/>
+<text text-anchor="middle" x="432" y="-14.3" font-family="Menlo" font-size="14.00">UInt32</text>
+</g>
+<!-- XcoreIns&#45;&gt;UInt32 -->
+<g id="edge1" class="edge"><title>XcoreIns&#45;&gt;UInt32</title>
+<path fill="none" stroke="black" d="M432,-71.6966C432,-63.9827 432,-54.7125 432,-46.1124"/>
+<polygon fill="black" stroke="black" points="435.5,-46.1043 432,-36.1043 428.5,-46.1044 435.5,-46.1043"/>
+</g>
+</g>
+</svg>
+
+
+    <figcaption hidden>Inheritance graph for XcoreIns.</figcaption>
+</figure>
+        <h3>Conforms To</h3>
+<dl>
+    <dt class="unknown"><code>UInt32</code></dt>
+</dl>
+</section>
+    <section id="enumeration cases">
+        <h2>Enumeration Cases</h2>
+
+        <div role="article" class="case" id="xcoreins.invalid">
+    <h3>
+        <code>invalid</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">invalid</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.add">
+    <h3>
+        <code>add</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">add</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.andnot">
+    <h3>
+        <code>andnot</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">andnot</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.and">
+    <h3>
+        <code>and</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">and</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.ashr">
+    <h3>
+        <code>ashr</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ashr</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.bau">
+    <h3>
+        <code>bau</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">bau</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.bitrev">
+    <h3>
+        <code>bitrev</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">bitrev</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.bla">
+    <h3>
+        <code>bla</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">bla</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.blat">
+    <h3>
+        <code>blat</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">blat</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.bl">
+    <h3>
+        <code>bl</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">bl</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.bf">
+    <h3>
+        <code>bf</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">bf</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.bt">
+    <h3>
+        <code>bt</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">bt</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.bu">
+    <h3>
+        <code>bu</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">bu</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.bru">
+    <h3>
+        <code>bru</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">bru</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.byterev">
+    <h3>
+        <code>byterev</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">byterev</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.chkct">
+    <h3>
+        <code>chkct</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">chkct</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.clre">
+    <h3>
+        <code>clre</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">clre</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.clrpt">
+    <h3>
+        <code>clrpt</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">clrpt</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.clrsr">
+    <h3>
+        <code>clrsr</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">clrsr</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.clz">
+    <h3>
+        <code>clz</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">clz</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.crc8">
+    <h3>
+        <code>crc8</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">crc8</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.crc32">
+    <h3>
+        <code>crc32</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">crc32</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.dcall">
+    <h3>
+        <code>dcall</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">dcall</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.dentsp">
+    <h3>
+        <code>dentsp</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">dentsp</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.dgetreg">
+    <h3>
+        <code>dgetreg</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">dgetreg</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.divs">
+    <h3>
+        <code>divs</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">divs</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.divu">
+    <h3>
+        <code>divu</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">divu</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.drestsp">
+    <h3>
+        <code>drestsp</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">drestsp</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.dret">
+    <h3>
+        <code>dret</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">dret</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.ecallf">
+    <h3>
+        <code>ecallf</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ecallf</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.ecallt">
+    <h3>
+        <code>ecallt</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ecallt</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.edu">
+    <h3>
+        <code>edu</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">edu</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.eef">
+    <h3>
+        <code>eef</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">eef</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.eet">
+    <h3>
+        <code>eet</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">eet</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.eeu">
+    <h3>
+        <code>eeu</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">eeu</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.endin">
+    <h3>
+        <code>endin</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">endin</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.entsp">
+    <h3>
+        <code>entsp</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">entsp</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.eq">
+    <h3>
+        <code>eq</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">eq</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.extdp">
+    <h3>
+        <code>extdp</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">extdp</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.extsp">
+    <h3>
+        <code>extsp</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">extsp</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.freer">
+    <h3>
+        <code>freer</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">freer</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.freet">
+    <h3>
+        <code>freet</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">freet</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.getd">
+    <h3>
+        <code>getd</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">getd</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.get">
+    <h3>
+        <code>get</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">get</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.getn">
+    <h3>
+        <code>getn</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">getn</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.getr">
+    <h3>
+        <code>getr</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">getr</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.getsr">
+    <h3>
+        <code>getsr</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">getsr</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.getst">
+    <h3>
+        <code>getst</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">getst</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.getts">
+    <h3>
+        <code>getts</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">getts</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.inct">
+    <h3>
+        <code>inct</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">inct</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.`init`">
+    <h3>
+        <code>`init`</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">`init`</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.inpw">
+    <h3>
+        <code>inpw</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">inpw</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.inshr">
+    <h3>
+        <code>inshr</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">inshr</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.int">
+    <h3>
+        <code>int</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">int</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.`in`">
+    <h3>
+        <code>`in`</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">`in`</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.kcall">
+    <h3>
+        <code>kcall</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">kcall</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.kentsp">
+    <h3>
+        <code>kentsp</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">kentsp</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.krestsp">
+    <h3>
+        <code>krestsp</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">krestsp</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.kret">
+    <h3>
+        <code>kret</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">kret</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.ladd">
+    <h3>
+        <code>ladd</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ladd</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.ld16s">
+    <h3>
+        <code>ld16s</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ld16s</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.ld8u">
+    <h3>
+        <code>ld8u</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ld8u</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.lda16">
+    <h3>
+        <code>lda16</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">lda16</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.ldap">
+    <h3>
+        <code>ldap</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ldap</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.ldaw">
+    <h3>
+        <code>ldaw</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ldaw</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.ldc">
+    <h3>
+        <code>ldc</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ldc</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.ldw">
+    <h3>
+        <code>ldw</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ldw</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.ldivu">
+    <h3>
+        <code>ldivu</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ldivu</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.lmul">
+    <h3>
+        <code>lmul</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">lmul</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.lss">
+    <h3>
+        <code>lss</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">lss</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.lsub">
+    <h3>
+        <code>lsub</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">lsub</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.lsu">
+    <h3>
+        <code>lsu</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">lsu</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.maccs">
+    <h3>
+        <code>maccs</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">maccs</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.maccu">
+    <h3>
+        <code>maccu</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">maccu</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.mjoin">
+    <h3>
+        <code>mjoin</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">mjoin</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.mkmsk">
+    <h3>
+        <code>mkmsk</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">mkmsk</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.msync">
+    <h3>
+        <code>msync</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">msync</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.mul">
+    <h3>
+        <code>mul</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">mul</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.neg">
+    <h3>
+        <code>neg</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">neg</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.not">
+    <h3>
+        <code>not</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">not</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.or">
+    <h3>
+        <code>or</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">or</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.outct">
+    <h3>
+        <code>outct</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">outct</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.outpw">
+    <h3>
+        <code>outpw</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">outpw</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.outshr">
+    <h3>
+        <code>outshr</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">outshr</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.outt">
+    <h3>
+        <code>outt</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">outt</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.out">
+    <h3>
+        <code>out</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">out</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.peek">
+    <h3>
+        <code>peek</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">peek</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.rems">
+    <h3>
+        <code>rems</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">rems</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.remu">
+    <h3>
+        <code>remu</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">remu</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.retsp">
+    <h3>
+        <code>retsp</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">retsp</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.setclk">
+    <h3>
+        <code>setclk</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">setclk</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.set">
+    <h3>
+        <code>set</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">set</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.setc">
+    <h3>
+        <code>setc</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">setc</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.setd">
+    <h3>
+        <code>setd</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">setd</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.setev">
+    <h3>
+        <code>setev</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">setev</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.setn">
+    <h3>
+        <code>setn</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">setn</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.setpsc">
+    <h3>
+        <code>setpsc</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">setpsc</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.setpt">
+    <h3>
+        <code>setpt</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">setpt</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.setrdy">
+    <h3>
+        <code>setrdy</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">setrdy</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.setsr">
+    <h3>
+        <code>setsr</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">setsr</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.settw">
+    <h3>
+        <code>settw</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">settw</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.setv">
+    <h3>
+        <code>setv</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">setv</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.sext">
+    <h3>
+        <code>sext</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">sext</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.shl">
+    <h3>
+        <code>shl</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">shl</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.shr">
+    <h3>
+        <code>shr</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">shr</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.ssync">
+    <h3>
+        <code>ssync</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ssync</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.st16">
+    <h3>
+        <code>st16</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">st16</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.st8">
+    <h3>
+        <code>st8</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">st8</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.stw">
+    <h3>
+        <code>stw</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">stw</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.sub">
+    <h3>
+        <code>sub</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">sub</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.syncr">
+    <h3>
+        <code>syncr</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">syncr</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.testct">
+    <h3>
+        <code>testct</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">testct</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.testlcl">
+    <h3>
+        <code>testlcl</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">testlcl</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.testwct">
+    <h3>
+        <code>testwct</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">testwct</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.tsetmr">
+    <h3>
+        <code>tsetmr</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">tsetmr</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.start">
+    <h3>
+        <code>start</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">start</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.waitef">
+    <h3>
+        <code>waitef</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">waitef</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.waitet">
+    <h3>
+        <code>waitet</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">waitet</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.waiteu">
+    <h3>
+        <code>waiteu</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">waiteu</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.xor">
+    <h3>
+        <code>xor</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">xor</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.zext">
+    <h3>
+        <code>zext</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">zext</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="xcoreins.ending">
+    <h3>
+        <code>ending</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ending</span></code></pre></body></html>
+</div>
+    </section>
+
+
+
+        </article>
+    </main>
+
+    <footer>
+        <p>
+    Generated on <time datetime="2020-11-21T15:19:16+0100">21 November 2020</time> using <a href="https://github.com/SwiftDocOrg/swift-doc">swift-doc</a> <span class="version">1.0.0-beta.5</span>.
+</p>
+    </footer>
+</body>
+</html>

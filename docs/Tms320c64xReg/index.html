@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capstone - Tms320c64xReg</title>
+    <link rel="stylesheet" type="text/css" href="/all.css" media="all" />
+</head>
+<body>
+    <header>
+        <a href="/">
+            <strong>
+                Capstone
+            </strong>
+            <span>Documentation</span>
+        </a>
+        <sup>Beta</sup>
+    </header>
+
+    <!--
+    <form class="search">
+        <input type="search" placeholder="Search" />
+    </form>
+    -->
+
+    <nav>
+        <div class="wrapper">
+            <h2>On This Page</h2>
+            <ol><li><a href="#relationships">Relationships</a><ul><li><a href="#relationships">Conforms To</a></li></ul></li><li><a href="#enumeration cases">Enumeration Cases</a><ul><li class="case"><a href="#tms320c64xreg.invalid">invalid</a></li><li class="case"><a href="#tms320c64xreg.amr">amr</a></li><li class="case"><a href="#tms320c64xreg.csr">csr</a></li><li class="case"><a href="#tms320c64xreg.dier">dier</a></li><li class="case"><a href="#tms320c64xreg.dnum">dnum</a></li><li class="case"><a href="#tms320c64xreg.ecr">ecr</a></li><li class="case"><a href="#tms320c64xreg.gfpgfr">gfpgfr</a></li><li class="case"><a href="#tms320c64xreg.gplya">gplya</a></li><li class="case"><a href="#tms320c64xreg.gplyb">gplyb</a></li><li class="case"><a href="#tms320c64xreg.icr">icr</a></li><li class="case"><a href="#tms320c64xreg.ier">ier</a></li><li class="case"><a href="#tms320c64xreg.ierr">ierr</a></li><li class="case"><a href="#tms320c64xreg.ilc">ilc</a></li><li class="case"><a href="#tms320c64xreg.irp">irp</a></li><li class="case"><a href="#tms320c64xreg.isr">isr</a></li><li class="case"><a href="#tms320c64xreg.istp">istp</a></li><li class="case"><a href="#tms320c64xreg.itsr">itsr</a></li><li class="case"><a href="#tms320c64xreg.nrp">nrp</a></li><li class="case"><a href="#tms320c64xreg.ntsr">ntsr</a></li><li class="case"><a href="#tms320c64xreg.rep">rep</a></li><li class="case"><a href="#tms320c64xreg.rilc">rilc</a></li><li class="case"><a href="#tms320c64xreg.ssr">ssr</a></li><li class="case"><a href="#tms320c64xreg.tsch">tsch</a></li><li class="case"><a href="#tms320c64xreg.tscl">tscl</a></li><li class="case"><a href="#tms320c64xreg.tsr">tsr</a></li><li class="case"><a href="#tms320c64xreg.a0">a0</a></li><li class="case"><a href="#tms320c64xreg.a1">a1</a></li><li class="case"><a href="#tms320c64xreg.a2">a2</a></li><li class="case"><a href="#tms320c64xreg.a3">a3</a></li><li class="case"><a href="#tms320c64xreg.a4">a4</a></li><li class="case"><a href="#tms320c64xreg.a5">a5</a></li><li class="case"><a href="#tms320c64xreg.a6">a6</a></li><li class="case"><a href="#tms320c64xreg.a7">a7</a></li><li class="case"><a href="#tms320c64xreg.a8">a8</a></li><li class="case"><a href="#tms320c64xreg.a9">a9</a></li><li class="case"><a href="#tms320c64xreg.a10">a10</a></li><li class="case"><a href="#tms320c64xreg.a11">a11</a></li><li class="case"><a href="#tms320c64xreg.a12">a12</a></li><li class="case"><a href="#tms320c64xreg.a13">a13</a></li><li class="case"><a href="#tms320c64xreg.a14">a14</a></li><li class="case"><a href="#tms320c64xreg.a15">a15</a></li><li class="case"><a href="#tms320c64xreg.a16">a16</a></li><li class="case"><a href="#tms320c64xreg.a17">a17</a></li><li class="case"><a href="#tms320c64xreg.a18">a18</a></li><li class="case"><a href="#tms320c64xreg.a19">a19</a></li><li class="case"><a href="#tms320c64xreg.a20">a20</a></li><li class="case"><a href="#tms320c64xreg.a21">a21</a></li><li class="case"><a href="#tms320c64xreg.a22">a22</a></li><li class="case"><a href="#tms320c64xreg.a23">a23</a></li><li class="case"><a href="#tms320c64xreg.a24">a24</a></li><li class="case"><a href="#tms320c64xreg.a25">a25</a></li><li class="case"><a href="#tms320c64xreg.a26">a26</a></li><li class="case"><a href="#tms320c64xreg.a27">a27</a></li><li class="case"><a href="#tms320c64xreg.a28">a28</a></li><li class="case"><a href="#tms320c64xreg.a29">a29</a></li><li class="case"><a href="#tms320c64xreg.a30">a30</a></li><li class="case"><a href="#tms320c64xreg.a31">a31</a></li><li class="case"><a href="#tms320c64xreg.b0">b0</a></li><li class="case"><a href="#tms320c64xreg.b1">b1</a></li><li class="case"><a href="#tms320c64xreg.b2">b2</a></li><li class="case"><a href="#tms320c64xreg.b3">b3</a></li><li class="case"><a href="#tms320c64xreg.b4">b4</a></li><li class="case"><a href="#tms320c64xreg.b5">b5</a></li><li class="case"><a href="#tms320c64xreg.b6">b6</a></li><li class="case"><a href="#tms320c64xreg.b7">b7</a></li><li class="case"><a href="#tms320c64xreg.b8">b8</a></li><li class="case"><a href="#tms320c64xreg.b9">b9</a></li><li class="case"><a href="#tms320c64xreg.b10">b10</a></li><li class="case"><a href="#tms320c64xreg.b11">b11</a></li><li class="case"><a href="#tms320c64xreg.b12">b12</a></li><li class="case"><a href="#tms320c64xreg.b13">b13</a></li><li class="case"><a href="#tms320c64xreg.b14">b14</a></li><li class="case"><a href="#tms320c64xreg.b15">b15</a></li><li class="case"><a href="#tms320c64xreg.b16">b16</a></li><li class="case"><a href="#tms320c64xreg.b17">b17</a></li><li class="case"><a href="#tms320c64xreg.b18">b18</a></li><li class="case"><a href="#tms320c64xreg.b19">b19</a></li><li class="case"><a href="#tms320c64xreg.b20">b20</a></li><li class="case"><a href="#tms320c64xreg.b21">b21</a></li><li class="case"><a href="#tms320c64xreg.b22">b22</a></li><li class="case"><a href="#tms320c64xreg.b23">b23</a></li><li class="case"><a href="#tms320c64xreg.b24">b24</a></li><li class="case"><a href="#tms320c64xreg.b25">b25</a></li><li class="case"><a href="#tms320c64xreg.b26">b26</a></li><li class="case"><a href="#tms320c64xreg.b27">b27</a></li><li class="case"><a href="#tms320c64xreg.b28">b28</a></li><li class="case"><a href="#tms320c64xreg.b29">b29</a></li><li class="case"><a href="#tms320c64xreg.b30">b30</a></li><li class="case"><a href="#tms320c64xreg.b31">b31</a></li><li class="case"><a href="#tms320c64xreg.pce1">pce1</a></li><li class="case"><a href="#tms320c64xreg.ending">ending</a></li></ul></li><li><a href="#properties">Properties</a><ul><li class="variable"><a href="#tms320c64xreg.efr">efr</a></li><li class="variable"><a href="#tms320c64xreg.ifr">ifr</a></li></ul></li></ol>
+        </div>
+    </nav>
+
+    <main>
+        <article>
+            <h1>
+    <small>Enumeration</small>
+    <code class="name">Tms320c64xReg</code>
+</h1>
+
+<html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">enum</span> <span class="type">Tms320c64xReg</span></code></pre></body></html>
+<section id="relationships">
+    <h2 hidden>Relationships</h2>
+        <figure>
+    <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.36.0 (20140111.2315)
+ -->
+<!-- Title: %3 Pages: 1 -->
+<svg width="872pt" height="116pt"
+ viewBox="0.00 0.00 872.00 116.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 112)">
+<title>%3</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-112 868,-112 868,4 -4,4"/>
+<!-- Tms320c64xReg -->
+<g id="node1" class="node"><title>Tms320c64xReg</title>
+<g id="a_node1"><a xlink:href="/Tms320c64xReg" xlink:title="Tms320c64xReg">
+<path fill="none" stroke="black" stroke-width="3" d="M528,-108C528,-108 336,-108 336,-108 330,-108 324,-102 324,-96 324,-96 324,-84 324,-84 324,-78 330,-72 336,-72 336,-72 528,-72 528,-72 534,-72 540,-78 540,-84 540,-84 540,-96 540,-96 540,-102 534,-108 528,-108"/>
+<text text-anchor="middle" x="432" y="-86.3" font-family="Menlo" font-size="14.00">Tms320c64xReg</text>
+</a>
+</g>
+</g>
+<!-- UInt16 -->
+<g id="node2" class="node"><title>UInt16</title>
+<path fill="none" stroke="black" d="M528,-36C528,-36 336,-36 336,-36 330,-36 324,-30 324,-24 324,-24 324,-12 324,-12 324,-6 330,-0 336,-0 336,-0 528,-0 528,-0 534,-0 540,-6 540,-12 540,-12 540,-24 540,-24 540,-30 534,-36 528,-36"/>
+<text text-anchor="middle" x="432" y="-14.3" font-family="Menlo" font-size="14.00">UInt16</text>
+</g>
+<!-- Tms320c64xReg&#45;&gt;UInt16 -->
+<g id="edge1" class="edge"><title>Tms320c64xReg&#45;&gt;UInt16</title>
+<path fill="none" stroke="black" d="M432,-71.6966C432,-63.9827 432,-54.7125 432,-46.1124"/>
+<polygon fill="black" stroke="black" points="435.5,-46.1043 432,-36.1043 428.5,-46.1044 435.5,-46.1043"/>
+</g>
+</g>
+</svg>
+
+
+    <figcaption hidden>Inheritance graph for Tms320c64xReg.</figcaption>
+</figure>
+        <h3>Conforms To</h3>
+<dl>
+    <dt class="unknown"><code>UInt16</code></dt>
+</dl>
+</section>
+    <section id="enumeration cases">
+        <h2>Enumeration Cases</h2>
+
+        <div role="article" class="case" id="tms320c64xreg.invalid">
+    <h3>
+        <code>invalid</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">invalid</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xreg.amr">
+    <h3>
+        <code>amr</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">amr</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xreg.csr">
+    <h3>
+        <code>csr</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">csr</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xreg.dier">
+    <h3>
+        <code>dier</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">dier</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xreg.dnum">
+    <h3>
+        <code>dnum</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">dnum</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xreg.ecr">
+    <h3>
+        <code>ecr</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ecr</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xreg.gfpgfr">
+    <h3>
+        <code>gfpgfr</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">gfpgfr</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xreg.gplya">
+    <h3>
+        <code>gplya</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">gplya</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xreg.gplyb">
+    <h3>
+        <code>gplyb</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">gplyb</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xreg.icr">
+    <h3>
+        <code>icr</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">icr</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xreg.ier">
+    <h3>
+        <code>ier</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ier</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xreg.ierr">
+    <h3>
+        <code>ierr</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ierr</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xreg.ilc">
+    <h3>
+        <code>ilc</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ilc</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xreg.irp">
+    <h3>
+        <code>irp</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">irp</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xreg.isr">
+    <h3>
+        <code>isr</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">isr</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xreg.istp">
+    <h3>
+        <code>istp</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">istp</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xreg.itsr">
+    <h3>
+        <code>itsr</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">itsr</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xreg.nrp">
+    <h3>
+        <code>nrp</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">nrp</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xreg.ntsr">
+    <h3>
+        <code>ntsr</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ntsr</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xreg.rep">
+    <h3>
+        <code>rep</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">rep</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xreg.rilc">
+    <h3>
+        <code>rilc</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">rilc</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xreg.ssr">
+    <h3>
+        <code>ssr</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ssr</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xreg.tsch">
+    <h3>
+        <code>tsch</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">tsch</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xreg.tscl">
+    <h3>
+        <code>tscl</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">tscl</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xreg.tsr">
+    <h3>
+        <code>tsr</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">tsr</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xreg.a0">
+    <h3>
+        <code>a0</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">a0</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xreg.a1">
+    <h3>
+        <code>a1</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">a1</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xreg.a2">
+    <h3>
+        <code>a2</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">a2</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xreg.a3">
+    <h3>
+        <code>a3</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">a3</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xreg.a4">
+    <h3>
+        <code>a4</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">a4</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xreg.a5">
+    <h3>
+        <code>a5</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">a5</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xreg.a6">
+    <h3>
+        <code>a6</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">a6</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xreg.a7">
+    <h3>
+        <code>a7</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">a7</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xreg.a8">
+    <h3>
+        <code>a8</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">a8</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xreg.a9">
+    <h3>
+        <code>a9</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">a9</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xreg.a10">
+    <h3>
+        <code>a10</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">a10</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xreg.a11">
+    <h3>
+        <code>a11</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">a11</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xreg.a12">
+    <h3>
+        <code>a12</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">a12</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xreg.a13">
+    <h3>
+        <code>a13</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">a13</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xreg.a14">
+    <h3>
+        <code>a14</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">a14</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xreg.a15">
+    <h3>
+        <code>a15</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">a15</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xreg.a16">
+    <h3>
+        <code>a16</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">a16</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xreg.a17">
+    <h3>
+        <code>a17</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">a17</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xreg.a18">
+    <h3>
+        <code>a18</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">a18</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xreg.a19">
+    <h3>
+        <code>a19</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">a19</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xreg.a20">
+    <h3>
+        <code>a20</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">a20</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xreg.a21">
+    <h3>
+        <code>a21</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">a21</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xreg.a22">
+    <h3>
+        <code>a22</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">a22</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xreg.a23">
+    <h3>
+        <code>a23</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">a23</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xreg.a24">
+    <h3>
+        <code>a24</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">a24</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xreg.a25">
+    <h3>
+        <code>a25</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">a25</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xreg.a26">
+    <h3>
+        <code>a26</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">a26</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xreg.a27">
+    <h3>
+        <code>a27</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">a27</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xreg.a28">
+    <h3>
+        <code>a28</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">a28</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xreg.a29">
+    <h3>
+        <code>a29</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">a29</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xreg.a30">
+    <h3>
+        <code>a30</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">a30</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xreg.a31">
+    <h3>
+        <code>a31</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">a31</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xreg.b0">
+    <h3>
+        <code>b0</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">b0</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xreg.b1">
+    <h3>
+        <code>b1</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">b1</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xreg.b2">
+    <h3>
+        <code>b2</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">b2</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xreg.b3">
+    <h3>
+        <code>b3</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">b3</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xreg.b4">
+    <h3>
+        <code>b4</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">b4</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xreg.b5">
+    <h3>
+        <code>b5</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">b5</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xreg.b6">
+    <h3>
+        <code>b6</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">b6</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xreg.b7">
+    <h3>
+        <code>b7</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">b7</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xreg.b8">
+    <h3>
+        <code>b8</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">b8</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xreg.b9">
+    <h3>
+        <code>b9</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">b9</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xreg.b10">
+    <h3>
+        <code>b10</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">b10</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xreg.b11">
+    <h3>
+        <code>b11</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">b11</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xreg.b12">
+    <h3>
+        <code>b12</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">b12</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xreg.b13">
+    <h3>
+        <code>b13</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">b13</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xreg.b14">
+    <h3>
+        <code>b14</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">b14</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xreg.b15">
+    <h3>
+        <code>b15</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">b15</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xreg.b16">
+    <h3>
+        <code>b16</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">b16</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xreg.b17">
+    <h3>
+        <code>b17</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">b17</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xreg.b18">
+    <h3>
+        <code>b18</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">b18</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xreg.b19">
+    <h3>
+        <code>b19</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">b19</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xreg.b20">
+    <h3>
+        <code>b20</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">b20</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xreg.b21">
+    <h3>
+        <code>b21</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">b21</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xreg.b22">
+    <h3>
+        <code>b22</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">b22</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xreg.b23">
+    <h3>
+        <code>b23</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">b23</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xreg.b24">
+    <h3>
+        <code>b24</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">b24</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xreg.b25">
+    <h3>
+        <code>b25</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">b25</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xreg.b26">
+    <h3>
+        <code>b26</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">b26</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xreg.b27">
+    <h3>
+        <code>b27</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">b27</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xreg.b28">
+    <h3>
+        <code>b28</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">b28</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xreg.b29">
+    <h3>
+        <code>b29</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">b29</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xreg.b30">
+    <h3>
+        <code>b30</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">b30</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xreg.b31">
+    <h3>
+        <code>b31</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">b31</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xreg.pce1">
+    <h3>
+        <code>pce1</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">pce1</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xreg.ending">
+    <h3>
+        <code>ending</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ending</span></code></pre></body></html>
+</div>
+    </section>
+    <section id="properties">
+        <h2>Properties</h2>
+
+        <div role="article" class="variable" id="tms320c64xreg.efr">
+    <h3>
+        <code>efr</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">efr</span> = <span class="number literal">5</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="tms320c64xreg.ifr">
+    <h3>
+        <code>ifr</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">ifr</span> = <span class="number literal">14</span></code></pre></body></html>
+</div>
+    </section>
+
+
+
+        </article>
+    </main>
+
+    <footer>
+        <p>
+    Generated on <time datetime="2020-11-21T15:19:16+0100">21 November 2020</time> using <a href="https://github.com/SwiftDocOrg/swift-doc">swift-doc</a> <span class="version">1.0.0-beta.5</span>.
+</p>
+    </footer>
+</body>
+</html>

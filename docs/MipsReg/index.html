@@ -1,0 +1,1182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capstone - MipsReg</title>
+    <link rel="stylesheet" type="text/css" href="/all.css" media="all" />
+</head>
+<body>
+    <header>
+        <a href="/">
+            <strong>
+                Capstone
+            </strong>
+            <span>Documentation</span>
+        </a>
+        <sup>Beta</sup>
+    </header>
+
+    <!--
+    <form class="search">
+        <input type="search" placeholder="Search" />
+    </form>
+    -->
+
+    <nav>
+        <div class="wrapper">
+            <h2>On This Page</h2>
+            <ol><li><a href="#relationships">Relationships</a><ul><li><a href="#relationships">Conforms To</a></li></ul></li><li><a href="#enumeration cases">Enumeration Cases</a><ul><li class="case"><a href="#mipsreg.invalid">invalid</a></li><li class="case"><a href="#mipsreg.pc">pc</a></li><li class="case"><a href="#mipsreg.reg0">reg0</a></li><li class="case"><a href="#mipsreg.reg1">reg1</a></li><li class="case"><a href="#mipsreg.reg2">reg2</a></li><li class="case"><a href="#mipsreg.reg3">reg3</a></li><li class="case"><a href="#mipsreg.reg4">reg4</a></li><li class="case"><a href="#mipsreg.reg5">reg5</a></li><li class="case"><a href="#mipsreg.reg6">reg6</a></li><li class="case"><a href="#mipsreg.reg7">reg7</a></li><li class="case"><a href="#mipsreg.reg8">reg8</a></li><li class="case"><a href="#mipsreg.reg9">reg9</a></li><li class="case"><a href="#mipsreg.reg10">reg10</a></li><li class="case"><a href="#mipsreg.reg11">reg11</a></li><li class="case"><a href="#mipsreg.reg12">reg12</a></li><li class="case"><a href="#mipsreg.reg13">reg13</a></li><li class="case"><a href="#mipsreg.reg14">reg14</a></li><li class="case"><a href="#mipsreg.reg15">reg15</a></li><li class="case"><a href="#mipsreg.reg16">reg16</a></li><li class="case"><a href="#mipsreg.reg17">reg17</a></li><li class="case"><a href="#mipsreg.reg18">reg18</a></li><li class="case"><a href="#mipsreg.reg19">reg19</a></li><li class="case"><a href="#mipsreg.reg20">reg20</a></li><li class="case"><a href="#mipsreg.reg21">reg21</a></li><li class="case"><a href="#mipsreg.reg22">reg22</a></li><li class="case"><a href="#mipsreg.reg23">reg23</a></li><li class="case"><a href="#mipsreg.reg24">reg24</a></li><li class="case"><a href="#mipsreg.reg25">reg25</a></li><li class="case"><a href="#mipsreg.reg26">reg26</a></li><li class="case"><a href="#mipsreg.reg27">reg27</a></li><li class="case"><a href="#mipsreg.reg28">reg28</a></li><li class="case"><a href="#mipsreg.reg29">reg29</a></li><li class="case"><a href="#mipsreg.reg30">reg30</a></li><li class="case"><a href="#mipsreg.reg31">reg31</a></li><li class="case"><a href="#mipsreg.dspccond">dspccond</a></li><li class="case"><a href="#mipsreg.dspcarry">dspcarry</a></li><li class="case"><a href="#mipsreg.dspefi">dspefi</a></li><li class="case"><a href="#mipsreg.dspoutflag">dspoutflag</a></li><li class="case"><a href="#mipsreg.dspoutflag1619">dspoutflag1619</a></li><li class="case"><a href="#mipsreg.dspoutflag20">dspoutflag20</a></li><li class="case"><a href="#mipsreg.dspoutflag21">dspoutflag21</a></li><li class="case"><a href="#mipsreg.dspoutflag22">dspoutflag22</a></li><li class="case"><a href="#mipsreg.dspoutflag23">dspoutflag23</a></li><li class="case"><a href="#mipsreg.dsppos">dsppos</a></li><li class="case"><a href="#mipsreg.dspscount">dspscount</a></li><li class="case"><a href="#mipsreg.ac0">ac0</a></li><li class="case"><a href="#mipsreg.ac1">ac1</a></li><li class="case"><a href="#mipsreg.ac2">ac2</a></li><li class="case"><a href="#mipsreg.ac3">ac3</a></li><li class="case"><a href="#mipsreg.cc0">cc0</a></li><li class="case"><a href="#mipsreg.cc1">cc1</a></li><li class="case"><a href="#mipsreg.cc2">cc2</a></li><li class="case"><a href="#mipsreg.cc3">cc3</a></li><li class="case"><a href="#mipsreg.cc4">cc4</a></li><li class="case"><a href="#mipsreg.cc5">cc5</a></li><li class="case"><a href="#mipsreg.cc6">cc6</a></li><li class="case"><a href="#mipsreg.cc7">cc7</a></li><li class="case"><a href="#mipsreg.f0">f0</a></li><li class="case"><a href="#mipsreg.f1">f1</a></li><li class="case"><a href="#mipsreg.f2">f2</a></li><li class="case"><a href="#mipsreg.f3">f3</a></li><li class="case"><a href="#mipsreg.f4">f4</a></li><li class="case"><a href="#mipsreg.f5">f5</a></li><li class="case"><a href="#mipsreg.f6">f6</a></li><li class="case"><a href="#mipsreg.f7">f7</a></li><li class="case"><a href="#mipsreg.f8">f8</a></li><li class="case"><a href="#mipsreg.f9">f9</a></li><li class="case"><a href="#mipsreg.f10">f10</a></li><li class="case"><a href="#mipsreg.f11">f11</a></li><li class="case"><a href="#mipsreg.f12">f12</a></li><li class="case"><a href="#mipsreg.f13">f13</a></li><li class="case"><a href="#mipsreg.f14">f14</a></li><li class="case"><a href="#mipsreg.f15">f15</a></li><li class="case"><a href="#mipsreg.f16">f16</a></li><li class="case"><a href="#mipsreg.f17">f17</a></li><li class="case"><a href="#mipsreg.f18">f18</a></li><li class="case"><a href="#mipsreg.f19">f19</a></li><li class="case"><a href="#mipsreg.f20">f20</a></li><li class="case"><a href="#mipsreg.f21">f21</a></li><li class="case"><a href="#mipsreg.f22">f22</a></li><li class="case"><a href="#mipsreg.f23">f23</a></li><li class="case"><a href="#mipsreg.f24">f24</a></li><li class="case"><a href="#mipsreg.f25">f25</a></li><li class="case"><a href="#mipsreg.f26">f26</a></li><li class="case"><a href="#mipsreg.f27">f27</a></li><li class="case"><a href="#mipsreg.f28">f28</a></li><li class="case"><a href="#mipsreg.f29">f29</a></li><li class="case"><a href="#mipsreg.f30">f30</a></li><li class="case"><a href="#mipsreg.f31">f31</a></li><li class="case"><a href="#mipsreg.fcc0">fcc0</a></li><li class="case"><a href="#mipsreg.fcc1">fcc1</a></li><li class="case"><a href="#mipsreg.fcc2">fcc2</a></li><li class="case"><a href="#mipsreg.fcc3">fcc3</a></li><li class="case"><a href="#mipsreg.fcc4">fcc4</a></li><li class="case"><a href="#mipsreg.fcc5">fcc5</a></li><li class="case"><a href="#mipsreg.fcc6">fcc6</a></li><li class="case"><a href="#mipsreg.fcc7">fcc7</a></li><li class="case"><a href="#mipsreg.w0">w0</a></li><li class="case"><a href="#mipsreg.w1">w1</a></li><li class="case"><a href="#mipsreg.w2">w2</a></li><li class="case"><a href="#mipsreg.w3">w3</a></li><li class="case"><a href="#mipsreg.w4">w4</a></li><li class="case"><a href="#mipsreg.w5">w5</a></li><li class="case"><a href="#mipsreg.w6">w6</a></li><li class="case"><a href="#mipsreg.w7">w7</a></li><li class="case"><a href="#mipsreg.w8">w8</a></li><li class="case"><a href="#mipsreg.w9">w9</a></li><li class="case"><a href="#mipsreg.w10">w10</a></li><li class="case"><a href="#mipsreg.w11">w11</a></li><li class="case"><a href="#mipsreg.w12">w12</a></li><li class="case"><a href="#mipsreg.w13">w13</a></li><li class="case"><a href="#mipsreg.w14">w14</a></li><li class="case"><a href="#mipsreg.w15">w15</a></li><li class="case"><a href="#mipsreg.w16">w16</a></li><li class="case"><a href="#mipsreg.w17">w17</a></li><li class="case"><a href="#mipsreg.w18">w18</a></li><li class="case"><a href="#mipsreg.w19">w19</a></li><li class="case"><a href="#mipsreg.w20">w20</a></li><li class="case"><a href="#mipsreg.w21">w21</a></li><li class="case"><a href="#mipsreg.w22">w22</a></li><li class="case"><a href="#mipsreg.w23">w23</a></li><li class="case"><a href="#mipsreg.w24">w24</a></li><li class="case"><a href="#mipsreg.w25">w25</a></li><li class="case"><a href="#mipsreg.w26">w26</a></li><li class="case"><a href="#mipsreg.w27">w27</a></li><li class="case"><a href="#mipsreg.w28">w28</a></li><li class="case"><a href="#mipsreg.w29">w29</a></li><li class="case"><a href="#mipsreg.w30">w30</a></li><li class="case"><a href="#mipsreg.w31">w31</a></li><li class="case"><a href="#mipsreg.hi">hi</a></li><li class="case"><a href="#mipsreg.lo">lo</a></li><li class="case"><a href="#mipsreg.p0">p0</a></li><li class="case"><a href="#mipsreg.p1">p1</a></li><li class="case"><a href="#mipsreg.p2">p2</a></li><li class="case"><a href="#mipsreg.mpl0">mpl0</a></li><li class="case"><a href="#mipsreg.mpl1">mpl1</a></li><li class="case"><a href="#mipsreg.mpl2">mpl2</a></li><li class="case"><a href="#mipsreg.ending">ending</a></li></ul></li><li><a href="#properties">Properties</a><ul><li class="variable"><a href="#mipsreg.zero">zero</a></li><li class="variable"><a href="#mipsreg.at">at</a></li><li class="variable"><a href="#mipsreg.v0">v0</a></li><li class="variable"><a href="#mipsreg.v1">v1</a></li><li class="variable"><a href="#mipsreg.a0">a0</a></li><li class="variable"><a href="#mipsreg.a1">a1</a></li><li class="variable"><a href="#mipsreg.a2">a2</a></li><li class="variable"><a href="#mipsreg.a3">a3</a></li><li class="variable"><a href="#mipsreg.t0">t0</a></li><li class="variable"><a href="#mipsreg.t1">t1</a></li><li class="variable"><a href="#mipsreg.t2">t2</a></li><li class="variable"><a href="#mipsreg.t3">t3</a></li><li class="variable"><a href="#mipsreg.t4">t4</a></li><li class="variable"><a href="#mipsreg.t5">t5</a></li><li class="variable"><a href="#mipsreg.t6">t6</a></li><li class="variable"><a href="#mipsreg.t7">t7</a></li><li class="variable"><a href="#mipsreg.s0">s0</a></li><li class="variable"><a href="#mipsreg.s1">s1</a></li><li class="variable"><a href="#mipsreg.s2">s2</a></li><li class="variable"><a href="#mipsreg.s3">s3</a></li><li class="variable"><a href="#mipsreg.s4">s4</a></li><li class="variable"><a href="#mipsreg.s5">s5</a></li><li class="variable"><a href="#mipsreg.s6">s6</a></li><li class="variable"><a href="#mipsreg.s7">s7</a></li><li class="variable"><a href="#mipsreg.t8">t8</a></li><li class="variable"><a href="#mipsreg.t9">t9</a></li><li class="variable"><a href="#mipsreg.k0">k0</a></li><li class="variable"><a href="#mipsreg.k1">k1</a></li><li class="variable"><a href="#mipsreg.gp">gp</a></li><li class="variable"><a href="#mipsreg.sp">sp</a></li><li class="variable"><a href="#mipsreg.fp">fp</a></li><li class="variable"><a href="#mipsreg.s8">s8</a></li><li class="variable"><a href="#mipsreg.ra">ra</a></li><li class="variable"><a href="#mipsreg.hi0">hi0</a></li><li class="variable"><a href="#mipsreg.hi1">hi1</a></li><li class="variable"><a href="#mipsreg.hi2">hi2</a></li><li class="variable"><a href="#mipsreg.hi3">hi3</a></li><li class="variable"><a href="#mipsreg.lo0">lo0</a></li><li class="variable"><a href="#mipsreg.lo1">lo1</a></li><li class="variable"><a href="#mipsreg.lo2">lo2</a></li><li class="variable"><a href="#mipsreg.lo3">lo3</a></li></ul></li></ol>
+        </div>
+    </nav>
+
+    <main>
+        <article>
+            <h1>
+    <small>Enumeration</small>
+    <code class="name">Mips​Reg</code>
+</h1>
+
+<html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">enum</span> <span class="type">MipsReg</span></code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>MIPS registers</p>
+
+</div>
+<section id="relationships">
+    <h2 hidden>Relationships</h2>
+        <figure>
+    <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.36.0 (20140111.2315)
+ -->
+<!-- Title: %3 Pages: 1 -->
+<svg width="872pt" height="116pt"
+ viewBox="0.00 0.00 872.00 116.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 112)">
+<title>%3</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-112 868,-112 868,4 -4,4"/>
+<!-- MipsReg -->
+<g id="node1" class="node"><title>MipsReg</title>
+<g id="a_node1"><a xlink:href="/MipsReg" xlink:title="MipsReg">
+<path fill="none" stroke="black" stroke-width="3" d="M528,-108C528,-108 336,-108 336,-108 330,-108 324,-102 324,-96 324,-96 324,-84 324,-84 324,-78 330,-72 336,-72 336,-72 528,-72 528,-72 534,-72 540,-78 540,-84 540,-84 540,-96 540,-96 540,-102 534,-108 528,-108"/>
+<text text-anchor="middle" x="432" y="-86.3" font-family="Menlo" font-size="14.00">MipsReg</text>
+</a>
+</g>
+</g>
+<!-- UInt16 -->
+<g id="node2" class="node"><title>UInt16</title>
+<path fill="none" stroke="black" d="M528,-36C528,-36 336,-36 336,-36 330,-36 324,-30 324,-24 324,-24 324,-12 324,-12 324,-6 330,-0 336,-0 336,-0 528,-0 528,-0 534,-0 540,-6 540,-12 540,-12 540,-24 540,-24 540,-30 534,-36 528,-36"/>
+<text text-anchor="middle" x="432" y="-14.3" font-family="Menlo" font-size="14.00">UInt16</text>
+</g>
+<!-- MipsReg&#45;&gt;UInt16 -->
+<g id="edge1" class="edge"><title>MipsReg&#45;&gt;UInt16</title>
+<path fill="none" stroke="black" d="M432,-71.6966C432,-63.9827 432,-54.7125 432,-46.1124"/>
+<polygon fill="black" stroke="black" points="435.5,-46.1043 432,-36.1043 428.5,-46.1044 435.5,-46.1043"/>
+</g>
+</g>
+</svg>
+
+
+    <figcaption hidden>Inheritance graph for MipsReg.</figcaption>
+</figure>
+        <h3>Conforms To</h3>
+<dl>
+    <dt class="unknown"><code>UInt16</code></dt>
+</dl>
+</section>
+    <section id="enumeration cases">
+        <h2>Enumeration Cases</h2>
+
+        <div role="article" class="case" id="mipsreg.invalid">
+    <h3>
+        <code>invalid</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">invalid</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.pc">
+    <h3>
+        <code>pc</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">pc</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.reg0">
+    <h3>
+        <code>reg0</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">reg0</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.reg1">
+    <h3>
+        <code>reg1</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">reg1</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.reg2">
+    <h3>
+        <code>reg2</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">reg2</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.reg3">
+    <h3>
+        <code>reg3</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">reg3</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.reg4">
+    <h3>
+        <code>reg4</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">reg4</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.reg5">
+    <h3>
+        <code>reg5</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">reg5</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.reg6">
+    <h3>
+        <code>reg6</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">reg6</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.reg7">
+    <h3>
+        <code>reg7</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">reg7</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.reg8">
+    <h3>
+        <code>reg8</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">reg8</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.reg9">
+    <h3>
+        <code>reg9</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">reg9</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.reg10">
+    <h3>
+        <code>reg10</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">reg10</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.reg11">
+    <h3>
+        <code>reg11</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">reg11</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.reg12">
+    <h3>
+        <code>reg12</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">reg12</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.reg13">
+    <h3>
+        <code>reg13</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">reg13</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.reg14">
+    <h3>
+        <code>reg14</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">reg14</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.reg15">
+    <h3>
+        <code>reg15</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">reg15</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.reg16">
+    <h3>
+        <code>reg16</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">reg16</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.reg17">
+    <h3>
+        <code>reg17</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">reg17</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.reg18">
+    <h3>
+        <code>reg18</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">reg18</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.reg19">
+    <h3>
+        <code>reg19</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">reg19</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.reg20">
+    <h3>
+        <code>reg20</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">reg20</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.reg21">
+    <h3>
+        <code>reg21</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">reg21</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.reg22">
+    <h3>
+        <code>reg22</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">reg22</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.reg23">
+    <h3>
+        <code>reg23</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">reg23</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.reg24">
+    <h3>
+        <code>reg24</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">reg24</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.reg25">
+    <h3>
+        <code>reg25</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">reg25</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.reg26">
+    <h3>
+        <code>reg26</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">reg26</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.reg27">
+    <h3>
+        <code>reg27</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">reg27</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.reg28">
+    <h3>
+        <code>reg28</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">reg28</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.reg29">
+    <h3>
+        <code>reg29</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">reg29</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.reg30">
+    <h3>
+        <code>reg30</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">reg30</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.reg31">
+    <h3>
+        <code>reg31</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">reg31</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.dspccond">
+    <h3>
+        <code>dspccond</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">dspccond</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.dspcarry">
+    <h3>
+        <code>dspcarry</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">dspcarry</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.dspefi">
+    <h3>
+        <code>dspefi</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">dspefi</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.dspoutflag">
+    <h3>
+        <code>dspoutflag</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">dspoutflag</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.dspoutflag1619">
+    <h3>
+        <code>dspoutflag1619</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">dspoutflag1619</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.dspoutflag20">
+    <h3>
+        <code>dspoutflag20</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">dspoutflag20</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.dspoutflag21">
+    <h3>
+        <code>dspoutflag21</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">dspoutflag21</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.dspoutflag22">
+    <h3>
+        <code>dspoutflag22</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">dspoutflag22</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.dspoutflag23">
+    <h3>
+        <code>dspoutflag23</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">dspoutflag23</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.dsppos">
+    <h3>
+        <code>dsppos</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">dsppos</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.dspscount">
+    <h3>
+        <code>dspscount</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">dspscount</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.ac0">
+    <h3>
+        <code>ac0</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ac0</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.ac1">
+    <h3>
+        <code>ac1</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ac1</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.ac2">
+    <h3>
+        <code>ac2</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ac2</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.ac3">
+    <h3>
+        <code>ac3</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ac3</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.cc0">
+    <h3>
+        <code>cc0</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cc0</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.cc1">
+    <h3>
+        <code>cc1</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cc1</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.cc2">
+    <h3>
+        <code>cc2</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cc2</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.cc3">
+    <h3>
+        <code>cc3</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cc3</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.cc4">
+    <h3>
+        <code>cc4</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cc4</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.cc5">
+    <h3>
+        <code>cc5</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cc5</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.cc6">
+    <h3>
+        <code>cc6</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cc6</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.cc7">
+    <h3>
+        <code>cc7</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cc7</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.f0">
+    <h3>
+        <code>f0</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">f0</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.f1">
+    <h3>
+        <code>f1</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">f1</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.f2">
+    <h3>
+        <code>f2</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">f2</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.f3">
+    <h3>
+        <code>f3</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">f3</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.f4">
+    <h3>
+        <code>f4</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">f4</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.f5">
+    <h3>
+        <code>f5</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">f5</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.f6">
+    <h3>
+        <code>f6</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">f6</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.f7">
+    <h3>
+        <code>f7</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">f7</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.f8">
+    <h3>
+        <code>f8</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">f8</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.f9">
+    <h3>
+        <code>f9</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">f9</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.f10">
+    <h3>
+        <code>f10</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">f10</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.f11">
+    <h3>
+        <code>f11</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">f11</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.f12">
+    <h3>
+        <code>f12</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">f12</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.f13">
+    <h3>
+        <code>f13</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">f13</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.f14">
+    <h3>
+        <code>f14</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">f14</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.f15">
+    <h3>
+        <code>f15</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">f15</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.f16">
+    <h3>
+        <code>f16</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">f16</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.f17">
+    <h3>
+        <code>f17</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">f17</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.f18">
+    <h3>
+        <code>f18</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">f18</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.f19">
+    <h3>
+        <code>f19</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">f19</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.f20">
+    <h3>
+        <code>f20</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">f20</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.f21">
+    <h3>
+        <code>f21</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">f21</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.f22">
+    <h3>
+        <code>f22</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">f22</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.f23">
+    <h3>
+        <code>f23</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">f23</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.f24">
+    <h3>
+        <code>f24</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">f24</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.f25">
+    <h3>
+        <code>f25</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">f25</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.f26">
+    <h3>
+        <code>f26</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">f26</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.f27">
+    <h3>
+        <code>f27</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">f27</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.f28">
+    <h3>
+        <code>f28</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">f28</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.f29">
+    <h3>
+        <code>f29</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">f29</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.f30">
+    <h3>
+        <code>f30</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">f30</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.f31">
+    <h3>
+        <code>f31</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">f31</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.fcc0">
+    <h3>
+        <code>fcc0</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fcc0</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.fcc1">
+    <h3>
+        <code>fcc1</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fcc1</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.fcc2">
+    <h3>
+        <code>fcc2</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fcc2</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.fcc3">
+    <h3>
+        <code>fcc3</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fcc3</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.fcc4">
+    <h3>
+        <code>fcc4</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fcc4</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.fcc5">
+    <h3>
+        <code>fcc5</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fcc5</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.fcc6">
+    <h3>
+        <code>fcc6</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fcc6</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.fcc7">
+    <h3>
+        <code>fcc7</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">fcc7</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.w0">
+    <h3>
+        <code>w0</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">w0</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.w1">
+    <h3>
+        <code>w1</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">w1</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.w2">
+    <h3>
+        <code>w2</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">w2</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.w3">
+    <h3>
+        <code>w3</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">w3</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.w4">
+    <h3>
+        <code>w4</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">w4</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.w5">
+    <h3>
+        <code>w5</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">w5</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.w6">
+    <h3>
+        <code>w6</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">w6</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.w7">
+    <h3>
+        <code>w7</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">w7</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.w8">
+    <h3>
+        <code>w8</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">w8</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.w9">
+    <h3>
+        <code>w9</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">w9</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.w10">
+    <h3>
+        <code>w10</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">w10</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.w11">
+    <h3>
+        <code>w11</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">w11</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.w12">
+    <h3>
+        <code>w12</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">w12</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.w13">
+    <h3>
+        <code>w13</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">w13</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.w14">
+    <h3>
+        <code>w14</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">w14</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.w15">
+    <h3>
+        <code>w15</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">w15</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.w16">
+    <h3>
+        <code>w16</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">w16</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.w17">
+    <h3>
+        <code>w17</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">w17</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.w18">
+    <h3>
+        <code>w18</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">w18</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.w19">
+    <h3>
+        <code>w19</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">w19</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.w20">
+    <h3>
+        <code>w20</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">w20</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.w21">
+    <h3>
+        <code>w21</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">w21</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.w22">
+    <h3>
+        <code>w22</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">w22</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.w23">
+    <h3>
+        <code>w23</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">w23</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.w24">
+    <h3>
+        <code>w24</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">w24</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.w25">
+    <h3>
+        <code>w25</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">w25</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.w26">
+    <h3>
+        <code>w26</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">w26</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.w27">
+    <h3>
+        <code>w27</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">w27</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.w28">
+    <h3>
+        <code>w28</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">w28</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.w29">
+    <h3>
+        <code>w29</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">w29</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.w30">
+    <h3>
+        <code>w30</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">w30</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.w31">
+    <h3>
+        <code>w31</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">w31</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.hi">
+    <h3>
+        <code>hi</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">hi</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.lo">
+    <h3>
+        <code>lo</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">lo</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.p0">
+    <h3>
+        <code>p0</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">p0</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.p1">
+    <h3>
+        <code>p1</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">p1</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.p2">
+    <h3>
+        <code>p2</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">p2</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.mpl0">
+    <h3>
+        <code>mpl0</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">mpl0</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.mpl1">
+    <h3>
+        <code>mpl1</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">mpl1</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.mpl2">
+    <h3>
+        <code>mpl2</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">mpl2</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="mipsreg.ending">
+    <h3>
+        <code>ending</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ending</span></code></pre></body></html>
+</div>
+    </section>
+    <section id="properties">
+        <h2>Properties</h2>
+
+        <div role="article" class="variable" id="mipsreg.zero">
+    <h3>
+        <code>zero</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">zero</span> = <span class="number literal">2</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="mipsreg.at">
+    <h3>
+        <code>at</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">at</span> = <span class="number literal">3</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="mipsreg.v0">
+    <h3>
+        <code>v0</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">v0</span> = <span class="number literal">4</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="mipsreg.v1">
+    <h3>
+        <code>v1</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">v1</span> = <span class="number literal">5</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="mipsreg.a0">
+    <h3>
+        <code>a0</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">a0</span> = <span class="number literal">6</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="mipsreg.a1">
+    <h3>
+        <code>a1</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">a1</span> = <span class="number literal">7</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="mipsreg.a2">
+    <h3>
+        <code>a2</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">a2</span> = <span class="number literal">8</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="mipsreg.a3">
+    <h3>
+        <code>a3</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">a3</span> = <span class="number literal">9</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="mipsreg.t0">
+    <h3>
+        <code>t0</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">t0</span> = <span class="number literal">10</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="mipsreg.t1">
+    <h3>
+        <code>t1</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">t1</span> = <span class="number literal">11</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="mipsreg.t2">
+    <h3>
+        <code>t2</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">t2</span> = <span class="number literal">12</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="mipsreg.t3">
+    <h3>
+        <code>t3</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">t3</span> = <span class="number literal">13</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="mipsreg.t4">
+    <h3>
+        <code>t4</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">t4</span> = <span class="number literal">14</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="mipsreg.t5">
+    <h3>
+        <code>t5</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">t5</span> = <span class="number literal">15</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="mipsreg.t6">
+    <h3>
+        <code>t6</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">t6</span> = <span class="number literal">16</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="mipsreg.t7">
+    <h3>
+        <code>t7</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">t7</span> = <span class="number literal">17</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="mipsreg.s0">
+    <h3>
+        <code>s0</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">s0</span> = <span class="number literal">18</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="mipsreg.s1">
+    <h3>
+        <code>s1</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">s1</span> = <span class="number literal">19</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="mipsreg.s2">
+    <h3>
+        <code>s2</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">s2</span> = <span class="number literal">20</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="mipsreg.s3">
+    <h3>
+        <code>s3</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">s3</span> = <span class="number literal">21</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="mipsreg.s4">
+    <h3>
+        <code>s4</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">s4</span> = <span class="number literal">22</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="mipsreg.s5">
+    <h3>
+        <code>s5</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">s5</span> = <span class="number literal">23</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="mipsreg.s6">
+    <h3>
+        <code>s6</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">s6</span> = <span class="number literal">24</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="mipsreg.s7">
+    <h3>
+        <code>s7</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">s7</span> = <span class="number literal">25</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="mipsreg.t8">
+    <h3>
+        <code>t8</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">t8</span> = <span class="number literal">26</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="mipsreg.t9">
+    <h3>
+        <code>t9</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">t9</span> = <span class="number literal">27</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="mipsreg.k0">
+    <h3>
+        <code>k0</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">k0</span> = <span class="number literal">28</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="mipsreg.k1">
+    <h3>
+        <code>k1</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">k1</span> = <span class="number literal">29</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="mipsreg.gp">
+    <h3>
+        <code>gp</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">gp</span> = <span class="number literal">30</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="mipsreg.sp">
+    <h3>
+        <code>sp</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">sp</span> = <span class="number literal">31</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="mipsreg.fp">
+    <h3>
+        <code>fp</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">fp</span> = <span class="number literal">32</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="mipsreg.s8">
+    <h3>
+        <code>s8</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">s8</span> = <span class="number literal">32</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="mipsreg.ra">
+    <h3>
+        <code>ra</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">ra</span> = <span class="number literal">33</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="mipsreg.hi0">
+    <h3>
+        <code>hi0</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">hi0</span> = <span class="number literal">45</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="mipsreg.hi1">
+    <h3>
+        <code>hi1</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">hi1</span> = <span class="number literal">46</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="mipsreg.hi2">
+    <h3>
+        <code>hi2</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">hi2</span> = <span class="number literal">47</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="mipsreg.hi3">
+    <h3>
+        <code>hi3</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">hi3</span> = <span class="number literal">48</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="mipsreg.lo0">
+    <h3>
+        <code>lo0</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">lo0</span> = <span class="number literal">45</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="mipsreg.lo1">
+    <h3>
+        <code>lo1</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">lo1</span> = <span class="number literal">46</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="mipsreg.lo2">
+    <h3>
+        <code>lo2</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">lo2</span> = <span class="number literal">47</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="mipsreg.lo3">
+    <h3>
+        <code>lo3</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">lo3</span> = <span class="number literal">48</span></code></pre></body></html>
+</div>
+    </section>
+
+
+
+        </article>
+    </main>
+
+    <footer>
+        <p>
+    Generated on <time datetime="2020-11-21T15:19:23+0100">21 November 2020</time> using <a href="https://github.com/SwiftDocOrg/swift-doc">swift-doc</a> <span class="version">1.0.0-beta.5</span>.
+</p>
+    </footer>
+</body>
+</html>

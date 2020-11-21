@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capstone - M680xInstruction.Operand.IndexedAddress</title>
+    <link rel="stylesheet" type="text/css" href="/all.css" media="all" />
+</head>
+<body>
+    <header>
+        <a href="/">
+            <strong>
+                Capstone
+            </strong>
+            <span>Documentation</span>
+        </a>
+        <sup>Beta</sup>
+    </header>
+
+    <!--
+    <form class="search">
+        <input type="search" placeholder="Search" />
+    </form>
+    -->
+
+    <nav>
+        <div class="wrapper">
+            <h2>On This Page</h2>
+            <ol><li><a href="#relationships">Relationships</a><ul><li><a href="#relationships">Member Of</a></li></ul></li><li><a href="#properties">Properties</a><ul><li class="variable"><a href="#m680xinstruction.operand.indexedaddress.base">base</a></li><li class="variable"><a href="#m680xinstruction.operand.indexedaddress.offset">offset</a></li><li class="variable"><a href="#m680xinstruction.operand.indexedaddress.incdec">inc​Dec</a></li><li class="variable"><a href="#m680xinstruction.operand.indexedaddress.flags">flags</a></li><li class="variable"><a href="#m680xinstruction.operand.indexedaddress.indirect">indirect</a></li><li class="variable"><a href="#m680xinstruction.operand.indexedaddress.post">post</a></li><li class="variable"><a href="#m680xinstruction.operand.indexedaddress.pre">pre</a></li></ul></li></ol>
+        </div>
+    </nav>
+
+    <main>
+        <article>
+            <h1>
+    <small>Structure</small>
+    <code class="name">M680xInstruction.​Operand.​Indexed​Address</code>
+</h1>
+
+<html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">struct</span> <span class="type">IndexedAddress</span></code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>Operand referring to indexed addressing.</p>
+
+</div>
+<section id="relationships">
+    <h2 hidden>Relationships</h2>
+        
+        <h3>Member Of</h3>
+<dl>
+    <dt class="structure"><code><a href="/M680xInstruction_Operand">M680xInstruction.Operand</a></code></dt>
+<dd><p>Operand for M680x instructions.</p>
+</dd>
+</dl>
+</section>
+    <section id="properties">
+        <h2>Properties</h2>
+
+        <div role="article" class="variable" id="m680xinstruction.operand.indexedaddress.base">
+    <h3>
+        <code>base</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">base</span>: <a href="/M680xReg"><span class="type">M680xReg</span></a>?</code></pre></body></html>
+</div>
+<div role="article" class="variable" id="m680xinstruction.operand.indexedaddress.offset">
+    <h3>
+        <code>offset</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">offset</span>: (<span class="variable">register</span>: <a href="/M680xReg"><span class="type">M680xReg</span></a>?, <span class="variable">width</span>: <a href="/M680xOffset"><span class="type">M680xOffset</span></a>, <span class="variable">value</span>: <span class="type">Int16</span>, <span class="variable">address</span>: <span class="type">UInt16</span>)</code></pre></body></html>
+</div>
+<div role="article" class="variable" id="m680xinstruction.operand.indexedaddress.incdec">
+    <h3>
+        <code>inc​Dec</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">incDec</span>: <span class="type">Int8</span></code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>Increment or decrement (-8 to 8).</p>
+
+</div>
+<div class="discussion">
+    <p><code>post</code> or <code>pre</code> tell if it's pre-increment/decrement or post-increment/decrement.</p>
+
+</div>
+</div>
+<div role="article" class="variable" id="m680xinstruction.operand.indexedaddress.flags">
+    <h3>
+        <code>flags</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">flags</span>: <a href="/M680xIdx"><span class="type">M680xIdx</span></a></code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>Indexed addressing flags.</p>
+
+</div>
+</div>
+<div role="article" class="variable" id="m680xinstruction.operand.indexedaddress.indirect">
+    <h3>
+        <code>indirect</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">var</span> <span class="variable">indirect</span>: <span class="type">Bool</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="m680xinstruction.operand.indexedaddress.post">
+    <h3>
+        <code>post</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">var</span> <span class="variable">post</span>: <span class="type">Bool</span></code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p><code>true</code> if post-increment or post-decrement.</p>
+
+</div>
+</div>
+<div role="article" class="variable" id="m680xinstruction.operand.indexedaddress.pre">
+    <h3>
+        <code>pre</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">var</span> <span class="variable">pre</span>: <span class="type">Bool</span></code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p><code>true</code> if pre-increment or pre-decrement.</p>
+
+</div>
+</div>
+    </section>
+
+
+
+        </article>
+    </main>
+
+    <footer>
+        <p>
+    Generated on <time datetime="2020-11-21T15:19:28+0100">21 November 2020</time> using <a href="https://github.com/SwiftDocOrg/swift-doc">swift-doc</a> <span class="version">1.0.0-beta.5</span>.
+</p>
+    </footer>
+</body>
+</html>

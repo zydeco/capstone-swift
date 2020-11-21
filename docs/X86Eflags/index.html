@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capstone - X86Eflags</title>
+    <link rel="stylesheet" type="text/css" href="/all.css" media="all" />
+</head>
+<body>
+    <header>
+        <a href="/">
+            <strong>
+                Capstone
+            </strong>
+            <span>Documentation</span>
+        </a>
+        <sup>Beta</sup>
+    </header>
+
+    <!--
+    <form class="search">
+        <input type="search" placeholder="Search" />
+    </form>
+    -->
+
+    <nav>
+        <div class="wrapper">
+            <h2>On This Page</h2>
+            <ol><li><a href="#relationships">Relationships</a><ul><li><a href="#relationships">Conforms To</a></li></ul></li><li><a href="#nested type aliases">Nested Type Aliases</a><ul><li class="typealias"><a href="#x86eflags.rawvalue">Raw​Value</a></li></ul></li><li><a href="#initializers">Initializers</a><ul><li class="initializer"><a href="#x86eflags.init(rawvalue:)">init(raw​Value:​)</a></li></ul></li><li><a href="#properties">Properties</a><ul><li class="variable"><a href="#x86eflags.flagnames">flag​Names</a></li><li class="variable"><a href="#x86eflags.description">description</a></li><li class="variable"><a href="#x86eflags.rawvalue">raw​Value</a></li><li class="variable"><a href="#x86eflags.modifyaf">modify​Af</a></li><li class="variable"><a href="#x86eflags.modifycf">modify​Cf</a></li><li class="variable"><a href="#x86eflags.modifysf">modify​Sf</a></li><li class="variable"><a href="#x86eflags.modifyzf">modify​Zf</a></li><li class="variable"><a href="#x86eflags.modifypf">modify​Pf</a></li><li class="variable"><a href="#x86eflags.modifyof">modify​Of</a></li><li class="variable"><a href="#x86eflags.modifytf">modify​Tf</a></li><li class="variable"><a href="#x86eflags.modifyif">modify​If</a></li><li class="variable"><a href="#x86eflags.modifydf">modify​Df</a></li><li class="variable"><a href="#x86eflags.modifynt">modify​Nt</a></li><li class="variable"><a href="#x86eflags.modifyrf">modify​Rf</a></li><li class="variable"><a href="#x86eflags.priorof">prior​Of</a></li><li class="variable"><a href="#x86eflags.priorsf">prior​Sf</a></li><li class="variable"><a href="#x86eflags.priorzf">prior​Zf</a></li><li class="variable"><a href="#x86eflags.prioraf">prior​Af</a></li><li class="variable"><a href="#x86eflags.priorpf">prior​Pf</a></li><li class="variable"><a href="#x86eflags.priorcf">prior​Cf</a></li><li class="variable"><a href="#x86eflags.priortf">prior​Tf</a></li><li class="variable"><a href="#x86eflags.priorif">prior​If</a></li><li class="variable"><a href="#x86eflags.priordf">prior​Df</a></li><li class="variable"><a href="#x86eflags.priornt">prior​Nt</a></li><li class="variable"><a href="#x86eflags.resetof">reset​Of</a></li><li class="variable"><a href="#x86eflags.resetcf">reset​Cf</a></li><li class="variable"><a href="#x86eflags.resetdf">reset​Df</a></li><li class="variable"><a href="#x86eflags.resetif">reset​If</a></li><li class="variable"><a href="#x86eflags.resetsf">reset​Sf</a></li><li class="variable"><a href="#x86eflags.resetaf">reset​Af</a></li><li class="variable"><a href="#x86eflags.resettf">reset​Tf</a></li><li class="variable"><a href="#x86eflags.resetnt">reset​Nt</a></li><li class="variable"><a href="#x86eflags.resetpf">reset​Pf</a></li><li class="variable"><a href="#x86eflags.setcf">set​Cf</a></li><li class="variable"><a href="#x86eflags.setdf">set​Df</a></li><li class="variable"><a href="#x86eflags.setif">set​If</a></li><li class="variable"><a href="#x86eflags.testof">test​Of</a></li><li class="variable"><a href="#x86eflags.testsf">test​Sf</a></li><li class="variable"><a href="#x86eflags.testzf">test​Zf</a></li><li class="variable"><a href="#x86eflags.testpf">test​Pf</a></li><li class="variable"><a href="#x86eflags.testcf">test​Cf</a></li><li class="variable"><a href="#x86eflags.testnt">test​Nt</a></li><li class="variable"><a href="#x86eflags.testdf">test​Df</a></li><li class="variable"><a href="#x86eflags.undefinedof">undefined​Of</a></li><li class="variable"><a href="#x86eflags.undefinedsf">undefined​Sf</a></li><li class="variable"><a href="#x86eflags.undefinedzf">undefined​Zf</a></li><li class="variable"><a href="#x86eflags.undefinedpf">undefined​Pf</a></li><li class="variable"><a href="#x86eflags.undefinedaf">undefined​Af</a></li><li class="variable"><a href="#x86eflags.undefinedcf">undefined​Cf</a></li><li class="variable"><a href="#x86eflags.resetrf">reset​Rf</a></li><li class="variable"><a href="#x86eflags.testrf">test​Rf</a></li><li class="variable"><a href="#x86eflags.testif">test​If</a></li><li class="variable"><a href="#x86eflags.testtf">test​Tf</a></li><li class="variable"><a href="#x86eflags.testaf">test​Af</a></li><li class="variable"><a href="#x86eflags.resetzf">reset​Zf</a></li><li class="variable"><a href="#x86eflags.setof">set​Of</a></li><li class="variable"><a href="#x86eflags.setsf">set​Sf</a></li><li class="variable"><a href="#x86eflags.setzf">set​Zf</a></li><li class="variable"><a href="#x86eflags.setaf">set​Af</a></li><li class="variable"><a href="#x86eflags.setpf">set​Pf</a></li><li class="variable"><a href="#x86eflags.reset0f">reset0f</a></li><li class="variable"><a href="#x86eflags.resetac">reset​Ac</a></li></ul></li></ol>
+        </div>
+    </nav>
+
+    <main>
+        <article>
+            <h1>
+    <small>Structure</small>
+    <code class="name">X86Eflags</code>
+</h1>
+
+<html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">struct</span> <span class="type">X86Eflags</span>: <span class="type">OptionSet</span></code></pre></body></html>
+<section id="relationships">
+    <h2 hidden>Relationships</h2>
+        <figure>
+    <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.36.0 (20140111.2315)
+ -->
+<!-- Title: %3 Pages: 1 -->
+<svg width="872pt" height="116pt"
+ viewBox="0.00 0.00 872.00 116.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 112)">
+<title>%3</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-112 868,-112 868,4 -4,4"/>
+<!-- X86Eflags -->
+<g id="node1" class="node"><title>X86Eflags</title>
+<g id="a_node1"><a xlink:href="/X86Eflags" xlink:title="X86Eflags">
+<path fill="none" stroke="black" stroke-width="3" d="M528,-108C528,-108 336,-108 336,-108 330,-108 324,-102 324,-96 324,-96 324,-84 324,-84 324,-78 330,-72 336,-72 336,-72 528,-72 528,-72 534,-72 540,-78 540,-84 540,-84 540,-96 540,-96 540,-102 534,-108 528,-108"/>
+<text text-anchor="middle" x="432" y="-86.3" font-family="Menlo" font-size="14.00">X86Eflags</text>
+</a>
+</g>
+</g>
+<!-- OptionSet -->
+<g id="node2" class="node"><title>OptionSet</title>
+<path fill="none" stroke="black" d="M303,-36C303,-36 111,-36 111,-36 105,-36 99,-30 99,-24 99,-24 99,-12 99,-12 99,-6 105,-0 111,-0 111,-0 303,-0 303,-0 309,-0 315,-6 315,-12 315,-12 315,-24 315,-24 315,-30 309,-36 303,-36"/>
+<text text-anchor="middle" x="207" y="-14.3" font-family="Menlo" font-size="14.00">OptionSet</text>
+</g>
+<!-- X86Eflags&#45;&gt;OptionSet -->
+<g id="edge2" class="edge"><title>X86Eflags&#45;&gt;OptionSet</title>
+<path fill="none" stroke="black" d="M377.247,-71.9656C345.399,-62.0574 305.08,-49.5139 271.675,-39.121"/>
+<polygon fill="black" stroke="black" points="272.587,-35.7395 261.999,-36.1108 270.508,-42.4235 272.587,-35.7395"/>
+</g>
+<!-- CustomStringConvertible -->
+<g id="node3" class="node"><title>CustomStringConvertible</title>
+<path fill="none" stroke="black" d="M753,-36C753,-36 561,-36 561,-36 555,-36 549,-30 549,-24 549,-24 549,-12 549,-12 549,-6 555,-0 561,-0 561,-0 753,-0 753,-0 759,-0 765,-6 765,-12 765,-12 765,-24 765,-24 765,-30 759,-36 753,-36"/>
+<text text-anchor="middle" x="657" y="-14.3" font-family="Menlo" font-size="14.00">CustomStringConvertible</text>
+</g>
+<!-- X86Eflags&#45;&gt;CustomStringConvertible -->
+<g id="edge1" class="edge"><title>X86Eflags&#45;&gt;CustomStringConvertible</title>
+<path fill="none" stroke="black" d="M486.753,-71.9656C518.601,-62.0574 558.92,-49.5139 592.325,-39.121"/>
+<polygon fill="black" stroke="black" points="593.492,-42.4235 602.001,-36.1108 591.413,-35.7395 593.492,-42.4235"/>
+</g>
+</g>
+</svg>
+
+
+    <figcaption hidden>Inheritance graph for X86Eflags.</figcaption>
+</figure>
+        <h3>Conforms To</h3>
+<dl>
+    <dt class="unknown"><code>CustomStringConvertible</code></dt>
+<dt class="unknown"><code>OptionSet</code></dt>
+</dl>
+</section>
+    <section id="nested type aliases">
+        <h2>Nested Type Aliases</h2>
+
+        <div role="article" class="typealias" id="x86eflags.rawvalue">
+    <h3>
+        <code>Raw​Value</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">typealias</span> <span class="variable">RawValue</span> = <span class="type">UInt64</span></code></pre></body></html>
+</div>
+    </section>
+    <section id="initializers">
+        <h2>Initializers</h2>
+
+        <div role="article" class="initializer" id="x86eflags.init(rawvalue:)">
+    <h3>
+        <code>init(raw​Value:​)</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">init</span>(<span class="variable">rawValue</span>: <span class="type">RawValue</span>)</code></pre></body></html>
+</div>
+    </section>
+    <section id="properties">
+        <h2>Properties</h2>
+
+        <div role="article" class="variable" id="x86eflags.flagnames">
+    <h3>
+        <code>flag​Names</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">var</span> <span class="variable">flagNames</span>: [<span class="type">String</span>]</code></pre></body></html>
+</div>
+<div role="article" class="variable" id="x86eflags.description">
+    <h3>
+        <code>description</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">var</span> <span class="variable">description</span>: <span class="type">String</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="x86eflags.rawvalue">
+    <h3>
+        <code>raw​Value</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">rawValue</span>: <span class="type">RawValue</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="x86eflags.modifyaf">
+    <h3>
+        <code>modify​Af</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">modifyAf</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="x86eflags.modifycf">
+    <h3>
+        <code>modify​Cf</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">modifyCf</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="x86eflags.modifysf">
+    <h3>
+        <code>modify​Sf</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">modifySf</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="x86eflags.modifyzf">
+    <h3>
+        <code>modify​Zf</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">modifyZf</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="x86eflags.modifypf">
+    <h3>
+        <code>modify​Pf</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">modifyPf</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="x86eflags.modifyof">
+    <h3>
+        <code>modify​Of</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">modifyOf</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="x86eflags.modifytf">
+    <h3>
+        <code>modify​Tf</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">modifyTf</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="x86eflags.modifyif">
+    <h3>
+        <code>modify​If</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">modifyIf</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="x86eflags.modifydf">
+    <h3>
+        <code>modify​Df</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">modifyDf</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="x86eflags.modifynt">
+    <h3>
+        <code>modify​Nt</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">modifyNt</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="x86eflags.modifyrf">
+    <h3>
+        <code>modify​Rf</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">modifyRf</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="x86eflags.priorof">
+    <h3>
+        <code>prior​Of</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">priorOf</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="x86eflags.priorsf">
+    <h3>
+        <code>prior​Sf</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">priorSf</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="x86eflags.priorzf">
+    <h3>
+        <code>prior​Zf</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">priorZf</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="x86eflags.prioraf">
+    <h3>
+        <code>prior​Af</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">priorAf</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="x86eflags.priorpf">
+    <h3>
+        <code>prior​Pf</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">priorPf</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="x86eflags.priorcf">
+    <h3>
+        <code>prior​Cf</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">priorCf</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="x86eflags.priortf">
+    <h3>
+        <code>prior​Tf</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">priorTf</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="x86eflags.priorif">
+    <h3>
+        <code>prior​If</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">priorIf</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="x86eflags.priordf">
+    <h3>
+        <code>prior​Df</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">priorDf</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="x86eflags.priornt">
+    <h3>
+        <code>prior​Nt</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">priorNt</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="x86eflags.resetof">
+    <h3>
+        <code>reset​Of</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">resetOf</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="x86eflags.resetcf">
+    <h3>
+        <code>reset​Cf</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">resetCf</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="x86eflags.resetdf">
+    <h3>
+        <code>reset​Df</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">resetDf</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="x86eflags.resetif">
+    <h3>
+        <code>reset​If</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">resetIf</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="x86eflags.resetsf">
+    <h3>
+        <code>reset​Sf</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">resetSf</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="x86eflags.resetaf">
+    <h3>
+        <code>reset​Af</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">resetAf</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="x86eflags.resettf">
+    <h3>
+        <code>reset​Tf</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">resetTf</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="x86eflags.resetnt">
+    <h3>
+        <code>reset​Nt</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">resetNt</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="x86eflags.resetpf">
+    <h3>
+        <code>reset​Pf</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">resetPf</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="x86eflags.setcf">
+    <h3>
+        <code>set​Cf</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">setCf</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="x86eflags.setdf">
+    <h3>
+        <code>set​Df</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">setDf</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="x86eflags.setif">
+    <h3>
+        <code>set​If</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">setIf</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="x86eflags.testof">
+    <h3>
+        <code>test​Of</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">testOf</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="x86eflags.testsf">
+    <h3>
+        <code>test​Sf</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">testSf</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="x86eflags.testzf">
+    <h3>
+        <code>test​Zf</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">testZf</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="x86eflags.testpf">
+    <h3>
+        <code>test​Pf</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">testPf</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="x86eflags.testcf">
+    <h3>
+        <code>test​Cf</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">testCf</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="x86eflags.testnt">
+    <h3>
+        <code>test​Nt</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">testNt</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="x86eflags.testdf">
+    <h3>
+        <code>test​Df</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">testDf</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="x86eflags.undefinedof">
+    <h3>
+        <code>undefined​Of</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">undefinedOf</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="x86eflags.undefinedsf">
+    <h3>
+        <code>undefined​Sf</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">undefinedSf</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="x86eflags.undefinedzf">
+    <h3>
+        <code>undefined​Zf</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">undefinedZf</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="x86eflags.undefinedpf">
+    <h3>
+        <code>undefined​Pf</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">undefinedPf</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="x86eflags.undefinedaf">
+    <h3>
+        <code>undefined​Af</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">undefinedAf</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="x86eflags.undefinedcf">
+    <h3>
+        <code>undefined​Cf</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">undefinedCf</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="x86eflags.resetrf">
+    <h3>
+        <code>reset​Rf</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">resetRf</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="x86eflags.testrf">
+    <h3>
+        <code>test​Rf</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">testRf</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="x86eflags.testif">
+    <h3>
+        <code>test​If</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">testIf</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="x86eflags.testtf">
+    <h3>
+        <code>test​Tf</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">testTf</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="x86eflags.testaf">
+    <h3>
+        <code>test​Af</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">testAf</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="x86eflags.resetzf">
+    <h3>
+        <code>reset​Zf</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">resetZf</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="x86eflags.setof">
+    <h3>
+        <code>set​Of</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">setOf</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="x86eflags.setsf">
+    <h3>
+        <code>set​Sf</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">setSf</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="x86eflags.setzf">
+    <h3>
+        <code>set​Zf</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">setZf</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="x86eflags.setaf">
+    <h3>
+        <code>set​Af</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">setAf</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="x86eflags.setpf">
+    <h3>
+        <code>set​Pf</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">setPf</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="x86eflags.reset0f">
+    <h3>
+        <code>reset0f</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">reset0f</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="x86eflags.resetac">
+    <h3>
+        <code>reset​Ac</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">let</span> <span class="variable">resetAc</span></code></pre></body></html>
+</div>
+    </section>
+
+
+
+        </article>
+    </main>
+
+    <footer>
+        <p>
+    Generated on <time datetime="2020-11-21T15:19:16+0100">21 November 2020</time> using <a href="https://github.com/SwiftDocOrg/swift-doc">swift-doc</a> <span class="version">1.0.0-beta.5</span>.
+</p>
+    </footer>
+</body>
+</html>

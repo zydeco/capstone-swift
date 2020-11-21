@@ -1,0 +1,1562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capstone - PpcReg</title>
+    <link rel="stylesheet" type="text/css" href="/all.css" media="all" />
+</head>
+<body>
+    <header>
+        <a href="/">
+            <strong>
+                Capstone
+            </strong>
+            <span>Documentation</span>
+        </a>
+        <sup>Beta</sup>
+    </header>
+
+    <!--
+    <form class="search">
+        <input type="search" placeholder="Search" />
+    </form>
+    -->
+
+    <nav>
+        <div class="wrapper">
+            <h2>On This Page</h2>
+            <ol><li><a href="#relationships">Relationships</a><ul><li><a href="#relationships">Conforms To</a></li></ul></li><li><a href="#enumeration cases">Enumeration Cases</a><ul><li class="case"><a href="#ppcreg.invalid">invalid</a></li><li class="case"><a href="#ppcreg.carry">carry</a></li><li class="case"><a href="#ppcreg.ctr">ctr</a></li><li class="case"><a href="#ppcreg.lr">lr</a></li><li class="case"><a href="#ppcreg.rm">rm</a></li><li class="case"><a href="#ppcreg.vrsave">vrsave</a></li><li class="case"><a href="#ppcreg.xer">xer</a></li><li class="case"><a href="#ppcreg.zero">zero</a></li><li class="case"><a href="#ppcreg.cr0">cr0</a></li><li class="case"><a href="#ppcreg.cr1">cr1</a></li><li class="case"><a href="#ppcreg.cr2">cr2</a></li><li class="case"><a href="#ppcreg.cr3">cr3</a></li><li class="case"><a href="#ppcreg.cr4">cr4</a></li><li class="case"><a href="#ppcreg.cr5">cr5</a></li><li class="case"><a href="#ppcreg.cr6">cr6</a></li><li class="case"><a href="#ppcreg.cr7">cr7</a></li><li class="case"><a href="#ppcreg.ctr8">ctr8</a></li><li class="case"><a href="#ppcreg.f0">f0</a></li><li class="case"><a href="#ppcreg.f1">f1</a></li><li class="case"><a href="#ppcreg.f2">f2</a></li><li class="case"><a href="#ppcreg.f3">f3</a></li><li class="case"><a href="#ppcreg.f4">f4</a></li><li class="case"><a href="#ppcreg.f5">f5</a></li><li class="case"><a href="#ppcreg.f6">f6</a></li><li class="case"><a href="#ppcreg.f7">f7</a></li><li class="case"><a href="#ppcreg.f8">f8</a></li><li class="case"><a href="#ppcreg.f9">f9</a></li><li class="case"><a href="#ppcreg.f10">f10</a></li><li class="case"><a href="#ppcreg.f11">f11</a></li><li class="case"><a href="#ppcreg.f12">f12</a></li><li class="case"><a href="#ppcreg.f13">f13</a></li><li class="case"><a href="#ppcreg.f14">f14</a></li><li class="case"><a href="#ppcreg.f15">f15</a></li><li class="case"><a href="#ppcreg.f16">f16</a></li><li class="case"><a href="#ppcreg.f17">f17</a></li><li class="case"><a href="#ppcreg.f18">f18</a></li><li class="case"><a href="#ppcreg.f19">f19</a></li><li class="case"><a href="#ppcreg.f20">f20</a></li><li class="case"><a href="#ppcreg.f21">f21</a></li><li class="case"><a href="#ppcreg.f22">f22</a></li><li class="case"><a href="#ppcreg.f23">f23</a></li><li class="case"><a href="#ppcreg.f24">f24</a></li><li class="case"><a href="#ppcreg.f25">f25</a></li><li class="case"><a href="#ppcreg.f26">f26</a></li><li class="case"><a href="#ppcreg.f27">f27</a></li><li class="case"><a href="#ppcreg.f28">f28</a></li><li class="case"><a href="#ppcreg.f29">f29</a></li><li class="case"><a href="#ppcreg.f30">f30</a></li><li class="case"><a href="#ppcreg.f31">f31</a></li><li class="case"><a href="#ppcreg.lr8">lr8</a></li><li class="case"><a href="#ppcreg.q0">q0</a></li><li class="case"><a href="#ppcreg.q1">q1</a></li><li class="case"><a href="#ppcreg.q2">q2</a></li><li class="case"><a href="#ppcreg.q3">q3</a></li><li class="case"><a href="#ppcreg.q4">q4</a></li><li class="case"><a href="#ppcreg.q5">q5</a></li><li class="case"><a href="#ppcreg.q6">q6</a></li><li class="case"><a href="#ppcreg.q7">q7</a></li><li class="case"><a href="#ppcreg.q8">q8</a></li><li class="case"><a href="#ppcreg.q9">q9</a></li><li class="case"><a href="#ppcreg.q10">q10</a></li><li class="case"><a href="#ppcreg.q11">q11</a></li><li class="case"><a href="#ppcreg.q12">q12</a></li><li class="case"><a href="#ppcreg.q13">q13</a></li><li class="case"><a href="#ppcreg.q14">q14</a></li><li class="case"><a href="#ppcreg.q15">q15</a></li><li class="case"><a href="#ppcreg.q16">q16</a></li><li class="case"><a href="#ppcreg.q17">q17</a></li><li class="case"><a href="#ppcreg.q18">q18</a></li><li class="case"><a href="#ppcreg.q19">q19</a></li><li class="case"><a href="#ppcreg.q20">q20</a></li><li class="case"><a href="#ppcreg.q21">q21</a></li><li class="case"><a href="#ppcreg.q22">q22</a></li><li class="case"><a href="#ppcreg.q23">q23</a></li><li class="case"><a href="#ppcreg.q24">q24</a></li><li class="case"><a href="#ppcreg.q25">q25</a></li><li class="case"><a href="#ppcreg.q26">q26</a></li><li class="case"><a href="#ppcreg.q27">q27</a></li><li class="case"><a href="#ppcreg.q28">q28</a></li><li class="case"><a href="#ppcreg.q29">q29</a></li><li class="case"><a href="#ppcreg.q30">q30</a></li><li class="case"><a href="#ppcreg.q31">q31</a></li><li class="case"><a href="#ppcreg.r0">r0</a></li><li class="case"><a href="#ppcreg.r1">r1</a></li><li class="case"><a href="#ppcreg.r2">r2</a></li><li class="case"><a href="#ppcreg.r3">r3</a></li><li class="case"><a href="#ppcreg.r4">r4</a></li><li class="case"><a href="#ppcreg.r5">r5</a></li><li class="case"><a href="#ppcreg.r6">r6</a></li><li class="case"><a href="#ppcreg.r7">r7</a></li><li class="case"><a href="#ppcreg.r8">r8</a></li><li class="case"><a href="#ppcreg.r9">r9</a></li><li class="case"><a href="#ppcreg.r10">r10</a></li><li class="case"><a href="#ppcreg.r11">r11</a></li><li class="case"><a href="#ppcreg.r12">r12</a></li><li class="case"><a href="#ppcreg.r13">r13</a></li><li class="case"><a href="#ppcreg.r14">r14</a></li><li class="case"><a href="#ppcreg.r15">r15</a></li><li class="case"><a href="#ppcreg.r16">r16</a></li><li class="case"><a href="#ppcreg.r17">r17</a></li><li class="case"><a href="#ppcreg.r18">r18</a></li><li class="case"><a href="#ppcreg.r19">r19</a></li><li class="case"><a href="#ppcreg.r20">r20</a></li><li class="case"><a href="#ppcreg.r21">r21</a></li><li class="case"><a href="#ppcreg.r22">r22</a></li><li class="case"><a href="#ppcreg.r23">r23</a></li><li class="case"><a href="#ppcreg.r24">r24</a></li><li class="case"><a href="#ppcreg.r25">r25</a></li><li class="case"><a href="#ppcreg.r26">r26</a></li><li class="case"><a href="#ppcreg.r27">r27</a></li><li class="case"><a href="#ppcreg.r28">r28</a></li><li class="case"><a href="#ppcreg.r29">r29</a></li><li class="case"><a href="#ppcreg.r30">r30</a></li><li class="case"><a href="#ppcreg.r31">r31</a></li><li class="case"><a href="#ppcreg.v0">v0</a></li><li class="case"><a href="#ppcreg.v1">v1</a></li><li class="case"><a href="#ppcreg.v2">v2</a></li><li class="case"><a href="#ppcreg.v3">v3</a></li><li class="case"><a href="#ppcreg.v4">v4</a></li><li class="case"><a href="#ppcreg.v5">v5</a></li><li class="case"><a href="#ppcreg.v6">v6</a></li><li class="case"><a href="#ppcreg.v7">v7</a></li><li class="case"><a href="#ppcreg.v8">v8</a></li><li class="case"><a href="#ppcreg.v9">v9</a></li><li class="case"><a href="#ppcreg.v10">v10</a></li><li class="case"><a href="#ppcreg.v11">v11</a></li><li class="case"><a href="#ppcreg.v12">v12</a></li><li class="case"><a href="#ppcreg.v13">v13</a></li><li class="case"><a href="#ppcreg.v14">v14</a></li><li class="case"><a href="#ppcreg.v15">v15</a></li><li class="case"><a href="#ppcreg.v16">v16</a></li><li class="case"><a href="#ppcreg.v17">v17</a></li><li class="case"><a href="#ppcreg.v18">v18</a></li><li class="case"><a href="#ppcreg.v19">v19</a></li><li class="case"><a href="#ppcreg.v20">v20</a></li><li class="case"><a href="#ppcreg.v21">v21</a></li><li class="case"><a href="#ppcreg.v22">v22</a></li><li class="case"><a href="#ppcreg.v23">v23</a></li><li class="case"><a href="#ppcreg.v24">v24</a></li><li class="case"><a href="#ppcreg.v25">v25</a></li><li class="case"><a href="#ppcreg.v26">v26</a></li><li class="case"><a href="#ppcreg.v27">v27</a></li><li class="case"><a href="#ppcreg.v28">v28</a></li><li class="case"><a href="#ppcreg.v29">v29</a></li><li class="case"><a href="#ppcreg.v30">v30</a></li><li class="case"><a href="#ppcreg.v31">v31</a></li><li class="case"><a href="#ppcreg.vs0">vs0</a></li><li class="case"><a href="#ppcreg.vs1">vs1</a></li><li class="case"><a href="#ppcreg.vs2">vs2</a></li><li class="case"><a href="#ppcreg.vs3">vs3</a></li><li class="case"><a href="#ppcreg.vs4">vs4</a></li><li class="case"><a href="#ppcreg.vs5">vs5</a></li><li class="case"><a href="#ppcreg.vs6">vs6</a></li><li class="case"><a href="#ppcreg.vs7">vs7</a></li><li class="case"><a href="#ppcreg.vs8">vs8</a></li><li class="case"><a href="#ppcreg.vs9">vs9</a></li><li class="case"><a href="#ppcreg.vs10">vs10</a></li><li class="case"><a href="#ppcreg.vs11">vs11</a></li><li class="case"><a href="#ppcreg.vs12">vs12</a></li><li class="case"><a href="#ppcreg.vs13">vs13</a></li><li class="case"><a href="#ppcreg.vs14">vs14</a></li><li class="case"><a href="#ppcreg.vs15">vs15</a></li><li class="case"><a href="#ppcreg.vs16">vs16</a></li><li class="case"><a href="#ppcreg.vs17">vs17</a></li><li class="case"><a href="#ppcreg.vs18">vs18</a></li><li class="case"><a href="#ppcreg.vs19">vs19</a></li><li class="case"><a href="#ppcreg.vs20">vs20</a></li><li class="case"><a href="#ppcreg.vs21">vs21</a></li><li class="case"><a href="#ppcreg.vs22">vs22</a></li><li class="case"><a href="#ppcreg.vs23">vs23</a></li><li class="case"><a href="#ppcreg.vs24">vs24</a></li><li class="case"><a href="#ppcreg.vs25">vs25</a></li><li class="case"><a href="#ppcreg.vs26">vs26</a></li><li class="case"><a href="#ppcreg.vs27">vs27</a></li><li class="case"><a href="#ppcreg.vs28">vs28</a></li><li class="case"><a href="#ppcreg.vs29">vs29</a></li><li class="case"><a href="#ppcreg.vs30">vs30</a></li><li class="case"><a href="#ppcreg.vs31">vs31</a></li><li class="case"><a href="#ppcreg.vs32">vs32</a></li><li class="case"><a href="#ppcreg.vs33">vs33</a></li><li class="case"><a href="#ppcreg.vs34">vs34</a></li><li class="case"><a href="#ppcreg.vs35">vs35</a></li><li class="case"><a href="#ppcreg.vs36">vs36</a></li><li class="case"><a href="#ppcreg.vs37">vs37</a></li><li class="case"><a href="#ppcreg.vs38">vs38</a></li><li class="case"><a href="#ppcreg.vs39">vs39</a></li><li class="case"><a href="#ppcreg.vs40">vs40</a></li><li class="case"><a href="#ppcreg.vs41">vs41</a></li><li class="case"><a href="#ppcreg.vs42">vs42</a></li><li class="case"><a href="#ppcreg.vs43">vs43</a></li><li class="case"><a href="#ppcreg.vs44">vs44</a></li><li class="case"><a href="#ppcreg.vs45">vs45</a></li><li class="case"><a href="#ppcreg.vs46">vs46</a></li><li class="case"><a href="#ppcreg.vs47">vs47</a></li><li class="case"><a href="#ppcreg.vs48">vs48</a></li><li class="case"><a href="#ppcreg.vs49">vs49</a></li><li class="case"><a href="#ppcreg.vs50">vs50</a></li><li class="case"><a href="#ppcreg.vs51">vs51</a></li><li class="case"><a href="#ppcreg.vs52">vs52</a></li><li class="case"><a href="#ppcreg.vs53">vs53</a></li><li class="case"><a href="#ppcreg.vs54">vs54</a></li><li class="case"><a href="#ppcreg.vs55">vs55</a></li><li class="case"><a href="#ppcreg.vs56">vs56</a></li><li class="case"><a href="#ppcreg.vs57">vs57</a></li><li class="case"><a href="#ppcreg.vs58">vs58</a></li><li class="case"><a href="#ppcreg.vs59">vs59</a></li><li class="case"><a href="#ppcreg.vs60">vs60</a></li><li class="case"><a href="#ppcreg.vs61">vs61</a></li><li class="case"><a href="#ppcreg.vs62">vs62</a></li><li class="case"><a href="#ppcreg.vs63">vs63</a></li><li class="case"><a href="#ppcreg.cr0eq">cr0eq</a></li><li class="case"><a href="#ppcreg.cr1eq">cr1eq</a></li><li class="case"><a href="#ppcreg.cr2eq">cr2eq</a></li><li class="case"><a href="#ppcreg.cr3eq">cr3eq</a></li><li class="case"><a href="#ppcreg.cr4eq">cr4eq</a></li><li class="case"><a href="#ppcreg.cr5eq">cr5eq</a></li><li class="case"><a href="#ppcreg.cr6eq">cr6eq</a></li><li class="case"><a href="#ppcreg.cr7eq">cr7eq</a></li><li class="case"><a href="#ppcreg.cr0gt">cr0gt</a></li><li class="case"><a href="#ppcreg.cr1gt">cr1gt</a></li><li class="case"><a href="#ppcreg.cr2gt">cr2gt</a></li><li class="case"><a href="#ppcreg.cr3gt">cr3gt</a></li><li class="case"><a href="#ppcreg.cr4gt">cr4gt</a></li><li class="case"><a href="#ppcreg.cr5gt">cr5gt</a></li><li class="case"><a href="#ppcreg.cr6gt">cr6gt</a></li><li class="case"><a href="#ppcreg.cr7gt">cr7gt</a></li><li class="case"><a href="#ppcreg.cr0lt">cr0lt</a></li><li class="case"><a href="#ppcreg.cr1lt">cr1lt</a></li><li class="case"><a href="#ppcreg.cr2lt">cr2lt</a></li><li class="case"><a href="#ppcreg.cr3lt">cr3lt</a></li><li class="case"><a href="#ppcreg.cr4lt">cr4lt</a></li><li class="case"><a href="#ppcreg.cr5lt">cr5lt</a></li><li class="case"><a href="#ppcreg.cr6lt">cr6lt</a></li><li class="case"><a href="#ppcreg.cr7lt">cr7lt</a></li><li class="case"><a href="#ppcreg.cr0un">cr0un</a></li><li class="case"><a href="#ppcreg.cr1un">cr1un</a></li><li class="case"><a href="#ppcreg.cr2un">cr2un</a></li><li class="case"><a href="#ppcreg.cr3un">cr3un</a></li><li class="case"><a href="#ppcreg.cr4un">cr4un</a></li><li class="case"><a href="#ppcreg.cr5un">cr5un</a></li><li class="case"><a href="#ppcreg.cr6un">cr6un</a></li><li class="case"><a href="#ppcreg.cr7un">cr7un</a></li><li class="case"><a href="#ppcreg.ending">ending</a></li></ul></li></ol>
+        </div>
+    </nav>
+
+    <main>
+        <article>
+            <h1>
+    <small>Enumeration</small>
+    <code class="name">Ppc​Reg</code>
+</h1>
+
+<html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">enum</span> <span class="type">PpcReg</span></code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>PPC registers</p>
+
+</div>
+<section id="relationships">
+    <h2 hidden>Relationships</h2>
+        <figure>
+    <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.36.0 (20140111.2315)
+ -->
+<!-- Title: %3 Pages: 1 -->
+<svg width="872pt" height="116pt"
+ viewBox="0.00 0.00 872.00 116.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 112)">
+<title>%3</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-112 868,-112 868,4 -4,4"/>
+<!-- PpcReg -->
+<g id="node1" class="node"><title>PpcReg</title>
+<g id="a_node1"><a xlink:href="/PpcReg" xlink:title="PpcReg">
+<path fill="none" stroke="black" stroke-width="3" d="M528,-108C528,-108 336,-108 336,-108 330,-108 324,-102 324,-96 324,-96 324,-84 324,-84 324,-78 330,-72 336,-72 336,-72 528,-72 528,-72 534,-72 540,-78 540,-84 540,-84 540,-96 540,-96 540,-102 534,-108 528,-108"/>
+<text text-anchor="middle" x="432" y="-86.3" font-family="Menlo" font-size="14.00">PpcReg</text>
+</a>
+</g>
+</g>
+<!-- UInt16 -->
+<g id="node2" class="node"><title>UInt16</title>
+<path fill="none" stroke="black" d="M528,-36C528,-36 336,-36 336,-36 330,-36 324,-30 324,-24 324,-24 324,-12 324,-12 324,-6 330,-0 336,-0 336,-0 528,-0 528,-0 534,-0 540,-6 540,-12 540,-12 540,-24 540,-24 540,-30 534,-36 528,-36"/>
+<text text-anchor="middle" x="432" y="-14.3" font-family="Menlo" font-size="14.00">UInt16</text>
+</g>
+<!-- PpcReg&#45;&gt;UInt16 -->
+<g id="edge1" class="edge"><title>PpcReg&#45;&gt;UInt16</title>
+<path fill="none" stroke="black" d="M432,-71.6966C432,-63.9827 432,-54.7125 432,-46.1124"/>
+<polygon fill="black" stroke="black" points="435.5,-46.1043 432,-36.1043 428.5,-46.1044 435.5,-46.1043"/>
+</g>
+</g>
+</svg>
+
+
+    <figcaption hidden>Inheritance graph for PpcReg.</figcaption>
+</figure>
+        <h3>Conforms To</h3>
+<dl>
+    <dt class="unknown"><code>UInt16</code></dt>
+</dl>
+</section>
+    <section id="enumeration cases">
+        <h2>Enumeration Cases</h2>
+
+        <div role="article" class="case" id="ppcreg.invalid">
+    <h3>
+        <code>invalid</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">invalid</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.carry">
+    <h3>
+        <code>carry</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">carry</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.ctr">
+    <h3>
+        <code>ctr</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ctr</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.lr">
+    <h3>
+        <code>lr</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">lr</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.rm">
+    <h3>
+        <code>rm</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">rm</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.vrsave">
+    <h3>
+        <code>vrsave</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vrsave</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.xer">
+    <h3>
+        <code>xer</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">xer</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.zero">
+    <h3>
+        <code>zero</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">zero</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.cr0">
+    <h3>
+        <code>cr0</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cr0</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.cr1">
+    <h3>
+        <code>cr1</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cr1</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.cr2">
+    <h3>
+        <code>cr2</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cr2</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.cr3">
+    <h3>
+        <code>cr3</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cr3</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.cr4">
+    <h3>
+        <code>cr4</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cr4</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.cr5">
+    <h3>
+        <code>cr5</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cr5</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.cr6">
+    <h3>
+        <code>cr6</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cr6</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.cr7">
+    <h3>
+        <code>cr7</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cr7</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.ctr8">
+    <h3>
+        <code>ctr8</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ctr8</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.f0">
+    <h3>
+        <code>f0</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">f0</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.f1">
+    <h3>
+        <code>f1</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">f1</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.f2">
+    <h3>
+        <code>f2</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">f2</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.f3">
+    <h3>
+        <code>f3</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">f3</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.f4">
+    <h3>
+        <code>f4</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">f4</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.f5">
+    <h3>
+        <code>f5</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">f5</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.f6">
+    <h3>
+        <code>f6</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">f6</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.f7">
+    <h3>
+        <code>f7</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">f7</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.f8">
+    <h3>
+        <code>f8</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">f8</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.f9">
+    <h3>
+        <code>f9</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">f9</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.f10">
+    <h3>
+        <code>f10</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">f10</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.f11">
+    <h3>
+        <code>f11</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">f11</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.f12">
+    <h3>
+        <code>f12</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">f12</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.f13">
+    <h3>
+        <code>f13</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">f13</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.f14">
+    <h3>
+        <code>f14</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">f14</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.f15">
+    <h3>
+        <code>f15</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">f15</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.f16">
+    <h3>
+        <code>f16</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">f16</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.f17">
+    <h3>
+        <code>f17</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">f17</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.f18">
+    <h3>
+        <code>f18</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">f18</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.f19">
+    <h3>
+        <code>f19</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">f19</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.f20">
+    <h3>
+        <code>f20</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">f20</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.f21">
+    <h3>
+        <code>f21</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">f21</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.f22">
+    <h3>
+        <code>f22</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">f22</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.f23">
+    <h3>
+        <code>f23</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">f23</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.f24">
+    <h3>
+        <code>f24</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">f24</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.f25">
+    <h3>
+        <code>f25</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">f25</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.f26">
+    <h3>
+        <code>f26</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">f26</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.f27">
+    <h3>
+        <code>f27</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">f27</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.f28">
+    <h3>
+        <code>f28</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">f28</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.f29">
+    <h3>
+        <code>f29</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">f29</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.f30">
+    <h3>
+        <code>f30</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">f30</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.f31">
+    <h3>
+        <code>f31</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">f31</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.lr8">
+    <h3>
+        <code>lr8</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">lr8</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.q0">
+    <h3>
+        <code>q0</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">q0</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.q1">
+    <h3>
+        <code>q1</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">q1</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.q2">
+    <h3>
+        <code>q2</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">q2</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.q3">
+    <h3>
+        <code>q3</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">q3</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.q4">
+    <h3>
+        <code>q4</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">q4</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.q5">
+    <h3>
+        <code>q5</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">q5</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.q6">
+    <h3>
+        <code>q6</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">q6</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.q7">
+    <h3>
+        <code>q7</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">q7</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.q8">
+    <h3>
+        <code>q8</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">q8</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.q9">
+    <h3>
+        <code>q9</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">q9</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.q10">
+    <h3>
+        <code>q10</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">q10</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.q11">
+    <h3>
+        <code>q11</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">q11</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.q12">
+    <h3>
+        <code>q12</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">q12</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.q13">
+    <h3>
+        <code>q13</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">q13</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.q14">
+    <h3>
+        <code>q14</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">q14</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.q15">
+    <h3>
+        <code>q15</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">q15</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.q16">
+    <h3>
+        <code>q16</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">q16</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.q17">
+    <h3>
+        <code>q17</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">q17</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.q18">
+    <h3>
+        <code>q18</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">q18</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.q19">
+    <h3>
+        <code>q19</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">q19</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.q20">
+    <h3>
+        <code>q20</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">q20</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.q21">
+    <h3>
+        <code>q21</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">q21</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.q22">
+    <h3>
+        <code>q22</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">q22</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.q23">
+    <h3>
+        <code>q23</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">q23</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.q24">
+    <h3>
+        <code>q24</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">q24</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.q25">
+    <h3>
+        <code>q25</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">q25</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.q26">
+    <h3>
+        <code>q26</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">q26</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.q27">
+    <h3>
+        <code>q27</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">q27</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.q28">
+    <h3>
+        <code>q28</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">q28</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.q29">
+    <h3>
+        <code>q29</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">q29</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.q30">
+    <h3>
+        <code>q30</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">q30</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.q31">
+    <h3>
+        <code>q31</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">q31</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.r0">
+    <h3>
+        <code>r0</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">r0</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.r1">
+    <h3>
+        <code>r1</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">r1</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.r2">
+    <h3>
+        <code>r2</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">r2</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.r3">
+    <h3>
+        <code>r3</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">r3</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.r4">
+    <h3>
+        <code>r4</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">r4</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.r5">
+    <h3>
+        <code>r5</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">r5</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.r6">
+    <h3>
+        <code>r6</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">r6</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.r7">
+    <h3>
+        <code>r7</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">r7</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.r8">
+    <h3>
+        <code>r8</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">r8</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.r9">
+    <h3>
+        <code>r9</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">r9</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.r10">
+    <h3>
+        <code>r10</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">r10</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.r11">
+    <h3>
+        <code>r11</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">r11</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.r12">
+    <h3>
+        <code>r12</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">r12</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.r13">
+    <h3>
+        <code>r13</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">r13</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.r14">
+    <h3>
+        <code>r14</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">r14</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.r15">
+    <h3>
+        <code>r15</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">r15</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.r16">
+    <h3>
+        <code>r16</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">r16</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.r17">
+    <h3>
+        <code>r17</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">r17</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.r18">
+    <h3>
+        <code>r18</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">r18</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.r19">
+    <h3>
+        <code>r19</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">r19</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.r20">
+    <h3>
+        <code>r20</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">r20</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.r21">
+    <h3>
+        <code>r21</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">r21</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.r22">
+    <h3>
+        <code>r22</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">r22</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.r23">
+    <h3>
+        <code>r23</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">r23</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.r24">
+    <h3>
+        <code>r24</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">r24</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.r25">
+    <h3>
+        <code>r25</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">r25</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.r26">
+    <h3>
+        <code>r26</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">r26</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.r27">
+    <h3>
+        <code>r27</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">r27</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.r28">
+    <h3>
+        <code>r28</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">r28</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.r29">
+    <h3>
+        <code>r29</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">r29</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.r30">
+    <h3>
+        <code>r30</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">r30</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.r31">
+    <h3>
+        <code>r31</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">r31</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.v0">
+    <h3>
+        <code>v0</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">v0</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.v1">
+    <h3>
+        <code>v1</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">v1</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.v2">
+    <h3>
+        <code>v2</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">v2</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.v3">
+    <h3>
+        <code>v3</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">v3</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.v4">
+    <h3>
+        <code>v4</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">v4</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.v5">
+    <h3>
+        <code>v5</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">v5</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.v6">
+    <h3>
+        <code>v6</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">v6</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.v7">
+    <h3>
+        <code>v7</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">v7</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.v8">
+    <h3>
+        <code>v8</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">v8</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.v9">
+    <h3>
+        <code>v9</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">v9</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.v10">
+    <h3>
+        <code>v10</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">v10</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.v11">
+    <h3>
+        <code>v11</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">v11</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.v12">
+    <h3>
+        <code>v12</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">v12</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.v13">
+    <h3>
+        <code>v13</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">v13</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.v14">
+    <h3>
+        <code>v14</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">v14</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.v15">
+    <h3>
+        <code>v15</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">v15</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.v16">
+    <h3>
+        <code>v16</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">v16</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.v17">
+    <h3>
+        <code>v17</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">v17</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.v18">
+    <h3>
+        <code>v18</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">v18</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.v19">
+    <h3>
+        <code>v19</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">v19</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.v20">
+    <h3>
+        <code>v20</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">v20</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.v21">
+    <h3>
+        <code>v21</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">v21</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.v22">
+    <h3>
+        <code>v22</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">v22</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.v23">
+    <h3>
+        <code>v23</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">v23</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.v24">
+    <h3>
+        <code>v24</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">v24</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.v25">
+    <h3>
+        <code>v25</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">v25</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.v26">
+    <h3>
+        <code>v26</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">v26</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.v27">
+    <h3>
+        <code>v27</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">v27</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.v28">
+    <h3>
+        <code>v28</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">v28</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.v29">
+    <h3>
+        <code>v29</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">v29</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.v30">
+    <h3>
+        <code>v30</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">v30</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.v31">
+    <h3>
+        <code>v31</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">v31</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.vs0">
+    <h3>
+        <code>vs0</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vs0</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.vs1">
+    <h3>
+        <code>vs1</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vs1</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.vs2">
+    <h3>
+        <code>vs2</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vs2</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.vs3">
+    <h3>
+        <code>vs3</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vs3</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.vs4">
+    <h3>
+        <code>vs4</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vs4</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.vs5">
+    <h3>
+        <code>vs5</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vs5</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.vs6">
+    <h3>
+        <code>vs6</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vs6</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.vs7">
+    <h3>
+        <code>vs7</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vs7</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.vs8">
+    <h3>
+        <code>vs8</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vs8</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.vs9">
+    <h3>
+        <code>vs9</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vs9</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.vs10">
+    <h3>
+        <code>vs10</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vs10</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.vs11">
+    <h3>
+        <code>vs11</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vs11</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.vs12">
+    <h3>
+        <code>vs12</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vs12</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.vs13">
+    <h3>
+        <code>vs13</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vs13</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.vs14">
+    <h3>
+        <code>vs14</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vs14</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.vs15">
+    <h3>
+        <code>vs15</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vs15</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.vs16">
+    <h3>
+        <code>vs16</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vs16</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.vs17">
+    <h3>
+        <code>vs17</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vs17</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.vs18">
+    <h3>
+        <code>vs18</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vs18</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.vs19">
+    <h3>
+        <code>vs19</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vs19</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.vs20">
+    <h3>
+        <code>vs20</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vs20</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.vs21">
+    <h3>
+        <code>vs21</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vs21</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.vs22">
+    <h3>
+        <code>vs22</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vs22</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.vs23">
+    <h3>
+        <code>vs23</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vs23</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.vs24">
+    <h3>
+        <code>vs24</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vs24</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.vs25">
+    <h3>
+        <code>vs25</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vs25</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.vs26">
+    <h3>
+        <code>vs26</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vs26</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.vs27">
+    <h3>
+        <code>vs27</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vs27</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.vs28">
+    <h3>
+        <code>vs28</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vs28</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.vs29">
+    <h3>
+        <code>vs29</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vs29</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.vs30">
+    <h3>
+        <code>vs30</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vs30</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.vs31">
+    <h3>
+        <code>vs31</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vs31</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.vs32">
+    <h3>
+        <code>vs32</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vs32</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.vs33">
+    <h3>
+        <code>vs33</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vs33</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.vs34">
+    <h3>
+        <code>vs34</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vs34</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.vs35">
+    <h3>
+        <code>vs35</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vs35</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.vs36">
+    <h3>
+        <code>vs36</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vs36</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.vs37">
+    <h3>
+        <code>vs37</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vs37</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.vs38">
+    <h3>
+        <code>vs38</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vs38</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.vs39">
+    <h3>
+        <code>vs39</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vs39</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.vs40">
+    <h3>
+        <code>vs40</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vs40</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.vs41">
+    <h3>
+        <code>vs41</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vs41</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.vs42">
+    <h3>
+        <code>vs42</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vs42</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.vs43">
+    <h3>
+        <code>vs43</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vs43</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.vs44">
+    <h3>
+        <code>vs44</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vs44</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.vs45">
+    <h3>
+        <code>vs45</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vs45</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.vs46">
+    <h3>
+        <code>vs46</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vs46</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.vs47">
+    <h3>
+        <code>vs47</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vs47</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.vs48">
+    <h3>
+        <code>vs48</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vs48</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.vs49">
+    <h3>
+        <code>vs49</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vs49</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.vs50">
+    <h3>
+        <code>vs50</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vs50</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.vs51">
+    <h3>
+        <code>vs51</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vs51</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.vs52">
+    <h3>
+        <code>vs52</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vs52</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.vs53">
+    <h3>
+        <code>vs53</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vs53</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.vs54">
+    <h3>
+        <code>vs54</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vs54</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.vs55">
+    <h3>
+        <code>vs55</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vs55</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.vs56">
+    <h3>
+        <code>vs56</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vs56</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.vs57">
+    <h3>
+        <code>vs57</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vs57</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.vs58">
+    <h3>
+        <code>vs58</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vs58</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.vs59">
+    <h3>
+        <code>vs59</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vs59</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.vs60">
+    <h3>
+        <code>vs60</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vs60</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.vs61">
+    <h3>
+        <code>vs61</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vs61</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.vs62">
+    <h3>
+        <code>vs62</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vs62</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.vs63">
+    <h3>
+        <code>vs63</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">vs63</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.cr0eq">
+    <h3>
+        <code>cr0eq</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cr0eq</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.cr1eq">
+    <h3>
+        <code>cr1eq</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cr1eq</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.cr2eq">
+    <h3>
+        <code>cr2eq</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cr2eq</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.cr3eq">
+    <h3>
+        <code>cr3eq</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cr3eq</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.cr4eq">
+    <h3>
+        <code>cr4eq</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cr4eq</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.cr5eq">
+    <h3>
+        <code>cr5eq</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cr5eq</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.cr6eq">
+    <h3>
+        <code>cr6eq</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cr6eq</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.cr7eq">
+    <h3>
+        <code>cr7eq</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cr7eq</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.cr0gt">
+    <h3>
+        <code>cr0gt</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cr0gt</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.cr1gt">
+    <h3>
+        <code>cr1gt</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cr1gt</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.cr2gt">
+    <h3>
+        <code>cr2gt</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cr2gt</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.cr3gt">
+    <h3>
+        <code>cr3gt</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cr3gt</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.cr4gt">
+    <h3>
+        <code>cr4gt</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cr4gt</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.cr5gt">
+    <h3>
+        <code>cr5gt</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cr5gt</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.cr6gt">
+    <h3>
+        <code>cr6gt</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cr6gt</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.cr7gt">
+    <h3>
+        <code>cr7gt</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cr7gt</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.cr0lt">
+    <h3>
+        <code>cr0lt</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cr0lt</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.cr1lt">
+    <h3>
+        <code>cr1lt</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cr1lt</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.cr2lt">
+    <h3>
+        <code>cr2lt</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cr2lt</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.cr3lt">
+    <h3>
+        <code>cr3lt</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cr3lt</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.cr4lt">
+    <h3>
+        <code>cr4lt</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cr4lt</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.cr5lt">
+    <h3>
+        <code>cr5lt</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cr5lt</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.cr6lt">
+    <h3>
+        <code>cr6lt</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cr6lt</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.cr7lt">
+    <h3>
+        <code>cr7lt</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cr7lt</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.cr0un">
+    <h3>
+        <code>cr0un</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cr0un</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.cr1un">
+    <h3>
+        <code>cr1un</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cr1un</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.cr2un">
+    <h3>
+        <code>cr2un</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cr2un</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.cr3un">
+    <h3>
+        <code>cr3un</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cr3un</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.cr4un">
+    <h3>
+        <code>cr4un</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cr4un</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.cr5un">
+    <h3>
+        <code>cr5un</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cr5un</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.cr6un">
+    <h3>
+        <code>cr6un</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cr6un</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.cr7un">
+    <h3>
+        <code>cr7un</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cr7un</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="ppcreg.ending">
+    <h3>
+        <code>ending</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ending</span></code></pre></body></html>
+</div>
+    </section>
+
+
+
+        </article>
+    </main>
+
+    <footer>
+        <p>
+    Generated on <time datetime="2020-11-21T15:19:29+0100">21 November 2020</time> using <a href="https://github.com/SwiftDocOrg/swift-doc">swift-doc</a> <span class="version">1.0.0-beta.5</span>.
+</p>
+    </footer>
+</body>
+</html>

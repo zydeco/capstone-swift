@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capstone - Tms320c64xIns</title>
+    <link rel="stylesheet" type="text/css" href="/all.css" media="all" />
+</head>
+<body>
+    <header>
+        <a href="/">
+            <strong>
+                Capstone
+            </strong>
+            <span>Documentation</span>
+        </a>
+        <sup>Beta</sup>
+    </header>
+
+    <!--
+    <form class="search">
+        <input type="search" placeholder="Search" />
+    </form>
+    -->
+
+    <nav>
+        <div class="wrapper">
+            <h2>On This Page</h2>
+            <ol><li><a href="#relationships">Relationships</a><ul><li><a href="#relationships">Conforms To</a></li></ul></li><li><a href="#enumeration cases">Enumeration Cases</a><ul><li class="case"><a href="#tms320c64xins.invalid">invalid</a></li><li class="case"><a href="#tms320c64xins.abs">abs</a></li><li class="case"><a href="#tms320c64xins.abs2">abs2</a></li><li class="case"><a href="#tms320c64xins.add">add</a></li><li class="case"><a href="#tms320c64xins.add2">add2</a></li><li class="case"><a href="#tms320c64xins.add4">add4</a></li><li class="case"><a href="#tms320c64xins.addab">addab</a></li><li class="case"><a href="#tms320c64xins.addad">addad</a></li><li class="case"><a href="#tms320c64xins.addah">addah</a></li><li class="case"><a href="#tms320c64xins.addaw">addaw</a></li><li class="case"><a href="#tms320c64xins.addk">addk</a></li><li class="case"><a href="#tms320c64xins.addkpc">addkpc</a></li><li class="case"><a href="#tms320c64xins.addu">addu</a></li><li class="case"><a href="#tms320c64xins.and">and</a></li><li class="case"><a href="#tms320c64xins.andn">andn</a></li><li class="case"><a href="#tms320c64xins.avg2">avg2</a></li><li class="case"><a href="#tms320c64xins.avgu4">avgu4</a></li><li class="case"><a href="#tms320c64xins.b">b</a></li><li class="case"><a href="#tms320c64xins.bdec">bdec</a></li><li class="case"><a href="#tms320c64xins.bitc4">bitc4</a></li><li class="case"><a href="#tms320c64xins.bnop">bnop</a></li><li class="case"><a href="#tms320c64xins.bpos">bpos</a></li><li class="case"><a href="#tms320c64xins.clr">clr</a></li><li class="case"><a href="#tms320c64xins.cmpeq">cmpeq</a></li><li class="case"><a href="#tms320c64xins.cmpeq2">cmpeq2</a></li><li class="case"><a href="#tms320c64xins.cmpeq4">cmpeq4</a></li><li class="case"><a href="#tms320c64xins.cmpgt">cmpgt</a></li><li class="case"><a href="#tms320c64xins.cmpgt2">cmpgt2</a></li><li class="case"><a href="#tms320c64xins.cmpgtu4">cmpgtu4</a></li><li class="case"><a href="#tms320c64xins.cmplt">cmplt</a></li><li class="case"><a href="#tms320c64xins.cmpltu">cmpltu</a></li><li class="case"><a href="#tms320c64xins.deal">deal</a></li><li class="case"><a href="#tms320c64xins.dotp2">dotp2</a></li><li class="case"><a href="#tms320c64xins.dotpn2">dotpn2</a></li><li class="case"><a href="#tms320c64xins.dotpnrsu2">dotpnrsu2</a></li><li class="case"><a href="#tms320c64xins.dotprsu2">dotprsu2</a></li><li class="case"><a href="#tms320c64xins.dotpsu4">dotpsu4</a></li><li class="case"><a href="#tms320c64xins.dotpu4">dotpu4</a></li><li class="case"><a href="#tms320c64xins.ext">ext</a></li><li class="case"><a href="#tms320c64xins.extu">extu</a></li><li class="case"><a href="#tms320c64xins.gmpgtu">gmpgtu</a></li><li class="case"><a href="#tms320c64xins.gmpy4">gmpy4</a></li><li class="case"><a href="#tms320c64xins.ldb">ldb</a></li><li class="case"><a href="#tms320c64xins.ldbu">ldbu</a></li><li class="case"><a href="#tms320c64xins.lddw">lddw</a></li><li class="case"><a href="#tms320c64xins.ldh">ldh</a></li><li class="case"><a href="#tms320c64xins.ldhu">ldhu</a></li><li class="case"><a href="#tms320c64xins.ldndw">ldndw</a></li><li class="case"><a href="#tms320c64xins.ldnw">ldnw</a></li><li class="case"><a href="#tms320c64xins.ldw">ldw</a></li><li class="case"><a href="#tms320c64xins.lmbd">lmbd</a></li><li class="case"><a href="#tms320c64xins.max2">max2</a></li><li class="case"><a href="#tms320c64xins.maxu4">maxu4</a></li><li class="case"><a href="#tms320c64xins.min2">min2</a></li><li class="case"><a href="#tms320c64xins.minu4">minu4</a></li><li class="case"><a href="#tms320c64xins.mpy">mpy</a></li><li class="case"><a href="#tms320c64xins.mpy2">mpy2</a></li><li class="case"><a href="#tms320c64xins.mpyh">mpyh</a></li><li class="case"><a href="#tms320c64xins.mpyhi">mpyhi</a></li><li class="case"><a href="#tms320c64xins.mpyhir">mpyhir</a></li><li class="case"><a href="#tms320c64xins.mpyhl">mpyhl</a></li><li class="case"><a href="#tms320c64xins.mpyhlu">mpyhlu</a></li><li class="case"><a href="#tms320c64xins.mpyhslu">mpyhslu</a></li><li class="case"><a href="#tms320c64xins.mpyhsu">mpyhsu</a></li><li class="case"><a href="#tms320c64xins.mpyhu">mpyhu</a></li><li class="case"><a href="#tms320c64xins.mpyhuls">mpyhuls</a></li><li class="case"><a href="#tms320c64xins.mpyhus">mpyhus</a></li><li class="case"><a href="#tms320c64xins.mpylh">mpylh</a></li><li class="case"><a href="#tms320c64xins.mpylhu">mpylhu</a></li><li class="case"><a href="#tms320c64xins.mpyli">mpyli</a></li><li class="case"><a href="#tms320c64xins.mpylir">mpylir</a></li><li class="case"><a href="#tms320c64xins.mpylshu">mpylshu</a></li><li class="case"><a href="#tms320c64xins.mpyluhs">mpyluhs</a></li><li class="case"><a href="#tms320c64xins.mpysu">mpysu</a></li><li class="case"><a href="#tms320c64xins.mpysu4">mpysu4</a></li><li class="case"><a href="#tms320c64xins.mpyu">mpyu</a></li><li class="case"><a href="#tms320c64xins.mpyu4">mpyu4</a></li><li class="case"><a href="#tms320c64xins.mpyus">mpyus</a></li><li class="case"><a href="#tms320c64xins.mvc">mvc</a></li><li class="case"><a href="#tms320c64xins.mvd">mvd</a></li><li class="case"><a href="#tms320c64xins.mvk">mvk</a></li><li class="case"><a href="#tms320c64xins.mvkl">mvkl</a></li><li class="case"><a href="#tms320c64xins.mvklh">mvklh</a></li><li class="case"><a href="#tms320c64xins.nop">nop</a></li><li class="case"><a href="#tms320c64xins.norm">norm</a></li><li class="case"><a href="#tms320c64xins.or">or</a></li><li class="case"><a href="#tms320c64xins.pack2">pack2</a></li><li class="case"><a href="#tms320c64xins.packh2">packh2</a></li><li class="case"><a href="#tms320c64xins.packh4">packh4</a></li><li class="case"><a href="#tms320c64xins.packhl2">packhl2</a></li><li class="case"><a href="#tms320c64xins.packl4">packl4</a></li><li class="case"><a href="#tms320c64xins.packlh2">packlh2</a></li><li class="case"><a href="#tms320c64xins.rotl">rotl</a></li><li class="case"><a href="#tms320c64xins.sadd">sadd</a></li><li class="case"><a href="#tms320c64xins.sadd2">sadd2</a></li><li class="case"><a href="#tms320c64xins.saddu4">saddu4</a></li><li class="case"><a href="#tms320c64xins.saddus2">saddus2</a></li><li class="case"><a href="#tms320c64xins.sat">sat</a></li><li class="case"><a href="#tms320c64xins.set">set</a></li><li class="case"><a href="#tms320c64xins.shfl">shfl</a></li><li class="case"><a href="#tms320c64xins.shl">shl</a></li><li class="case"><a href="#tms320c64xins.shlmb">shlmb</a></li><li class="case"><a href="#tms320c64xins.shr">shr</a></li><li class="case"><a href="#tms320c64xins.shr2">shr2</a></li><li class="case"><a href="#tms320c64xins.shrmb">shrmb</a></li><li class="case"><a href="#tms320c64xins.shru">shru</a></li><li class="case"><a href="#tms320c64xins.shru2">shru2</a></li><li class="case"><a href="#tms320c64xins.smpy">smpy</a></li><li class="case"><a href="#tms320c64xins.smpy2">smpy2</a></li><li class="case"><a href="#tms320c64xins.smpyh">smpyh</a></li><li class="case"><a href="#tms320c64xins.smpyhl">smpyhl</a></li><li class="case"><a href="#tms320c64xins.smpylh">smpylh</a></li><li class="case"><a href="#tms320c64xins.spack2">spack2</a></li><li class="case"><a href="#tms320c64xins.spacku4">spacku4</a></li><li class="case"><a href="#tms320c64xins.sshl">sshl</a></li><li class="case"><a href="#tms320c64xins.sshvl">sshvl</a></li><li class="case"><a href="#tms320c64xins.sshvr">sshvr</a></li><li class="case"><a href="#tms320c64xins.ssub">ssub</a></li><li class="case"><a href="#tms320c64xins.stb">stb</a></li><li class="case"><a href="#tms320c64xins.stdw">stdw</a></li><li class="case"><a href="#tms320c64xins.sth">sth</a></li><li class="case"><a href="#tms320c64xins.stndw">stndw</a></li><li class="case"><a href="#tms320c64xins.stnw">stnw</a></li><li class="case"><a href="#tms320c64xins.stw">stw</a></li><li class="case"><a href="#tms320c64xins.sub">sub</a></li><li class="case"><a href="#tms320c64xins.sub2">sub2</a></li><li class="case"><a href="#tms320c64xins.sub4">sub4</a></li><li class="case"><a href="#tms320c64xins.subab">subab</a></li><li class="case"><a href="#tms320c64xins.subabs4">subabs4</a></li><li class="case"><a href="#tms320c64xins.subah">subah</a></li><li class="case"><a href="#tms320c64xins.subaw">subaw</a></li><li class="case"><a href="#tms320c64xins.subc">subc</a></li><li class="case"><a href="#tms320c64xins.subu">subu</a></li><li class="case"><a href="#tms320c64xins.swap4">swap4</a></li><li class="case"><a href="#tms320c64xins.unpkhu4">unpkhu4</a></li><li class="case"><a href="#tms320c64xins.unpklu4">unpklu4</a></li><li class="case"><a href="#tms320c64xins.xor">xor</a></li><li class="case"><a href="#tms320c64xins.xpnd2">xpnd2</a></li><li class="case"><a href="#tms320c64xins.xpnd4">xpnd4</a></li><li class="case"><a href="#tms320c64xins.idle">idle</a></li><li class="case"><a href="#tms320c64xins.mv">mv</a></li><li class="case"><a href="#tms320c64xins.neg">neg</a></li><li class="case"><a href="#tms320c64xins.not">not</a></li><li class="case"><a href="#tms320c64xins.swap2">swap2</a></li><li class="case"><a href="#tms320c64xins.zero">zero</a></li><li class="case"><a href="#tms320c64xins.ending">ending</a></li></ul></li></ol>
+        </div>
+    </nav>
+
+    <main>
+        <article>
+            <h1>
+    <small>Enumeration</small>
+    <code class="name">Tms320c64xIns</code>
+</h1>
+
+<html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">enum</span> <span class="type">Tms320c64xIns</span></code></pre></body></html>
+<section id="relationships">
+    <h2 hidden>Relationships</h2>
+        <figure>
+    <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.36.0 (20140111.2315)
+ -->
+<!-- Title: %3 Pages: 1 -->
+<svg width="872pt" height="116pt"
+ viewBox="0.00 0.00 872.00 116.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 112)">
+<title>%3</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-112 868,-112 868,4 -4,4"/>
+<!-- Tms320c64xIns -->
+<g id="node1" class="node"><title>Tms320c64xIns</title>
+<g id="a_node1"><a xlink:href="/Tms320c64xIns" xlink:title="Tms320c64xIns">
+<path fill="none" stroke="black" stroke-width="3" d="M528,-108C528,-108 336,-108 336,-108 330,-108 324,-102 324,-96 324,-96 324,-84 324,-84 324,-78 330,-72 336,-72 336,-72 528,-72 528,-72 534,-72 540,-78 540,-84 540,-84 540,-96 540,-96 540,-102 534,-108 528,-108"/>
+<text text-anchor="middle" x="432" y="-86.3" font-family="Menlo" font-size="14.00">Tms320c64xIns</text>
+</a>
+</g>
+</g>
+<!-- UInt32 -->
+<g id="node2" class="node"><title>UInt32</title>
+<path fill="none" stroke="black" d="M528,-36C528,-36 336,-36 336,-36 330,-36 324,-30 324,-24 324,-24 324,-12 324,-12 324,-6 330,-0 336,-0 336,-0 528,-0 528,-0 534,-0 540,-6 540,-12 540,-12 540,-24 540,-24 540,-30 534,-36 528,-36"/>
+<text text-anchor="middle" x="432" y="-14.3" font-family="Menlo" font-size="14.00">UInt32</text>
+</g>
+<!-- Tms320c64xIns&#45;&gt;UInt32 -->
+<g id="edge1" class="edge"><title>Tms320c64xIns&#45;&gt;UInt32</title>
+<path fill="none" stroke="black" d="M432,-71.6966C432,-63.9827 432,-54.7125 432,-46.1124"/>
+<polygon fill="black" stroke="black" points="435.5,-46.1043 432,-36.1043 428.5,-46.1044 435.5,-46.1043"/>
+</g>
+</g>
+</svg>
+
+
+    <figcaption hidden>Inheritance graph for Tms320c64xIns.</figcaption>
+</figure>
+        <h3>Conforms To</h3>
+<dl>
+    <dt class="unknown"><code>UInt32</code></dt>
+</dl>
+</section>
+    <section id="enumeration cases">
+        <h2>Enumeration Cases</h2>
+
+        <div role="article" class="case" id="tms320c64xins.invalid">
+    <h3>
+        <code>invalid</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">invalid</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.abs">
+    <h3>
+        <code>abs</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">abs</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.abs2">
+    <h3>
+        <code>abs2</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">abs2</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.add">
+    <h3>
+        <code>add</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">add</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.add2">
+    <h3>
+        <code>add2</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">add2</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.add4">
+    <h3>
+        <code>add4</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">add4</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.addab">
+    <h3>
+        <code>addab</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">addab</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.addad">
+    <h3>
+        <code>addad</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">addad</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.addah">
+    <h3>
+        <code>addah</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">addah</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.addaw">
+    <h3>
+        <code>addaw</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">addaw</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.addk">
+    <h3>
+        <code>addk</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">addk</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.addkpc">
+    <h3>
+        <code>addkpc</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">addkpc</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.addu">
+    <h3>
+        <code>addu</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">addu</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.and">
+    <h3>
+        <code>and</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">and</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.andn">
+    <h3>
+        <code>andn</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">andn</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.avg2">
+    <h3>
+        <code>avg2</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">avg2</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.avgu4">
+    <h3>
+        <code>avgu4</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">avgu4</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.b">
+    <h3>
+        <code>b</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">b</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.bdec">
+    <h3>
+        <code>bdec</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">bdec</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.bitc4">
+    <h3>
+        <code>bitc4</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">bitc4</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.bnop">
+    <h3>
+        <code>bnop</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">bnop</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.bpos">
+    <h3>
+        <code>bpos</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">bpos</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.clr">
+    <h3>
+        <code>clr</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">clr</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.cmpeq">
+    <h3>
+        <code>cmpeq</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cmpeq</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.cmpeq2">
+    <h3>
+        <code>cmpeq2</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cmpeq2</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.cmpeq4">
+    <h3>
+        <code>cmpeq4</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cmpeq4</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.cmpgt">
+    <h3>
+        <code>cmpgt</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cmpgt</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.cmpgt2">
+    <h3>
+        <code>cmpgt2</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cmpgt2</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.cmpgtu4">
+    <h3>
+        <code>cmpgtu4</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cmpgtu4</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.cmplt">
+    <h3>
+        <code>cmplt</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cmplt</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.cmpltu">
+    <h3>
+        <code>cmpltu</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cmpltu</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.deal">
+    <h3>
+        <code>deal</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">deal</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.dotp2">
+    <h3>
+        <code>dotp2</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">dotp2</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.dotpn2">
+    <h3>
+        <code>dotpn2</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">dotpn2</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.dotpnrsu2">
+    <h3>
+        <code>dotpnrsu2</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">dotpnrsu2</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.dotprsu2">
+    <h3>
+        <code>dotprsu2</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">dotprsu2</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.dotpsu4">
+    <h3>
+        <code>dotpsu4</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">dotpsu4</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.dotpu4">
+    <h3>
+        <code>dotpu4</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">dotpu4</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.ext">
+    <h3>
+        <code>ext</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ext</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.extu">
+    <h3>
+        <code>extu</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">extu</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.gmpgtu">
+    <h3>
+        <code>gmpgtu</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">gmpgtu</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.gmpy4">
+    <h3>
+        <code>gmpy4</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">gmpy4</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.ldb">
+    <h3>
+        <code>ldb</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ldb</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.ldbu">
+    <h3>
+        <code>ldbu</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ldbu</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.lddw">
+    <h3>
+        <code>lddw</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">lddw</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.ldh">
+    <h3>
+        <code>ldh</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ldh</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.ldhu">
+    <h3>
+        <code>ldhu</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ldhu</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.ldndw">
+    <h3>
+        <code>ldndw</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ldndw</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.ldnw">
+    <h3>
+        <code>ldnw</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ldnw</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.ldw">
+    <h3>
+        <code>ldw</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ldw</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.lmbd">
+    <h3>
+        <code>lmbd</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">lmbd</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.max2">
+    <h3>
+        <code>max2</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">max2</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.maxu4">
+    <h3>
+        <code>maxu4</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">maxu4</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.min2">
+    <h3>
+        <code>min2</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">min2</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.minu4">
+    <h3>
+        <code>minu4</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">minu4</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.mpy">
+    <h3>
+        <code>mpy</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">mpy</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.mpy2">
+    <h3>
+        <code>mpy2</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">mpy2</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.mpyh">
+    <h3>
+        <code>mpyh</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">mpyh</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.mpyhi">
+    <h3>
+        <code>mpyhi</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">mpyhi</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.mpyhir">
+    <h3>
+        <code>mpyhir</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">mpyhir</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.mpyhl">
+    <h3>
+        <code>mpyhl</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">mpyhl</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.mpyhlu">
+    <h3>
+        <code>mpyhlu</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">mpyhlu</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.mpyhslu">
+    <h3>
+        <code>mpyhslu</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">mpyhslu</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.mpyhsu">
+    <h3>
+        <code>mpyhsu</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">mpyhsu</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.mpyhu">
+    <h3>
+        <code>mpyhu</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">mpyhu</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.mpyhuls">
+    <h3>
+        <code>mpyhuls</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">mpyhuls</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.mpyhus">
+    <h3>
+        <code>mpyhus</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">mpyhus</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.mpylh">
+    <h3>
+        <code>mpylh</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">mpylh</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.mpylhu">
+    <h3>
+        <code>mpylhu</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">mpylhu</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.mpyli">
+    <h3>
+        <code>mpyli</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">mpyli</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.mpylir">
+    <h3>
+        <code>mpylir</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">mpylir</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.mpylshu">
+    <h3>
+        <code>mpylshu</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">mpylshu</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.mpyluhs">
+    <h3>
+        <code>mpyluhs</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">mpyluhs</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.mpysu">
+    <h3>
+        <code>mpysu</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">mpysu</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.mpysu4">
+    <h3>
+        <code>mpysu4</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">mpysu4</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.mpyu">
+    <h3>
+        <code>mpyu</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">mpyu</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.mpyu4">
+    <h3>
+        <code>mpyu4</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">mpyu4</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.mpyus">
+    <h3>
+        <code>mpyus</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">mpyus</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.mvc">
+    <h3>
+        <code>mvc</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">mvc</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.mvd">
+    <h3>
+        <code>mvd</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">mvd</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.mvk">
+    <h3>
+        <code>mvk</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">mvk</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.mvkl">
+    <h3>
+        <code>mvkl</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">mvkl</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.mvklh">
+    <h3>
+        <code>mvklh</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">mvklh</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.nop">
+    <h3>
+        <code>nop</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">nop</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.norm">
+    <h3>
+        <code>norm</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">norm</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.or">
+    <h3>
+        <code>or</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">or</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.pack2">
+    <h3>
+        <code>pack2</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">pack2</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.packh2">
+    <h3>
+        <code>packh2</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">packh2</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.packh4">
+    <h3>
+        <code>packh4</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">packh4</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.packhl2">
+    <h3>
+        <code>packhl2</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">packhl2</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.packl4">
+    <h3>
+        <code>packl4</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">packl4</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.packlh2">
+    <h3>
+        <code>packlh2</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">packlh2</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.rotl">
+    <h3>
+        <code>rotl</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">rotl</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.sadd">
+    <h3>
+        <code>sadd</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">sadd</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.sadd2">
+    <h3>
+        <code>sadd2</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">sadd2</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.saddu4">
+    <h3>
+        <code>saddu4</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">saddu4</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.saddus2">
+    <h3>
+        <code>saddus2</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">saddus2</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.sat">
+    <h3>
+        <code>sat</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">sat</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.set">
+    <h3>
+        <code>set</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">set</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.shfl">
+    <h3>
+        <code>shfl</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">shfl</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.shl">
+    <h3>
+        <code>shl</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">shl</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.shlmb">
+    <h3>
+        <code>shlmb</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">shlmb</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.shr">
+    <h3>
+        <code>shr</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">shr</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.shr2">
+    <h3>
+        <code>shr2</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">shr2</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.shrmb">
+    <h3>
+        <code>shrmb</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">shrmb</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.shru">
+    <h3>
+        <code>shru</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">shru</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.shru2">
+    <h3>
+        <code>shru2</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">shru2</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.smpy">
+    <h3>
+        <code>smpy</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">smpy</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.smpy2">
+    <h3>
+        <code>smpy2</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">smpy2</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.smpyh">
+    <h3>
+        <code>smpyh</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">smpyh</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.smpyhl">
+    <h3>
+        <code>smpyhl</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">smpyhl</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.smpylh">
+    <h3>
+        <code>smpylh</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">smpylh</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.spack2">
+    <h3>
+        <code>spack2</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">spack2</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.spacku4">
+    <h3>
+        <code>spacku4</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">spacku4</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.sshl">
+    <h3>
+        <code>sshl</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">sshl</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.sshvl">
+    <h3>
+        <code>sshvl</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">sshvl</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.sshvr">
+    <h3>
+        <code>sshvr</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">sshvr</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.ssub">
+    <h3>
+        <code>ssub</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ssub</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.stb">
+    <h3>
+        <code>stb</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">stb</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.stdw">
+    <h3>
+        <code>stdw</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">stdw</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.sth">
+    <h3>
+        <code>sth</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">sth</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.stndw">
+    <h3>
+        <code>stndw</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">stndw</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.stnw">
+    <h3>
+        <code>stnw</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">stnw</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.stw">
+    <h3>
+        <code>stw</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">stw</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.sub">
+    <h3>
+        <code>sub</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">sub</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.sub2">
+    <h3>
+        <code>sub2</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">sub2</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.sub4">
+    <h3>
+        <code>sub4</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">sub4</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.subab">
+    <h3>
+        <code>subab</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">subab</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.subabs4">
+    <h3>
+        <code>subabs4</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">subabs4</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.subah">
+    <h3>
+        <code>subah</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">subah</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.subaw">
+    <h3>
+        <code>subaw</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">subaw</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.subc">
+    <h3>
+        <code>subc</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">subc</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.subu">
+    <h3>
+        <code>subu</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">subu</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.swap4">
+    <h3>
+        <code>swap4</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">swap4</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.unpkhu4">
+    <h3>
+        <code>unpkhu4</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">unpkhu4</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.unpklu4">
+    <h3>
+        <code>unpklu4</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">unpklu4</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.xor">
+    <h3>
+        <code>xor</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">xor</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.xpnd2">
+    <h3>
+        <code>xpnd2</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">xpnd2</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.xpnd4">
+    <h3>
+        <code>xpnd4</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">xpnd4</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.idle">
+    <h3>
+        <code>idle</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">idle</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.mv">
+    <h3>
+        <code>mv</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">mv</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.neg">
+    <h3>
+        <code>neg</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">neg</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.not">
+    <h3>
+        <code>not</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">not</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.swap2">
+    <h3>
+        <code>swap2</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">swap2</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.zero">
+    <h3>
+        <code>zero</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">zero</span></code></pre></body></html>
+</div>
+<div role="article" class="case" id="tms320c64xins.ending">
+    <h3>
+        <code>ending</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">ending</span></code></pre></body></html>
+</div>
+    </section>
+
+
+
+        </article>
+    </main>
+
+    <footer>
+        <p>
+    Generated on <time datetime="2020-11-21T15:19:27+0100">21 November 2020</time> using <a href="https://github.com/SwiftDocOrg/swift-doc">swift-doc</a> <span class="version">1.0.0-beta.5</span>.
+</p>
+    </footer>
+</body>
+</html>
