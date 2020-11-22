@@ -5,8 +5,8 @@
         "package": "Capstone",
         "repositoryURL": "https://github.com/zydeco/capstone-swift",
         "state": {
-          "branch": "v4",
-          "revision": "8a809abaa5233e4f43e34a20ffd1c2c5fa902b50",
+          "branch": "next",
+          "revision": "99c59d065b682ef3762474792aa57c9edf343643",
           "version": null
         }
       },
