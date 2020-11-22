@@ -67,3 +67,9 @@ struct PlatformTest {
             capstoneOptions: [])
     }
 }
+
+extension Instruction {
+    func printInstructionBase() {
+        print("0x\(String(address, radix: 16)):\t\(mnemonic)\t\(operandsString)")
+    }
+}

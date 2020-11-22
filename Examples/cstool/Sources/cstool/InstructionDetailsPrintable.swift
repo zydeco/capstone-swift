@@ -1,0 +1,1 @@
+../../../../Tests/CapstoneTests/InstructionDetailsPrintable.swift

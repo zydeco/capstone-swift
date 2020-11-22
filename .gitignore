@@ -3,6 +3,6 @@
 /Packages
 /*.xcodeproj
 xcuserdata/
-
-# symlink to serve docs locally
-capstone-swift
+Examples/*/.build
+Examples/*/*.xcodeproj
+Examples/*/Packages
