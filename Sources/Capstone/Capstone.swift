@@ -86,8 +86,13 @@ public class Capstone {
             cs_disasm(handle, ptr.bindMemory(to: UInt8.self).baseAddress!, code.count, address, count ?? 0, &insnsPtr)
         })
         currentCode = nil
-        guard resultCount > 0, let insns = insnsPtr else {
+        let err = cs_errno(handle)
+        guard err == CS_ERR_OK else {
             throw CapstoneError(cs_errno(handle))
+        }
+        guard let insns = insnsPtr else {
+            // nothing disassembled, no error
+            return []
         }
         let mgr = InstructionMemoryManager(insns, count: resultCount, cs: self)
         // swiftlint:disable force_cast
