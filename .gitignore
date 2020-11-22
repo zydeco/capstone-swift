@@ -3,3 +3,6 @@
 /Packages
 /*.xcodeproj
 xcuserdata/
+Examples/*/.build
+Examples/*/*.xcodeproj
+Examples/*/Packages

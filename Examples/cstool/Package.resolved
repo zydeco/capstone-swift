@@ -1,0 +1,25 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Capstone",
+        "repositoryURL": "https://github.com/zydeco/capstone-swift",
+        "state": {
+          "branch": "v4",
+          "revision": "8a809abaa5233e4f43e34a20ffd1c2c5fa902b50",
+          "version": null
+        }
+      },
+      {
+        "package": "swift-argument-parser",
+        "repositoryURL": "https://github.com/apple/swift-argument-parser",
+        "state": {
+          "branch": null,
+          "revision": "92646c0cdbaca076c8d3d0207891785b3379cbff",
+          "version": "0.3.1"
+        }
+      }
+    ]
+  },
+  "version": 1
+}

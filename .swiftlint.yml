@@ -1,5 +1,6 @@
 excluded:
   - Sources/Capstone/*Enums.swift
+  - Examples/*/.build/
 disabled_rules:
   - large_tuple
   - nesting
