@@ -25,10 +25,6 @@ extension Access {
 }
 
 extension Instruction {
-    func printInstructionBase() {
-        print("0x\(String(address, radix: 16)):\t\(mnemonic)\t\(operandsString)")
-    }
-
     func printOperandAccess(index i: Int, access: Access) {
         print("\t\toperands[\(i)].access: \(access.testDescription)")
     }
