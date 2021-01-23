@@ -6,3 +6,5 @@ xcuserdata/
 Examples/*/.build
 Examples/*/*.xcodeproj
 Examples/*/Packages
+.swiftpm
+Package.resolved
