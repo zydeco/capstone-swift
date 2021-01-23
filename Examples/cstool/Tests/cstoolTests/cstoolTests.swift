@@ -35,7 +35,7 @@ final class CSToolTests: XCTestCase {
     func testHexParsing() throws {
         let expectedOutput = """
          0  90           nop\t
-         1  91           xchg\teax, ecx\n
+         1  91           xchg\tecx, eax\n
         """
         try assertRun(arguments: ["x32", "0x90 0x91"], outputs: expectedOutput, exitCode: 0)
         try assertRun(arguments: ["x32", "\\x90\\x91"], outputs: expectedOutput, exitCode: 0)
