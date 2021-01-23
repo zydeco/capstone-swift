@@ -29,6 +29,8 @@ public enum Architecture: UInt32 {
     case evm
     /// MOS65XX architecture (including MOS6502)
     case mos65xx
+    /// WebAssembly architecture
+    case wasm
 }
 
 /// ARM Instruction
@@ -70,6 +72,9 @@ public class EthereumInstruction: PlatformInstructionBase<EvmIns, EvmGrp> {}
 /// MOS65xx Instruction
 public class Mos65xxInstruction: PlatformInstruction<Mos65xxIns, Mos65xxGrp, Mos65xxReg> {}
 
+/// WebAssembly Instruction
+public class WasmInstruction: PlatformInstructionBase<WasmIns, WasmGrp> {}
+
 public extension Architecture {
     /// The class for disassembled instructions used for this architecture.
     ///
@@ -102,6 +107,8 @@ public extension Architecture {
             return EthereumInstruction.self
         case .mos65xx:
             return Mos65xxInstruction.self
+        case .wasm:
+            return WasmInstruction.self
         }
     }
 

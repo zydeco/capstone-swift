@@ -868,3 +868,35 @@ extension Mos65xxInstruction: InstructionDetailsPrintable {
         print()
     }
 }
+
+extension WasmInstruction: InstructionDetailsPrintable {
+    func printInstructionDetails(cs: Capstone) {
+        printInstructionBase()
+        guard hasDetail else {
+            return
+        }
+
+        if !groups.isEmpty {
+            print("\tGroups: \(groupNames.joined(separator: " ")) ")
+        }
+
+        if operands.count > 0 {
+            print("\tOperand count: \(operands.count)")
+        }
+
+        for (i, op) in operands.enumerated() {
+            print("\t\tOperand[\(i)] type: \(op.type)")
+            switch op.type {
+            case .int7:
+                print("\t\tOperand[\(i)] value: \(op.int7Value!)")
+            case .uint32, .varuint32:
+                print("\t\tOperand[\(i)] value: 0x\(hex(op.uint32Value!))")
+            case .uint64, .varuint64:
+                print("\t\tOperand[\(i)] value: 0x\(hex(op.uint64Value!))")
+            default:
+                break
+            }
+            print("\t\tOperand[\(i)] size: \(op.size)")
+        }
+    }
+}
