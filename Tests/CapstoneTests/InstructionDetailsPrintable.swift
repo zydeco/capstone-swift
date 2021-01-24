@@ -900,3 +900,50 @@ extension WasmInstruction: InstructionDetailsPrintable {
         }
     }
 }
+
+extension BpfInstruction: InstructionDetailsPrintable {
+    func printInstructionDetails(cs: Capstone) {
+        printInstructionBase()
+        guard hasDetail else {
+            return
+        }
+
+        if !groups.isEmpty {
+            print("\tGroups: \(groupNames.joined(separator: " "))")
+        }
+
+        print("\tOperand count: \(operands.count)")
+
+        let registerName = { (reg: BpfReg) -> String in
+            cs.name(ofRegister: reg)!
+        }
+
+        for (i, op) in operands.enumerated() {
+            switch op.type {
+            case .reg:
+                print("\t\toperands[\(i)].type: REG = \(registerName(op.register))")
+            case .imm:
+                print("\t\toperands[\(i)].type: IMM = 0x\(hex(op.immediateValue))")
+            case .off:
+                print("\t\toperands[\(i)].type: OFF = +0x\(hex(op.offsetValue))")
+            case .mem:
+                print("\t\toperands[\(i)].type: MEM")
+                if let base = op.memory.base {
+                    print("\t\t\toperands[\(i)].mem.base: REG = \(registerName(base))")
+                }
+                print("\t\t\toperands[\(i)].mem.disp: 0x\(hex(op.memory.displacement))")
+            case .mmem:
+                print("\t\toperands[\(i)].type: MMEM = M[0x\(hex(op.scratchIndex))]")
+            case .msh:
+                print("\t\toperands[\(i)].type: MSH = 4*([0x\(hex(op.msh))]&0xf)")
+            case .ext:
+                let ext = op.extension!
+                print("\t\toperands[\(i)].type: EXT = #\(ext)")
+            default:
+                break
+            }
+        }
+
+        printRegisters(registerNamesAccessed)
+    }
+}

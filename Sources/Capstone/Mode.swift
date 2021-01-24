@@ -131,4 +131,12 @@ public struct Mode: OptionSet {
         /// MOS65XXX WDC 65816, 16-bit m, 16-bit x
         public static let wdc65816longMX = Mode(CS_MODE_MOS65XX_65816_LONG_MX)
     }
+
+    // BPF modes
+    public struct bpf {
+        /// Classic BPF mode (default)
+        public static let classic = Mode(CS_MODE_BPF_CLASSIC)
+        /// Extended BPF mode
+        public static let extended = Mode(CS_MODE_BPF_EXTENDED)
+    }
 }

@@ -31,6 +31,8 @@ public enum Architecture: UInt32 {
     case mos65xx
     /// WebAssembly architecture
     case wasm
+    /// Berkeley Packet Filter architecture (including eBPF)
+    case bpf
 }
 
 /// ARM Instruction
@@ -75,6 +77,9 @@ public class Mos65xxInstruction: PlatformInstruction<Mos65xxIns, Mos65xxGrp, Mos
 /// WebAssembly Instruction
 public class WasmInstruction: PlatformInstructionBase<WasmIns, WasmGrp> {}
 
+/// Berkeley Packet Filter Instruction
+public class BpfInstruction: PlatformInstruction<BpfIns, BpfGrp, BpfReg> {}
+
 public extension Architecture {
     /// The class for disassembled instructions used for this architecture.
     ///
@@ -109,6 +114,8 @@ public extension Architecture {
             return Mos65xxInstruction.self
         case .wasm:
             return WasmInstruction.self
+        case .bpf:
+            return BpfInstruction.self
         }
     }
 

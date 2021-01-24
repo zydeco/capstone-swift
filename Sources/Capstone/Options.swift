@@ -40,6 +40,7 @@ public enum DisassemblyOption {
     ///    * EVM: 1 byte.
     ///    * WASM: 1 byte.
     ///    * MOS65xx: 1 byte.
+    ///    * BPF: 8 bytes.
     case skipData(mnemonic: String? = nil, callback: SkipDataCallback? = nil)
 
     /// Customize an instruction mnemonic.

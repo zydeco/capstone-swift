@@ -125,6 +125,10 @@ final class CapstoneTests: XCTestCase {
         try Tests.wasmTests.run(address: 0xffff)
     }
 
+    func testBpf() throws {
+        try Tests.bpfTests.run(address: 0)
+    }
+
     static var allTests = [
         ("testBasic", testBasic),
         ("testDetail", testDetail),
@@ -143,7 +147,8 @@ final class CapstoneTests: XCTestCase {
         ("testXcore", testXcore),
         ("testTms320c64x", testTms320c64x),
         ("testMos65xx", testMos65xx),
-        ("testWasm", testWasm)
+        ("testWasm", testWasm),
+        ("testBpf", testBpf)
     ]
 }
 
