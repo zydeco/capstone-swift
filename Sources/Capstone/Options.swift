@@ -38,6 +38,7 @@ public enum DisassemblyOption {
     ///    * X86: 1 byte.
     ///    * XCore: 2 bytes.
     ///    * EVM: 1 byte.
+    ///    * RISCV: 4 bytes.
     ///    * WASM: 1 byte.
     ///    * MOS65xx: 1 byte.
     ///    * BPF: 8 bytes.

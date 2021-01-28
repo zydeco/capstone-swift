@@ -947,3 +947,39 @@ extension BpfInstruction: InstructionDetailsPrintable {
         printRegisters(registerNamesAccessed)
     }
 }
+
+extension RiscvInstruction: InstructionDetailsPrintable {
+    func printInstructionDetails(cs: Capstone) {
+        printInstructionBase()
+        guard hasDetail else {
+            return
+        }
+
+        print("\top_count: \(operands.count)")
+
+        let registerName = { (reg: RiscvReg) -> String in
+            cs.name(ofRegister: reg)!
+        }
+
+        for (i, op) in operands.enumerated() {
+            switch op.type {
+            case .reg:
+                print("\t\toperands[\(i)].type: REG = \(registerName(op.register))")
+            case .imm:
+                print("\t\toperands[\(i)].type: IMM = 0x\(hex(op.immediateValue))")
+            case .mem:
+                print("\t\toperands[\(i)].type: MEM")
+                print("\t\t\toperands[\(i)].mem.base: REG = \(registerName(op.memory.base))")
+                print("\t\t\toperands[\(i)].mem.disp: 0x\(hex(op.memory.displacement))")
+            default:
+                break
+            }
+        }
+
+        if !groups.isEmpty {
+            print("\tThis instruction belongs to groups: \(groupNames.joined(separator: " ")) ")
+        }
+
+        print()
+    }
+}

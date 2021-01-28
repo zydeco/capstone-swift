@@ -139,4 +139,14 @@ public struct Mode: OptionSet {
         /// Extended BPF mode
         public static let extended = Mode(CS_MODE_BPF_EXTENDED)
     }
+
+    /// RISCV modes
+    public struct riscv {
+        /// RISCV RV32G
+        public static let riscv32 = Mode(CS_MODE_RISCV32)
+        /// RISCV RV64G
+        public static let riscv64 = Mode(CS_MODE_RISCV64)
+        /// RISCV Compressed Instruction Mode
+        public static let compressed = Mode(CS_MODE_RISCVC)
+    }
 }

@@ -33,6 +33,8 @@ public enum Architecture: UInt32 {
     case wasm
     /// Berkeley Packet Filter architecture (including eBPF)
     case bpf
+    /// RISCV architecture
+    case riscv
 }
 
 /// ARM Instruction
@@ -80,6 +82,9 @@ public class WasmInstruction: PlatformInstructionBase<WasmIns, WasmGrp> {}
 /// Berkeley Packet Filter Instruction
 public class BpfInstruction: PlatformInstruction<BpfIns, BpfGrp, BpfReg> {}
 
+/// RISCV Instruction
+public class RiscvInstruction: PlatformInstruction<RiscvIns, RiscvGrp, RiscvReg> {}
+
 public extension Architecture {
     /// The class for disassembled instructions used for this architecture.
     ///
@@ -116,6 +121,8 @@ public extension Architecture {
             return WasmInstruction.self
         case .bpf:
             return BpfInstruction.self
+        case .riscv:
+            return RiscvInstruction.self
         }
     }
 
